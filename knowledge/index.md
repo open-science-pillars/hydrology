@@ -3,8 +3,8 @@
 The hydrology knowledge bundle (SPEC v0.6 §10.2). The pinned podaac
 snapshot fields land with Sessions 16-17 (§5.7):
 
-- Snapshot source repository: github.com/open-science-pillars/ocean-science (knowledge/, the podaac-arc bundle)
-- Snapshot source commit: 1896335d083e
+- Snapshot source repository: github.com/open-science-pillars/nasa-daac-knowledge (podaac/, the CANONICAL home per §5.7)
+- Snapshot source commit: a0c84fff959f (files byte-identical; sync_check run green 2026-07-05)
 - Snapshot date: 2026-07-05 (refresh at every hydrology release per §5.7; canonical concept wins on conflict)
 
 ## snapshot-podaac (pinned copies, §5.7)
