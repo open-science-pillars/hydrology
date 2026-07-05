@@ -1,6 +1,6 @@
 ---
 name: load-swot-hydro
-description: Load SWOT river and lake vector products: parse region/continent, reach or node level, cycles; volume gate; quality decode; scope-aware summary.
+description: "Load SWOT river and lake vector products: parse region/continent, reach or node level, cycles; volume gate; quality decode; scope-aware summary."
 ---
 
 # load-swot-hydro

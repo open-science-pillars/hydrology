@@ -1,6 +1,6 @@
 ---
 name: swot-hydro
-description: SWOT river and lake products: RiverSP reach vs node scope, LakeSP obs/prior, raster water masks, zipped-shapefile access, discharge products.
+description: "SWOT river and lake products: RiverSP reach vs node scope, LakeSP obs/prior, raster water masks, zipped-shapefile access, discharge products."
 user-invocable: false
 ---
 
