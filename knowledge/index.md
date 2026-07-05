@@ -9,9 +9,9 @@ snapshot fields land with Sessions 16-17 (§5.7):
 
 ## snapshot-podaac (pinned copies, §5.7)
 
-- [GRACE/GRACE-FO JPL mascon solutions](snapshot-podaac/grace-fo-mascons.md), snapshot
-- [GRACE mascon coastal leakage](snapshot-podaac/grace-coastal-leakage.md), snapshot
-- [GRACE GIA correction](snapshot-podaac/grace-gia-correction.md), snapshot
+- [GRACE/GRACE-FO JPL mascon solutions](snapshot-podaac/datasets/grace-fo-mascons.md), snapshot
+- [GRACE mascon coastal leakage](snapshot-podaac/gotchas/grace-coastal-leakage.md), snapshot
+- [GRACE GIA correction](snapshot-podaac/gotchas/grace-gia-correction.md), snapshot
 
 ## datasets
 

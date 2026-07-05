@@ -2,6 +2,15 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-07-05 · Session 16 close lint: zero 🔴, two 🟡. (1) The eval-seed
+  deferral on the three authored high gotchas stands (closes with the
+  hydrology eval seed). (2) Flat snapshot layout broke the pinned
+  concepts' internal relative links; restructured to canonical shape
+  (snapshot-podaac/{datasets,gotchas}/), files byte-identical, index
+  paths updated. Steward ruling recorded: rule 9 eval coverage for
+  PINNED copies is owned by the canonical bundle (ocean-science ships
+  grace-leakage); pinned copies inherit review and eval coverage per
+  §5.7 precedence · Session 16
 - 2026-07-05 · Session 16 seeds: datasets/{nwis-streamflow, smap-l3}.md
   and gotchas/{nwis-provisional-data, smap-radar-loss}.md authored from
   live evidence (NWIS site 09380000 pull: trailing month 100% P vs 2023
