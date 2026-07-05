@@ -39,7 +39,7 @@ def _(df):
     assert abs(change - 44.20) < 0.01, f"annual change {change:+.2f} ft"
 
     # The trajectory check that catches endpoint-only implementations:
-    # the within-year swing (Feb min to Jul max) far exceeds the
+    # the within-year swing (mid-Apr min to Jul max) far exceeds the
     # endpoint change.
     swing = e.max() - e.min()
     assert swing > change + 15, f"swing {swing:.1f} vs change {change:.1f}"
