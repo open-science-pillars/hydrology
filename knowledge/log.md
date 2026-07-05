@@ -2,6 +2,18 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-07-05 · ERRATUM (steward-approved): the reservoir recipe's 2023
+  minimum was labeled February; the daily data place it April 13-14
+  (3,519.5 ft; February's low was 3,520.5). Discovered by the Session
+  17 e2e run, which reproduced all numeric anchors and contradicted
+  only this label. Recipe, golden print label, and fixtures README
+  corrected; numeric anchors unchanged · Session 17
+- 2026-07-05 · Session 17 eval seed: 6/6 PASS (RESULTS-seed.md,
+  claude-fable-5); the standing check-8 deferral on the high gotchas
+  closes. Two independent trials surfaced the calendar-DOY vs
+  month-day alignment step (3.3 points); steward-approved one-line
+  clarification added to recipes/drought-index.md inputs (anchors
+  unchanged) · Session 17
 - 2026-07-05 · Session 17: gotchas/nwis-regulated-gauge.md ingested from
   the recipe-anchor measurement (Lees Ferry classified 2021 and 2023
   identically; Roaring Fork separated them by 20 median percentile

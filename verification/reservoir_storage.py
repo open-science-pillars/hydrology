@@ -49,7 +49,7 @@ def _(df):
 
     print("reservoir_storage golden: all assertions passed")
     print(f"  2023: {e.iloc[0]:.2f} -> {e.iloc[-1]:.2f} ft ({change:+.2f} ft), "
-          f"min {e.min():.2f} (Feb), max {e.max():.2f} (Jul), swing {swing:.1f} ft")
+          f"min {e.min():.2f} (mid-Apr), max {e.max():.2f} (Jul), swing {swing:.1f} ft")
     return
 
 
