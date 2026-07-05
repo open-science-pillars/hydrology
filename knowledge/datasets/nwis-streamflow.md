@@ -43,6 +43,7 @@ estimated, Ice). A recent window (2026-06) returned 100% P; calendar
 ## Known issues
 
 - [nwis-provisional-data](../gotchas/nwis-provisional-data.md).
+- [nwis-regulated-gauge](../gotchas/nwis-regulated-gauge.md).
 - API migration: legacy `nwis.*` functions in dataretrieval are
   deprecated (removal on/after 2027-05-06); the waterdata API
   (`waterdata.get_daily()`) is the target (observed in library

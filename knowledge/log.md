@@ -2,6 +2,11 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-07-05 · snapshot-podaac/ provenance re-pinned to the canonical
+  home per §5.7: open-science-pillars/nasa-daac-knowledge (podaac/),
+  commit a0c84fff959f (previously ocean-science@1896335d083e, Session
+  16); byte-identity verified by the canonical repo's sync_check, run
+  green 2026-07-05; index.md provenance block updated · Session 17
 - 2026-07-05 · ERRATUM (steward-approved): the reservoir recipe's 2023
   minimum was labeled February; the daily data place it April 13-14
   (3,519.5 ft; February's low was 3,520.5). Discovered by the Session
