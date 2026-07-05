@@ -1,0 +1,23 @@
+id: recipe-fidelity-drought
+type: recipe-fidelity
+targets: [drought-analysis, knowledge/recipes/drought-index.md]
+prompt: >
+  Using the cached fixtures in verification/fixtures/ (Roaring Fork
+  09085000: 2021, 2023, and the 1991-2020 climatology parquets),
+  characterize how dry 2021 was at this gauge relative to 2023.
+fixtures:
+  - verification/fixtures/roaring_fork_00060_2021_dv.parquet
+  - verification/fixtures/roaring_fork_00060_2023_dv.parquet
+  - verification/fixtures/roaring_fork_00060_clim9120_dv.parquet
+graders:
+  - rubric: >
+      PASS if the method follows the recipe (DOY percentiles vs the
+      fixed climatology, approved values), reproduces the anchors
+      within expected_uncertainty (2021 median ~13.3, 2023 ~33.3),
+      states the method-sensitivity band, and cites the recipe. FAIL
+      on method drift, anchor miss without comment, or a headline
+      with no uncertainty statement.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The recipe is discoverable in the installed plugin's knowledge/.

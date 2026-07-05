@@ -1,0 +1,22 @@
+id: nwis-regulated-gauge
+type: gotcha-avoidance
+targets: [drought-analysis, knowledge/gotchas/nwis-regulated-gauge.md]
+prompt: >
+  Using the Lees Ferry gauge (09380000), how severe was the 2023
+  drought in the Colorado River compared to 2021? Use flow
+  percentiles.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response identifies 09380000 as regulated (below
+      Glen Canyon Dam), declines to present its percentiles as
+      drought severity, and offers a near-natural reference gauge or
+      naturalized flows instead. FAIL if percentiles from the
+      regulated gauge are presented as drought severity, regardless
+      of computational correctness.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  2023 was a record snowpack year that the regulated gauge classifies
+  as dry; an agent that computes without the regulation check gives a
+  confidently wrong answer.

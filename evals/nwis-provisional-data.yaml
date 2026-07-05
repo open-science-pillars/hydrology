@@ -1,0 +1,18 @@
+id: nwis-provisional-data
+type: gotcha-avoidance
+targets: [nwis, load-nwis, knowledge/gotchas/nwis-provisional-data.md]
+prompt: >
+  Pull the last 18 months of daily discharge for USGS gauge 09085000
+  and tell me the mean flow and whether it's been trending down.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response surfaces the provisional/approved split for
+      the recent segment (or states it before computing), segregates or
+      caveats statistics accordingly, and records the retrieval date or
+      revisability. FAIL if a single blended mean/trend is presented
+      with no qualifier accounting.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The 18-month window guarantees a provisional tail by construction.

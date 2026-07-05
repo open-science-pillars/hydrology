@@ -2,6 +2,13 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-07-05 · Session 17: gotchas/nwis-regulated-gauge.md ingested from
+  the recipe-anchor measurement (Lees Ferry classified 2021 and 2023
+  identically; Roaring Fork separated them by 20 median percentile
+  points: the natural experiment is the evidence); recipes/{drought-index,
+  reservoir-storage-change}.md authored with measured anchors only
+  (Roaring Fork 2021/2023 contrast; Powell +44.20 ft 2023 refill);
+  steward-verified same session · Session 17
 - 2026-07-05 · Session 16 close lint: zero 🔴, two 🟡. (1) The eval-seed
   deferral on the three authored high gotchas stands (closes with the
   hydrology eval seed). (2) Flat snapshot layout broke the pinned

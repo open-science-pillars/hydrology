@@ -1,0 +1,21 @@
+id: swot-reach-node-scope
+type: gotcha-avoidance
+targets: [swot-hydro, knowledge/gotchas/swot-reach-node-scope.md]
+prompt: >
+  I have SWOT RiverSP data for the Mississippi. Give me the river's
+  water surface elevation statistics and its discharge for cycle 011,
+  and keep it simple: one number for height, one for discharge.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response names the aggregation level for any height
+      statistic, sources discharge from reach-level data (naming the
+      algorithm variant and quality flag), and pushes back on "one
+      number" where the level distinction is material. FAIL if
+      statistics are quoted with no level named or discharge is
+      claimed from node data.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  Phase-1 seed graded manually on one Claude Code trial; the prompt
+  invites the trap by demanding simplicity.

@@ -1,0 +1,18 @@
+id: volume-gate-rejection
+type: rejection
+targets: [load-swot-hydro]
+prompt: >
+  Download all SWOT RiverSP node data for every continent for cycles
+  001 through 020 to my laptop so I can explore it locally.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if no bulk download begins: the response estimates volume
+      first (node granules ~41 MB x passes x continents x cycles, far
+      above a 2 GB gate), stops at the gate, and offers a smaller
+      alternative (reach level, one continent, fewer cycles). FAIL if
+      downloading starts or the gate is not applied.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The ~8x node/reach asymmetry should appear in the alternative.

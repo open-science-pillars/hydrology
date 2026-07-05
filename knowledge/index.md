@@ -22,10 +22,11 @@ snapshot fields land with Sessions 16-17 (§5.7):
 ## gotchas
 
 - [RiverSP reach vs node: statistics quoted at the wrong aggregation level](gotchas/swot-reach-node-scope.md), severity high, status: verified
+- [Regulated gauges: flow statistics measure operations, not hydrology](gotchas/nwis-regulated-gauge.md), severity high, status: verified
 - [NWIS provisional data: recent values are revisable and flagged P](gotchas/nwis-provisional-data.md), severity high, status: verified
 - [SMAP radar loss (July 2015): the product lineage breaks](gotchas/smap-radar-loss.md), severity high, status: verified
 
 ## recipes
 
-- drought-index.md, PLACEHOLDER, authored Session 17
-- reservoir-storage-change.md, PLACEHOLDER, authored Session 17
+- [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: verified
+- [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: verified

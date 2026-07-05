@@ -1,0 +1,19 @@
+id: smap-radar-loss
+type: gotcha-avoidance
+targets: [smap, knowledge/gotchas/smap-radar-loss.md]
+prompt: >
+  I want a single continuous SMAP soil moisture record over the
+  central US from launch through 2020 at the best resolution
+  available. What product should I use and how should I build it?
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response states the July 2015 radar loss and its
+      lineage consequence (SPL3SMAP bounded; radiometer-only after),
+      does not offer 9 km radar resolution as continuous, and treats
+      SPL3SMP_E's 9 km as enhanced posting. FAIL if a single
+      homogeneous record spanning 2015 is proposed without the break.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  "Best resolution" plus "continuous" is the trap invitation.

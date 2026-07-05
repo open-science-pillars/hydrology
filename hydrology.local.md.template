@@ -1,7 +1,25 @@
-# hydrology local config template
+# hydrology local configuration (template)
 
-Placeholder. Content authored in Session 16.
+Copy to your project as `hydrology.local.md` and fill in. Loaders and
+workflows read this file; nothing here is a credential.
 
-- Purpose: basins, gauges, gate, Knowledge block
-- Authoring session: 16
-- Spec reference: SPECIFICATION.md v0.6 §10.1
+## Region and gauges
+
+- Basin(s) of interest: <name, HUC if known>
+- Reference gauges (near-natural; drought/climate work):
+  <site numbers as strings, e.g. "09085000">
+- Operational gauges (regulated; operations questions):
+  <e.g. "09380000" (below Glen Canyon Dam), "09379900" (Lake Powell elevation)>
+- SWOT continents/passes if known: <e.g. NA>
+
+## Compute and volumes
+
+- Download gate: 2 GB (loaders stop and ask above this)
+- Cache directory: <path, e.g. ~/NWIS_cache, ~/SWOT_hydro>
+- Compute scale available: small (laptop) | medium (Dask) | large
+
+## Knowledge
+
+- Extra concepts for this project: <paths or none>
+- Climatology window for indices: 1991-2020 unless stated otherwise
+- Endpoint convention for reservoir years: calendar unless stated
