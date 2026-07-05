@@ -5,8 +5,7 @@ description: "Load SMAP L3 soil moisture with the volume gate: product line and 
 
 # load-smap
 
-Bring SMAP L3 into the session safely. Authored in Session 16 per
-SPEC v0.6 §10; gate contract as the other loaders.
+Bring SMAP L3 into the session safely.
 
 ## Behavior, in order
 

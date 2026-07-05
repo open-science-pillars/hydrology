@@ -8,7 +8,7 @@ resource: https://nsidc.org/data/spl3smp_e
 version: "SPL3SMP and SPL3SMP_E, CMR-verified 2026-07-05 (with SPL3FTP freeze/thaw and the SPL4 model-assimilated family as adjacent lines)"
 status: verified
 verified: 2026-07-05
-verified_by: Paul Ramirez (steward pro tem)
+verified_by: OSP steward review
 ---
 
 # SMAP L3 radiometer soil moisture

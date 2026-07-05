@@ -6,8 +6,7 @@ user-invocable: false
 
 # swot-hydro
 
-Background expertise for SWOT inland-water products. Authored in
-Session 15 per SPEC v0.6 §10. Product inventory and granule anatomy
+Background expertise for SWOT inland-water products. Product inventory and granule anatomy
 live in `references/swot-hydro-products.md` (CMR- and
 granule-verified 2026-07-05); baseline state lives in
 `knowledge/datasets/swot-river-lake.md`.

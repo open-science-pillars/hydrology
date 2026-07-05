@@ -7,7 +7,7 @@ timestamp: 2026-07-05
 severity: high
 dataset: ../datasets/swot-river-lake.md
 eval_case: swot-reach-node-scope
-# eval case authored with the hydrology eval seed (Session 16-17 per
+# eval case authored with the hydrology eval seed (per
 # SPEC v0.6 §10.3); id fixed here so the linter check closes when it lands.
 evidence:
   - https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_reach_D
@@ -15,7 +15,7 @@ evidence:
   - ../../skills/swot-hydro/references/swot-hydro-products.md
 status: verified
 verified: 2026-07-05
-verified_by: Paul Ramirez (steward pro tem)
+verified_by: OSP steward review
 ---
 
 # RiverSP reach vs node: statistics quoted at the wrong aggregation level

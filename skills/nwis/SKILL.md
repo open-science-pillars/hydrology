@@ -6,8 +6,7 @@ user-invocable: false
 
 # nwis
 
-Background expertise for USGS streamflow data. Authored in Session 16
-per SPEC v0.6 §10. Product facts live in
+Background expertise for USGS streamflow data. Product facts live in
 `knowledge/datasets/nwis-streamflow.md`; the provisional trap in
 `knowledge/gotchas/nwis-provisional-data.md`.
 

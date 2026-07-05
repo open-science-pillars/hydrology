@@ -13,7 +13,7 @@ evidence:
   - https://waterdata.usgs.gov/monitoring-location/09380000/
 status: verified
 verified: 2026-07-05
-verified_by: Paul Ramirez (steward pro tem)
+verified_by: OSP steward review
 ---
 
 # NWIS provisional data: recent values are revisable and flagged P

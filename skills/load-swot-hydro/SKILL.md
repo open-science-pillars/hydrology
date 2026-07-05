@@ -6,8 +6,7 @@ description: "Load SWOT river and lake vector products: parse region/continent, 
 # load-swot-hydro
 
 Bring SWOT inland-water vectors into the session safely: level chosen
-explicitly, gated on volume, quality-gated, scope preserved. Authored
-in Session 15 per SPEC v0.6 §10; same gate contract as load-swot.
+explicitly, gated on volume, quality-gated, scope preserved.
 
 ## Behavior, in order
 

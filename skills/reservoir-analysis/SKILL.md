@@ -6,9 +6,7 @@ description: "Reservoir level and storage-change analysis from gauge elevation p
 # reservoir-analysis
 
 Reservoir trajectories from gauge elevation, honestly framed as
-operations quantities. Authored in Session 17 per SPEC v0.6 §10;
-method and anchors live in
-`knowledge/recipes/reservoir-storage-change.md`.
+operations quantities.
 
 ## Behavior, in order
 

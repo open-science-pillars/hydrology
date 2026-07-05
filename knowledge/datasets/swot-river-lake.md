@@ -8,7 +8,7 @@ resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_reach_D
 version: "Version families C (*_2.0) and D (*_D) both live in CMR as of 2026-07-05, mirroring the LR SSH pattern; observed crid PGD0 on D granules the same day; crid varies within collections as on the ocean side"
 status: verified
 verified: 2026-07-05
-verified_by: Paul Ramirez (steward pro tem)
+verified_by: OSP steward review
 ---
 
 # SWOT River and Lake Single-Pass vector products

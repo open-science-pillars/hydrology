@@ -11,7 +11,7 @@ trainings:
   - https://appliedsciences.nasa.gov/join-mission/training/english/mapping-and-monitoring-lakes-and-reservoirs-satellite-observations
 status: verified
 verified: 2026-07-05
-verified_by: Paul Ramirez (steward pro tem)
+verified_by: OSP steward review
 ---
 
 # Reservoir level change from gauge elevation: Lake Powell 2023

@@ -5,8 +5,7 @@ description: "Load USGS NWIS streamflow with the volume gate: sites, parameters,
 
 # load-nwis
 
-Bring NWIS records into the session safely. Authored in Session 16 per
-SPEC v0.6 §10; the gate contract follows load-swot.
+Bring NWIS records into the session safely.
 
 ## Behavior, in order
 

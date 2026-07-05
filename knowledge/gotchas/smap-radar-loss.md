@@ -13,7 +13,7 @@ evidence:
   - https://nsidc.org/data/spl3smp
 status: verified
 verified: 2026-07-05
-verified_by: Paul Ramirez (steward pro tem)
+verified_by: OSP steward review
 ---
 
 # SMAP radar loss (July 2015): the product lineage breaks

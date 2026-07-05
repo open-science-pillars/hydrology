@@ -6,8 +6,7 @@ user-invocable: false
 
 # smap
 
-Background expertise for SMAP soil moisture. Authored in Session 16
-per SPEC v0.6 §10. Product facts live in
+Background expertise for SMAP soil moisture. Product facts live in
 `knowledge/datasets/smap-l3.md`; the lineage break in
 `knowledge/gotchas/smap-radar-loss.md`.
 

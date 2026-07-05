@@ -6,9 +6,7 @@ description: "Load GRACE/GRACE-FO mascon TWS with the volume gate; snapshot-conc
 # load-grace-tws
 
 Bring GRACE/GRACE-FO terrestrial water storage into the session
-safely. Authored in Session 17 per SPEC v0.6 §10; gate contract as
-the other loaders; product facts come from the PINNED snapshot
-concepts (snapshot-podaac/, §5.7: canonical wins on conflict).
+safely.
 
 ## Behavior, in order
 

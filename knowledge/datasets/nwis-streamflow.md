@@ -8,7 +8,7 @@ resource: https://waterservices.usgs.gov/
 version: "NWIS daily/instantaneous services via dataretrieval 1.2.0 (access verified 2026-07-05); the legacy nwis functions are deprecated for removal on/after 2027-05-06 in favor of the waterdata API"
 status: verified
 verified: 2026-07-05
-verified_by: Paul Ramirez (steward pro tem)
+verified_by: OSP steward review
 ---
 
 # USGS NWIS streamflow

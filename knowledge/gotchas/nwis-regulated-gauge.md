@@ -13,7 +13,7 @@ evidence:
   - https://waterdata.usgs.gov/monitoring-location/09085000/
 status: verified
 verified: 2026-07-05
-verified_by: Paul Ramirez (steward pro tem)
+verified_by: OSP steward review
 ---
 
 # Regulated gauges: flow statistics measure operations, not hydrology

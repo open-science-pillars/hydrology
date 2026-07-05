@@ -6,8 +6,7 @@ user-invocable: false
 
 # grace-groundwater
 
-Background expertise for groundwater work from GRACE/GRACE-FO. Authored
-in Session 16 per SPEC v0.6 §10. The mascon product facts live in the
+Background expertise for groundwater work from GRACE/GRACE-FO. The mascon product facts live in the
 PINNED SNAPSHOT concepts (`knowledge/snapshot-podaac/`, source and
 commit in index.md per §5.7); this skill carries the hydrology-side
 inference chain.

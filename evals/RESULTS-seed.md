@@ -1,9 +1,10 @@
-# Hydrology eval seed results (Phase-1-style manual grading)
+# Eval seed results (hydrology)
 
-Model: claude-fable-5 · Date: 2026-07-05 · One manual trial per case
-on Claude Code (headless, narrow allowedTools), rubric-graded by hand.
-Transcripts in the session scratchpad (hydro-eval-seed/). N=20 CI
-grading arrives with the Session 18 runner.
+The "seed" set is the hand-graded baseline (N=1 per case), distinct
+from the automated N=20 runner that supersedes it. Model:
+claude-fable-5 · Date: 2026-07-05 · One manual trial per case on Claude
+Code (headless, narrow allowedTools), rubric-graded by hand (grader:
+OSP steward review).
 
 | Case | Grade | Evidence line |
 |---|---|---|

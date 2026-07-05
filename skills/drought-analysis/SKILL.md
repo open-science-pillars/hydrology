@@ -6,9 +6,7 @@ description: "Streamflow drought analysis: day-of-year percentile index at near-
 # drought-analysis
 
 Drought characterization from streamflow, done at gauges that measure
-hydrology. Authored in Session 17 per SPEC v0.6 §10; the method and
-anchors live in `knowledge/recipes/drought-index.md` (this skill
-carries no expected values of its own).
+hydrology.
 
 ## Behavior, in order
 

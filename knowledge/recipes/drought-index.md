@@ -11,7 +11,7 @@ trainings:
   - https://droughtmonitor.unl.edu/About/AbouttheData/DroughtClassification.aspx
 status: verified
 verified: 2026-07-05
-verified_by: Paul Ramirez (steward pro tem)
+verified_by: OSP steward review
 ---
 
 # Streamflow drought index: day-of-year percentiles at a reference gauge
