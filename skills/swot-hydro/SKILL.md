@@ -6,51 +6,60 @@ user-invocable: false
 
 # swot-hydro
 
-Background expertise for SWOT inland-water products. Product inventory and granule anatomy
-live in `references/swot-hydro-products.md` (CMR- and
-granule-verified 2026-07-05); baseline state lives in
-`knowledge/datasets/swot-river-lake.md`.
+Background expertise for SWOT inland-water products. This skill carries
+the method and the one hard refusal, not the dataset facts. The product
+inventory and granule anatomy live in
+`references/swot-hydro-products.md` (CMR- and granule-verified
+2026-07-05); the baselines, attribute rules, and uncertainty framing
+live in the knowledge bundle and are read from there per analysis.
 
 ## Knowledge first
 
-Before any SWOT hydrology analysis, consult and restate:
+Before ANY SWOT hydrology analysis, DISCOVER and consult the installed
+knowledge bundle; do not work from a remembered list of rules. Search
+`knowledge/datasets/`, `knowledge/gotchas/`, and `knowledge/recipes/`
+(glob and grep by product name, attribute, and topic: RiverSP, LakeSP,
+reach, node, discharge, wse, quality, simulated), read every concept
+that touches the products and quantities in play, restate what each
+changes about the plan before computing, and cite it by path. A concept
+added or corrected since you last ran is found this way; that discovery,
+not this file, is what changes behavior.
 
-1. `knowledge/datasets/swot-river-lake.md`: version families, current
-   baselines, and the Uncertainty section (which `_u` attributes exist
-   at each aggregation level and what they omit).
-2. `knowledge/gotchas/swot-reach-node-scope.md`: EVERY river statistic
-   names its aggregation level (reach or node) first; the levels are
-   different collections with different attributes and an ~8x volume
-   asymmetry.
+Everything dataset-specific is read from the bundle, never carried here:
+version families and current baselines; which `_u` attributes exist at
+each aggregation level and what they omit (`wse_u` total vs `wse_r_u`
+random, and the rest); the reach-vs-node scope rule and its volume
+asymmetry; the discharge algorithm variants and their per-variant `_u`
+and `_q`; the quality attributes that gate features; and which
+collections are simulated rather than flown.
 
-## Working rules
+## Method (invariant, not dataset facts)
 
-- **Vector, not swath:** RiverSP/LakeSP granules are zipped shapefiles
-  per pass per continent; read via geopandas from the zip; the
-  continent code is part of the granule identity.
-- **Scope before statistics:** reach aggregates and node observations
-  answer different questions; a "river height" without its level is
-  not a result. Discharge lives at reach level in multi-algorithm
-  variants, each with its own `_u` and `_q`; quoting discharge means
-  naming the algorithm variant.
-- **Quality gates:** `reach_q`/`node_q` and `xovr_cal_q` gate
-  features before statistics (core QC rules apply to attributes as
-  much as pixels).
-- **Uncertainty attributes travel:** `wse_u` (total) vs `wse_r_u`
-  (random component) at both levels; the house rule quotes them with
-  results, with the distinction stated.
-- **Simulated-product check:** any ShortName containing SIMULATED is
-  pre-launch synthetic data, never mixed with flight data.
-- Loading is load-swot-hydro's job (gate, decode, scope-aware
+- **Feature product, not a swath.** SWOT hydrology spans vector feature
+  collections and raster water masks; which product is which is in the
+  concept. Handle each in kind: for a vector feature collection you
+  compute statistics over features and QC gates apply to attributes
+  exactly as core QC gates apply them to pixels; do not read a feature
+  product as a gridded swath. The granule mechanics (packaging,
+  per-continent identity, reader) are the concept's to state.
+- **Aggregation level is part of a result.** An aggregated statistic is
+  meaningless without the level it was computed at; map each question to
+  the level the product answers it at. The specific SWOT levels, their
+  differing attributes, and the volume asymmetry are dataset facts:
+  consult the scope gotcha, do not restate them here.
+- **Loading is load-swot-hydro's job** (volume gate, decode, scope-aware
   summary); this skill supplies what it restates.
 
 ## Must NOT
 
-- Never quote a river or lake statistic without its aggregation level.
-- Never mix reach and node values in one series or comparison without
-  stating the level change.
-- Never use SIMULATED collections as observations.
-- Never quote a discharge without naming the algorithm variant and its
-  quality flag.
-- Never hardcode baselines; the dataset concept records them with
-  verification dates.
+- **Hard refusal (invariant, universal, fires without consulting
+  anything):** never present simulated or synthetic collections as
+  observations, and never blend them into an observational series.
+  Passing synthetic data off as flown data is wrong regardless of
+  dataset; WHICH collections are simulated is dataset knowledge,
+  consulted from the concept.
+- Never hardcode a baseline, an attribute rule, a discharge variant, or
+  the reach/node scope rule, and never restate a gotcha here: read them
+  from the dataset and gotcha concepts per the Knowledge-first step,
+  cited. That single-sourcing is what lets a corrected concept change
+  this skill's behavior without editing it.
