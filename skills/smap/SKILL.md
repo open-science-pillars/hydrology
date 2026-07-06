@@ -6,39 +6,36 @@ user-invocable: false
 
 # smap
 
-Background expertise for SMAP soil moisture. Product facts live in
-`knowledge/datasets/smap-l3.md`; the lineage break in
-`knowledge/gotchas/smap-radar-loss.md`.
+Background expertise for SMAP soil moisture. This skill is deliberately
+reference-light: the product facts (the L3 radiometer line and its
+enhanced posting, the L4 model-assimilated family, the retrieval-quality
+flags, the surface-layer depth semantics) and the radar-loss lineage
+break live in the knowledge bundle's concepts, not in this file. Here we
+keep only the discipline that discovers and reads them per analysis.
 
-## Knowledge first
+## Consult the bundle for this dataset
 
-Consult and restate: the radar-loss gotcha for ANY record touching
-2015 (the combined radar/radiometer product line ends 2015-07-07;
-what continues is radiometer-only); the dataset concept's flag and
-uncertainty notes.
-
-## Working facts
-
-- The L3 radiometer line (CMR-audited 2026-07-05): SPL3SMP (36 km
-  EASE-Grid daily) and SPL3SMP_E (enhanced 9 km); freeze/thaw
-  variants (SPL3FTP*); the L4 family (SPL4SM*) is MODEL-assimilated
-  surface and root-zone moisture, a different epistemic class from
-  the L3 retrievals and never mixed silently with them.
-- SPL3SMAP (radar/radiometer combined 9 km) exists only April to
-  July 2015; its enhanced resolution came from the radar that failed.
-- Retrieval quality flags gate cells (recommended-quality vs
-  uncertain); dense vegetation, frozen ground, RFI, and open water
-  degrade or invalidate retrievals; flags are categorical, not
-  quantitative uncertainty (core QC rule).
-- L3 is volumetric soil moisture (m3/m3) for the top ~5 cm;
-  "soil moisture" claims state the depth they mean, especially next
-  to root-zone L4 values.
+Before ANY statement about SMAP soil moisture, DISCOVER and consult the
+installed knowledge bundle; do not work from a remembered list of product
+rules. Glob and grep `knowledge/datasets/`, `knowledge/gotchas/`, and
+`knowledge/recipes/` for every concept touching the products, quantities,
+and time span in play (search by product name, and by SMAP, soil
+moisture, radar, flags, depth), read the matches, restate what each
+changes about the plan, and cite it by path before answering. A concept
+added or corrected since you last ran is found this way; consulting the
+bundle is how a new or fixed concept changes this skill's behavior without
+editing the skill. Routing hints: any record touching 2015 consults the
+radar-loss lineage gotcha; any retrieval-quality or uncertainty claim
+consults the L3 dataset concept's flag and uncertainty notes.
 
 ## Must NOT
 
-- Never span the 2015 radar loss as one homogeneous record.
-- Never mix L3 retrievals and L4 model output without stating the
-  class difference.
-- Never use non-recommended-quality retrievals in statistics without
-  saying so.
-- Never quote surface (~5 cm) moisture as root-zone.
+- Never work from a remembered dataset rule where a concept exists: the
+  radar-loss lineage break, the L3-retrieval-versus-L4-model epistemic
+  class, the retrieval-quality flag gating, and the surface-versus-root-
+  zone depth semantics all live in the bundle's concepts
+  (datasets/smap-l3.md and gotchas/smap-radar-loss.md) and are read from
+  them per analysis, never carried or restated in this skill.
+- Never invent product facts, numbers, spans, or resolutions: the SMAP
+  product line, its postings and dates, and the retrieval-accuracy
+  figures come from the concepts, cited.

@@ -2,6 +2,16 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-07-05 · recipes/grace-groundwater-partitioning.md authored
+  (status: draft) during the knowledge-coupling migration of
+  skills/grace-groundwater; it single-sources the hydrology-side
+  inference chain (partitioning residual, subtrahend products,
+  uncertainty structure, basin-vs-effective-resolution and gap/GIA
+  trend caveats) previously inlined in the skill; skill rewritten to
+  defer (discover-by-glob consult step) and keep only the residual-not-a-
+  measurement hard refusal; evidence is the internal relocation note,
+  needs a steward evidence link before verified
+
 - 2026-07-05 · snapshot-podaac/ provenance re-pinned to the canonical
   home per §5.7: open-science-pillars/nasa-daac-knowledge (podaac/),
   commit a0c84fff959f (previously ocean-science@1896335d083e, Session

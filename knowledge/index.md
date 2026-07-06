@@ -30,3 +30,4 @@ snapshot fields land with Sessions 16-17 (§5.7):
 
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: verified
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: verified
+- [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: draft

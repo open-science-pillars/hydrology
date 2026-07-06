@@ -6,47 +6,51 @@ user-invocable: false
 
 # grace-groundwater
 
-Background expertise for groundwater work from GRACE/GRACE-FO. The mascon product facts live in the
-PINNED SNAPSHOT concepts (`knowledge/snapshot-podaac/`, source and
-commit in index.md per §5.7); this skill carries the hydrology-side
-inference chain.
+Background expertise for groundwater work from GRACE/GRACE-FO. The
+mascon product facts live in the PINNED SNAPSHOT concepts
+(`knowledge/snapshot-podaac/`, source and commit in index.md per §5.7);
+the hydrology-side inference chain (the partitioning residual and its
+uncertainty) lives in the bundle's groundwater partitioning recipe.
+This file carries only the procedure and the hard refusal.
 
-## Knowledge first
+## Consult the bundle for this analysis
 
-Consult and restate before analysis: the snapshot's grace-fo-mascons
-concept (formal error grids, their limits), both snapshot gotchas
-(coastal leakage; GIA pre-applied), and this plugin's basin conventions.
-The snapshot is a copy: on conflict with the canonical bundle, the
-canonical concept wins (§5.7 precedence).
+Before ANY groundwater-from-GRACE analysis, DISCOVER and consult the
+installed knowledge bundle; do not work from a remembered list of rules.
+Glob and grep `knowledge/datasets/`, `knowledge/gotchas/`,
+`knowledge/recipes/`, and the pinned `knowledge/snapshot-podaac/` for
+every concept touching the mascon product and the partitioning (search
+by product name, quantity, and topic): the mascon dataset concept
+(formal error grids and their limits), the coastal-leakage and GIA
+gotchas, and the groundwater partitioning recipe (the subtrahend
+products, the uncertainty structure, the basin-resolution threshold,
+and the trend-window caveats). Read the matches, restate what each
+changes about the plan, and cite each by path before computing. A
+concept added or corrected since you last ran is found this way, not
+carried here. The snapshot is a copy: on any conflict with the
+canonical bundle, the canonical concept wins (§5.7 precedence).
 
-## The partitioning chain, stated honestly
+## Method (invariant)
 
-GRACE senses TOTAL water storage change. Groundwater is a residual:
+GRACE senses TOTAL water storage change; groundwater is a RESIDUAL,
+never a direct measurement (general physics). The partitioning identity,
+which product supplies each subtracted store, how the residual inherits
+their errors, the basin-vs-effective-resolution rule, and the
+gap-and-GIA trend caveats are the hydrology-side inference chain: they
+live in `knowledge/recipes/grace-groundwater-partitioning.md` and the
+mascon concepts, read and cited per analysis, never restated here.
 
-GW anomaly = TWS anomaly - (soil moisture + snow + surface water + canopy)
+## Must NOT (hard refusals)
 
-Every subtracted term comes from ANOTHER product (SMAP or model soil
-moisture, SNODAS/model snow, altimetry or gauge surface water), so the
-groundwater estimate inherits every subtrahend's errors and biases,
-usually without formal error propagation available. Consequences:
-
-- The residual's uncertainty is BOUNDED BELOW by the mascon formal
-  error and is typically dominated by the subtrahends; a groundwater
-  trend quoted with only the GRACE formal error is understated.
-- Basin size matters: below a few mascon footprints (order 300 km),
-  the estimate is leakage-dominated (snapshot gotcha) and honest work
-  states basin area against effective resolution.
-- The 2017-2018 inter-mission gap and GIA-model sensitivity (snapshot
-  concepts) bite trends directly; trend windows state their handling.
-- Human signals (irrigation drawdown) and climate signals mix in the
-  residual; attribution needs independent evidence, not the residual
-  alone.
-
-## Must NOT
-
-- Never quote groundwater from TWS without naming every subtracted
-  component and its source product.
-- Never quote residual uncertainty as the GRACE formal error alone.
-- Never analyze basins below the effective mascon resolution without
-  the leakage caveat front and center.
-- Never bridge the 2017-2018 gap with a fit that treats it as data.
+- Never present a GRACE-derived groundwater number as a direct
+  measurement, and never state one without naming every subtracted
+  component and its source product. (Hard refusal: invariant, universal,
+  fires without consulting anything; groundwater from GRACE is always a
+  residual inference of other products.)
+- Never restate a mascon rule or a partitioning caveat from memory, and
+  never invent numbers: the formal-error floor, coastal leakage, the GIA
+  correction, the 2017-2018 gap, the subtrahend uncertainty structure,
+  and the effective-resolution threshold all live in the bundle's
+  concepts and are read from them per analysis. Consulting them is how a
+  new or corrected concept changes this skill's behavior without editing
+  it.
