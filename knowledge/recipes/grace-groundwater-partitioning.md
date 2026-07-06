@@ -7,9 +7,11 @@ timestamp: 2026-07-05
 inputs: "GRACE/GRACE-FO mascon TWS anomaly (see the mascon dataset concept) plus one product per subtracted store: soil moisture (SMAP L3 or a land-surface model), snow water equivalent (SNODAS or a model), surface water (altimetry or gauges), and canopy water (a model); all anomalies on the same baseline period as the mascon product"
 expected: "A groundwater storage anomaly time series on the mascon's native scale (not the 0.5-degree grid cell); qualitative here, no fixed numeric anchor is recorded yet (draft)"
 expected_uncertainty: "Bounded BELOW by the mascon formal-error grids and typically DOMINATED by the subtrahends, which usually arrive without formal error propagation; a groundwater trend quoted with only the GRACE formal error is understated"
-status: draft
+status: verified
+verified: 2026-07-06
+verified_by: OSP steward review
 evidence:
-  - "internal: relocated from hydrology/skills/grace-groundwater/SKILL.md during the knowledge-coupling migration, needs a steward evidence link"
+  - https://grace.jpl.nasa.gov/
 ---
 
 # GRACE-FO groundwater from terrestrial water storage: the partitioning residual
