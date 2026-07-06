@@ -2,6 +2,8 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-07-06 · steward addition: re-synced grace-fo-mascons snapshot from canonical (mascon-resolution/small-basin caveat); nwis-streamflow gains the rating-revision trigger (ratings remade after floods and channel shifts).
+
 - 2026-07-06 · steward review PASSED: the 1 migration-draft recipe (grace-groundwater-partitioning) promoted draft to status: verified (verified_by OSP steward review); placeholder evidence replaced with resolving sources (NOAA CPC/NCEI/PSL for indices, published DOIs, TEOS-10, USGS, DataCite, pymannkendall, GRACE JPL, the ECCO variable catalog).
 
 - 2026-07-05 · recipes/grace-groundwater-partitioning.md authored

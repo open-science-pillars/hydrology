@@ -34,9 +34,9 @@ estimated, Ice). A recent window (2026-06) returned 100% P; calendar
   about 10% (site-and-regime dependent; no per-value error bars ship
   with dv data). Extremes sit on the extrapolated end of ratings and
   carry the largest, least-quantified uncertainty.
-- **Approved does not mean frozen:** rating revisions re-compute
-  historical discharge; analyses citing NWIS record the retrieval
-  date.
+- **Approved does not mean frozen:** rating curves are remade after
+  floods and channel shifts, so rating revisions re-compute historical
+  discharge; analyses citing NWIS record the retrieval date.
 - Qualifier flags are categorical gates, not quantitative uncertainty
   (core QC rule).
 
