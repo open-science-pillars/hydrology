@@ -36,7 +36,10 @@ from it.
 
 New to the project's vocabulary? See the
 [glossary](https://github.com/open-science-pillars/marketplace/blob/main/GLOSSARY.md).
-USGS water data needs no login; NASA data (SWOT, GRACE, SMAP) needs an
-Earthdata Login in `~/.netrc`.
+USGS water data needs no login. Retrieving NASA data (SWOT, GRACE,
+SMAP) needs an Earthdata Login, which earthaccess reads from the
+environment (`EARTHDATA_TOKEN`, or username and password variables),
+from `~/.netrc`, or from an interactive prompt; searching for data
+needs no account at all.
 
 License: Apache-2.0. Cite via CITATION.cff.
