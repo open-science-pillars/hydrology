@@ -3,12 +3,12 @@ type: dataset
 title: "USGS NWIS streamflow (daily and instantaneous values)"
 description: "Gauge discharge and stage from the National Water Information System; every value carries an approval qualifier, and discharge rides a revisable rating curve."
 tags: [nwis, usgs, streamflow, discharge, gauges, hydrology]
-timestamp: 2026-07-05
+generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 resource: https://waterservices.usgs.gov/
 version: "NWIS daily/instantaneous services via dataretrieval 1.2.0 (access verified 2026-07-05); the legacy nwis functions are deprecated for removal on/after 2027-05-06 in favor of the waterdata API"
-status: verified
-verified: 2026-07-05
-verified_by: OSP steward review
+status: stable
+verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+stale_after: 2027-01-04
 ---
 
 # USGS NWIS streamflow

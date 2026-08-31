@@ -3,21 +3,23 @@ type: recipe
 title: "GRACE-FO groundwater from terrestrial water storage: the partitioning residual"
 description: "Groundwater anomaly as the TWS-minus-other-stores residual: which product supplies each subtrahend, why the residual inherits their errors, and the basin-resolution and trend caveats."
 tags: [grace, grace-fo, groundwater, tws, partitioning, mascons, hydrology]
-timestamp: 2026-07-05
+generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 inputs: "GRACE/GRACE-FO mascon TWS anomaly (see the mascon dataset concept) plus one product per subtracted store: soil moisture (SMAP L3 or a land-surface model), snow water equivalent (SNODAS or a model), surface water (altimetry or gauges), and canopy water (a model); all anomalies on the same baseline period as the mascon product"
 expected: "A groundwater storage anomaly time series on the mascon's native scale (not the 0.5-degree grid cell); qualitative here, no fixed numeric anchor is recorded yet (draft)"
 expected_uncertainty: "Bounded BELOW by the mascon formal-error grids and typically DOMINATED by the subtrahends, which usually arrive without formal error propagation; a groundwater trend quoted with only the GRACE formal error is understated"
-status: verified
-verified: 2026-07-06
-verified_by: OSP steward review
-evidence:
-  - https://grace.jpl.nasa.gov/
+sources:
+  - id: grace-tellus
+    resource: https://grace.jpl.nasa.gov/
+    title: "GRACE Tellus project site (grace.jpl.nasa.gov)"
+status: stable
+verified: { by: human:PaulMRamirez, at: 2026-07-06T00:00:00Z }
+stale_after: 2027-01-04
 ---
 
 # GRACE-FO groundwater from terrestrial water storage: the partitioning residual
 
 **Method.** GRACE and GRACE-FO sense TOTAL terrestrial water storage
-change (every store together). Groundwater is not measured; it is the
+change (every store together).[^grace-tellus] Groundwater is not measured; it is the
 RESIDUAL left after every other store is subtracted:
 
 GW anomaly = TWS anomaly - (soil moisture + snow + surface water + canopy)
@@ -58,3 +60,5 @@ independent evidence, not the residual alone.
 knowledge-coupling migration (status: draft). Needs a steward evidence
 link; if a measured numeric anchor is added, it also needs an eval case
 per SPEC rule 9.
+
+[^grace-tellus]: GRACE Tellus project site, the total-storage measurement basis
