@@ -3,12 +3,12 @@ type: dataset
 title: "SMAP L3 radiometer soil moisture (SPL3SMP, SPL3SMP_E)"
 description: "Daily global volumetric soil moisture for the top ~5 cm from the SMAP radiometer, 36 km and enhanced 9 km EASE-Grid; retrieval-quality flags gate every cell."
 tags: [smap, soil-moisture, radiometer, ease-grid, nsidc]
-timestamp: 2026-07-05
+generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 resource: https://nsidc.org/data/spl3smp_e
 version: "SPL3SMP and SPL3SMP_E, CMR-verified 2026-07-05 (with SPL3FTP freeze/thaw and the SPL4 model-assimilated family as adjacent lines)"
-status: verified
-verified: 2026-07-05
-verified_by: OSP steward review
+status: stable
+verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+stale_after: 2027-01-04
 ---
 
 # SMAP L3 radiometer soil moisture

@@ -2,6 +2,22 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-08-31 · OKF v0.2 MIGRATION of this bundle, which the original
+  migration missed: all ten native concepts moved to the v0.2
+  vocabulary (timestamp to generated events, status verified to stable,
+  verified_by to a verified event, evidence to sources with footnote
+  joins in the bodies, stale_after added). The steward signatures were
+  CARRIED ACROSS on the steward's explicit direction, matching how the
+  canonical bundle was migrated: each concept's existing
+  `verified_by: OSP steward review` becomes
+  `verified: { by: human:PaulMRamirez, at: <its original date> }`, so
+  the review that already happened stays visible to a v0.2 consumer.
+  No new signature was created. The three pinned podaac copies were
+  re-synced byte-identical from canonical (a0c84fff959f, eight weeks
+  stale and pre-migration, to 1b8dd064d68d), which brought them to
+  v0.2 as a side effect. check_okf_v02: zero errors, and the bundle
+  reads as thirteen human-reviewed concepts where it previously read
+  as thirteen unverified ones.
 - 2026-07-06 · steward addition: re-synced grace-fo-mascons snapshot from canonical (mascon-resolution/small-basin caveat); nwis-streamflow gains the rating-revision trigger (ratings remade after floods and channel shifts).
 
 - 2026-07-06 · steward review PASSED: the 1 migration-draft recipe (grace-groundwater-partitioning) promoted draft to status: verified (verified_by OSP steward review); placeholder evidence replaced with resolving sources (NOAA CPC/NCEI/PSL for indices, published DOIs, TEOS-10, USGS, DataCite, pymannkendall, GRACE JPL, the ECCO variable catalog).

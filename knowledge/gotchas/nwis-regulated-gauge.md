@@ -3,17 +3,21 @@ type: dataset-gotcha
 title: "Regulated gauges: flow statistics measure operations, not hydrology"
 description: "Downstream of dams, percentiles, droughts, and trends reflect release decisions; drought indices need near-natural reference gauges."
 tags: [nwis, regulation, dams, drought, reference-gauges]
-timestamp: 2026-07-05
+generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 severity: high
 dataset: ../datasets/nwis-streamflow.md
 eval_case: nwis-regulated-gauge
 # eval id reserved for the hydrology eval seed (SPEC v0.6 §10.3).
-evidence:
-  - https://waterdata.usgs.gov/monitoring-location/09380000/
-  - https://waterdata.usgs.gov/monitoring-location/09085000/
-status: verified
-verified: 2026-07-05
-verified_by: OSP steward review
+sources:
+  - id: usgs-09380000
+    resource: https://waterdata.usgs.gov/monitoring-location/09380000/
+    title: "USGS monitoring location 09380000 (Colorado River at Lees Ferry)"
+  - id: usgs-09085000
+    resource: https://waterdata.usgs.gov/monitoring-location/09085000/
+    title: "USGS monitoring location 09085000 (Colorado River near Dotsero)"
+status: stable
+verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+stale_after: 2027-01-04
 ---
 
 # Regulated gauges: flow statistics measure operations, not hydrology
@@ -30,8 +34,9 @@ percentiles against a 1991-2020 climatology at Lees Ferry (09380000,
 directly below Glen Canyon Dam) classify BOTH 2021 (severe basin
 drought) and 2023 (a top-tier snowpack year) as equally dry (median
 percentiles 23.3 and 20.0): the 2023 water was being held to refill
-Lake Powell. The same method at the near-natural Roaring Fork gauge
-(09085000) separates the years cleanly: 2021 median percentile 13.3
+Lake Powell.[^usgs-09380000] The same method at the near-natural
+Roaring Fork gauge (09085000) separates the years
+cleanly:[^usgs-09085000] 2021 median percentile 13.3
 with 92% of days below the 30th; 2023 median 33.3 with 5% below the
 10th. Nothing errors; the regulated gauge simply answers a different
 question.
@@ -46,3 +51,6 @@ against the site page's upstream-dam context.
 verification/fixtures/ (both gauges, 2021 and 2023 vs the 1991-2020
 climatology); the drought-index recipe records the reference-gauge
 numbers as its anchors.
+
+[^usgs-09380000]: USGS monitoring location 09380000 (Colorado River at Lees Ferry, below Glen Canyon Dam)
+[^usgs-09085000]: USGS monitoring location 09085000 (Roaring Fork, near-natural reference gauge)

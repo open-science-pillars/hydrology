@@ -3,19 +3,25 @@ type: dataset-gotcha
 title: "RiverSP reach vs node: statistics quoted at the wrong aggregation level"
 description: "Reach and node are separate collections at different aggregation levels; heights, widths, and especially discharge only mean something with the level named."
 tags: [swot, riversp, reach, node, scope]
-timestamp: 2026-07-05
+generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 severity: high
 dataset: ../datasets/swot-river-lake.md
 eval_case: swot-reach-node-scope
 # eval case authored with the hydrology eval seed (per
 # SPEC v0.6 §10.3); id fixed here so the linter check closes when it lands.
-evidence:
-  - https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_reach_D
-  - https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_node_D
-  - ../../skills/swot-hydro/references/swot-hydro-products.md
-status: verified
-verified: 2026-07-05
-verified_by: OSP steward review
+sources:
+  - id: podaac-riversp-reach
+    resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_reach_D
+    title: "PO.DAAC collection page: SWOT_L2_HR_RiverSP_reach_D"
+  - id: podaac-riversp-node
+    resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_node_D
+    title: "PO.DAAC collection page: SWOT_L2_HR_RiverSP_node_D"
+  - id: swot-hydro-products
+    resource: ../../skills/swot-hydro/references/swot-hydro-products.md
+    title: "This plugin's SWOT hydrology product reference (reach and node scope)"
+status: stable
+verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+stale_after: 2027-01-04
 ---
 
 # RiverSP reach vs node: statistics quoted at the wrong aggregation level
@@ -25,9 +31,10 @@ in SEPARATE collections: nodes (~200 m spacing along SWORD
 centerlines; 40,284 features and 57 attributes in one observed
 pass-continent granule) and reaches (~10 km aggregates; 731 features,
 127 attributes, including all discharge variants, same granule pair,
-granule-verified 2026-07-05). The attribute sets differ: slope and
-discharge exist ONLY at reach level; per-node position uncertainty and
-cross-track distance exist only at node level.
+granule-verified 2026-07-05).[^podaac-riversp-reach][^podaac-riversp-node]
+The attribute sets differ: slope and discharge exist ONLY at reach
+level; per-node position uncertainty and cross-track distance exist
+only at node level.[^swot-hydro-products]
 
 **Wrong-result mode.** A "river water surface elevation" averaged
 across nodes is not the reach wse (the reach value is the product's
@@ -48,3 +55,7 @@ level (node data ~8x reach volume per pass-continent).
 reference (cycle 011, pass 424, AS, PGD0): the attribute inventories
 and feature counts above; discharge attributes absent from the node
 shapefile schema.
+
+[^podaac-riversp-reach]: PO.DAAC collection page, SWOT_L2_HR_RiverSP_reach_D
+[^podaac-riversp-node]: PO.DAAC collection page, SWOT_L2_HR_RiverSP_node_D
+[^swot-hydro-products]: This plugin's SWOT hydrology product reference, reach and node attribute scope

@@ -3,17 +3,21 @@ type: dataset-gotcha
 title: "SMAP radar loss (July 2015): the product lineage breaks"
 description: "The radar failed 2015-07-07; the combined radar/radiometer 9 km line (SPL3SMAP) ends there, and records spanning 2015 mix product lineages."
 tags: [smap, radar, lineage, 2015]
-timestamp: 2026-07-05
+generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 severity: high
 dataset: ../datasets/smap-l3.md
 eval_case: smap-radar-loss
 # eval id reserved for the hydrology eval seed (SPEC v0.6 §10.3).
-evidence:
-  - https://nsidc.org/data/spl3smap
-  - https://nsidc.org/data/spl3smp
-status: verified
-verified: 2026-07-05
-verified_by: OSP steward review
+sources:
+  - id: nsidc-spl3smap
+    resource: https://nsidc.org/data/spl3smap
+    title: "NSIDC SPL3SMAP product page (the discontinued radar-combined product)"
+  - id: nsidc-spl3smp
+    resource: https://nsidc.org/data/spl3smp
+    title: "NSIDC SPL3SMP product page (radiometer soil moisture)"
+status: stable
+verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+stale_after: 2027-01-04
 ---
 
 # SMAP radar loss (July 2015): the product lineage breaks
@@ -22,9 +26,10 @@ verified_by: OSP steward review
 failed on 2015-07-07, a few months into science operations. The
 combined radar/radiometer soil moisture line (SPL3SMAP, 9 km) exists
 ONLY for April to July 2015 (its collection page records the span;
-CMR-verified as a live but bounded collection 2026-07-05). Everything
-after mid-2015 is radiometer-only (SPL3SMP at 36 km; SPL3SMP_E's 9 km
-is enhanced posting, not radar resolution).
+CMR-verified as a live but bounded collection
+2026-07-05).[^nsidc-spl3smap] Everything after mid-2015 is
+radiometer-only (SPL3SMP at 36 km; SPL3SMP_E's 9 km is enhanced
+posting, not radar resolution).[^nsidc-spl3smp]
 
 **Wrong-result mode.** A "SMAP soil moisture record" assembled across
 2015 mixes retrieval algorithms and effective resolutions at the
@@ -40,3 +45,6 @@ resolution claims follow the radiometer footprint after the loss.
 **Verification.** The SPL3SMAP collection's bounded temporal extent
 (April to July 2015) against SPL3SMP's ongoing record, both on their
 NSIDC pages (evidence links) and in CMR (audited 2026-07-05).
+
+[^nsidc-spl3smap]: NSIDC SPL3SMAP product page (the radar-combined product, April to July 2015)
+[^nsidc-spl3smp]: NSIDC SPL3SMP product page (radiometer soil moisture, ongoing)

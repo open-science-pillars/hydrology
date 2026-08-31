@@ -3,15 +3,15 @@ type: recipe
 title: "Streamflow drought index: day-of-year percentiles at a reference gauge"
 description: "USDM-style flow percentiles against a fixed 30-year daily climatology at a near-natural gauge; anchors measured at Roaring Fork 2021 (drought) and 2023 (wet)."
 tags: [drought, streamflow, percentiles, usdm, reference-gauge]
-timestamp: 2026-07-05
+generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 inputs: "NWIS daily discharge (00060) at a near-natural gauge; a fixed 30-year climatology window (1991-2020 here); calendar day-of-year alignment; approved (A) values only"
 expected: "Site 09085000 vs 1991-2020 climatology: 2021 median DOY percentile 13.3, fraction of days below 30th percentile 0.92, below 10th 0.28; 2023 median 33.3, below 30th 0.39, below 10th 0.05 (measured 2026-07-05)"
 expected_uncertainty: "Percentile-method and window sensitivity of a few points (median +/- ~3 percentile points across interpolation choices and climatology end-year +/- 2); the 2021-vs-2023 separation (median gap ~20 points) is robust far beyond that"
 trainings:
   - https://droughtmonitor.unl.edu/About/AbouttheData/DroughtClassification.aspx
-status: verified
-verified: 2026-07-05
-verified_by: OSP steward review
+status: stable
+verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+stale_after: 2027-01-04
 ---
 
 # Streamflow drought index: day-of-year percentiles at a reference gauge
