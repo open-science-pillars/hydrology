@@ -1,8 +1,10 @@
 # hydrology quickstart
 
 From installed to a defensible water number. Assumes core AND
-hydrology are installed; NWIS needs no credentials, SWOT/GRACE/SMAP
-need Earthdata Login in `~/.netrc`.
+hydrology are installed. NWIS needs no credentials; downloading
+SWOT, GRACE or SMAP needs an Earthdata Login, which earthaccess takes
+from the environment (`EARTHDATA_TOKEN`), from `~/.netrc`, or from a
+prompt.
 
 ## 1. Configure
 
