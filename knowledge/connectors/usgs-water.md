@@ -5,6 +5,12 @@ description: "The gauge of record through usgs_instantaneous and usgs_daily; the
 tags: [connector, usgs, nwis, streamflow, gauge, mcp, observations]
 verified: { by: human:PaulMRamirez, at: 2026-09-01T16:55:00Z }
 status: stable
+citation:
+  access_date_required: true
+  authority: https://waterdata.usgs.gov/
+  data: "U.S. Geological Survey, USGS Water Data for the Nation: U.S. Geological Survey National Water Information System database, accessed {access_date}"
+  doi: "10.5066/F7P55KJN"
+  note: "the access date is integral because much recent data is provisional and subject to revision"
 generated: { by: claude-code/fable-5, at: 2026-09-01T16:30:00Z }
 stale_after: 2026-12-31
 sources:
