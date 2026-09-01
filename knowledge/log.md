@@ -2,6 +2,14 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-01 · both connector concepts gain citation blocks (USGS's
+  suggested NWIS citation with its mandatory access date and DOI
+  10.5066/F7P55KJN; the SWOT river product Version D DOI beside the
+  Hydrocron software DOI), each verified against the authority this
+  day; the Hydrocron provenance note now points at the demonstrated
+  liftable file rather than a promise. Added after the concepts'
+  verification events; the steward's merge is the review. (drafted by
+  build assistant)
 - 2026-09-01 · steward review passed: both connector concepts
   (usgs-water, hydrocron-swot) verified (verified_by
   human:PaulMRamirez) and promoted draft to stable
