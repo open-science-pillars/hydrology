@@ -3,7 +3,8 @@ type: connector
 title: "PO.DAAC Hydrocron SWOT river series (observations server)"
 description: "SWOT water surface elevation and width per river reach or node through hydrocron_timeseries; elevations sit on the EGM2008 geoid, fill values are large negatives, and reach and node identifiers come from SWORD."
 tags: [connector, hydrocron, swot, rivers, podaac, mcp, observations]
-status: draft
+verified: { by: human:PaulMRamirez, at: 2026-09-01T16:55:00Z }
+status: stable
 generated: { by: claude-code/fable-5, at: 2026-09-01T16:30:00Z }
 stale_after: 2026-12-31
 sources:

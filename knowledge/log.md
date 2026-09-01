@@ -2,6 +2,9 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-01 · steward review passed: both connector concepts
+  (usgs-water, hydrocron-swot) verified (verified_by
+  human:PaulMRamirez) and promoted draft to stable
 - 2026-09-01 · two connector concepts land with the observations MCP
   server (core repo): USGS NWIS gauges (units are the trap: cubic
   feet per second, feet, leading-zero site ids) and PO.DAAC Hydrocron

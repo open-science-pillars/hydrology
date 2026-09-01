@@ -39,5 +39,5 @@ pinned podaac copies below follow SPEC §5.7:
 
 ## connectors
 
-- [USGS NWIS stream gauges](connectors/usgs-water.md), status: draft
-- [PO.DAAC Hydrocron SWOT river series](connectors/hydrocron-swot.md), status: draft
+- [USGS NWIS stream gauges](connectors/usgs-water.md), status: stable
+- [PO.DAAC Hydrocron SWOT river series](connectors/hydrocron-swot.md), status: stable
