@@ -36,3 +36,8 @@ pinned podaac copies below follow SPEC §5.7:
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: stable
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: stable
 - [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: stable
+
+## connectors
+
+- [USGS NWIS stream gauges](connectors/usgs-water.md), status: draft
+- [PO.DAAC Hydrocron SWOT river series](connectors/hydrocron-swot.md), status: draft

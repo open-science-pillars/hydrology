@@ -2,6 +2,15 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-01 · two connector concepts land with the observations MCP
+  server (core repo): USGS NWIS gauges (units are the trap: cubic
+  feet per second, feet, leading-zero site ids) and PO.DAAC Hydrocron
+  SWOT river series (EGM2008 geoid, negative fill values, SWORD
+  identifiers; wraps their public API, not their code, and the tool
+  group is separable so the archive can take it upstream). Probed
+  live 2026-09-01; CONNECTORS.md gains the disclosure section and
+  .mcp.json runs the server from a commit-pinned URL. (drafted by
+  build assistant; steward review pending)
 - 2026-08-31 · OKF v0.2 MIGRATION of this bundle, which the original
   migration missed: all ten native concepts moved to the v0.2
   vocabulary (timestamp to generated events, status verified to stable,

@@ -45,3 +45,24 @@ An Earthdata Login is needed only to retrieve data, never to search.
 It is read by earthaccess at download time and is never handled by
 this plugin, never sent to the connector above, and never stored in
 this repository in any form (SPEC §5.8). USGS water data needs no account of any kind.
+
+## Observations MCP (`observations`)
+
+**What it is.** `.mcp.json` runs the observations server (one thin
+stdio server over five authoritative observation sources) via uv from
+a COMMIT-PINNED URL in the core repository, so what runs is exactly
+what was reviewed; the pin moves only by a reviewed edit to this
+file. The groups this bundle uses: USGS NWIS stream gauges and
+PO.DAAC Hydrocron SWOT river series.
+
+**What leaves your machine.** Query parameters only (site and reach
+identifiers, time ranges), over HTTPS to the agency endpoints. Every
+source is anonymous; no credential exists in the process. Nothing
+you hold is sent.
+
+**When it is unavailable.** Nothing breaks; gates and attesters never
+call it.
+
+**Where the facts are maintained.** Dated concepts with staleness
+dates in `knowledge/connectors/`: usgs-water.md, hydrocron-swot.md.
+This file does not restate them.
