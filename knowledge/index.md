@@ -8,7 +8,7 @@ The hydrology knowledge bundle. OKF v0.2 conformant (okf_version:
 "0.2"; the vendored spec text lives in marketplace docs/upstream). The
 pinned podaac copies below follow SPEC §5.7:
 
-- Snapshot source repository: github.com/open-science-pillars/nasa-daac-knowledge (podaac/, the CANONICAL home per §5.7)
+- Snapshot source repository: github.com/open-science-pillars/nasa-daac-knowledge (knowledge/podaac/, the CANONICAL home per §5.7)
 - Snapshot source commit: 1b8dd064d68d (files byte-identical; re-synced 2026-08-31)
 - Snapshot date: 2026-08-31 (refresh at every hydrology release per §5.7; canonical concept wins on conflict)
 
