@@ -2,7 +2,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["marimo", "pandas", "pyarrow"]
 # ///
-# Golden for reservoir-analysis (Session 17, SPEC v0.6 §10.3): asserts
+# Golden for reservoir-analysis (SPEC v0.6 §10.3): asserts
 # the reservoir-storage-change recipe's measured anchors on the cached
 # Lake Powell 2023 fixture (09379900, 62614 daily elevation, pulled
 # 2026-07-05). Calendar-year endpoint convention, as the recipe states.

@@ -2,7 +2,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["marimo", "numpy", "pandas", "pyarrow"]
 # ///
-# Golden for drought-analysis (Session 17, SPEC v0.6 §10.3): asserts
+# Golden for drought-analysis (SPEC v0.6 §10.3): asserts
 # the drought-index recipe's measured anchors on cached fixtures
 # (Roaring Fork 09085000, 2021 drought vs 2023 wet, 1991-2020 daily
 # climatology; pulled 2026-07-05). The recipe is the authority for

@@ -17,5 +17,5 @@ graders:
 trials: 5
 pass_threshold: 0.8
 notes: >
-  Phase-1 seed graded manually on one Claude Code trial; the prompt
+  Seed case graded manually on one Claude Code trial; the prompt
   invites the trap by demanding simplicity.

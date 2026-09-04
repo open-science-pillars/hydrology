@@ -6,8 +6,8 @@
 #     "pyarrow",
 # ]
 # ///
-# Golden notebook for the load-nwis workflow (Session 16, SPEC v0.6
-# §10.3): qualifier segregation and identifier discipline on a cached
+# Golden notebook for the load-nwis workflow (SPEC v0.6 §10.3):
+# qualifier segregation and identifier discipline on a cached
 # real gauge subset (Colorado River at Lees Ferry, site 09380000,
 # 00060 daily values, calendar 2023, pulled 2026-07-05; regenerate via
 # fixtures/fetch_nwis_2023.py). Reference numbers measured at fixture

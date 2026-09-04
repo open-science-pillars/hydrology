@@ -6,13 +6,15 @@ okf_version: "0.2"
 
 The hydrology knowledge bundle. OKF v0.2 conformant (okf_version:
 "0.2"; the vendored spec text lives in marketplace docs/upstream). The
-pinned podaac copies below follow SPEC §5.7:
+pinned PO.DAAC copies below are declared in `snapshot.yaml` (SPEC 5.7)
+and checked byte for byte by tools/sync_check.py in the canonical
+repository:
 
-- Snapshot source repository: github.com/open-science-pillars/nasa-daac-knowledge (knowledge/podaac/, the CANONICAL home per §5.7)
-- Snapshot source commit: 1b8dd064d68d (files byte-identical; re-synced 2026-08-31)
-- Snapshot date: 2026-08-31 (refresh at every hydrology release per §5.7; canonical concept wins on conflict)
+- Snapshot source repository: github.com/open-science-pillars/nasa-daac-knowledge (knowledge/podaac/, the canonical home)
+- Snapshot source commit: 24b27927c387
+- Snapshot date: 2026-09-04 (refreshed at every hydrology release; the canonical concept wins on conflict)
 
-## snapshot-podaac (pinned copies, §5.7)
+## snapshot-podaac (pinned copies, SPEC 5.7)
 
 - [GRACE/GRACE-FO JPL mascon solutions](snapshot-podaac/datasets/grace-fo-mascons.md), snapshot
 - [GRACE mascon coastal leakage](snapshot-podaac/gotchas/grace-coastal-leakage.md), snapshot

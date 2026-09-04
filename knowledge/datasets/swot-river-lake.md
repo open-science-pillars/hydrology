@@ -7,6 +7,7 @@ generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_reach_D
 version: "Version families C (*_2.0) and D (*_D) both live in CMR as of 2026-07-05, mirroring the LR SSH pattern; observed crid PGD0 on D granules the same day; crid varies within collections as on the ocean side"
 status: stable
+upstream: pending
 verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
 stale_after: 2027-01-04
 ---

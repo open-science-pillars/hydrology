@@ -7,8 +7,6 @@ generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 severity: high
 dataset: ../datasets/swot-river-lake.md
 eval_case: swot-reach-node-scope
-# eval case authored with the hydrology eval seed (per
-# SPEC v0.6 §10.3); id fixed here so the linter check closes when it lands.
 sources:
   - id: podaac-riversp-reach
     resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_reach_D
@@ -16,10 +14,11 @@ sources:
   - id: podaac-riversp-node
     resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_node_D
     title: "PO.DAAC collection page: SWOT_L2_HR_RiverSP_node_D"
-  - id: swot-hydro-products
-    resource: ../../skills/swot-hydro/references/swot-hydro-products.md
-    title: "This plugin's SWOT hydrology product reference (reach and node scope)"
+  - id: swot-river-lake
+    resource: ../datasets/swot-river-lake.md
+    title: "This bundle's SWOT River and Lake dataset concept, Structure section (granule-verified attribute inventories, 2026-07-05)"
 status: stable
+upstream: pending
 verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
 stale_after: 2027-01-04
 ---
@@ -34,7 +33,7 @@ pass-continent granule) and reaches (~10 km aggregates; 731 features,
 granule-verified 2026-07-05).[^podaac-riversp-reach][^podaac-riversp-node]
 The attribute sets differ: slope and discharge exist ONLY at reach
 level; per-node position uncertainty and cross-track distance exist
-only at node level.[^swot-hydro-products]
+only at node level.[^swot-river-lake]
 
 **Wrong-result mode.** A "river water surface elevation" averaged
 across nodes is not the reach wse (the reach value is the product's
@@ -52,10 +51,10 @@ product's own aggregation as authoritative; volumes are planned per
 level (node data ~8x reach volume per pass-continent).
 
 **Verification.** Reproducible from the granule pair recorded in the
-reference (cycle 011, pass 424, AS, PGD0): the attribute inventories
+dataset concept (cycle 011, pass 424, AS, PGD0): the attribute inventories
 and feature counts above; discharge attributes absent from the node
 shapefile schema.
 
 [^podaac-riversp-reach]: PO.DAAC collection page, SWOT_L2_HR_RiverSP_reach_D
 [^podaac-riversp-node]: PO.DAAC collection page, SWOT_L2_HR_RiverSP_node_D
-[^swot-hydro-products]: This plugin's SWOT hydrology product reference, reach and node attribute scope
+[^swot-river-lake]: This bundle's SWOT River and Lake dataset concept, Structure section: the reach and node attribute inventories

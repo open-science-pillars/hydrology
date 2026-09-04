@@ -6,8 +6,8 @@
 #     "pandas",
 # ]
 # ///
-# Golden notebook for the load-swot-hydro workflow (Session 15, SPEC
-# v0.6 §10.3): scope and quality assertions on a synthetic reach/node
+# Golden notebook for the load-swot-hydro workflow (SPEC v0.6 §10.3):
+# scope and quality assertions on a synthetic reach/node
 # fixture built to the granule structure observed live 2026-07-05
 # (attribute names from the RiverSP D pair: cycle 011, pass 424, AS,
 # PGD0). Headless green via `python verification/load_swot_hydro.py`.

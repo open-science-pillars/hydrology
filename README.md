@@ -29,8 +29,10 @@ from it.
 - **USGS streamflow** (NWIS), with the provisional-vs-approved data trap
   handled and a rule that steers drought analysis to near-natural reference
   gauges rather than dam-regulated ones.
-- **GRACE-FO groundwater** and **SMAP soil moisture** skills, reusing the
-  GRACE knowledge from the ocean side.
+- **GRACE-FO groundwater** and **SMAP soil moisture** skills; the GRACE
+  concepts are pinned copies of the PO.DAAC provider bundle
+  (`knowledge/snapshot-podaac/`, declared in `knowledge/snapshot.yaml`),
+  byte-checked against the canonical bundle and refreshed at each release.
 - **Applied workflows**: a streamflow drought index and a reservoir
   storage-change analysis, each validated against real gauge records.
 
