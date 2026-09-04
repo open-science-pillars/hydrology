@@ -8,10 +8,11 @@ user-invocable: false
 
 Background expertise for SWOT inland-water products. This skill carries
 the method and the one hard refusal, not the dataset facts. The product
-inventory and granule anatomy live in
-`references/swot-hydro-products.md` (CMR- and granule-verified
-2026-07-05); the baselines, attribute rules, and uncertainty framing
-live in the knowledge bundle and are read from there per analysis.
+inventory, granule anatomy, baselines, attribute rules, and uncertainty
+framing live in the knowledge bundle
+(`knowledge/datasets/swot-river-lake.md`, CMR- and granule-verified
+2026-07-05, and the gotchas that link to it) and are read from there
+per analysis.
 
 ## Knowledge first
 

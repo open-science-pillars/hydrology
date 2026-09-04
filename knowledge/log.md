@@ -2,6 +2,20 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-04 · the three PO.DAAC copies under snapshot-podaac/ are
+  declared in snapshot.yaml (SPEC 5.7, include form) and re-pinned
+  from 1b8dd064d68d to the steward's signing commit 24b27927c387;
+  the files were byte-identical at both pins, so no text changed.
+  datasets/swot-river-lake.md and gotchas/swot-reach-node-scope.md
+  carry `upstream: pending` (PO.DAAC product facts with no canonical
+  counterpart yet); the gotcha's attribute-scope claim is re-sourced
+  to the dataset concept's Structure section in place of the swot-hydro
+  skill reference, which is deleted (it mirrored the concept). Both
+  edits touch signed text: a re-sign is owed on each. evals/SCHEMA.md
+  is now the pointer to the eval authoring guide; build labels left
+  the verification headers, the eval note and this log. Checked by
+  tools/sync_check.py in the canonical repository: OK at the pin.
+  (build assistant; the steward's merge is the review)
 - 2026-09-01 · both connector concepts gain citation blocks (USGS's
   suggested NWIS citation with its mandatory access date and DOI
   10.5066/F7P55KJN; the SWOT river product Version D DOI beside the
@@ -54,29 +68,29 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 - 2026-07-05 · snapshot-podaac/ provenance re-pinned to the canonical
   home per §5.7: open-science-pillars/nasa-daac-knowledge (podaac/),
-  commit a0c84fff959f (previously ocean-science@1896335d083e, Session
-  16); byte-identity verified by the canonical repo's sync_check, run
+  commit a0c84fff959f (previously ocean-science@1896335d083e);
+  byte-identity verified by the canonical repo's sync_check, run
   green 2026-07-05; index.md provenance block updated
 - 2026-07-05 · ERRATUM (steward-approved): the reservoir recipe's 2023
   minimum was labeled February; the daily data place it April 13-14
-  (3,519.5 ft; February's low was 3,520.5). Discovered by the Session
-  17 e2e run, which reproduced all numeric anchors and contradicted
+  (3,519.5 ft; February's low was 3,520.5). Discovered by the
+  end-to-end run of the recipe, which reproduced all numeric anchors and contradicted
   only this label. Recipe, golden print label, and fixtures README
   corrected; numeric anchors unchanged
-- 2026-07-05 · Session 17 eval seed: 6/6 PASS (RESULTS-seed.md,
+- 2026-07-05 · eval seed: 6/6 PASS (RESULTS-seed.md,
   claude-fable-5); the standing check-8 deferral on the high gotchas
   closes. Two independent trials surfaced the calendar-DOY vs
   month-day alignment step (3.3 points); steward-approved one-line
   clarification added to recipes/drought-index.md inputs (anchors
   unchanged)
-- 2026-07-05 · Session 17: gotchas/nwis-regulated-gauge.md ingested from
+- 2026-07-05 · gotchas/nwis-regulated-gauge.md ingested from
   the recipe-anchor measurement (Lees Ferry classified 2021 and 2023
   identically; Roaring Fork separated them by 20 median percentile
   points: the natural experiment is the evidence); recipes/{drought-index,
   reservoir-storage-change}.md authored with measured anchors only
   (Roaring Fork 2021/2023 contrast; Powell +44.20 ft 2023 refill);
-  steward-verified same session
-- 2026-07-05 · Session 16 close lint: zero 🔴, two 🟡. (1) The eval-seed
+  steward-verified the same day
+- 2026-07-05 · close lint after the NWIS and SMAP seeds: zero 🔴, two 🟡. (1) The eval-seed
   deferral on the three authored high gotchas stands (closes with the
   hydrology eval seed). (2) Flat snapshot layout broke the pinned
   concepts' internal relative links; restructured to canonical shape
@@ -85,22 +99,22 @@ Newest first. One line per change: date, concept path, what changed, who.
   PINNED copies is owned by the canonical bundle (ocean-science ships
   grace-leakage); pinned copies inherit review and eval coverage per
   §5.7 precedence
-- 2026-07-05 · Session 16 seeds: datasets/{nwis-streamflow, smap-l3}.md
+- 2026-07-05 · seeds: datasets/{nwis-streamflow, smap-l3}.md
   and gotchas/{nwis-provisional-data, smap-radar-loss}.md authored from
   live evidence (NWIS site 09380000 pull: trailing month 100% P vs 2023
   100% A; SMAP CMR audit incl. SPL3SMAP's bounded Apr-Jul 2015 span);
   snapshot-podaac/ pinned from ocean-science@1896335d083e per §5.7
-  (3 GRACE concepts); load-grace-tws placeholder relabeled to Session 17
-  (guide block authors two loaders here); dataretrieval deprecation of
+  (3 GRACE concepts); load-grace-tws placeholder relabeled for the
+  loader build that followed; dataretrieval deprecation of
   nwis.get_dv (removal on/after 2027-05-06) recorded in the nwis skill
   and dataset concept
-- 2026-07-05 · Session 15 close lint: zero 🔴, one 🟡 (dangling eval_case
-  on swot-reach-node-scope), deferral to the Session 16 eval seed
+- 2026-07-05 · close lint after the SWOT seed: zero 🔴, one 🟡 (dangling
+  eval_case on swot-reach-node-scope), deferral to the eval seed
   accepted by the steward per SPEC v0.6 §10.3; scaffold frontmatter
   escaping bug in three placeholder skills caught at the close gate and
   fixed
 - 2026-07-05 · datasets/swot-river-lake.md and
-  gotchas/swot-reach-node-scope.md seeded from the Session 15 CMR
-  audit and live granule pulls (reach 731 features/127 attrs, node
-  40,284/57, cycle 011 pass 424 AS PGD0); steward review passed same
-  session (verified_by OSP steward review)
+  gotchas/swot-reach-node-scope.md seeded from the CMR audit and
+  live granule pulls (reach 731 features/127 attrs, node
+  40,284/57, cycle 011 pass 424 AS PGD0); steward review passed the
+  same day (verified_by OSP steward review)
