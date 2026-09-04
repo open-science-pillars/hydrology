@@ -2,6 +2,22 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-04 · STEWARD SIGNING and a Variants section.
+  datasets/swot-river-lake.md gains a Variants section from the CMR
+  collection sweep and granule probe of 2026-09-04: the 28 HR Level 2
+  collections and the Level 4 discharge product with their concept
+  ids, the C and D family holdings and bounds (C stops at cycle 032,
+  2025-05-03; D carries the cal/val phase and forward processing), and
+  the granule naming; the version field and the cal/val bullet under
+  Known issues now say what the probe showed, and a cmr-sweep source
+  carries the query. The inventory the deleted swot-hydro skill
+  reference used to hold lives here now, so the scout resolves
+  ShortNames from the concept. Re-signed at 22:36:00Z on the steward's
+  instruction, covering the re-sourcing in the row below as well.
+  gotchas/swot-reach-node-scope.md re-signed at 22:36:00Z on the same
+  instruction after that re-sourcing; no text changed. stale_after
+  untouched on both. (human:PaulMRamirez, recorded by the build
+  assistant)
 - 2026-09-04 · the three PO.DAAC copies under snapshot-podaac/ are
   declared in snapshot.yaml (SPEC 5.7, include form) and re-pinned
   from 1b8dd064d68d to the steward's signing commit 24b27927c387;

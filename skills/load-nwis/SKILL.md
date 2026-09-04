@@ -12,16 +12,18 @@ conversationally ("load daily discharge for site 09380000, 2023").
 
 1. **Parse and show back:** sites, parameter codes, window, dv vs iv
    cadence.
-2. **Consult the bundle for this load first.** Discover and read the
-   concepts that apply (glob `knowledge/`), do not restate them from
-   memory: the streamflow dataset concept (site-identifier typing, the
-   qualifier codes and their meaning, the rating curve and its
-   revisions, dv/iv structure, the current vs deprecated API) and the
-   gotchas the request or downstream intent triggers (the provisional-
-   data caution whenever the window reaches the trailing period; the
-   regulated-gauge caution for any drought, low-flow, or trend framing).
-   Restate what applies and cite each by path; do not carry these facts
-   in this skill.
+2. **Consult the bundle for this load first.** Consult installed
+   knowledge concepts first, as the core `consult-knowledge` skill
+   sets out, by the sites, parameter, and window in play; the nwis
+   skill lists the concepts this plugin resolves to. Read the
+   streamflow dataset concept (site-identifier typing, the qualifier
+   codes and their meaning, the rating curve and its revisions, dv/iv
+   structure, the current vs deprecated API) and the gotchas the
+   request or downstream intent triggers (the provisional-data caution
+   whenever the window reaches the trailing period; the
+   regulated-gauge caution for any drought, low-flow, or trend
+   framing). Restate what applies and cite each by path; do not carry
+   these facts in this skill.
 3. **Volume sanity before fetching (hard gate).** Estimate rows (iv is
    far denser than dv; rows scale with sites times window length) and
    apply the project local-config threshold. At or below: state the
@@ -42,6 +44,6 @@ conversationally ("load daily discharge for site 09380000, 2023").
   any surface. (Hard gate: fires without consulting anything.)
 - Never restate a dataset rule this skill could consult: the qualifier
   handling, the site-identifier typing, and the provisional and
-  regulated-gauge cautions live in the NWIS concepts (glob `knowledge/`)
-  and are read from them per load, not carried here. That is what lets a
-  revised gotcha change this skill's behavior without editing it.
+  regulated-gauge cautions live in the NWIS concepts the nwis skill
+  lists and are read from them per load, not carried here. That is what
+  lets a revised gotcha change this skill's behavior without editing it.

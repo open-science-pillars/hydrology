@@ -22,13 +22,14 @@ carried here.
 
 1. **Parse and show back:** basin/gauge, target period, climatology
    window (default the recipe's fixed climatology window, stated).
-2. **Consult the bundle for THIS analysis first.** Discover and read the
-   concepts that apply, do not restate them from memory: glob and grep
-   `knowledge/gotchas/`, `knowledge/datasets/`, and `knowledge/recipes/`
-   for every concept touching the gauge, the parameter, and the drought
-   method (the regulated-gauge and provisional-data gotchas, the NWIS
-   streamflow dataset, the drought-index recipe). Restate what each
-   changes about the plan and cite it by path. A concept added or
+2. **Consult the bundle for THIS analysis first.** Consult installed
+   knowledge concepts first, as the core `consult-knowledge` skill
+   sets out, by the gauge, the parameter, and the drought method; the
+   nwis skill lists the concepts this plugin resolves to, and this
+   analysis reads the regulated-gauge and provisional-data gotchas,
+   the NWIS streamflow dataset, and the drought-index recipe
+   (`knowledge/recipes/drought-index.md`) among them. Restate what
+   each changes about the plan and cite it by path. A concept added or
    corrected since you last ran is found this way; the regulation
    evidence, the provisional-window rule, the fixed climatology window,
    and the drought class thresholds all live in concepts and are read

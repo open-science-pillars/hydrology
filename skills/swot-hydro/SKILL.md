@@ -10,21 +10,31 @@ Background expertise for SWOT inland-water products. This skill carries
 the method and the one hard refusal, not the dataset facts. The product
 inventory, granule anatomy, baselines, attribute rules, and uncertainty
 framing live in the knowledge bundle
-(`knowledge/datasets/swot-river-lake.md`, CMR- and granule-verified
-2026-07-05, and the gotchas that link to it) and are read from there
-per analysis.
+(`knowledge/datasets/swot-river-lake.md` and the gotchas that link to
+it) and are read from there per analysis.
 
 ## Knowledge first
 
-Before ANY SWOT hydrology analysis, DISCOVER and consult the installed
-knowledge bundle; do not work from a remembered list of rules. Search
-`knowledge/datasets/`, `knowledge/gotchas/`, and `knowledge/recipes/`
-(glob and grep by product name, attribute, and topic: RiverSP, LakeSP,
-reach, node, discharge, wse, quality, simulated), read every concept
-that touches the products and quantities in play, restate what each
-changes about the plan before computing, and cite it by path. A concept
-added or corrected since you last ran is found this way; that discovery,
-not this file, is what changes behavior.
+Before ANY SWOT hydrology analysis, consult installed knowledge
+concepts first, as the core `consult-knowledge` skill sets out (the
+directories to glob, how to voice a concept's status, which concept
+wins on conflict), by product name, attribute, and topic (RiverSP,
+LakeSP, reach, node, discharge, wse, quality, simulated). Read every
+concept that touches the products and quantities in play, restate what
+each changes about the plan before computing, and cite it by path. A
+concept added or corrected since you last ran is found this way; that
+discovery, not this file, is what changes behavior. The concepts this
+plugin resolves to today:
+
+- the dataset: the product and level inventory with ShortNames,
+  version families and holdings, granule anatomy, the attributes and
+  their `_u` fields, the quality gates, the simulated-collection trap:
+  `knowledge/datasets/swot-river-lake.md`;
+- the reach-vs-node scope trap: `knowledge/gotchas/swot-reach-node-scope.md`;
+- the interactive reach and node series endpoint:
+  `knowledge/connectors/hydrocron-swot.md`;
+- the lake path for reservoirs without a gauge:
+  `knowledge/recipes/reservoir-storage-change.md`.
 
 Everything dataset-specific is read from the bundle, never carried here:
 version families and current baselines; which `_u` attributes exist at

@@ -17,14 +17,16 @@ Southern Great Plains, 2016").
    only on explicit request and labeled as model output; which L3
    product lines exist and how they differ is read from the bundle
    (step 2), not listed here.
-2. **Consult the bundle for this dataset first.** Discover and read the
-   SMAP concepts that apply (glob and grep `knowledge/`): the dataset
-   concept for the product lines, resolutions, ~5 cm depth semantics, and
-   flag meanings; the gotchas the window or intent triggers (a window
+2. **Consult the bundle for this dataset first.** Consult installed
+   knowledge concepts first, as the core `consult-knowledge` skill
+   sets out, by product line, region, and window; the smap skill lists
+   the concepts this plugin resolves to. Read the dataset concept for
+   the product lines, resolutions, ~5 cm depth semantics, and flag
+   meanings, and the gotchas the window or intent triggers (a window
    touching 2015 pulls in the radar-loss lineage break). Restate what
    each changes about the plan and cite it by path; do not carry these
-   facts in this skill. A concept added since you last ran is found this
-   way.
+   facts in this skill. A concept added since you last ran is found
+   this way.
 3. **Search before fetching:** granule count and estimated volume BEFORE
    any download.
 4. **The volume gate.** Threshold from the project local config. At or

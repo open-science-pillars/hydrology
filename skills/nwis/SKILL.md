@@ -15,22 +15,31 @@ concept change this skill's behavior without editing the skill.
 
 ## Knowledge first (standing step)
 
-Before ANY NWIS work, DISCOVER and consult the installed knowledge
-bundle; do not work from a remembered list of rules. Glob and grep
-`knowledge/datasets/`, `knowledge/gotchas/`, and `knowledge/recipes/`
-for every concept touching the sites, parameters, and window in play
-(search terms: nwis, streamflow, discharge, gauge, provisional,
-regulated, rating). Read each match, restate what it changes about the
-plan before computing, and cite it by path. A concept added since you
-last ran is found this way, not from this file.
+Before ANY NWIS work, consult installed knowledge concepts first, as
+the core `consult-knowledge` skill sets out (the directories to glob,
+how to voice a concept's status, which concept wins on conflict), by
+the sites, parameters, and window in play (search terms: nwis,
+streamflow, discharge, gauge, provisional, regulated, rating). Read
+each match, restate what it changes about the plan before computing,
+and cite it by path. A concept added since you last ran is found this
+way, not from this file. The concepts this plugin resolves to today:
 
-Read from the bundle, never from here: the parameter codes and
-site-identifier format; the qualifier meanings (A approved, P
-provisional, and modifiers); the rating-curve derivation and its
-revision behavior; the extreme-flow extrapolation caveat; the
-provisional-window trap; the regulated-gauge trap; and the
-dataretrieval-to-waterdata API migration. All are dataset-specific and
-live in the concepts.
+- the streamflow dataset: parameter codes, the string site identifiers
+  with their leading zeros, the qualifier meanings (A approved, P
+  provisional, and modifiers), dv and iv structure, the rating curve
+  and its revisions, the extreme-flow extrapolation caveat, and the
+  dataretrieval-to-waterdata API migration:
+  `knowledge/datasets/nwis-streamflow.md`;
+- the provisional-window trap: `knowledge/gotchas/nwis-provisional-data.md`;
+- the regulated-gauge trap: `knowledge/gotchas/nwis-regulated-gauge.md`;
+- the gauge-borne recipes with their anchors:
+  `knowledge/recipes/drought-index.md` and
+  `knowledge/recipes/reservoir-storage-change.md`;
+- the units and identifier traps of the interactive gauge endpoint:
+  `knowledge/connectors/usgs-water.md`.
+
+Every one of those facts is read from its concept per analysis, never
+from this list, which only says where to look.
 
 ## Hard refusals
 

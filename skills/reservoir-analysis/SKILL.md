@@ -14,13 +14,16 @@ operations quantities.
    lake-surface elevation parameter, and any storage conversion, per
    the bundle), period, endpoint convention (calendar vs water year,
    stated ALWAYS).
-2. **Consult the bundle for this analysis first.** Before computing,
-   DISCOVER the applicable concepts and read them; do not carry their
-   facts here. Glob and grep `knowledge/recipes/`, `knowledge/gotchas/`,
-   and `knowledge/datasets/` for every concept touching reservoir and
-   lake elevation, gauge regulation, provisional qualifiers, and the
-   satellite complement for ungauged sites. Read the matches and
-   restate what each changes about the plan (the elevation parameter,
+2. **Consult the bundle for this analysis first.** Consult installed
+   knowledge concepts first, as the core `consult-knowledge` skill
+   sets out, by reservoir and lake elevation, gauge regulation,
+   provisional qualifiers, and the satellite complement for ungauged
+   sites; the nwis skill lists the gauge concepts this plugin resolves
+   to, the swot-hydro skill the lake-product ones, and this analysis
+   reads the reservoir recipe
+   (`knowledge/recipes/reservoir-storage-change.md`) among them. Read
+   the matches and restate what each changes about the plan (the
+   elevation parameter,
    the endpoint-convention uncertainty and why the choice moves the
    answer, the area-capacity conversion, the validation anchors, the
    operations-plus-hydrology framing, the SWOT lake path, the ARSET

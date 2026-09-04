@@ -8,27 +8,34 @@ user-invocable: false
 
 Background expertise for groundwater work from GRACE/GRACE-FO. The
 mascon product facts live in the PINNED SNAPSHOT concepts
-(`knowledge/snapshot-podaac/`, source and commit in index.md per §5.7);
+(`knowledge/snapshot-podaac/`; source, commit, and scope are declared
+in `knowledge/snapshot.yaml`, SPEC 5.7);
 the hydrology-side inference chain (the partitioning residual and its
 uncertainty) lives in the bundle's groundwater partitioning recipe.
 This file carries only the procedure and the hard refusal.
 
 ## Consult the bundle for this analysis
 
-Before ANY groundwater-from-GRACE analysis, DISCOVER and consult the
-installed knowledge bundle; do not work from a remembered list of rules.
-Glob and grep `knowledge/datasets/`, `knowledge/gotchas/`,
-`knowledge/recipes/`, and the pinned `knowledge/snapshot-podaac/` for
-every concept touching the mascon product and the partitioning (search
-by product name, quantity, and topic): the mascon dataset concept
-(formal error grids and their limits), the coastal-leakage and GIA
-gotchas, and the groundwater partitioning recipe (the subtrahend
-products, the uncertainty structure, the basin-resolution threshold,
-and the trend-window caveats). Read the matches, restate what each
+Before ANY groundwater-from-GRACE analysis, consult installed
+knowledge concepts first, as the core `consult-knowledge` skill sets
+out (the directories to glob, including the pinned copy directory, how
+to voice a concept's status, which concept wins on conflict), by
+product name, quantity, and topic. Read the matches, restate what each
 changes about the plan, and cite each by path before computing. A
 concept added or corrected since you last ran is found this way, not
-carried here. The snapshot is a copy: on any conflict with the
-canonical bundle, the canonical concept wins (§5.7 precedence).
+carried here. The concepts this plugin resolves to today:
+
+- the mascon dataset, a pinned copy of the provider's concept (the
+  formal error grids and their limits, the variants, the pre-applied
+  corrections): `knowledge/snapshot-podaac/datasets/grace-fo-mascons.md`;
+- coastal leakage: `knowledge/snapshot-podaac/gotchas/grace-coastal-leakage.md`;
+- the GIA correction: `knowledge/snapshot-podaac/gotchas/grace-gia-correction.md`;
+- the partitioning recipe (the subtrahend products, the uncertainty
+  structure, the basin-resolution threshold, the trend-window
+  caveats): `knowledge/recipes/grace-groundwater-partitioning.md`.
+
+The snapshot is a copy: on any conflict with the canonical bundle, the
+canonical concept wins, as the consult convention's precedence says.
 
 ## Method (invariant)
 

@@ -19,7 +19,7 @@ sources:
     title: "This bundle's SWOT River and Lake dataset concept, Structure section (granule-verified attribute inventories, 2026-07-05)"
 status: stable
 upstream: pending
-verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-04T22:36:00Z }
 stale_after: 2027-01-04
 ---
 
