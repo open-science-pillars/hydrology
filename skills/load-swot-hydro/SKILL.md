@@ -19,8 +19,10 @@ Amazon, cycle 11").
    granule packaging (so one region can resolve to more than one code),
    the version family, and what each level means and costs all come from
    the concepts read in the next step, not from memory.
-2. **Consult the bundle for this load first.** Discover and read the
-   SWOT inland-water concepts that apply (glob `knowledge/`): the dataset
+2. **Consult the bundle for this load first.** Consult installed
+   knowledge concepts first, as the core `consult-knowledge` skill
+   sets out, by product, level, region, and cycles; the swot-hydro
+   skill lists the concepts this plugin resolves to. Read the dataset
    concept for the product and level inventory, per-continent packaging,
    version family and crid, the per-level quality attributes, the
    simulated-vs-flight collection trap, and the `_u` uncertainty fields;
@@ -33,7 +35,8 @@ Amazon, cycle 11").
    any download, using the per-granule sizes the dataset concept records
    (they differ sharply by level).
 4. **The volume gate (hard gate).** Threshold from the project local
-   config (template default 2 GB). At or below: state count, size,
+   config (`hydrology.local.md`; the template carries the default). At
+   or below: state count, size,
    destination, proceed. Above: STOP and present count, total size,
    destination, and a smaller alternative (reach instead of node, fewer
    cycles, one continent), and wait for explicit confirmation. The gate

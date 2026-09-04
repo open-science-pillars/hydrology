@@ -15,18 +15,28 @@ keep only the discipline that discovers and reads them per analysis.
 
 ## Consult the bundle for this dataset
 
-Before ANY statement about SMAP soil moisture, DISCOVER and consult the
-installed knowledge bundle; do not work from a remembered list of product
-rules. Glob and grep `knowledge/datasets/`, `knowledge/gotchas/`, and
-`knowledge/recipes/` for every concept touching the products, quantities,
-and time span in play (search by product name, and by SMAP, soil
-moisture, radar, flags, depth), read the matches, restate what each
-changes about the plan, and cite it by path before answering. A concept
-added or corrected since you last ran is found this way; consulting the
-bundle is how a new or fixed concept changes this skill's behavior without
-editing the skill. Routing hints: any record touching 2015 consults the
-radar-loss lineage gotcha; any retrieval-quality or uncertainty claim
-consults the L3 dataset concept's flag and uncertainty notes.
+Before ANY statement about SMAP soil moisture, consult installed
+knowledge concepts first, as the core `consult-knowledge` skill sets
+out (the directories to glob, how to voice a concept's status, which
+concept wins on conflict), by the products, quantities, and time span
+in play (search by product name, and by SMAP, soil moisture, radar,
+flags, depth). Read the matches, restate what each changes about the
+plan, and cite it by path before answering. A concept added or
+corrected since you last ran is found this way; consulting the bundle
+is how a new or fixed concept changes this skill's behavior without
+editing the skill. The concepts this plugin resolves to today:
+
+- the L3 dataset: the radiometer line and its enhanced posting, the
+  model-assimilated L4 family, the retrieval-quality flags, the
+  surface-layer depth semantics, the accuracy figures:
+  `knowledge/datasets/smap-l3.md`;
+- the 2015 radar loss and the product-lineage break:
+  `knowledge/gotchas/smap-radar-loss.md`.
+
+Routing hints: any record touching 2015 consults the radar-loss
+gotcha; any retrieval-quality or uncertainty claim consults the
+dataset concept's flag and uncertainty notes. Both are read per
+analysis, never from this list.
 
 ## Must NOT
 

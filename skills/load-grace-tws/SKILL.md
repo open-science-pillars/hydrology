@@ -17,10 +17,12 @@ conversationally ("load GRACE TWS for the Colorado basin").
    through grace-groundwater's partitioning chain). Resolve the product,
    release, and variant from the dataset concept, not from a remembered
    name.
-2. **Consult the bundle for this load first.** Discover and read the
-   GRACE concepts that apply (glob `knowledge/`, grep by product,
-   basin, and topic): the dataset concept for the product, release, and
-   variants, and the gotchas the request or downstream intent triggers
+2. **Consult the bundle for this load first.** Consult installed
+   knowledge concepts first, as the core `consult-knowledge` skill
+   sets out, by product, basin, and topic; the grace-groundwater skill
+   lists the concepts this plugin resolves to, pinned copies included.
+   Read the dataset concept for the product, release, and variants,
+   and the gotchas the request or downstream intent triggers
    (a coastline touched by the basin, a trend to be fit, a window that
    spans an inter-mission gap, a basin whose area approaches the native
    mascon scale). Restate what each changes about the plan and cite it
