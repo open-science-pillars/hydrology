@@ -7,7 +7,7 @@ generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 severity: high
 dataset: ../datasets/nwis-streamflow.md
 eval_case: nwis-regulated-gauge
-# eval id reserved for the hydrology eval seed (SPEC v0.6 §10.3).
+# eval id reserved for the hydrology eval seed (one case per high-severity gotcha).
 sources:
   - id: usgs-09380000
     resource: https://waterdata.usgs.gov/monitoring-location/09380000/
