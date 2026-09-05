@@ -26,8 +26,9 @@ GW anomaly = TWS anomaly - (soil moisture + snow + surface water + canopy)
 
 Each anomaly is referenced to the same baseline period as the mascon
 product, and the estimate lives on the mascon's native information scale
-(not the 0.5-degree grid cell; see
-[grace-fo-mascons](../snapshot-podaac/datasets/grace-fo-mascons.md)).
+(not the 0.5-degree grid cell; see the provider bundle's mascon
+dataset concept, `knowledge/podaac/datasets/grace-fo-mascons.md`,
+installed with the nasa-daac-knowledge dependency).
 
 **Every subtrahend is another product.** Soil moisture comes from SMAP
 L3 ([smap-l3](../datasets/smap-l3.md)) or a land-surface model; snow
@@ -41,14 +42,14 @@ by the mascon formal error and is typically dominated by the
 subtrahends; a groundwater trend quoted with only the GRACE formal
 error is understated. Basin size matters: below a few mascon footprints
 (order 300 km, the 3-degree mascon scale) the estimate is
-leakage-dominated (see
-[grace-coastal-leakage](../snapshot-podaac/gotchas/grace-coastal-leakage.md)),
+leakage-dominated (see the provider bundle's
+`knowledge/podaac/gotchas/grace-coastal-leakage.md`),
 and honest work states basin area against the effective resolution.
 
 **Trends.** The 2017-2018 GRACE-to-GRACE-FO gap and GIA-model
-sensitivity bite trends directly (see
-[grace-fo-mascons](../snapshot-podaac/datasets/grace-fo-mascons.md) and
-[grace-gia-correction](../snapshot-podaac/gotchas/grace-gia-correction.md));
+sensitivity bite trends directly (see the provider bundle's
+`knowledge/podaac/datasets/grace-fo-mascons.md` and
+`knowledge/podaac/gotchas/grace-gia-correction.md`);
 every trend window states how the gap is handled and names the applied
 GIA model, and no fit treats the gap as data.
 

@@ -34,10 +34,10 @@ from it.
   gauges rather than dam-regulated ones.
 - **GRACE-FO groundwater** and **SMAP soil moisture** skills; the GRACE
   concepts come from the PO.DAAC provider bundle, installed alongside as
-  the nasa-daac-knowledge dependency. A pinned copy of them still travels
-  under `knowledge/snapshot-podaac/` (declared in `knowledge/snapshot.yaml`,
-  byte-checked against the canonical bundle) while the skills' paths move
-  to the installed bundle; the copy retires when they have.
+  the nasa-daac-knowledge dependency, and the skills cite them by bundle
+  path (`knowledge/podaac/...`), which core's consult-knowledge convention
+  resolves through the installer's record of installed plugins; nothing
+  is copied into this repository.
 - **Applied workflows**: a streamflow drought index and a reservoir
   storage-change analysis, each validated against real gauge records.
 

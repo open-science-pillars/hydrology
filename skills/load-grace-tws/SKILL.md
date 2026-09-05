@@ -20,7 +20,7 @@ conversationally ("load GRACE TWS for the Colorado basin").
 2. **Consult the bundle for this load first.** Consult installed
    knowledge concepts first, as the core `consult-knowledge` skill
    sets out, by product, basin, and topic; the grace-groundwater skill
-   lists the concepts this plugin resolves to, pinned copies included.
+   lists the concepts this plugin resolves to, provider concepts included.
    Read the dataset concept for the product, release, and variants,
    and the gotchas the request or downstream intent triggers
    (a coastline touched by the basin, a trend to be fit, a window that
