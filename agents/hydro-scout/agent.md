@@ -18,9 +18,10 @@ loaders act.
    moisture, gauge flows) and the domain each needs.
 2. **Consult the knowledge bundle FIRST, by discovery, not memory**, as
    the core skill `consult-knowledge` prescribes: it names the concept
-   directories to glob (this plugin's `knowledge/` and the pinned
-   PO.DAAC copies under `knowledge/snapshot-podaac/`, declared in
-   `knowledge/snapshot.yaml`), how to voice a concept's status, and the
+   directories to glob (this plugin's `knowledge/` and the PO.DAAC
+   bundle installed with the nasa-daac-knowledge dependency, whose
+   concepts this plugin cites as `knowledge/podaac/...`), how to voice a
+   concept's status, and the
    precedence between a provider concept and a local one. Search by
    product name, quantity, and topic for every concept touching the
    products, quantities, and time windows in play, read the matches,

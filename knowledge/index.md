@@ -5,20 +5,19 @@ okf_version: "0.2"
 # hydrology bundle
 
 The hydrology knowledge bundle. OKF v0.2 conformant (okf_version:
-"0.2"; the vendored spec text lives in marketplace docs/upstream). The
-pinned PO.DAAC copies below are declared in `snapshot.yaml` (SPEC 5.7)
-and checked byte for byte by tools/sync_check.py in the canonical
-repository:
+"0.2"; the vendored spec text lives in marketplace docs/upstream).
 
-- Snapshot source repository: github.com/open-science-pillars/nasa-daac-knowledge (knowledge/podaac/, the canonical home)
-- Snapshot source commit: 24b27927c387
-- Snapshot date: 2026-09-04 (refreshed at every hydrology release; the canonical concept wins on conflict)
-
-## snapshot-podaac (pinned copies, SPEC 5.7)
-
-- [GRACE/GRACE-FO JPL mascon solutions](snapshot-podaac/datasets/grace-fo-mascons.md), snapshot
-- [GRACE mascon coastal leakage](snapshot-podaac/gotchas/grace-coastal-leakage.md), snapshot
-- [GRACE GIA correction](snapshot-podaac/gotchas/grace-gia-correction.md), snapshot
+The GRACE concepts this plugin's skills rely on (the mascon dataset,
+the coastal leakage and GIA correction gotchas) live in the PO.DAAC
+provider bundle, canonical home
+github.com/open-science-pillars/nasa-daac-knowledge (knowledge/podaac/),
+installed alongside this plugin as the nasa-daac-knowledge dependency
+at a release the plugin names a floor for; nothing from it is copied
+here. The core skill consult-knowledge finds every installed bundle
+through the installer's record of installed plugins and globs each
+root the same way; this plugin cites provider concepts by bundle path,
+`knowledge/podaac/<type>/<concept>.md`. The provider concept wins on
+conflict.
 
 ## datasets
 

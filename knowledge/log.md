@@ -2,6 +2,20 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-04 · THE PINNED PO.DAAC COPIES ARE RETIRED: snapshot-podaac/
+  (three GRACE concepts at pin 24b27927c387) and snapshot.yaml deleted.
+  The provider bundle reaches an install only as the
+  nasa-daac-knowledge dependency (declared 2026-09-04, floor
+  >=2026.9.1); the grace-groundwater skill, hydro-scout and the README
+  cite the concepts by bundle path (knowledge/podaac/...), which
+  consult-knowledge resolves through the installer's record; this
+  index loses its snapshot section. POST-SIGNATURE EDIT, flagged under
+  the merge-then-sign rule (SPEC 5.4):
+  recipes/grace-groundwater-partitioning.md (stable, signed
+  2026-07-06) had four relative links into the copy; each becomes the
+  provider concept's bundle path in text, no other change. It owes a
+  fresh signature once merged. (build assistant, steward review at
+  merge)
 - 2026-09-04 · STEWARD RE-SIGNING of the two connector concepts
   (connectors/hydrocron-swot.md, usgs-water.md). Each had gained its
   citation block on 2026-09-01 after the steward's signature of that

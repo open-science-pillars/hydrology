@@ -1,6 +1,6 @@
 {
   "name": "hydrology",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Hydrology: SWOT river and lake products, GRACE-FO groundwater, USGS NWIS streamflow, SMAP soil moisture.",
   "dependencies": ["core", { "name": "nasa-daac-knowledge", "version": ">=2026.9.1" }],
   "author": { "name": "Open Science Pillars Community" },
