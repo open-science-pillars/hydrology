@@ -12,7 +12,9 @@ sources:
     resource: https://grace.jpl.nasa.gov/
     title: "GRACE Tellus project site (grace.jpl.nasa.gov)"
 status: stable
-verified: { by: human:PaulMRamirez, at: 2026-07-06T00:00:00Z }
+verified:
+  - { by: human:PaulMRamirez, at: 2026-07-06T00:00:00Z }
+  - { by: human:PaulMRamirez, at: 2026-09-05T04:54:00Z }
 stale_after: 2027-01-04
 ---
 

@@ -2,6 +2,15 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-04 · STEWARD RE-SIGNING of
+  recipes/grace-groundwater-partitioning.md. The retirement of the
+  pinned copies (row below) replaced the recipe's four relative links
+  into the copy with the provider concepts' bundle paths in text, an
+  edit after the 2026-07-06 signature, so the recipe owed a signature
+  under the merge-then-sign rule (SPEC 5.4); the canonical
+  repository's tools/signature_check.py found the debt by the signing
+  commit. The steward read the diff and signed again at
+  2026-09-05T04:54:00Z, the earlier event kept as history. (steward)
 - 2026-09-04 · THE PINNED PO.DAAC COPIES ARE RETIRED: snapshot-podaac/
   (three GRACE concepts at pin 24b27927c387) and snapshot.yaml deleted.
   The provider bundle reaches an install only as the
