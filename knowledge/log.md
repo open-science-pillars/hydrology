@@ -2,6 +2,14 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-04 · STEWARD RE-SIGNING of the two connector concepts
+  (connectors/hydrocron-swot.md, usgs-water.md). Each had gained its
+  citation block on 2026-09-01 after the steward's signature of that
+  day (hydrocron-swot's provenance note also changed then), so each
+  owed a signature under the merge-then-sign rule (SPEC 5.4); the
+  canonical repository's new tools/signature_check.py found the debt
+  by the signing commit, the steward read both diffs and signed again
+  at 2026-09-05T00:17:00Z, the earlier event kept as history. (steward)
 - 2026-09-04 · STEWARD SIGNING and a Variants section.
   datasets/swot-river-lake.md gains a Variants section from the CMR
   collection sweep and granule probe of 2026-09-04: the 28 HR Level 2

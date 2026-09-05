@@ -3,7 +3,9 @@ type: connector
 title: "USGS NWIS stream gauges (observations server)"
 description: "The gauge of record through usgs_instantaneous and usgs_daily; the units are the trap: discharge arrives in cubic feet per second and gage height in feet, never SI, and site numbers are strings with leading zeros."
 tags: [connector, usgs, nwis, streamflow, gauge, mcp, observations]
-verified: { by: human:PaulMRamirez, at: 2026-09-01T16:55:00Z }
+verified:
+  - { by: human:PaulMRamirez, at: 2026-09-01T16:55:00Z }
+  - { by: human:PaulMRamirez, at: 2026-09-05T00:17:00Z }
 status: stable
 citation:
   access_date_required: true
