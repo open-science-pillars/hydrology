@@ -14,12 +14,15 @@ water-resources pack (drought and reservoir analysis).
 
 ```bash
 claude plugin marketplace add open-science-pillars/marketplace
-claude plugin install core@open-science-pillars
 claude plugin install hydrology@open-science-pillars
 ```
 
-**Install core first** (the foundation plugin), the same way ocean-science
-builds on core. Cowork and Claude Science: add the marketplace and install
+The plugin declares core (the foundation plugin) and the PO.DAAC provider
+knowledge in nasa-daac-knowledge as dependencies, so the one install
+brings both with it. An install stays at the release it was installed
+from: `claude plugin update hydrology@open-science-pillars` moves it to
+the current one, dependencies included, and `claude plugin list` shows
+what you have. Cowork and Claude Science: add the marketplace and install
 from it.
 
 ## What works today
@@ -30,9 +33,11 @@ from it.
   handled and a rule that steers drought analysis to near-natural reference
   gauges rather than dam-regulated ones.
 - **GRACE-FO groundwater** and **SMAP soil moisture** skills; the GRACE
-  concepts are pinned copies of the PO.DAAC provider bundle
-  (`knowledge/snapshot-podaac/`, declared in `knowledge/snapshot.yaml`),
-  byte-checked against the canonical bundle and refreshed at each release.
+  concepts come from the PO.DAAC provider bundle, installed alongside as
+  the nasa-daac-knowledge dependency. A pinned copy of them still travels
+  under `knowledge/snapshot-podaac/` (declared in `knowledge/snapshot.yaml`,
+  byte-checked against the canonical bundle) while the skills' paths move
+  to the installed bundle; the copy retires when they have.
 - **Applied workflows**: a streamflow drought index and a reservoir
   storage-change analysis, each validated against real gauge records.
 

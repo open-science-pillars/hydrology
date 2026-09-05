@@ -1,7 +1,8 @@
 {
   "name": "hydrology",
-  "version": "0.2.0",
-  "description": "Hydrology: SWOT river and lake products, GRACE-FO groundwater, USGS NWIS streamflow, SMAP soil moisture. Install core first.",
+  "version": "0.3.0",
+  "description": "Hydrology: SWOT river and lake products, GRACE-FO groundwater, USGS NWIS streamflow, SMAP soil moisture.",
+  "dependencies": ["core", { "name": "nasa-daac-knowledge", "version": ">=2026.9.1" }],
   "author": { "name": "Open Science Pillars Community" },
   "homepage": "https://github.com/open-science-pillars/hydrology",
   "license": "Apache-2.0",
