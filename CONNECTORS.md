@@ -22,8 +22,8 @@ never through this connector, which is why an unreachable connector
 cannot block a download.
 
 **When it is unavailable.** Nothing breaks. discover-data falls back to
-knowledge-based discovery with archive URLs (SPEC §3.4) and says which
-path it used; loading proceeds from local files or direct library
+knowledge-based discovery with archive URLs and says which path it
+used; loading proceeds from local files or direct library
 access. USGS/NWIS work is unaffected either way, since it does not use
 this connector at all.
 
@@ -44,7 +44,7 @@ see marketplace/docs/surface-testing-guide.md.
 An Earthdata Login is needed only to retrieve data, never to search.
 It is read by earthaccess at download time and is never handled by
 this plugin, never sent to the connector above, and never stored in
-this repository in any form (SPEC §5.8). USGS water data needs no account of any kind.
+this repository in any form. USGS water data needs no account of any kind.
 
 ## Observations MCP (`observations`)
 

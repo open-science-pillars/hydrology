@@ -62,6 +62,6 @@ independent evidence, not the residual alone.
 **Provenance.** Relocated from the grace-groundwater skill during the
 knowledge-coupling migration (status: draft). Needs a steward evidence
 link; if a measured numeric anchor is added, it also needs an eval case
-per SPEC rule 9.
+(every high-severity numeric anchor carries a matching eval case).
 
 [^grace-tellus]: GRACE Tellus project site, the total-storage measurement basis

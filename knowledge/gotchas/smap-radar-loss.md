@@ -7,7 +7,7 @@ generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 severity: high
 dataset: ../datasets/smap-l3.md
 eval_case: smap-radar-loss
-# eval id reserved for the hydrology eval seed (SPEC v0.6 §10.3).
+# eval id reserved for the hydrology eval seed (one case per high-severity gotcha).
 sources:
   - id: nsidc-spl3smap
     resource: https://nsidc.org/data/spl3smap

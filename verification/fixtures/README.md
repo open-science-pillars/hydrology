@@ -1,6 +1,7 @@
 # Fixture provenance (hydrology)
 
-Required by SPEC v0.6 §6. Current fixtures:
+Required by the fixture-provenance rule (every fixture's source,
+version, and license recorded). Current fixtures:
 
 | Fixture | Kind | Source | License |
 |---|---|---|---|
