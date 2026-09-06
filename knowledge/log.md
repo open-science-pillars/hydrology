@@ -2,6 +2,17 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-06 · STEWARD SIGNING of knowledge/datasets/imerg-v07.md,
+  knowledge/datasets/nldas2-forcing.md,
+  knowledge/connectors/gesdisc-earthaccess.md,
+  knowledge/gotchas/imerg-run-mixing.md,
+  knowledge/gotchas/imerg-cold-season-orographic-underestimation.md: the
+  steward's first verified event on the five precipitation concepts, on
+  the steward's explicit word, with status promoted from draft to stable
+  and the index rows updated to match. The two dataset concepts keep
+  upstream: pending, since no provider bundle for GES DISC exists yet.
+  (steward)
+
 - 2026-09-06 · knowledge/datasets/imerg-v07.md,
   knowledge/datasets/nldas2-forcing.md,
   knowledge/connectors/gesdisc-earthaccess.md,

@@ -4,7 +4,8 @@ title: "GES DISC through earthaccess: Earthdata Login plus a one-time applicatio
 description: "IMERG and NLDAS-2 at GES DISC need two things: an Earthdata Login and the GES DISC application authorized on that account, which nothing but the account holder can do. Without the authorization every data route fails in its own way (a 403 with an EULA body from the archive, a 403 DAP4 error from Cloud OPeNDAP, an HTML page where netCDF was expected from the on-premises host). What leaves the machine is the credential to urs.earthdata.nasa.gov, and the granule name and a constraint expression naming a window of grid indices to two GES DISC hosts."
 tags: [connector, gesdisc, earthaccess, earthdata-login, opendap, dap4, imerg, nldas, hydrology]
 generated: { by: claude-code/fable-5, at: 2026-09-06T21:50:00Z }
-status: draft
+verified: { by: human:PaulMRamirez, at: 2026-09-06T22:57:54Z }
+status: stable
 citation:
   access_date_required: true
   authority: https://disc.gsfc.nasa.gov/

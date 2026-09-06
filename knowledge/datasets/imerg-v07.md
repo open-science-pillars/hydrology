@@ -4,9 +4,10 @@ title: "GPM IMERG V07 daily precipitation: three runs, one variable name, and a 
 description: "Global 0.1 degree precipitation from GES DISC in three daily runs (Early, Late, Final) that share the variable name precipitation in mm/day but are calibrated differently: Final against the GPCC gauge analysis with undercatch correction, Early and Late by a climatological adjustment to Final. The V07 Final record stops at 2025-09-30; Late and Early continue in a hybrid posture whose calibration changed on 2026-03-01."
 tags: [imerg, gpm, precipitation, gesdisc, daily, final, late, early, hydrology]
 generated: { by: claude-code/fable-5, at: 2026-09-06T21:30:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-06T22:57:54Z }
 resource: https://disc.gsfc.nasa.gov/datasets/GPM_3IMERGDF_07/summary
 version: "V07 (granule labels V07B, and V07C for Late from 2026-03-03 and Early from 2026-03-04); Final daily 2000-06-01 through 2025-09-30, Late and Early through yesterday (2026-09-05 on 2026-09-06); the monthly GPM_3IMERGM is Final only"
-status: draft
+status: stable
 upstream: pending
 stale_after: 2026-12-01
 citation:
