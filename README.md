@@ -41,6 +41,13 @@ from it.
   path (`knowledge/podaac/...`), which core's consult-knowledge convention
   resolves through the installer's record of installed plugins; nothing
   is copied into this repository.
+- **Basin precipitation** from GPM IMERG V07 (the run declared, never
+  chosen: Final, Late and Early share a variable name and differ in
+  calibration; a change of run is a dated seam in the receipt, an
+  undeclared mix is refused) and from NLDAS-2 forcing, the gauge-based
+  series that checks IMERG over snow-covered mountains in the cold
+  season; basin means over a frozen polygon with the fraction of cells
+  inside, daily and monthly totals in mm and km3.
 - **Applied workflows**: a streamflow drought index and a reservoir
   storage-change analysis, each validated against real gauge records.
 - **Basin delineation**: the polygon above a gauge or a snapped point
@@ -53,9 +60,13 @@ New to the project's vocabulary? See the
 [glossary](https://github.com/open-science-pillars/marketplace/blob/main/GLOSSARY.md).
 USGS water data needs no login (an optional key in `API_USGS_PAT`
 raises the rate limit). Retrieving NASA data (SWOT, GRACE,
-SMAP) needs an Earthdata Login, which earthaccess reads from the
-environment (`EARTHDATA_TOKEN`, or username and password variables),
-from `~/.netrc`, or from an interactive prompt; searching for data
-needs no account at all.
+SMAP, IMERG, NLDAS-2) needs an Earthdata Login, which earthaccess reads
+from the environment (`EARTHDATA_TOKEN`, or username and password
+variables), from `~/.netrc`, or from an interactive prompt; searching
+for data needs no account at all. IMERG and NLDAS-2 at GES DISC also
+need the GES DISC application authorized on that account, a one-time
+step only the account holder can take on the Earthdata Login site
+(`knowledge/connectors/gesdisc-earthaccess.md` records the failure
+shapes without it and the URL that fixes them).
 
 License: Apache-2.0. Cite via CITATION.cff.

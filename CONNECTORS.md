@@ -48,6 +48,40 @@ this repository in any form. USGS water data needs no account; an
 optional key (`API_USGS_PAT`, from https://api.waterdata.usgs.gov/signup/)
 raises the rate limit and is handled only as described below.
 
+## GES DISC (the load-precipitation skill)
+
+**What it is.** The `load-precipitation` skill's fetch script reaches
+NASA's Goddard Earth Sciences Data and Information Services Center,
+the archive of GPM IMERG and NLDAS-2, through earthaccess: a CMR
+search for the granules of a window, then one request per granule to
+NASA Cloud OPeNDAP for the basin window as a DAP4 constraint
+expression, with the archive file as the fallback. No MCP server is
+involved; the script runs on your machine.
+
+**What leaves your machine.** Your Earthdata Login credential, to
+`urs.earthdata.nasa.gov` only, presented by earthaccess (from
+`~/.netrc` or the environment). To `opendap.earthdata.nasa.gov` and
+`data.gesdisc.earthdata.nasa.gov`: the granule identifier and, for a
+subset request, the constraint expression, which names variables and
+grid index ranges (the bounding box of the window as cell indices; the
+polygon itself never leaves). To `cmr.earthdata.nasa.gov`: the
+collection short name and version and the window's dates, with no
+credential. No file, no local path and no data you hold goes to any
+of them.
+
+**Two credentials.** The account, and the GES DISC application
+authorized on it, a one-time acceptance only the account holder can
+give on the Earthdata Login site. Without it the login succeeds and
+every data request fails; the script reports the resolution URL and
+stops, and never uses a stored password to click through it. The
+connector concept `knowledge/connectors/gesdisc-earthaccess.md`
+records the failure shapes and the pull sizes.
+
+**When it is unavailable.** A subset request that returns anything but
+netCDF falls back to the archive file, cut locally; an archive failure
+leaves the day absent and the loader reports the month incomplete
+rather than filling it. Search through CMR works throughout.
+
 ## USGS basin services (the delineate-basin skill)
 
 **What it is.** The `delineate-basin` skill's script calls three
