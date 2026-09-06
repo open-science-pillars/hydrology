@@ -75,11 +75,15 @@ quality flag)" presumes discharge exists in the reach files; when it
 does not, a labeled substitute is the honest answer and the case
 should say whether that passes.
 
-Follow-ups from this run: the manifest's max_turns for this case to
-30 and the runner's per-trial timeout above 600 s (both in the evals
-repository); the case rubric to state the unpopulated-discharge
-outcome (this repository); and a runner that keeps transcripts, so a
-failure is readable without a rerun.
+Follow-ups from this run, all done 2026-09-06: the manifest's
+max_turns for this case is 30 and the runner's per-trial timeout is a
+flag defaulting to 1200 s (open-science-pillars/evals#11, which also
+records every trial in the results file and keeps transcripts under
+--transcripts); the case rubric now states the unpopulated-discharge
+outcome (a labeled gauge substitute beside the reach-level statement
+passes, a substitute presented as SWOT discharge fails). Trial 5
+above was graded under the earlier wording and its verdict stands as
+recorded; the next run measures the case under the new rubric.
 
 An N=5 interval is wide by construction (a perfect 5 of 5 is
 [0.57, 1.00]); the verdicts above say whether the observed rate
