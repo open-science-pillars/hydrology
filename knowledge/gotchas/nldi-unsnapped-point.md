@@ -4,6 +4,7 @@ title: "NLDI unsnapped point: a coordinate answers for the nearest flowline, not
 description: "A basin traced from a coordinate is the basin of whichever NHDPlus flowline is nearest (hydrolocation) or whichever catchment contains the point (comid/position); one kilometre from the Roaring Fork gauge both routes answer for the Colorado River, three times the area, and only the snapping route returns the distance, reach and measure that let the mismatch be seen."
 tags: [nldi, hydrolocation, snap, basin, delineation, point, usgs]
 generated: { by: claude-code/fable-5, at: 2026-09-06T18:20:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-06T19:12:06Z }
 severity: high
 dataset: ../connectors/nldi-basin.md
 eval_case: nldi-unsnapped-point
@@ -17,7 +18,7 @@ sources:
   - id: record
     resource: https://github.com/open-science-pillars/marketplace/issues/67
     title: "The basin-unit record: the unsnapped-point offset table"
-status: draft
+status: stable
 stale_after: 2027-03-06
 ---
 
@@ -63,6 +64,13 @@ route reproduces the gauge's own fixture polygon byte for byte
 (USGS-03611500) the containing catchment is comid 1840025 rather
 than the indexed 1840007 and its basin is 16 km2 short of the
 gauge's.[^nldi-probe][^record]
+
+The split-catchment process behind `splitCatchment=true`, run
+directly on the raw gauge coordinate (41 m off the flowline), is the
+same lesson in a different route: it returned the local catchment
+1324997 (14.13 km2) with a split portion of 0.006 km2 and no basin,
+the few raster cells draining to that bank point rather than the
+Roaring Fork above the gauge (19:09 UTC, 2026-09-06).
 
 **Wrong-result mode.** The user gives a coordinate they read off a
 map for a gauge, a bridge or a sampling site on a tributary; the

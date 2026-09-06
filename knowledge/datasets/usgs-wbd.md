@@ -4,9 +4,10 @@ title: "USGS Watershed Boundary Dataset (WBD): hydrologic units from HUC2 to HUC
 description: "The national hydrologic-unit polygons, versioned by publication date on the staged products and by loaddate and tnmid per unit on the map service; a unit is a drainage area with one outlet or a closed basin, and its areasqkm agrees with an equal-area measure of the polygon to five figures."
 tags: [wbd, huc, hydrologic-unit, watershed, usgs, nhd, hydrology]
 generated: { by: claude-code/fable-5, at: 2026-09-06T18:20:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-06T19:12:06Z }
 resource: https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer
 version: "map service document version 3.3.0 (queried 2026-09-06; per-unit loaddate and tnmid are the unit-level version); National GPKG published 2026-09-02; HU2 region GPKGs published 2025-01-08"
-status: draft
+status: stable
 stale_after: 2027-03-06
 sources:
   - id: wbd-service

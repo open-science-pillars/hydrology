@@ -4,6 +4,7 @@ title: "Terminal basins: a closed hydrologic unit has no outlet, and a tool that
 description: "A closed basin such as Tulare Lake is a valid WBD unit with no downstream unit and no gauge at an outlet; delineate it as the union of its units, measure it, and state that there is no outlet rather than tracing from a river it does not reach."
 tags: [wbd, huc, closed-basin, terminal, endorheic, tulare, nldi, hydrology]
 generated: { by: claude-code/fable-5, at: 2026-09-06T18:20:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-06T19:12:06Z }
 severity: medium
 dataset: ../datasets/usgs-wbd.md
 sources:
@@ -16,7 +17,7 @@ sources:
   - id: record
     resource: https://github.com/open-science-pillars/marketplace/issues/67
     title: "The basin-unit record: the Tulare Lake verification"
-status: draft
+status: stable
 stale_after: 2027-03-06
 ---
 
