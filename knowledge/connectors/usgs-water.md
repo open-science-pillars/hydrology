@@ -6,6 +6,7 @@ tags: [connector, usgs, nwis, streamflow, gauge, mcp, observations, waterdata]
 verified:
   - { by: human:PaulMRamirez, at: 2026-09-01T16:55:00Z }
   - { by: human:PaulMRamirez, at: 2026-09-05T00:17:00Z }
+  - { by: human:PaulMRamirez, at: 2026-09-06T17:01:38Z }
 status: stable
 citation:
   access_date_required: true

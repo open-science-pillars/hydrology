@@ -7,7 +7,9 @@ generated: { by: knowledge-seeder/claude, at: 2026-07-05T00:00:00Z }
 resource: https://api.waterdata.usgs.gov/ogcapi/v0/
 version: "USGS Water Data API daily and continuous collections (api-version 0.72.0) via dataretrieval 1.3.0 waterdata module (access verified 2026-09-06; first verified on the legacy services via dataretrieval 1.2.0 on 2026-07-05); dataretrieval's legacy nwis module is deprecated for removal on/after 2027-05-06"
 status: stable
-verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+verified:
+  - { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+  - { by: human:PaulMRamirez, at: 2026-09-06T17:01:38Z }
 stale_after: 2027-01-04
 ---
 
