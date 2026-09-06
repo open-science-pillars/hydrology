@@ -44,7 +44,9 @@ see marketplace/docs/surface-testing-guide.md.
 An Earthdata Login is needed only to retrieve data, never to search.
 It is read by earthaccess at download time and is never handled by
 this plugin, never sent to the connector above, and never stored in
-this repository in any form. USGS water data needs no account of any kind.
+this repository in any form. USGS water data needs no account; an
+optional key (`API_USGS_PAT`, from https://api.waterdata.usgs.gov/signup/)
+raises the rate limit and is handled only as described below.
 
 ## Observations MCP (`observations`)
 
@@ -56,9 +58,19 @@ file. The groups this bundle uses: USGS NWIS stream gauges and
 PO.DAAC Hydrocron SWOT river series.
 
 **What leaves your machine.** Query parameters only (site and reach
-identifiers, time ranges), over HTTPS to the agency endpoints. Every
-source is anonymous; no credential exists in the process. Nothing
-you hold is sent.
+identifiers, time ranges), over HTTPS to the agency endpoints. One
+optional credential exists. If `API_USGS_PAT` is set in your
+environment, the server sends its value as an `X-Api-Key` header to
+api.waterdata.usgs.gov and to no other host; the request URL that
+every response, capture manifest and receipt copies never carries
+it, and the server's selftests assert a sentinel key appears in none
+of them. The two USGS skills, which fetch through dataretrieval's
+waterdata module rather than the server, read the same variable and
+send it the same way. Unset, USGS requests share the per-address
+bucket with everything else on your machine that calls that API, and
+a 429 comes back as a structured error; the server never retries
+against that host. Hydrocron takes no credential. Nothing else you
+hold is sent.
 
 **When it is unavailable.** Nothing breaks; gates and attesters never
 call it.
