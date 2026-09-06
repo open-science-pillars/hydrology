@@ -5,9 +5,10 @@
 # Golden for drought-analysis (the golden-notebook requirement: one
 # fixture-backed asserting script per workflow skill): asserts
 # the drought-index recipe's measured anchors on cached fixtures
-# (Roaring Fork 09085000, 2021 drought vs 2023 wet, 1991-2020 daily
-# climatology; pulled 2026-07-05). The recipe is the authority for
-# every number here.
+# (Roaring Fork USGS-09085000, 2021 drought vs 2023 wet, 1991-2020
+# daily climatology; from the USGS Water Data API through
+# dataretrieval, regenerate via fixtures/fetch_usgs_fixtures.py). The
+# recipe is the authority for every number here.
 
 import marimo
 
@@ -24,15 +25,17 @@ def _():
 
     fx = Path(__file__).parent / "fixtures"
     clim = pd.read_parquet(fx / "roaring_fork_00060_clim9120_dv.parquet")
-    clim["doy"] = pd.to_datetime(clim["datetime"]).dt.dayofyear
-    groups = clim.groupby("doy")["00060_Mean"]
+    clim["doy"] = pd.to_datetime(clim["time"]).dt.dayofyear
+    groups = clim.groupby("doy")["value"]
 
     def index_for(year_file):
         df = pd.read_parquet(fx / year_file)
-        df["doy"] = pd.to_datetime(df["datetime"]).dt.dayofyear
-        # approved values only, per the recipe ("A" and "A, e" both approved)
-        df = df[df["00060_Mean_cd"].str.startswith("A")]
-        pct = np.array([(groups.get_group(r.doy) < r["00060_Mean"]).mean() * 100
+        df["doy"] = pd.to_datetime(df["time"]).dt.dayofyear
+        # approved values only, per the recipe; an ESTIMATED qualifier
+        # on an approved day does not exclude it (the API reports
+        # approval_status and the qualifier list as separate columns)
+        df = df[df["approval_status"] == "Approved"]
+        pct = np.array([(groups.get_group(r.doy) < r["value"]).mean() * 100
                         for _, r in df.iterrows() if r.doy in groups.groups])
         return pct
 
@@ -41,8 +44,10 @@ def _():
 
 @app.cell
 def _(index_for, np):
-    # Recipe anchors, measured 2026-07-05; tolerance well inside the
-    # recipe's expected_uncertainty (+/- ~3 percentile points).
+    # Recipe anchors, measured 2026-07-05 on the legacy service and
+    # re-measured 2026-09-06 on the Water Data API fixtures (identical);
+    # tolerance well inside the recipe's expected_uncertainty (+/- ~3
+    # percentile points).
     p21 = index_for("roaring_fork_00060_2021_dv.parquet")
     p23 = index_for("roaring_fork_00060_2023_dv.parquet")
 

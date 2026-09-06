@@ -43,7 +43,8 @@ from it.
 
 New to the project's vocabulary? See the
 [glossary](https://github.com/open-science-pillars/marketplace/blob/main/GLOSSARY.md).
-USGS water data needs no login. Retrieving NASA data (SWOT, GRACE,
+USGS water data needs no login (an optional key in `API_USGS_PAT`
+raises the rate limit). Retrieving NASA data (SWOT, GRACE,
 SMAP) needs an Earthdata Login, which earthaccess reads from the
 environment (`EARTHDATA_TOKEN`, or username and password variables),
 from `~/.netrc`, or from an interactive prompt; searching for data
