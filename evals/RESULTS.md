@@ -8,6 +8,74 @@ passing only when every grader present agrees (the rubric judge is the
 case's own rubric text), pass rate with a Wilson 95% interval against
 the case's threshold of 0.8. Newest first.
 
+## 2026-09-06, N=5, claude-fable-5: the two IMERG cases (first run)
+
+The cases written beside the two high-severity IMERG gotchas, run the
+day they were registered (open-science-pillars/evals pull 14).
+Workspace: the hydrology checkout at the precipitation merge
+(open-science-pillars/hydrology pull 30, main at 4033231) handed to
+each trial with `--plugin-dir`, the installed hydrology plugin
+disabled for the trial by a `--settings` override (the runner records
+both under `claude_args`); core 0.4.1 and nasa-daac-knowledge 2026.9.2
+as installed. Launched from an empty directory so no project
+instructions or memory reached the trials. Allowed tools per the
+manifest: Read and Skill for imerg-run-mixing (max_turns 20); Read,
+Skill, Bash(uv run*) and Write for the cold-season case (max_turns
+25). Judge claude-fable-5 on the case rubric. Wall clock about 22 min
+for ten trials plus judging.
+
+| Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
+|---|---|---|---|---|---|---|
+| imerg-cold-season-orographic-underestimation | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+| imerg-run-mixing | 2 | 5 | 0.40 | [0.12, 0.77] | 0 | FAIL |
+
+| Trial | Case | Wall clock | Verdict | What the transcript shows |
+|---|---|---|---|---|
+| 1 | cold-season | 75 s | PASS | ran the loader on both fixtures; 320.44 mm and 88.585 km3 with the run named and 2,869 of 5,412 cells; the NLDAS-2 check beside it at 374.53 mm; ratios 0.86 and 0.68 stated as an underestimate with values present |
+| 2 | cold-season | 72 s | PASS | the same, with the release-notes snowfall caveat quoted and the gauge analysis named as a check rather than truth |
+| 3 | cold-season | 66 s | PASS | the same; the November through March ratio carried into the water-balance advice |
+| 4 | cold-season | 78 s | PASS | the same; NLDAS-2's own high-elevation undercatch stated beside it |
+| 5 | cold-season | 64 s | PASS | the same; the fixture named and the cold-season months listed |
+| 1 | run-mixing | 194 s | ERROR (graded FAIL) | reached the 20-turn limit with no answer written; the turns went to a hand search of the installed plugin cache for an IMERG concept that is not in the installed version |
+| 2 | run-mixing | 192 s | PASS | read the checkout's dataset and run-mixing concepts; Final ends 2025-09-30, Late named per segment as a different calibration, both the 2025-10-01 run seam and the 2026-03-01 calibration seam required in the methods text |
+| 3 | run-mixing | 180 s | FAIL | everything else right, but the calibration seam dated 2026-03-03 (the V07B to V07C label change) instead of 2026-03-01 (the calibration change); the trial had searched the installed bundles, found no IMERG concept, and read the date off granule labels |
+| 4 | run-mixing | 192 s | PASS | as trial 2 |
+| 5 | run-mixing | 193 s | FAIL | as trial 3, and it added that March 2026 mixes two V07B days with 29 V07C days |
+
+The cold-season case passes at 5 of 5: every trial ran the loader
+rather than reading the file by hand, and every trial ran the
+gauge-based check the gotcha names as the correct approach.
+
+The run-mixing case fails at 2 of 5, and the split is not about the
+gotcha. Every failing trial got the end of the Final record, the run
+attribution per segment and the refusal to call the series continuous
+right. All three failures share one cause: the trial searched the
+installed bundles, found no IMERG concept there (the installed
+hydrology plugin is 0.4.0, cut before this work), and reconstructed
+the second seam from CMR granule labels, which put the V07B to V07C
+label change of 2026-03-03 in the methods text where the calibration
+change of 2026-03-01 belongs. Both dates are real and the dataset
+concept carries both; a trial that read the concept got the
+distinction, a trial that did not, did not.
+
+The measurement therefore found a discovery defect, not a knowledge
+defect. `claude plugin list --json` does not list a plugin loaded from
+a directory with `--plugin-dir`, and it does not reflect a session's
+`--settings` override, so a bundle search run the way the core
+consult-knowledge skill describes finds the stale installed bundle and
+reports the concept missing (open-science-pillars/core issue 24). The
+load-precipitation skill now anchors its concept pointers at
+`${CLAUDE_PLUGIN_ROOT}` so the concepts resolve from the running
+plugin's own root either way.
+
+A rerun of the case with the anchored skill was stopped by a model
+usage limit after three trials (1 pass, 2 fails, both fails the same
+seam date, both from trials that again searched the installed
+bundles); trials 4 and 5 returned the limit message and are recorded
+as errors, not failures. The case stays FAIL until it is measured
+again at N=5 against an install that carries the concepts. The rate
+above is the first run, which is the complete one.
+
 ## 2026-09-06, N=5, claude-fable-5: nldi-unsnapped-point (first run)
 
 The case written beside the high-severity unsnapped-point gotcha,
