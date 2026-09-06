@@ -2,6 +2,30 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-06 · THE USGS CONCEPTS MOVE TO THE WATER DATA API.
+  connectors/usgs-water.md rewritten on the probed facts of
+  api.waterdata.usgs.gov (collections, cursor paging with no
+  server-side total, the optional key as X-Api-Key from API_USGS_PAT,
+  keyed rate-limit headers vs none unkeyed, no retry on 429, the
+  continuous collection one rolling year deep, daily to 1921) with
+  the legacy waterservices.usgs.gov host kept as a dated deprecation
+  fact (decommission window 2026-11 through 2027-02) and stale_after
+  moved to 2026-11-01, the opening of that window; the server source
+  pinned to the core commit that carries the migrated tools.
+  datasets/nwis-streamflow.md: structure paragraph restated in the
+  new API's vocabulary (approval_status Approved/Provisional beside a
+  separate qualifier list; ESTIMATED days are still Approved), resource
+  and version moved to the new API via dataretrieval 1.3.0, the
+  legacy one-column layout kept as a dated note. gotchas/
+  nwis-provisional-data.md: the qualifier vocabulary as the new API
+  returns it, the 2026-07-05 legacy observation kept beside the
+  2026-09-06 one; the trap is unchanged. All three edited after their
+  signatures and owe one under the merge-then-sign rule; the steward
+  signs after the merge. The five parquet fixtures were refetched from
+  the new API in a documented schema (verification/fixtures/README.md;
+  the calendar-2023 Lees Ferry fixture matched the legacy capture
+  value for value) and every golden anchor re-measured identical.
+  (claude-code, for the steward)
 - 2026-09-05 · STEWARD RE-SIGNING of
   recipes/grace-groundwater-partitioning.md at 20:22:37Z, entered on
   the steward's explicit instruction. The wording pass that replaced

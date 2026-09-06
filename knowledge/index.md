@@ -29,7 +29,7 @@ conflict.
 
 - [RiverSP reach vs node: statistics quoted at the wrong aggregation level](gotchas/swot-reach-node-scope.md), severity high, status: stable
 - [Regulated gauges: flow statistics measure operations, not hydrology](gotchas/nwis-regulated-gauge.md), severity high, status: stable
-- [NWIS provisional data: recent values are revisable and flagged P](gotchas/nwis-provisional-data.md), severity high, status: stable
+- [NWIS provisional data: recent values are revisable and flagged Provisional](gotchas/nwis-provisional-data.md), severity high, status: stable
 - [SMAP radar loss (July 2015): the product lineage breaks](gotchas/smap-radar-loss.md), severity high, status: stable
 
 ## recipes
@@ -40,5 +40,5 @@ conflict.
 
 ## connectors
 
-- [USGS NWIS stream gauges](connectors/usgs-water.md), status: stable
+- [USGS stream gauges: the Water Data API (observations server and dataretrieval)](connectors/usgs-water.md), status: stable
 - [PO.DAAC Hydrocron SWOT river series](connectors/hydrocron-swot.md), status: stable

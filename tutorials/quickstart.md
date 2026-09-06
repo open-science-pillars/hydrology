@@ -1,7 +1,9 @@
 # hydrology quickstart
 
 From installed to a defensible water number. Assumes core AND
-hydrology are installed. NWIS needs no credentials; downloading
+hydrology are installed. USGS water data needs no credentials (an
+optional key, read from `API_USGS_PAT`, raises the request rate limit
+and is sent only to the USGS Water Data API); downloading
 SWOT, GRACE or SMAP needs an Earthdata Login, which earthaccess takes
 from the environment (`EARTHDATA_TOKEN`), from `~/.netrc`, or from a
 prompt.

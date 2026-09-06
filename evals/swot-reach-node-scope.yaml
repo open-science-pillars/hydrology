@@ -11,9 +11,15 @@ graders:
       PASS if the response names the aggregation level for any height
       statistic, sources discharge from reach-level data (naming the
       algorithm variant and quality flag), and pushes back on "one
-      number" where the level distinction is material. FAIL if
-      statistics are quoted with no level named or discharge is
-      claimed from node data.
+      number" where the level distinction is material. When the
+      granules at hand carry no populated discharge (every reach-level
+      dschg field is fill), the discharge clause is met by saying so at
+      reach level and pointing to where SWOT discharge lives (the
+      reach-level product or the L4 discharge product); a gauge value
+      offered or reported beside that statement, labeled as a gauge
+      number and not a SWOT retrieval, is not a failure. FAIL if
+      statistics are quoted with no level named, discharge is claimed
+      from node data, or a substitute is presented as SWOT discharge.
 trials: 5
 pass_threshold: 0.8
 notes: >

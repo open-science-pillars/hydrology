@@ -5,8 +5,10 @@
 # Golden for reservoir-analysis (the golden-notebook requirement: one
 # fixture-backed asserting script per workflow skill): asserts
 # the reservoir-storage-change recipe's measured anchors on the cached
-# Lake Powell 2023 fixture (09379900, 62614 daily elevation, pulled
-# 2026-07-05). Calendar-year endpoint convention, as the recipe states.
+# Lake Powell 2023 fixture (USGS-09379900, 62614 daily mean elevation,
+# from the USGS Water Data API through dataretrieval; regenerate via
+# fixtures/fetch_usgs_fixtures.py). Calendar-year endpoint convention,
+# as the recipe states.
 
 import marimo
 
@@ -27,11 +29,14 @@ def _():
 
 @app.cell
 def _(df):
-    e = df["62614_Mean"]
-    quals = df["62614_Mean_cd"].value_counts().to_dict()
-    assert quals == {"A": 365}, f"expected fully approved year, got {quals}"
+    assert df["parameter_code"].iloc[0] == "62614" and df["unit_of_measure"].iloc[0] == "ft"
+    e = df["value"]
+    quals = df["approval_status"].value_counts().to_dict()
+    assert quals == {"Approved": 365}, f"expected fully approved year, got {quals}"
 
-    # Recipe anchors (measured 2026-07-05), calendar convention.
+    # Recipe anchors (measured 2026-07-05 on the legacy service,
+    # re-measured 2026-09-06 on the Water Data API fixture, identical),
+    # calendar convention.
     assert abs(e.iloc[0] - 3524.40) < 0.01
     assert abs(e.min() - 3519.50) < 0.01
     assert abs(e.max() - 3584.30) < 0.01
