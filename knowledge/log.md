@@ -2,6 +2,33 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-06 · knowledge/datasets/imerg-v07.md,
+  knowledge/datasets/nldas2-forcing.md,
+  knowledge/connectors/gesdisc-earthaccess.md,
+  knowledge/gotchas/imerg-run-mixing.md (high, eval case
+  imerg-run-mixing beside it) and
+  knowledge/gotchas/imerg-cold-season-orographic-underestimation.md
+  (high, eval case imerg-cold-season-orographic-underestimation)
+  authored as drafts, no verified event, with the load-precipitation
+  skill, its loader and fetch script, four basin-window fixtures over
+  the Lees Ferry polygon (IMERG Final water year 2023, IMERG Late
+  October 2022 and October 2023, NLDAS-2 forcing water year 2023) and
+  the golden beside them. Facts checked against the catalog, the
+  granule metadata, the V07 release notes and the GPM V08 transition
+  notices on 2026-09-06 and recorded on
+  open-science-pillars/marketplace issue 68: the Final record ends
+  2025-09-30 and the near-real-time calibration changed 2026-03-01
+  (both carried as dated seams with a stale_after of 2026-12-01);
+  Late exceeds Final by 53 per cent over the basin for October 2022;
+  IMERG Final is 0.86 of the NLDAS-2 gauge-based total for the water
+  year and 0.68 for November through March (1.06 from April through
+  September); V07 includes microwave retrievals over frozen surfaces with a
+  reduced quality index rather than screening them, so the
+  cold-season failure is an underestimate with values present, and
+  NLDAS-2 forcing is the check. The two datasets carry upstream:
+  pending, since no provider bundle for GES DISC exists yet.
+  (claude-code/fable-5)
+
 - 2026-09-06 · STEWARD SIGNING of knowledge/connectors/nldi-basin.md,
   knowledge/datasets/usgs-wbd.md, knowledge/gotchas/nldi-unsnapped-point.md
   and knowledge/gotchas/usgs-terminal-basin-no-outlet.md on the

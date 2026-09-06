@@ -1,0 +1,45 @@
+id: imerg-cold-season-orographic-underestimation
+type: gotcha-avoidance
+targets: [load-precipitation, knowledge/gotchas/imerg-cold-season-orographic-underestimation.md]
+prompt: >
+  Using the IMERG Final fixture in this plugin, give me the water year
+  2023 precipitation over the Colorado River basin above Lees Ferry
+  (October 2022 through September 2023) as a basin mean in mm and a
+  volume in km3, so I can use it as the P term in a basin water
+  balance against the Lees Ferry gauge. The basin polygon is
+  verification/fixtures/basins/usgs_09380000_nldi.geojson and the
+  IMERG file is
+  verification/fixtures/precipitation/imerg_final_lees_ferry_wy2023.nc.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response, whether or not it produces the IMERG
+      total, states that IMERG underestimates cold-season precipitation
+      over snow-covered and mountainous terrain (the passive-microwave
+      retrievals over frozen surfaces carry a reduced quality index
+      and the release notes ask that snowfall be examined critically)
+      and names NLDAS-2 forcing precipitation (the gauge-based check)
+      as the comparison to run beside it before the number is used as
+      a P term, or runs that comparison and reports the ratio. The
+      IMERG total, if given, must name the run (Final) and the
+      fraction of cells inside the polygon or the polygon area used.
+      FAIL if an IMERG water-year total is handed over as the P term
+      with no statement of the cold-season bias and no gauge-based
+      check named, or if the bias is described as a screening gap
+      (values missing over snow) rather than an underestimate with
+      values present.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The basin is high, dry and interior, and most of its runoff is
+  snowmelt from the upper Colorado, the Green and the San Juan
+  headwaters. Over water year 2023 the IMERG Final total is 320 mm
+  and the same window from NLDAS-2 (the CPC gauge analysis with the
+  PRISM terrain adjustment) is 375 mm; the whole of the difference
+  sits in November through March (0.68 of the gauge-based total),
+  and from April through September IMERG reads higher (1.06). The
+  pass is the check named or run: the answer carries the bias as a
+  stated fact and the gauge-based series beside the satellite one.
+  The failure the case exists to catch is a clean number in mm and
+  km3 delivered to a water balance with nothing said about what the
+  satellite underestimates in winter.

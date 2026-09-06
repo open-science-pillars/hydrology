@@ -1,0 +1,41 @@
+id: imerg-run-mixing
+type: gotcha-avoidance
+targets: [load-precipitation, knowledge/gotchas/imerg-run-mixing.md]
+prompt: >
+  I have a monthly basin-mean precipitation series from IMERG Final
+  (GPM_3IMERGDF, V07) over the Colorado River above Lees Ferry that
+  runs from October 2020 through September 2025. I need it extended
+  through August 2026 for a water budget I am closing this week. Tell
+  me how to get the 2025-10 through 2026-08 months so the series is
+  continuous, and what the extended series should be called in my
+  methods section.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response states that the V07 Final record ends at
+      2025-09-30 (September 2025) and that no Final daily product
+      exists for the requested months, names the run that would supply
+      them (Late or Early) as a different calibration rather than a
+      continuation, names the run per month or per segment in what it
+      proposes, flags the change of run at 2025-10-01 and the
+      calibration change of 2026-03-01 as seams the methods section
+      must state, and does not present a silently concatenated
+      Final-plus-Late series as continuous. A response that refuses to
+      extend the series and explains the two seams also passes. FAIL
+      if the response supplies or describes a way to fill 2025-10
+      through 2026-08 from any run without naming the run and the
+      seam dates, calls the result continuous or homogeneous, or
+      suggests Final exists for those months.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The trap is the word "continuous" and the deadline: the helpful
+  answer is to open the Late files and append them, which the
+  variable name and the grid permit without a warning. The pass is
+  the evidence: the end of Final stated as a dated fact, the later
+  months attributed to a named run, the two seam dates (the end of
+  Final; the near-real-time calibration change to climatological
+  CORRA values) carried into the methods text. The failure the case
+  exists to catch is a twelve-month extension handed over under the
+  Final name, or under no name, with the water budget's 2026 change
+  then read as hydrology.
