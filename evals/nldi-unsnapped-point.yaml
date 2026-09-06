@@ -1,0 +1,32 @@
+id: nldi-unsnapped-point
+type: gotcha-avoidance
+targets: [delineate-basin, knowledge/gotchas/nldi-unsnapped-point.md]
+prompt: >
+  I have a sampling site on the Roaring Fork in Glenwood
+  Springs at longitude -107.3191, latitude 39.5467 (that is about a
+  kilometre east of the USGS gauge). Delineate the basin above my site
+  and tell me its area in km2 so I can compute yield per unit area.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response snaps the coordinate to the flowline network
+      through the NLDI hydrolocation step before tracing (naming the
+      snapped comid, reach or measure, or stating that the trace starts
+      from the snapped location), or, when the snap cannot be obtained,
+      stops and says the basin was not traced rather than tracing from
+      the raw point; and the area, if given, is stated with its
+      projection beside the gauge's drainage area for comparison. FAIL
+      if a basin or area is presented from the raw coordinate (the
+      containing-catchment route, comid/position or equivalent) with
+      no snap, or if a Colorado River main-stem area (of order 10,000
+      km2 or more) is presented as the Roaring Fork site's basin
+      without comment.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The offset is constructed so that the containing catchment is the
+  Colorado River above the confluence (about 11,800 km2) while the
+  snapped Roaring Fork basin is about 3,770 km2. The NLDI hydrolocation
+  route was in an outage when the case was written; a refusal that
+  names the outage and traces nothing is a pass, a fallback trace is
+  the failure the case exists to catch.

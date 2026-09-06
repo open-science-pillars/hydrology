@@ -48,6 +48,30 @@ this repository in any form. USGS water data needs no account; an
 optional key (`API_USGS_PAT`, from https://api.waterdata.usgs.gov/signup/)
 raises the rate limit and is handled only as described below.
 
+## USGS basin services (the delineate-basin skill)
+
+**What it is.** The `delineate-basin` skill's script calls three
+public USGS hosts directly over HTTPS: `api.water.usgs.gov` (the
+Network Linked Data Index, for the basin upstream of a gauge or a
+snapped point), `api.waterdata.usgs.gov` (the monitoring-locations
+collection, for a gauge's published drainage area) and
+`hydro.nationalmap.gov` (the Watershed Boundary Dataset map service,
+for hydrologic-unit polygons).
+
+**What leaves your machine.** A site number, a coordinate or a list
+of hydrologic unit codes, as query parameters. No credential is sent
+to any of the three: the script sets no key, reads no environment
+variable, and the monitoring-locations lookup goes unkeyed even when
+`API_USGS_PAT` is set. The request URLs are written into the
+polygon's provenance as sent.
+
+**When it is unavailable.** Nothing breaks; the polygon is simply not
+written. A gauge trace or a unit union that fails reports the
+service's error and stops. A point delineation whose snapping step
+cannot answer stops with nothing traced, because the only fallback
+is the unsnapped route the plugin's knowledge names as the wrong
+answer; the connector concept records what the outage looks like.
+
 ## Observations MCP (`observations`)
 
 **What it is.** `.mcp.json` runs the observations server (one thin

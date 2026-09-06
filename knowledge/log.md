@@ -2,6 +2,20 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-06 · knowledge/connectors/nldi-basin.md,
+  knowledge/datasets/usgs-wbd.md, knowledge/gotchas/nldi-unsnapped-point.md
+  (high, eval case nldi-unsnapped-point beside it) and
+  knowledge/gotchas/usgs-terminal-basin-no-outlet.md (medium) authored
+  as DRAFTS from live probes of the NLDI, the Water Data API
+  monitoring-locations collection and the Watershed Boundary Dataset
+  service (three gauge traces against published drainage areas, the
+  1 km offset table around 09085000, the Tulare Lake Bed union); the
+  NLDI hydrolocation and splitCatchment routes were in an outage for
+  the whole probe window, recorded as dated fact in the connector
+  concept with the split effect owed. The delineate-basin skill, its
+  script, four basin fixtures and a golden landed beside them.
+  (claude-code/fable-5; unsigned)
+
 - 2026-09-06 · STEWARD RE-SIGNING of knowledge/recipes/drought-index.md:
   drought-index recipe re-signed after its rewrite in the Water Data API
   vocabulary (approval as the gate, qualifier as disclosure; expected

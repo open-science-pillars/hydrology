@@ -43,6 +43,11 @@ from it.
   is copied into this repository.
 - **Applied workflows**: a streamflow drought index and a reservoir
   storage-change analysis, each validated against real gauge records.
+- **Basin delineation**: the polygon above a gauge or a snapped point
+  from the USGS NLDI, or a union of Watershed Boundary Dataset units,
+  written with its provenance and measured in an equal-area
+  projection beside the gauge's drainage area; a closed basin comes
+  back as closed, with no invented outlet.
 
 New to the project's vocabulary? See the
 [glossary](https://github.com/open-science-pillars/marketplace/blob/main/GLOSSARY.md).

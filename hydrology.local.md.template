@@ -6,6 +6,7 @@ workflows read this file; nothing here is a credential.
 ## Region and gauges
 
 - Basin(s) of interest: <name, HUC if known>
+- Basin polygons: <path the delineate-basin skill writes to, e.g. ./basins; each GeoJSON carries its provenance>
 - Reference gauges (near-natural; drought/climate work):
   <site numbers as strings, e.g. "09085000">
 - Operational gauges (regulated; operations questions):
