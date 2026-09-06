@@ -2,6 +2,16 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-06 · STEWARD RE-SIGNING of knowledge/connectors/usgs-water.md,
+  knowledge/datasets/nwis-streamflow.md, knowledge/gotchas/nwis-
+  provisional-data.md: Steward signature on the three USGS concepts as
+  merged for the Water Data API: the connector's endpoints, paging, key,
+  depth, rate-limit and legacy-host facts; the dataset's approval_status
+  and qualifier vocabulary; the gotcha's approval-beside-qualifier
+  mechanism. Signed at the steward's instruction after the merge. The
+  new verified event is appended on the steward's word, the earlier
+  events kept as history. (steward)
+
 - 2026-09-06 · THE USGS CONCEPTS MOVE TO THE WATER DATA API.
   connectors/usgs-water.md rewritten on the probed facts of
   api.waterdata.usgs.gov (collections, cursor paging with no

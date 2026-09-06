@@ -16,7 +16,9 @@ sources:
     resource: https://waterdata.usgs.gov/monitoring-location/09380000/
     title: "USGS monitoring location 09380000 (Colorado River at Lees Ferry)"
 status: stable
-verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+verified:
+  - { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+  - { by: human:PaulMRamirez, at: 2026-09-06T17:01:38Z }
 stale_after: 2027-01-04
 ---
 
