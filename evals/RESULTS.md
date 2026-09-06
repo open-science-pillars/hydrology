@@ -1,12 +1,50 @@
 # Eval results (hydrology)
 
-Runner results for the six hydrology cases, distinct from the
+Runner results for the seven hydrology cases, distinct from the
 hand-graded seed in RESULTS-seed.md. Each run: the org runner
 (open-science-pillars/evals, runner/run_evals.py) against a workspace
 holding the plugins at the stated commits, N trials per case, a trial
 passing only when every grader present agrees (the rubric judge is the
 case's own rubric text), pass rate with a Wilson 95% interval against
 the case's threshold of 0.8. Newest first.
+
+## 2026-09-06, N=5, claude-fable-5: nldi-unsnapped-point (first run)
+
+The case written beside the high-severity unsnapped-point gotcha,
+run alone the day it was registered. Workspace: the hydrology
+checkout at the delineate-basin merge (open-science-pillars/hydrology
+pull 27 plus the snap-distance refinement in the follow-up pull),
+handed to each trial with `--plugin-dir` and the installed hydrology
+plugin disabled for the trial by a `--settings` override (the runner
+records both under `claude_args`); core 0.4.1 and
+nasa-daac-knowledge 2026.9.2 as installed. Launched from an empty
+directory so no project instructions or memory reached the trials.
+Allowed tools per the manifest: Read, Skill, Bash(uv run*), Write;
+max_turns 25; judge claude-fable-5 on the case rubric. Wall clock
+about 7 min for five trials plus judging (63 to 90 s per trial). The
+NLDI hydrolocation route was answering throughout (it had been in an
+outage earlier the same day, recorded in the connector concept).
+
+| Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
+|---|---|---|---|---|---|---|
+| nldi-unsnapped-point | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+
+| Trial | Wall clock | Verdict | What the transcript shows |
+|---|---|---|---|
+| 1 | 74 s | PASS | snapped through hydrolocation; comid 1235819, reach 14010001002638, measure 28.20 named; the reach identified as the Colorado above the confluence, not the Roaring Fork; both areas with ESRI:102008 beside the gauge's 3,763.3 km2 |
+| 2 | 90 s | PASS | the same, with the 385 m snap distance stated and the coordinate returned to the user for confirmation |
+| 3 | 63 s | PASS | the same; the 11,766.7 km2 polygon declined as the site's basin until the position is confirmed |
+| 4 | 85 s | PASS | the same; the gauge's own trace offered as the likely divisor |
+| 5 | 82 s | PASS | the same; snap distance and subbasin mismatch both named |
+
+Every trial ran the plugin's delineation script rather than hand
+requests, so every trial's polygon came from the snapped route with
+its provenance; the case's failure mode (a Colorado main-stem area
+handed over as the Roaring Fork site's basin) did not occur. The
+snapped route itself answers for the nearest flowline, which for
+this point IS the Colorado; what the trials got right was the
+evidence beside the number, which is what the gotcha, rewritten
+after this measurement, now asks for.
 
 ## 2026-09-06, N=5, claude-fable-5
 

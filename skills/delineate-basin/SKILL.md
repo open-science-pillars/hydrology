@@ -40,8 +40,10 @@ and is read from there per delineation, never restated here.
    - `knowledge/gotchas/nldi-unsnapped-point.md`
    - `knowledge/gotchas/usgs-terminal-basin-no-outlet.md`
 3. **Delineate through the script, not by hand.** Run
-   `uv run verification/fixtures/delineate_basin.py` from the plugin
-   root with `--gauge SITE`, `--point LON LAT` or `--huc CODE...`,
+   `uv run ${CLAUDE_PLUGIN_ROOT}/verification/fixtures/delineate_basin.py`
+   (the script ships with this plugin; the variable is this plugin's
+   installed root) with `--gauge SITE`, `--point LON LAT` or `--huc
+   CODE...`,
    `--compare SITE` where a gauge's published drainage area is the
    right comparison, `--name` and `--out` for where the polygon
    goes. The script sources the trace or the union, snaps a point
@@ -50,7 +52,13 @@ and is read from there per delineation, never restated here.
    polygon in the equal-area projection the concept names, and
    writes the GeoJSON with a `provenance` member (source, requests,
    date, version, geometry sha256, area and projection, snap or units,
-   comparison, outlet). Report the summary line it prints.
+   comparison, outlet). Report the summary line it prints. For a
+   point, the snap line (distance moved, reach, its subbasin, measure)
+   is checked against the river the user named, or the comparison
+   gauge's hydrologic unit: a snap of hundreds of metres or a reach in
+   another subbasin means the nearest flowline is probably not the
+   river meant, and the polygon waits for the user's confirmation or
+   a better position, as the gotcha concept sets out.
 4. **Say what the number is.** The area is stated with its projection
    and beside the gauge's published total drainage area and
    contributing area where they exist, with the difference and, from
@@ -72,7 +80,10 @@ and is read from there per delineation, never restated here.
 - Never trace a basin from a raw point: a point goes through the
   snapping route first, and when that route cannot answer the
   delineation stops and says so. The gotcha concept records why the
-  fallback is the wrong river. (Hard rule: fires on every point.)
+  fallback carries no evidence. (Hard rule: fires on every point.)
+- Never present a snapped point's polygon without its snap distance
+  and reach, and never as the basin of a river the reach does not
+  belong to.
 - Never invent a contributing area, a drainage area or an outlet: a
   null field is reported as absent, a closed basin as closed.
 - Never state an area without its projection, and never present the

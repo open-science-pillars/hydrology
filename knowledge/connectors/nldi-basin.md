@@ -55,8 +55,13 @@ A point has two routes. `linked-data/hydrolocation?coords=POINT(lon lat)`
 is described as "Return hydrologic location nearest to coordinates...
 the nearest hydrologic location on the NHD flowline network, plus the
 original provided point"; it returns the snapped point with its
-`comid`, `reachcode` and `measure`, and that `comid` then goes to
-`linked-data/comid/{comid}/basin`. The other route,
+`comid`, `reachcode` and `measure` (the response holds two features,
+the `hydrolocation` and the `point` provided, told apart by their
+`type`), and that `comid` then goes to
+`linked-data/comid/{comid}/basin`; the gauge coordinate of 09085000
+snapped 41 m onto its indexed reach and traced the gauge's own
+fixture polygon byte for byte. The nearest flowline is not always
+the river the user meant, which is the unsnapped-point gotcha. The other route,
 `linked-data/comid/position?coords=`, "Locates the catchment
 containing the point, then returns the corresponding NHD flowline";
 it snaps nothing and returns no measure, and it is the route the
@@ -76,16 +81,18 @@ Glenwood Springs, 09085000) to 522,879 km2 (Ohio at Metropolis,
 request that the backend cannot answer in time comes back as HTTP
 502 with a JSON body `{"title": "Bad Gateway", "status": 502,
 "detail": "Error executing process: ... Read timed out. (read
-timeout=5)", "upstream_status": 400}`. Between 17:38 and at least
-18:12 UTC on 2026-09-06 every `hydrolocation` request and every
-`splitCatchment=true` request returned that 502 (the split detail
-read `'NoneType' object has no attribute 'lower'`), while plain
-traces, `comid/position` and the gauge lookups answered normally. A
-502 with `upstream_status` 400 is therefore the backend, not the
-request; the client waits up to 300 s and does not retry, and a point
-delineation that cannot snap stops with nothing traced and nothing
-written, because the only fallback is the unsnapped
-route.[^nldi-probe]
+timeout=5)", "upstream_status": 400}`. Between 17:38 and 18:12 UTC
+on 2026-09-06 every `hydrolocation` request returned that 502, while
+plain traces, `comid/position` and the gauge lookups answered
+normally; by 18:39 `hydrolocation` answered again. A 502 with
+`upstream_status` 400 is therefore the backend, not the request; the
+client waits up to 300 s and does not retry, and a point delineation
+that cannot snap stops with nothing traced and nothing written,
+because the only fallback is the unsnapped route. The
+`splitCatchment=true` route failed throughout the same day, before,
+during and after the hydrolocation outage, with a different detail
+(`'NoneType' object has no attribute 'lower'`), so it is a fault of
+its own and not the same outage.[^nldi-probe]
 
 **Two parameters change the polygon.** `simplified=true` is the
 default and what the fixtures hold; on 09085000 the unsimplified
@@ -96,8 +103,8 @@ choice.[^nldi-probe] `splitCatchment=true` clips the gauge's own
 NHDPlus catchment at the gauge's position instead of including it
 whole; the effect is the fraction of one catchment, largest in
 relative terms on a small basin. Its size on the three fixture basins
-is UNMEASURED: the split route was in the outage above for the whole
-of the probe window. That measurement is owed to this concept and the
+is UNMEASURED: the split route failed for the whole of 2026-09-06 as
+recorded above. That measurement is owed to this concept and the
 fixtures were traced with the default, recorded in each file's
 provenance as `splitCatchment: false`.[^nldi-probe][^record]
 
