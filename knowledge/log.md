@@ -2,6 +2,13 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-06 · STEWARD RE-SIGNING of knowledge/recipes/drought-index.md:
+  drought-index recipe re-signed after its rewrite in the Water Data API
+  vocabulary (approval as the gate, qualifier as disclosure; expected
+  values re-measured identical on the migrated fixtures) The new
+  verified event is appended on the steward's word, the earlier events
+  kept as history. (steward)
+
 - 2026-09-06 · STEWARD RE-SIGNING of knowledge/connectors/usgs-water.md,
   knowledge/datasets/nwis-streamflow.md, knowledge/gotchas/nwis-
   provisional-data.md: Steward signature on the three USGS concepts as

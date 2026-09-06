@@ -10,7 +10,9 @@ expected_uncertainty: "Percentile-method and window sensitivity of a few points 
 trainings:
   - https://droughtmonitor.unl.edu/About/AbouttheData/DroughtClassification.aspx
 status: stable
-verified: { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+verified:
+  - { by: human:PaulMRamirez, at: 2026-07-05T00:00:00Z }
+  - { by: human:PaulMRamirez, at: 2026-09-06T17:46:51Z }
 stale_after: 2027-01-04
 ---
 
