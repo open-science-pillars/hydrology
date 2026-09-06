@@ -25,8 +25,8 @@ conflict.
 - [USGS NWIS streamflow (daily and instantaneous values)](datasets/nwis-streamflow.md), status: stable
 - [SMAP L3 radiometer soil moisture (SPL3SMP, SPL3SMP_E)](datasets/smap-l3.md), status: stable
 - [USGS Watershed Boundary Dataset (WBD): hydrologic units from HUC2 to HUC12](datasets/usgs-wbd.md), status: stable
-- [GPM IMERG V07 daily precipitation: three runs, one variable name, and a Final record that ends in September 2025](datasets/imerg-v07.md), status: draft
-- [NLDAS-2 primary forcing precipitation: the gauge-based hourly field over the conterminous United States](datasets/nldas2-forcing.md), status: draft
+- [GPM IMERG V07 daily precipitation: three runs, one variable name, and a Final record that ends in September 2025](datasets/imerg-v07.md), status: stable
+- [NLDAS-2 primary forcing precipitation: the gauge-based hourly field over the conterminous United States](datasets/nldas2-forcing.md), status: stable
 
 ## gotchas
 
@@ -36,8 +36,8 @@ conflict.
 - [SMAP radar loss (July 2015): the product lineage breaks](gotchas/smap-radar-loss.md), severity high, status: stable
 - [NLDI unsnapped point: a coordinate answers for the nearest flowline, not the river you meant](gotchas/nldi-unsnapped-point.md), severity high, status: stable
 - [Terminal basins: a closed hydrologic unit has no outlet, and a tool that expects one names the wrong river](gotchas/usgs-terminal-basin-no-outlet.md), severity medium, status: stable
-- [IMERG run mixing: three calibrations under one variable name, and a Final record that ends in September 2025](gotchas/imerg-run-mixing.md), severity high, status: draft
-- [IMERG cold-season underestimation over snow and mountains: values present, quality reduced, and NLDAS-2 forcing as the check](gotchas/imerg-cold-season-orographic-underestimation.md), severity high, status: draft
+- [IMERG run mixing: three calibrations under one variable name, and a Final record that ends in September 2025](gotchas/imerg-run-mixing.md), severity high, status: stable
+- [IMERG cold-season underestimation over snow and mountains: values present, quality reduced, and NLDAS-2 forcing as the check](gotchas/imerg-cold-season-orographic-underestimation.md), severity high, status: stable
 
 ## recipes
 
@@ -50,4 +50,4 @@ conflict.
 - [USGS stream gauges: the Water Data API (observations server and dataretrieval)](connectors/usgs-water.md), status: stable
 - [PO.DAAC Hydrocron SWOT river series](connectors/hydrocron-swot.md), status: stable
 - [USGS NLDI basin tracing: the polygon upstream of a gauge or a snapped point](connectors/nldi-basin.md), status: stable
-- [GES DISC through earthaccess: Earthdata Login plus a one-time application authorization, and the window pull over Cloud OPeNDAP](connectors/gesdisc-earthaccess.md), status: draft
+- [GES DISC through earthaccess: Earthdata Login plus a one-time application authorization, and the window pull over Cloud OPeNDAP](connectors/gesdisc-earthaccess.md), status: stable

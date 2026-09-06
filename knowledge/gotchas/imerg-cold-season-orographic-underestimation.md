@@ -4,10 +4,11 @@ title: "IMERG cold-season underestimation over snow and mountains: values presen
 description: "IMERG V07 includes passive-microwave retrievals over frozen surfaces for the first time (V06 screened them out), with the quality index reduced there, and the release notes say snowfall rates over land are low and should be examined critically. Over the Colorado River basin above Lees Ferry the IMERG Final water-year 2023 total is 320 mm against 375 mm from the NLDAS-2 gauge-based forcing, a ratio of 0.86 for the year and 0.68 for November through March. The check is the NLDAS-2 series beside the IMERG one; the gap is not missing values."
 tags: [imerg, gpm, precipitation, snow, orographic, cold-season, nldas, gauge, underestimation]
 generated: { by: claude-code/fable-5, at: 2026-09-06T22:10:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-06T22:57:54Z }
 severity: high
 dataset: ../datasets/imerg-v07.md
 eval_case: imerg-cold-season-orographic-underestimation
-status: draft
+status: stable
 stale_after: 2026-12-01
 sources:
   - id: relnotes

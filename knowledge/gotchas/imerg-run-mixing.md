@@ -4,10 +4,11 @@ title: "IMERG run mixing: three calibrations under one variable name, and a Fina
 description: "The Early, Late and Final daily products all carry precipitation in mm/day, and a series that concatenates them is not one series: Final is gauge-adjusted for its own month, Early and Late by a climatological ratio. Over the Lees Ferry basin Late exceeded Final by 53 per cent for October 2022. The Final record stops at 2025-09-30, so any series extended into 2026 changes run there and again at the 2026-03-01 calibration change."
 tags: [imerg, gpm, precipitation, run, calibration, final, late, early, seam, gesdisc]
 generated: { by: claude-code/fable-5, at: 2026-09-06T22:00:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-06T22:57:54Z }
 severity: high
 dataset: ../datasets/imerg-v07.md
 eval_case: imerg-run-mixing
-status: draft
+status: stable
 stale_after: 2026-12-01
 sources:
   - id: relnotes
