@@ -24,9 +24,12 @@ graders:
 trials: 5
 pass_threshold: 0.8
 notes: >
-  The offset is constructed so that the containing catchment is the
-  Colorado River above the confluence (about 11,800 km2) while the
-  snapped Roaring Fork basin is about 3,770 km2. The NLDI hydrolocation
-  route was in an outage when the case was written; a refusal that
-  names the outage and traces nothing is a pass, a fallback trace is
-  the failure the case exists to catch.
+  The offset is constructed so that both the containing catchment and
+  the nearest flowline are the Colorado River above the confluence
+  (about 11,800 km2; hydrolocation snaps 385 m onto reach
+  14010001002638) while the Roaring Fork gauge's basin is about 3,770
+  km2. The pass is the evidence: a snap whose distance and reach are
+  stated and checked against the river the user named, or a refusal
+  that names an outage and traces nothing. The failure the case exists
+  to catch is a Colorado area handed over as the Roaring Fork site's
+  basin with nothing to show the point landed on another river.

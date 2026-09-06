@@ -50,7 +50,7 @@ import sys
 from pathlib import Path
 
 import requests
-from pyproj import Transformer
+from pyproj import Geod, Transformer
 from shapely.geometry import mapping, shape
 from shapely.ops import transform, unary_union
 
@@ -121,13 +121,19 @@ def trace_point(lon: float, lat: float, split: bool, simplified: bool) -> tuple[
     r, url = get(f"{NLDI}/hydrolocation", {"coords": f"POINT({lon} {lat})"})
     if r.status_code != 200 or not r.json().get("features"):
         nldi_error(r, "NLDI hydrolocation (the snap of the point to the network)")
-    p = r.json()["features"][0]["properties"]
-    snapped = r.json()["features"][0]["geometry"]["coordinates"]
-    comid = p.get("comid")
-    if comid is None:
-        fail("hydrolocation answered without a comid; the point did not snap to a flowline")
+    hits = [f for f in r.json()["features"] if f["properties"].get("type") == "hydrolocation"]
+    if not hits or not hits[0]["properties"].get("comid"):
+        fail("hydrolocation answered without a snapped location; the point did not snap to a flowline")
+    p = hits[0]["properties"]
+    snapped = hits[0]["geometry"]["coordinates"]
+    comid = p["comid"]
+    # The snap is to the NEAREST flowline, which need not be the river the
+    # user meant; the distance and the reach's subbasin (the first eight
+    # digits of the reachcode) are what lets the caller check.
+    snap_m = Geod(ellps="WGS84").inv(lon, lat, snapped[0], snapped[1])[2]
     snap = {"comid": comid, "reachcode": p.get("reachcode"), "measure": p.get("measure"),
-            "snapped_coordinates": snapped, "request": url}
+            "snapped_coordinates": snapped, "snap_distance_m": round(snap_m, 1),
+            "subbasin": (p.get("reachcode") or "")[:8], "request": url}
     r2, url2 = get(f"{NLDI}/comid/{comid}/basin",
                    {"splitCatchment": str(split).lower(), "simplified": str(simplified).lower()})
     if r2.status_code != 200:
@@ -200,7 +206,8 @@ def main() -> None:
     ap.add_argument("--full", action="store_true", help="NLDI simplified=false (the service simplifies by default; the effect on area is recorded in the connector concept)")
     ap.add_argument("--compare", metavar="SITE", help="compare a point or WBD polygon with this gauge's drainage_area")
     ap.add_argument("--name", help="fixture name (default derived from the input)")
-    ap.add_argument("--out", type=Path, default=Path(__file__).parent / "basins")
+    ap.add_argument("--out", type=Path, default=Path(__file__).parent / "basins",
+                    help="directory for <name>.geojson, or a file path ending in .geojson")
     a = ap.parse_args()
 
     if a.gauge:
@@ -235,8 +242,12 @@ def main() -> None:
                       "polygon_vs_total_pct": round(100 * (km2 - da * KM2_PER_MI2) / (da * KM2_PER_MI2), 2) if da else None}
         prov["comparison"] = comparison
 
-    a.out.mkdir(parents=True, exist_ok=True)
-    path = a.out / f"{name}.geojson"
+    if a.out.suffix == ".geojson":
+        path = a.out
+        name = a.name or path.stem
+    else:
+        path = a.out / f"{name}.geojson"
+    path.parent.mkdir(parents=True, exist_ok=True)
     doc = {"type": "FeatureCollection", "name": name, "provenance": prov,
            "features": [{"type": "Feature", "properties": {"name": name, "area_km2": round(km2, 1)}, "geometry": geometry}]}
     path.write_text(json.dumps(doc, separators=(",", ":")) + "\n")
@@ -256,7 +267,9 @@ def main() -> None:
             print(f"  outlet: drains to {', '.join(o['drains_to'])}" + (f"; closed-basin units inside: {', '.join(o['closed_basin_units'])}" if o["closed_basin_units"] else ""))
     if prov.get("snap"):
         s = prov["snap"]
-        print(f"  snapped to comid {s['comid']} reach {s['reachcode']} measure {s['measure']} at {s['snapped_coordinates']}")
+        print(f"  snapped {s['snap_distance_m']:,.0f} m to comid {s['comid']} reach {s['reachcode']} "
+              f"(subbasin {s['subbasin']}) measure {s['measure']:.2f} at {s['snapped_coordinates']}; "
+              f"confirm this is the river you meant before using the polygon")
 
 
 if __name__ == "__main__":
