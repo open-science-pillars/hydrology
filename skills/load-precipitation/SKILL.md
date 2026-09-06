@@ -43,12 +43,16 @@ never restated here.
    for any IMERG window, and the cold-season underestimate for any
    IMERG window that touches November through March over snow or
    mountains. Restate what applies and cite each by path. The
-   concepts this plugin resolves to today:
-   - `knowledge/datasets/imerg-v07.md`
-   - `knowledge/datasets/nldas2-forcing.md`
-   - `knowledge/connectors/gesdisc-earthaccess.md`
-   - `knowledge/gotchas/imerg-run-mixing.md`
-   - `knowledge/gotchas/imerg-cold-season-orographic-underestimation.md`
+   concepts live under this plugin's own root, whatever the
+   installer's record lists for the hydrology plugin (a checkout
+   loaded from a directory is not in that record, and an older
+   installed version may be): read them from there before searching
+   anywhere else.
+   - `${CLAUDE_PLUGIN_ROOT}/knowledge/datasets/imerg-v07.md`
+   - `${CLAUDE_PLUGIN_ROOT}/knowledge/datasets/nldas2-forcing.md`
+   - `${CLAUDE_PLUGIN_ROOT}/knowledge/connectors/gesdisc-earthaccess.md`
+   - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/imerg-run-mixing.md`
+   - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/imerg-cold-season-orographic-underestimation.md`
 3. **Load through the script, not by hand.** Run
    `uv run ${CLAUDE_PLUGIN_ROOT}/verification/fixtures/load_precipitation.py`
    (the script ships with this plugin; the variable is this plugin's
