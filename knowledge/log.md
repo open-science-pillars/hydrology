@@ -2,6 +2,18 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-06 · STEWARD SIGNING of knowledge/connectors/nldi-basin.md,
+  knowledge/datasets/usgs-wbd.md, knowledge/gotchas/nldi-unsnapped-point.md
+  and knowledge/gotchas/usgs-terminal-basin-no-outlet.md on the
+  steward's explicit word: first verified event on each, status
+  promoted from draft to stable. In the same change nldi-basin.md and
+  nldi-unsnapped-point.md record the splitCatchment retry of 19:08 to
+  19:14 UTC (the route still 502 on all three gauges; the process
+  behind it reachable directly but timing out on its own upstream
+  call) and the direct split-process result at the raw gauge
+  coordinate (0.006 km2, no basin); the split effect on the fixture
+  basins is still owed. (steward)
+
 - 2026-09-06 · knowledge/connectors/nldi-basin.md,
   knowledge/datasets/usgs-wbd.md, knowledge/gotchas/nldi-unsnapped-point.md
   (high, eval case nldi-unsnapped-point beside it) and

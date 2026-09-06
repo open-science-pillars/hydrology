@@ -4,7 +4,8 @@ title: "USGS NLDI basin tracing: the polygon upstream of a gauge or a snapped po
 description: "The Network Linked Data Index at api.water.usgs.gov/nldi returns the upstream basin of an indexed gauge or of an NHDPlus catchment; a point must pass through hydrolocation first, splitCatchment defaults to false and simplified to true, no credential is sent, and the trace is the network-connected area, which is not the monitoring-locations drainage area on a basin with closed sub-basins."
 tags: [connector, nldi, nhdplus, basin, watershed, delineation, usgs, hydrology]
 generated: { by: claude-code/fable-5, at: 2026-09-06T18:20:00Z }
-status: draft
+verified: { by: human:PaulMRamirez, at: 2026-09-06T19:12:06Z }
+status: stable
 citation:
   access_date_required: true
   authority: https://api.water.usgs.gov/nldi/
@@ -104,9 +105,23 @@ NHDPlus catchment at the gauge's position instead of including it
 whole; the effect is the fraction of one catchment, largest in
 relative terms on a small basin. Its size on the three fixture basins
 is UNMEASURED: the split route failed for the whole of 2026-09-06 as
-recorded above. That measurement is owed to this concept and the
-fixtures were traced with the default, recorded in each file's
-provenance as `splitCatchment: false`.[^nldi-probe][^record]
+recorded above, and again at 19:08 UTC on all three gauges. The
+process behind that route is reachable on its own, at
+`/nldi/pygeoapi/processes/nldi-splitcatchment/execution`, in the
+input form its own description documents (a list of
+`{id, value, type: text/plain}` items; the object form the process
+metadata also shows is rejected with `string indices must be
+integers`), and it fails the same way from inside: whenever the
+point lies on a flowline and the process must fetch the upstream
+basin, its own call to the NLDI dies at a 5 s read timeout (twelve
+attempts across the three gauges, 19:10 to 19:14 UTC). The one call
+that answered is the instructive one: the raw 09085000 gauge
+coordinate, 41 m off the flowline, returned the local catchment
+1324997 (14.13 km2), a `splitCatchment` of 0.006 km2 and no basin at
+all, the hillslope draining to that cell rather than the river. That
+measurement is owed to this concept and the fixtures were traced with
+the default, recorded in each file's provenance as
+`splitCatchment: false`.[^nldi-probe][^record]
 
 **What the trace measures, and the comparison rule.** The polygon is
 the network-connected upstream area: the union of NHDPlus catchments
