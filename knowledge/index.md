@@ -24,6 +24,7 @@ conflict.
 - [SWOT River and Lake Single-Pass vector products (RiverSP, LakeSP)](datasets/swot-river-lake.md), status: stable
 - [USGS NWIS streamflow (daily and instantaneous values)](datasets/nwis-streamflow.md), status: stable
 - [SMAP L3 radiometer soil moisture (SPL3SMP, SPL3SMP_E)](datasets/smap-l3.md), status: stable
+- [USGS Watershed Boundary Dataset (WBD): hydrologic units from HUC2 to HUC12](datasets/usgs-wbd.md), status: draft
 
 ## gotchas
 
@@ -31,6 +32,8 @@ conflict.
 - [Regulated gauges: flow statistics measure operations, not hydrology](gotchas/nwis-regulated-gauge.md), severity high, status: stable
 - [NWIS provisional data: recent values are revisable and flagged Provisional](gotchas/nwis-provisional-data.md), severity high, status: stable
 - [SMAP radar loss (July 2015): the product lineage breaks](gotchas/smap-radar-loss.md), severity high, status: stable
+- [NLDI unsnapped point: a raw coordinate traces whichever catchment it falls in, not the river you meant](gotchas/nldi-unsnapped-point.md), severity high, status: draft
+- [Terminal basins: a closed hydrologic unit has no outlet, and a tool that expects one names the wrong river](gotchas/usgs-terminal-basin-no-outlet.md), severity medium, status: draft
 
 ## recipes
 
@@ -42,3 +45,4 @@ conflict.
 
 - [USGS stream gauges: the Water Data API (observations server and dataretrieval)](connectors/usgs-water.md), status: stable
 - [PO.DAAC Hydrocron SWOT river series](connectors/hydrocron-swot.md), status: stable
+- [USGS NLDI basin tracing: the polygon upstream of a gauge or a snapped point](connectors/nldi-basin.md), status: draft

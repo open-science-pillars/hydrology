@@ -11,6 +11,20 @@ version, and license recorded). Current fixtures:
 | roaring_fork_00060_2021_dv.parquet (10.3 KB) | cached real subset: USGS Water Data API daily collection, USGS-09085000 (Roaring Fork River at Glenwood Springs, CO), parameter 00060, statistic 00003, calendar 2021; 365 rows, all Approved, 8 carrying the ESTIMATED qualifier; pulled 2026-09-06 via dataretrieval 1.3.0; regenerate with fetch_usgs_fixtures.py | USGS Water Data API | US Government public domain |
 | roaring_fork_00060_2023_dv.parquet (10.4 KB) | cached real subset: same site and parameter, calendar 2023; 365 rows, all Approved, 20 ESTIMATED; pulled 2026-09-06 via dataretrieval 1.3.0; regenerate with fetch_usgs_fixtures.py | USGS Water Data API | US Government public domain |
 | roaring_fork_00060_clim9120_dv.parquet (87.4 KB) | cached real subset: same site and parameter, 1991-01-01 through 2020-12-31 (the drought-index recipe's climatology window); 10958 rows, all Approved, 609 ESTIMATED; pulled 2026-09-06 via dataretrieval 1.3.0; regenerate with fetch_usgs_fixtures.py | USGS Water Data API | US Government public domain |
+| basins/usgs_03611500_nldi.geojson (398 KB) | NLDI basin trace upstream of USGS-03611500 (Ohio River at Metropolis, IL), comid 1840007, splitCatchment=false, simplified=true; MultiPolygon, 522,879.1 km2 in ESRI:102008, geometry sha256 4d84f947...; monitoring-locations drainage_area 203,000 mi2, contributing_drainage_area null; traced 2026-09-06; regenerate with delineate_basin.py --gauge 03611500 (no credentials) | USGS NLDI (api.water.usgs.gov) | US Government public domain |
+| basins/usgs_09380000_nldi.geojson (253 KB) | NLDI basin trace upstream of USGS-09380000 (Colorado River at Lees Ferry, AZ), comid 20733845, same parameters; MultiPolygon, 276,443.7 km2; drainage_area 111,800 mi2, contributing null; traced 2026-09-06; regenerate with delineate_basin.py --gauge 09380000 | USGS NLDI | US Government public domain |
+| basins/usgs_09085000_nldi.geojson (15 KB) | NLDI basin trace upstream of USGS-09085000 (Roaring Fork River at Glenwood Springs, CO), comid 1324997, same parameters; Polygon, 3,767.1 km2; drainage_area 1,453 mi2, contributing null; traced 2026-09-06; regenerate with delineate_basin.py --gauge 09085000 | USGS NLDI | US Government public domain |
+| basins/tulare_lake_bed_wbd.geojson (722 KB) | Watershed Boundary Dataset union of subbasin 18030012 (Tulare Lake Bed, CA; loaddate 2024-08-16, tnmid {86AD0A19-0A69-4AFB-80B8-A5CC488E750D}), map service document version 3.3.0; 9,808.2 km2 in ESRI:102008 against areasqkm 9,808.23; 102 member subwatersheds, four closed, no outlet; queried 2026-09-06; regenerate with delineate_basin.py --huc 18030012 --name tulare_lake_bed_wbd | USGS WBD (hydro.nationalmap.gov) | US Government public domain |
+
+Basin fixtures (the four GeoJSONs under basins/): a FeatureCollection
+with one feature and a top-level `provenance` member recording the
+source, the request URLs as sent (no credential exists on these
+hosts), the retrieval date, the NLDI parameters or the WBD units with
+their loaddate and tnmid, the geometry sha256 (over the compact
+sorted-key JSON of the geometry), the area and its projection, the
+drainage-area comparison, and for a unit union the outlet
+determination. Every number the goldens assert is read from that
+member or re-measured from the geometry.
 
 Fixture schema (the five USGS parquets): one row per day with the
 columns `monitoring_location_id` (agency-prefixed string,
@@ -48,3 +62,10 @@ Reference numbers the goldens assert:
   identical): Lake Powell 2023 elevation 3524.40 ft on 1 January to
   3568.60 ft on 31 December (+44.20 ft); minimum 3519.50 (mid April),
   maximum 3584.30 (July); within-year swing 64.8 ft.
+- delineate_basin (measured 2026-09-06 at fixture creation): traces
+  522,879.1, 276,443.7 and 3,767.1 km2 for 03611500, 09380000 and
+  09085000 against published totals of 525,768, 289,561 and 3,763.3
+  km2 (-0.55%, -4.53% with a 13,117 km2 shortfall, +0.10%); no
+  published contributing area at any of the three; 4.67, 2.47 and
+  0.034 GRACE mascons of 1.121e5 km2; Tulare Lake Bed 9,808.2 km2
+  against areasqkm 9,808.23, 102 members, four closed, no outlet.
