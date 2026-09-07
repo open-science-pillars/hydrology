@@ -4,9 +4,10 @@ title: "MOD16A2GF v061 evapotranspiration: an 8-day total in millimetres, seven 
 description: "Terra MODIS evapotranspiration at 500 m on the sinusoidal grid, 8-day composites, from LP DAAC. ET_500m is an int16 total in kg per m2 (numerically mm) with scale factor 0.1 and a valid range of -32767 to 32700; everything above that range is one of seven fill codes naming the land cover where evapotranspiration was not computed, of which the file header advertises only one. The last composite of each year is 5 or 6 days, not 8. The gap-filled product is produced only at year end, so the current year exists only in the non-gap-filled MOD16A2 companion."
 tags: [mod16, modis, evapotranspiration, et, lpdaac, terra, sinusoidal, hydrology, water-balance]
 generated: { by: claude-code/fable-5, at: 2026-09-06T23:50:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-07T02:11:54Z }
 resource: https://www.earthdata.nasa.gov/data/catalog/lpcloud-mod16a2gf-061
 version: "061 (granule label 061); MOD16A2GF daily-composite record 2000-01-01 through the last composite of the most recently completed year (A2025361, 2025-12-27 to 2025-12-31, on 2026-09-06); MOD16A2 061 from 2021-01-01 to within about three weeks of the present"
-status: draft
+status: stable
 upstream: pending
 stale_after: 2027-03-06
 citation:

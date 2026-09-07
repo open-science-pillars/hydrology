@@ -4,9 +4,10 @@ title: "The OpenET monthly ensemble is not always the sum of its own days: three
 description: "The monthly and daily OpenET ensembles are separate series, and over two Roaring Fork HUC12s the monthly ensemble returned one identical value for January, February and March 2023 (28.411 mm three times on one unit, 23.225 on the other) while the daily ensemble over the same polygon and months varied normally and summed to 11.15, 20.85 and 32.63 mm. The same units in 2021, 2022 and 2024 show twelve distinct monthly values. A repeated monthly value is a signal to check against the daily series before the months are used."
 tags: [openet, evapotranspiration, et, monthly, daily, ensemble, verification, anomaly]
 generated: { by: claude-code/fable-5, at: 2026-09-07T00:30:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-07T02:11:54Z }
 severity: medium
 connector: ../connectors/openet-api.md
-status: draft
+status: stable
 stale_after: 2027-03-06
 sources:
   - id: connector

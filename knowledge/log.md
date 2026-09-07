@@ -2,6 +2,20 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-07 · STEWARD SIGNING of knowledge/datasets/mod16a2gf.md,
+  knowledge/connectors/openet-api.md,
+  knowledge/gotchas/mod16-fill-over-water-barren-urban.md,
+  knowledge/gotchas/mod16-composite-to-month.md,
+  knowledge/gotchas/openet-area-cap.md,
+  knowledge/gotchas/openet-provisional-window.md,
+  knowledge/gotchas/openet-monthly-not-the-daily-sum.md: the steward's
+  first verified event on the seven evapotranspiration concepts, on the
+  steward's explicit word, with status promoted from draft to stable and
+  the index rows updated to match. The verified event is written on the
+  steward's word. The dataset and connector concepts keep upstream:
+  pending, since no provider bundle for LP DAAC exists and OpenET is not
+  a DAAC product. (steward)
+
 - 2026-09-06 · knowledge/datasets/mod16a2gf.md,
   knowledge/connectors/openet-api.md,
   knowledge/gotchas/mod16-fill-over-water-barren-urban.md (high, eval
