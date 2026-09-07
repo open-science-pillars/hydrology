@@ -2,6 +2,14 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-07 · STEWARD SIGNING of
+  knowledge/computations/basin-water-balance.md,
+  knowledge/recipes/basin-water-balance.md: the steward's first verified
+  event on the basin water balance and its recipe, on the steward's
+  explicit word, with status promoted from draft to stable and the index
+  rows updated to match The verified event is written on the steward's
+  word. (steward)
+
 - 2026-09-07 · knowledge/recipes/basin-water-balance.md authored as a
   draft, no verified event, with the basin-water-balance skill, the
   golden verification/basin_water_balance.py and three eval cases in

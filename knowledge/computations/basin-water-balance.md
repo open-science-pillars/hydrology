@@ -17,7 +17,8 @@ executor:
 attester:
   resource: references/attesters/basin_water_balance_check.py
 generated: { by: claude-code/fable-5, at: 2026-09-07T04:00:00Z }
-status: draft
+verified: { by: human:PaulMRamirez, at: 2026-09-07T18:19:02Z }
+status: stable
 stale_after: 2027-03-07
 sources:
   - id: mascons

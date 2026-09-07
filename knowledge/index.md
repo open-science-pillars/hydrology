@@ -47,11 +47,11 @@ conflict.
 
 ## computations
 
-- [Basin water balance from observations: P + I - ET - Q - X = dS, with a footprint floor that refuses small basins](computations/basin-water-balance.md), status: draft
+- [Basin water balance from observations: P + I - ET - Q - X = dS, with a footprint floor that refuses small basins](computations/basin-water-balance.md), status: stable
 
 ## recipes
 
-- [Basin water balance: when the identity can be closed from observations, and what it refuses](recipes/basin-water-balance.md), status: draft
+- [Basin water balance: when the identity can be closed from observations, and what it refuses](recipes/basin-water-balance.md), status: stable
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: stable
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: stable
 - [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: stable

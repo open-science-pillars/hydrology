@@ -4,10 +4,11 @@ title: "Basin water balance: when the identity can be closed from observations, 
 description: "How to run P + I - ET - Q - X = dS over a basin and a window, what has to be true before it is worth running (a basin above the GRACE footprint floor, a window inside the mascon record, a declared precipitation run), how to read the receipt (the masked fraction, the regulated flag, the epochs and their offsets, the residual against its combined sigma), and the three cases it refuses rather than approximates."
 tags: [water-balance, basin, grace, imerg, mod16, discharge, residual, hydrology]
 generated: { by: claude-code/fable-5, at: 2026-09-07T05:00:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-07T18:19:02Z }
 inputs: "A frozen input tree for one basin and window: the basin polygon with its equal-area area, the precipitation and evapotranspiration loader receipts, a discharge capture's canonical body, and the basin's mascon series; imports and exports as values with sources, or the explicit assumption of none"
 expected: "Water year 2023 measured on the three fixture basins: Ohio at Olmsted residual +70.174 km3 against a combined sigma of 96.874 (+0.72 sigma, PASS); Colorado above Lees Ferry -19.117 against 19.165 (-1.00 sigma, PASS, outlet regulated, exports term missing); Roaring Fork refused on the storage term at 3.4 per cent of one mascon"
 expected_uncertainty: "The combined sigma is the quadrature sum of four documented one-sigma figures (P 10 per cent, ET 20 per cent, Q 5 per cent at a good rating, dS the product's own per-mascon grid over the square root of the mascons the basin spans); it is dominated by ET on a wet basin and by dS on a dry one"
-status: draft
+status: stable
 stale_after: 2027-03-07
 ---
 
