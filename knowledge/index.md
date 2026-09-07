@@ -27,6 +27,7 @@ conflict.
 - [USGS Watershed Boundary Dataset (WBD): hydrologic units from HUC2 to HUC12](datasets/usgs-wbd.md), status: stable
 - [GPM IMERG V07 daily precipitation: three runs, one variable name, and a Final record that ends in September 2025](datasets/imerg-v07.md), status: stable
 - [NLDAS-2 primary forcing precipitation: the gauge-based hourly field over the conterminous United States](datasets/nldas2-forcing.md), status: stable
+- [MOD16A2GF v061 evapotranspiration: an 8-day total in millimetres, seven fill codes for the land it does not compute, and a record that only advances at year end](datasets/mod16a2gf.md), status: draft
 
 ## gotchas
 
@@ -38,6 +39,11 @@ conflict.
 - [Terminal basins: a closed hydrologic unit has no outlet, and a tool that expects one names the wrong river](gotchas/usgs-terminal-basin-no-outlet.md), severity medium, status: stable
 - [IMERG run mixing: three calibrations under one variable name, and a Final record that ends in September 2025](gotchas/imerg-run-mixing.md), severity high, status: stable
 - [IMERG cold-season underestimation over snow and mountains: values present, quality reduced, and NLDAS-2 forcing as the check](gotchas/imerg-cold-season-orographic-underestimation.md), severity high, status: stable
+- [MOD16 fill codes over water, barren and urban land: seven codes, one in the header, and none of them a zero](gotchas/mod16-fill-over-water-barren-urban.md), severity high, status: draft
+- [The OpenET area cap: a basin request is refused, not sampled, and no basin mean comes back](gotchas/openet-area-cap.md), severity high, status: draft
+- [MOD16 composites into calendar months: the periods straddle month ends and the last one of the year is five or six days](gotchas/mod16-composite-to-month.md), severity medium, status: draft
+- [The OpenET provisional window: the last 120 days will change, and a receipt without its access date cannot be reproduced](gotchas/openet-provisional-window.md), severity medium, status: draft
+- [The OpenET monthly ensemble is not always the sum of its own days: three repeated months over Colorado headwater units in 2023](gotchas/openet-monthly-not-the-daily-sum.md), severity medium, status: draft
 
 ## recipes
 
@@ -51,3 +57,4 @@ conflict.
 - [PO.DAAC Hydrocron SWOT river series](connectors/hydrocron-swot.md), status: stable
 - [USGS NLDI basin tracing: the polygon upstream of a gauge or a snapped point](connectors/nldi-basin.md), status: stable
 - [GES DISC through earthaccess: Earthdata Login plus a one-time application authorization, and the window pull over Cloud OPeNDAP](connectors/gesdisc-earthaccess.md), status: stable
+- [The OpenET API: a key in a header, a per-request area cap that no basin clears, and a 120-day window in which values change](connectors/openet-api.md), status: draft

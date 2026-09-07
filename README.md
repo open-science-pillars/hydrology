@@ -48,6 +48,14 @@ from it.
   series that checks IMERG over snow-covered mountains in the cold
   season; basin means over a frozen polygon with the fraction of cells
   inside, daily and monthly totals in mm and km3.
+- **Basin evapotranspiration** from MOD16A2GF (8-day composites
+  apportioned to calendar months by their true length, the seven fill
+  codes over water, rock, city, ice and wetland excluded and counted
+  rather than read as zero, the masked fraction and the open-water
+  choice stated in the receipt) with the OpenET ensemble as an
+  independent check wherever a polygon is under the service's
+  per-request area cap, which no basin is: the cap is a refusal with
+  the acreage named, not a smaller answer.
 - **Applied workflows**: a streamflow drought index and a reservoir
   storage-change analysis, each validated against real gauge records.
 - **Basin delineation**: the polygon above a gauge or a snapped point

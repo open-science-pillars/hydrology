@@ -1,0 +1,84 @@
+{
+ "provenance": {
+  "service": "OpenET",
+  "endpoint": "https://openet-api.org/raster/timeseries/polygon",
+  "method": "POST",
+  "request": {
+   "date_range": [
+    "2023-01-01",
+    "2023-12-31"
+   ],
+   "interval": "monthly",
+   "model": "Ensemble",
+   "variable": "ET",
+   "reference_et": "gridMET",
+   "reducer": "mean",
+   "units": "mm",
+   "file_format": "JSON"
+  },
+  "geometry_note": "the Capitol Creek HUC12 polygon fixture simplified to 113 ring points (shapely simplify, tolerance 0.0005 degrees) so the request body carries one simple closed polygon",
+  "basin_fixture": "huc12_capitol_creek.geojson",
+  "basin_geometry_sha256": "7c3cce302ad8b4e6d37bd8bb209c4a12e22412a4e2a1ec742ccbdd3152f7c739",
+  "polygon_acres": 23512.4,
+  "tier": "tier1",
+  "per_request_cap_acres": 50000,
+  "model": "Ensemble",
+  "ensemble_statistic": "mean of ALEXI/DisALEXI, eeMETRIC, geeSEBAL, PT-JPL, SIMS and SSEBop after outlier filtering by median absolute deviation (the et_ensemble_mad band)",
+  "status": 200,
+  "seconds": 2.6,
+  "retrieved": "2026-09-06T23:19:00Z",
+  "provisional_note": "OpenET calls the last 120 days provisional; these months are older than that at the retrieval date, so they are outside the window that changes",
+  "credential_note": "the key travelled in the Authorization header from OPENET_API_KEY and is not in this file",
+  "attribution": "OpenET (CC-BY-4.0); cite Melton et al. 2021, doi:10.1111/1752-1688.12956"
+ },
+ "timeseries": [
+  {
+   "time": "2023-01-01",
+   "et": 28.411
+  },
+  {
+   "time": "2023-02-01",
+   "et": 28.411
+  },
+  {
+   "time": "2023-03-01",
+   "et": 28.411
+  },
+  {
+   "time": "2023-04-01",
+   "et": 59.728
+  },
+  {
+   "time": "2023-05-01",
+   "et": 98.032
+  },
+  {
+   "time": "2023-06-01",
+   "et": 119.907
+  },
+  {
+   "time": "2023-07-01",
+   "et": 126.824
+  },
+  {
+   "time": "2023-08-01",
+   "et": 96.546
+  },
+  {
+   "time": "2023-09-01",
+   "et": 74.378
+  },
+  {
+   "time": "2023-10-01",
+   "et": 36.92
+  },
+  {
+   "time": "2023-11-01",
+   "et": 17.582
+  },
+  {
+   "time": "2023-12-01",
+   "et": 9.454
+  }
+ ]
+}

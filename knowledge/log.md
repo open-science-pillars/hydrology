@@ -2,6 +2,39 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-06 · knowledge/datasets/mod16a2gf.md,
+  knowledge/connectors/openet-api.md,
+  knowledge/gotchas/mod16-fill-over-water-barren-urban.md (high, eval
+  case mod16-fill-over-water-barren-urban),
+  knowledge/gotchas/openet-area-cap.md (high, eval case
+  openet-area-cap), knowledge/gotchas/mod16-composite-to-month.md,
+  knowledge/gotchas/openet-provisional-window.md and
+  knowledge/gotchas/openet-monthly-not-the-daily-sum.md authored as
+  drafts, no verified event, with the load-et skill, its loader and
+  fetch script, two MOD16 basin-window fixtures (the Roaring Fork and
+  a Lake Powell box, calendar 2023), two recorded OpenET ensemble
+  responses over a HUC12 inside the Roaring Fork, and the golden
+  beside them. Facts checked against the MOD16 user guide, the LP DAAC
+  catalog, the CMR records, the granule metadata and the OpenET
+  documentation on 2026-09-06 and recorded on
+  open-science-pillars/marketplace issue 69: the product writes seven
+  fill codes where the header lists one and the catalog page a third
+  value; the last composite of each year is 5 or 6 days; the
+  gap-filled record only advances at year end (last composite
+  A2025361) while the MOD16A2 companion reaches within three weeks of
+  the present; the OpenET per-request cap refuses every fixture basin;
+  the ensemble is a MAD-filtered mean, not a median. Measured over the
+  fixtures: 494.60 mm for the Roaring Fork in 2023, 521.12 mm for the
+  Capitol Creek unit against the OpenET ensemble's 724.60 mm, and
+  168.72 mm over a unit half covered by Lake Powell, where reading the
+  fill codes as zero would give 80.39 mm instead. The
+  monthly-against-daily concept records a disagreement found while
+  making that comparison: over two units the monthly ensemble repeats
+  one value for January through March 2023 while the daily ensemble
+  varies and sums to a third less. The dataset concept carries
+  upstream: pending, since no provider bundle for LP DAAC exists yet.
+  (claude-code/fable-5)
+
 - 2026-09-06 · STEWARD SIGNING of knowledge/datasets/imerg-v07.md,
   knowledge/datasets/nldas2-forcing.md,
   knowledge/connectors/gesdisc-earthaccess.md,
