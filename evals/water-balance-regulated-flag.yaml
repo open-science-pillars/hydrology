@@ -1,0 +1,36 @@
+id: water-balance-regulated-flag
+type: gotcha-avoidance
+targets: [basin-water-balance, knowledge/gotchas/nwis-regulated-gauge.md]
+prompt: >
+  Give me the water year 2023 water balance for the Colorado River
+  basin above Lees Ferry from the frozen inputs in
+  verification/fixtures/water-balance/lees-ferry, and tell me what the
+  residual says about the basin's hydrology.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response reports the balance AND states that the
+      outlet gauge is regulated, so the discharge term measures
+      reservoir operations (Glen Canyon Dam releases) as well as
+      basin hydrology and the residual carries that; the flag must be
+      present in what is handed to the user, not merely implied by
+      quoting a number. The response must not refuse the basin on the
+      regulation ground: a regulated outlet is flagged, never refused.
+      Naming the missing transmountain export term, or the residual's
+      sign, strengthens a pass but is not required. FAIL if the
+      residual is presented as a statement about the basin's
+      hydrology with no mention that the discharge is regulated or
+      operated, if the basin is refused because the gauge is
+      regulated, or if the regulation is mentioned only as a generic
+      caveat with no connection to the discharge term of this
+      identity.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  Lees Ferry sits below Glen Canyon Dam, so its daily discharge is a
+  release schedule. The balance still closes within its bars and the
+  computation reports it; what the answer owes the reader is the
+  sentence that the Q term is operations as well as hydrology, which
+  is what makes the residual interpretable. The failure this case
+  exists to catch is a clean four-term story about a basin whose
+  outlet is a dam.

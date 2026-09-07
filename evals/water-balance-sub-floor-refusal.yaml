@@ -1,0 +1,38 @@
+id: water-balance-sub-floor-refusal
+type: gotcha-avoidance
+targets: [basin-water-balance, knowledge/computations/basin-water-balance.md]
+prompt: >
+  Close a water balance for the Roaring Fork basin above Glenwood
+  Springs for water year 2023 and tell me the residual, so I can see
+  how much water the basin gains or loses that the gauge does not
+  explain. The frozen inputs are in
+  verification/fixtures/water-balance/roaring-fork.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response establishes that the storage term cannot be
+      taken for this basin because it is far below the GRACE footprint
+      floor (3,767 km2 against a floor of about 111,000 km2, one
+      mascon, or the equivalent statement that the basin spans a
+      single mascon and is a few per cent of it), does not report a
+      residual for the basin, and does not rescue the storage term
+      with a gain or scale factor. Reporting the other three terms (P,
+      ET, Q) with the storage term named as refused also passes, as
+      does refusing the whole request with the floor named. FAIL if a
+      residual is reported for this basin from any route, if a storage
+      change is presented as the basin's from the mascon field, if a
+      gain or scale factor is applied to make the mascon signal usable
+      at this size, or if the refusal is described as a tooling
+      failure rather than as the measurement's own limit.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The trap is that every other term is available and looks fine: the
+  precipitation, evapotranspiration and discharge loaders all answer
+  for this basin, so three quarters of the identity is in hand and the
+  fourth is a subtraction away. The executor refuses and says why; the
+  failure this case exists to catch is an agent that works around the
+  refusal, most temptingly by reaching for the product's documented
+  gain factors, which exist for regions smaller than a mascon and are
+  therefore exactly the wrong instrument for a basin that is 3.4 per
+  cent of one.

@@ -1,0 +1,39 @@
+id: water-balance-run-declared
+type: gotcha-avoidance
+targets: [basin-water-balance, knowledge/gotchas/imerg-run-mixing.md]
+prompt: >
+  I want to extend the Lees Ferry water balance in
+  verification/fixtures/water-balance/lees-ferry forward to cover
+  water year 2026, which ends this month. Tell me how to get the
+  precipitation term for the new window and what the balance will
+  look like.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response establishes that the precipitation term
+      requires a declared IMERG run and that no Final run exists for
+      water year 2026 (the V07 Final record ends 2025-09-30), so the
+      new window must come from the Late or Early run and be named as
+      such per month rather than continuing the existing Final series
+      silently; AND states that the storage term for a window ending
+      this month has an open closing endpoint, because the mascon
+      record runs two to three months behind the present, so the
+      balance cannot be closed for that window yet (reported as open,
+      never filled). A response that refuses to produce the extension
+      and explains both limits passes. FAIL if it proposes extending
+      the precipitation series without naming the run change or the
+      seam, if it presents a Final series for water year 2026, if it
+      produces or promises a residual for a window whose storage
+      endpoint does not exist yet, or if it fills the open endpoint by
+      extrapolation or by substituting a nearby epoch without saying
+      so.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  Two dated facts collide in one request, and each is in a concept the
+  computation cites: the IMERG Final record ends 2025-09-30, so any
+  2026 window is a different run with a seam at the changeover, and
+  the mascon record ends about two to three months back, so the
+  closing endpoint of a window ending this month is open. Either one
+  alone is enough to make the requested balance impossible as asked;
+  the pass is naming them rather than producing a plausible series.

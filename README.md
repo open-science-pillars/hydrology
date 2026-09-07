@@ -56,6 +56,15 @@ from it.
   independent check wherever a polygon is under the service's
   per-request area cap, which no basin is: the cap is a refusal with
   the acreage named, not a smaller answer.
+- **The basin water balance, attested**: P + I - ET - Q - X = dS over a
+  frozen input tree, with a receipt carrying every term, its product
+  and the source of its uncertainty, and an attester that recomputes
+  the whole thing and applies two bars. The storage term is refused
+  below the GRACE footprint floor (about 111,000 km2, one mascon,
+  derived from the product's own geometry), a regulated outlet is
+  flagged rather than refused, and an import or export without a
+  source is refused outright. Measured for water year 2023 on three
+  basins, one of which is the refusal.
 - **Applied workflows**: a streamflow drought index and a reservoir
   storage-change analysis, each validated against real gauge records.
 - **Basin delineation**: the polygon above a gauge or a snapped point

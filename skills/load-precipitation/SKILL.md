@@ -53,6 +53,12 @@ never restated here.
    - `${CLAUDE_PLUGIN_ROOT}/knowledge/connectors/gesdisc-earthaccess.md`
    - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/imerg-run-mixing.md`
    - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/imerg-cold-season-orographic-underestimation.md`
+**Where the files are.** A path a user gives relative to the plugin
+(`verification/fixtures/...`) resolves under `${CLAUDE_PLUGIN_ROOT}`,
+not under the working directory: the fixtures ship with the plugin.
+Resolve it there first rather than searching the filesystem, which is
+slow and can find the wrong copy.
+
 3. **Load through the script, not by hand.** Run
    `uv run ${CLAUDE_PLUGIN_ROOT}/verification/fixtures/load_precipitation.py`
    (the script ships with this plugin; the variable is this plugin's

@@ -51,6 +51,7 @@ conflict.
 
 ## recipes
 
+- [Basin water balance: when the identity can be closed from observations, and what it refuses](recipes/basin-water-balance.md), status: draft
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: stable
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: stable
 - [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: stable

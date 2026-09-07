@@ -101,11 +101,14 @@ square or a 376 km circle. That is the "order 300 km" made specific,
 and it is recomputed by the freezing step from whatever release is in
 hand rather than copied forward.
 
-**Below one mascon there is no storage term.** A basin smaller than
-the floor spans one mascon or part of one, so the mascon field over it
-carries the neighbourhood's signal and not the basin's. The executor
-refuses the term, does not report a residual, and does not apply a
-gain factor: the product documents gain factors for regions smaller
+**Below one mascon there is no storage term, and therefore no
+residual by any route.** A basin smaller than the floor spans one
+mascon or part of one, so the mascon field over it carries the
+neighbourhood's signal and not the basin's. The executor refuses the
+term, does not report a residual, and does not apply a gain factor.
+The other three terms are still reported, and their arithmetic
+difference is not a residual in disguise: a budget with a term missing
+is not a budget with a small imbalance. the product documents gain factors for regions smaller
 than a mascon, which is precisely the case being refused, and using
 one here would turn a missing measurement into a number.
 
