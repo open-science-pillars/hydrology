@@ -4,10 +4,11 @@ title: "MOD16 fill codes over water, barren and urban land: seven codes, one in 
 description: "MOD16 writes seven codes above its valid range for cells where evapotranspiration was not computed (water, barren, snow and ice, wetland, urban, unclassified, fill), and the file header advertises only 32767 while the catalog page names a third value. Averaged as numbers they are nonsense; read as zero they understate the basin. Over a HUC12 half covered by Lake Powell, 52.4 per cent of cells carry a code and the zero reading halves the basin mean. The basin mean must exclude them, count them, and state the masked fraction."
 tags: [mod16, modis, evapotranspiration, fill-value, water, urban, barren, basin-mean, lpdaac]
 generated: { by: claude-code/fable-5, at: 2026-09-07T00:05:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-07T02:11:54Z }
 severity: high
 dataset: ../datasets/mod16a2gf.md
 eval_case: mod16-fill-over-water-barren-urban
-status: draft
+status: stable
 stale_after: 2027-03-06
 sources:
   - id: guide

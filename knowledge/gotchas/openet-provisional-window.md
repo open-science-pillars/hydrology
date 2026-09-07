@@ -4,9 +4,10 @@ title: "The OpenET provisional window: the last 120 days will change, and a rece
 description: "OpenET states that real-time data is provisional for the last 120 days and that those values can and will change, because gridMET is not final for 60 days and new Landsat imagery is still being processed; updates run monthly for the prior three to four months. A number pulled inside that window is a draft, so it carries its access date, it is not a baseline, and a comparison that mixes provisional months with settled ones measures the pipeline as well as the weather."
 tags: [openet, evapotranspiration, et, provisional, reproducibility, access-date, api]
 generated: { by: claude-code/fable-5, at: 2026-09-07T00:25:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-07T02:11:54Z }
 severity: medium
 connector: ../connectors/openet-api.md
-status: draft
+status: stable
 stale_after: 2027-03-06
 sources:
   - id: faq

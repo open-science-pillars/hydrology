@@ -4,8 +4,9 @@ title: "The OpenET API: a key in a header, a per-request area cap that no basin 
 description: "OpenET serves field and sub-basin evapotranspiration over the conterminous United States from a POST endpoint that takes one simple closed polygon and returns a timeseries. The key travels in the Authorization header from the environment. The account tier sets a per-request area cap of 50,000 or 200,000 acres, which every basin in this plugin's fixtures exceeds by one to three orders of magnitude, and the service refuses rather than truncates. The last 120 days are provisional and will change."
 tags: [openet, evapotranspiration, et, api, connector, area-cap, provisional, conus, hydrology]
 generated: { by: claude-code/fable-5, at: 2026-09-06T23:55:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-07T02:11:54Z }
 resource: https://openet.gitbook.io/docs
-status: draft
+status: stable
 stale_after: 2027-03-06
 citation:
   access_date_required: true
