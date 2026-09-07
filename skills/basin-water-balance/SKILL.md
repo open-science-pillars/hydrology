@@ -25,21 +25,38 @@ concept and its recipe, and are read from there per run.
    means to do with the residual. A water balance quoted in a brief
    and a water balance used to size a groundwater term need different
    things said about the same number.
-2. **Consult the bundle for this run first.** Consult installed
-   knowledge concepts first, as the core `consult-knowledge` skill
-   sets out (search terms: water balance, residual, mascon, footprint,
-   floor, storage, regulated, run, fill, masked). The concepts live
-   under this plugin's own root, whatever the installer's record lists
-   for the hydrology plugin: read them from there before searching
-   anywhere else.
+2. **Consult the bundle for this run first, in two tiers.** Consult
+   installed knowledge concepts first, as the core `consult-knowledge`
+   skill sets out (search terms: water balance, residual, mascon,
+   footprint, floor, storage, regulated, run, fill, masked). The
+   concepts live under this plugin's own root, whatever the
+   installer's record lists for the hydrology plugin: read them from
+   there before searching anywhere else.
+
+   **Always, before answering anything:**
    - `${CLAUDE_PLUGIN_ROOT}/knowledge/computations/basin-water-balance.md`
-   - `${CLAUDE_PLUGIN_ROOT}/knowledge/recipes/basin-water-balance.md`
-   - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/nwis-regulated-gauge.md`
-   - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/mod16-fill-over-water-barren-urban.md`
-   - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/imerg-run-mixing.md`
-   - the mascon dataset concept in the provider bundle, for the native
-     scale and the uncertainty grids
-   Restate what applies and cite each by path.
+     (the floor and its derivation, the epoch rule and the endpoint
+     latency, the two bars, what each term's uncertainty rests on)
+
+   **Then only what the request turns on:**
+   - a window reaching past 2025-09 or into the current year:
+     `knowledge/gotchas/imerg-run-mixing.md` for the run change and
+     the seam
+   - a residual to be interpreted, or a basin whose outlet is a dam:
+     `knowledge/gotchas/nwis-regulated-gauge.md`
+   - a basin holding open water, or an evapotranspiration term to be
+     defended: `knowledge/gotchas/mod16-fill-over-water-barren-urban.md`
+   - how to read a receipt, or what a bar-one pass does not mean:
+     `knowledge/recipes/basin-water-balance.md`
+   - the storage term's native scale or its uncertainty grids: the
+     mascon dataset concept in the provider bundle
+
+   The computation concept alone answers most questions about whether
+   a basin and a window can be closed at all, and it names the others
+   where they bind. A tool that reads one file per call spends a call
+   on every concept, so reading all seven before answering a question
+   about one of them can cost more than the answer is worth. Restate
+   what applies and cite each by path.
 3. **Check the three preconditions before computing anything**, in the
    order the recipe gives them: the basin against the footprint floor,
    the window against the mascon record's end, and the precipitation
