@@ -1,12 +1,87 @@
 # Eval results (hydrology)
 
-Runner results for the seven hydrology cases, distinct from the
+Runner results for the eleven hydrology cases, distinct from the
 hand-graded seed in RESULTS-seed.md. Each run: the org runner
 (open-science-pillars/evals, runner/run_evals.py) against a workspace
 holding the plugins at the stated commits, N trials per case, a trial
 passing only when every grader present agrees (the rubric judge is the
 case's own rubric text), pass rate with a Wilson 95% interval against
 the case's threshold of 0.8. Newest first.
+
+Every entry names its model, and the model is part of the
+measurement: rates from different models are not comparable with each
+other, and an entry says so where it differs from the ones around
+it.
+
+## 2026-09-06, N=5, claude-opus-5: the two evapotranspiration cases (first run)
+
+**A different measurement basis from every entry below.** These two
+cases were run on claude-opus-5, trials and rubric judge both, at the
+steward's instruction after the claude-fable-5 five-hour usage limit
+blocked two attempts on that model (every trial returned the limit
+message and was recorded as an error, correctly, and no rate was
+produced). The rates here are therefore NOT comparable with the
+claude-fable-5 entries below; they say what these cases do on Opus,
+not how the two models compare, which would need both measured under
+the same conditions.
+
+Workspace: the hydrology checkout at the evapotranspiration merge
+(open-science-pillars/hydrology pull 33) handed to each trial with
+`--plugin-dir`, the installed hydrology plugin disabled for the trial
+by a `--settings` override (the runner records both under
+`claude_args`); core 0.4.1 and nasa-daac-knowledge 2026.9.2 as
+installed. Launched from an empty directory so no project
+instructions or memory reached the trials. Allowed tools per the
+manifest: Read, Skill, Bash(uv run*) and Write for the fill case
+(max_turns 25); Read and Skill for the area-cap case (max_turns 20).
+Wall clock about 50 min for ten trials plus judging.
+
+| Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
+|---|---|---|---|---|---|---|
+| openet-area-cap | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+| mod16-fill-over-water-barren-urban | 4 | 5 | 0.80 | [0.38, 0.96] | 0 | PASS |
+
+| Trial | Case | Wall clock | Verdict | What the transcript shows |
+|---|---|---|---|---|
+| 1 | fill | 397 s | PASS | hit the loader's refusal at the default masking threshold, raised it deliberately, and reported 168.72 mm scoped to the 50.0 km2 measured of the polygon's 104.6, with 242 water cells of 489; named both the zero-fill reading (80.39 mm) and the whole-polygon volume as errors |
+| 2 | fill | 359 s | PASS | the same, with the reservoir's own evaporation named as absent from the number |
+| 3 | fill | 396 s | FAIL | reached the 25-turn limit with no answer written; the turns went to the loader and the concepts without an answer being composed |
+| 4 | fill | 369 s | PASS | the same as trial 1, with the volume error called out explicitly |
+| 5 | fill | 349 s | PASS | the same; 242 water and 14 barren of 489 stated with the mean |
+| 1 | area cap | 132 s | PASS | 930,871 acres against the 50,000 acre Tier 1 cap, 18.6 times over, the 422 refusal named, no OpenET basin mean offered, tiling and polygon simplification both declined, MOD16 delivered for the basin |
+| 2 | area cap | 358 s | PASS | the same, and OpenET offered only on the named sub-cap unit |
+| 3 | area cap | 150 s | PASS | the same |
+| 4 | area cap | 235 s | PASS | the same, with the sub-cap unit named as one 95 km2 unit and not the basin |
+| 5 | area cap | 145 s | PASS | the same |
+
+The area-cap case passes at 5 of 5: every trial refused the basin
+request with the acreage and the multiple, and none proposed tiling
+or shrinking the polygon, which are the failures the case exists to
+catch.
+
+The fill case passes at 4 of 5, and the one failure is not a wrong
+answer: the trial exhausted its 25-turn budget without composing one.
+The four that answered all did the same thing, which is what the
+gotcha asks for: they met the loader's refusal at the default masking
+threshold, raised it deliberately rather than working round it, and
+returned the number with its masked fraction, its measured area and
+the missing reservoir evaporation stated beside it. A turn budget
+that a workflow can exhaust is a real cost of that workflow and is
+counted here as a failure rather than as an infrastructure error; if
+this recurs, the loader's runtime over a 50,000-cell window is the
+thing to look at, not the rubric.
+
+**A defect in the measuring apparatus, found and fixed during this
+run.** The first Opus attempt recorded every trial as
+`FAIL: unparseable judge output` while the transcripts held correct
+answers. The rubric judge was hardcoded to claude-fable-5 while the
+trials honoured `--model`, so the judge alone hit that model's usage
+limit, its reply parsed as no JSON, and an outage was recorded as a
+failed trial. The judge now takes the runner's model, and a timeout,
+a limit message or an unreadable reply returns ERROR, which the
+runner excludes from the denominator exactly as it already did for a
+trial that never ran (open-science-pillars/evals pull 16). The rates
+above were measured after that fix.
 
 ## 2026-09-06, N=5, claude-fable-5: the two IMERG cases (first run)
 
