@@ -21,10 +21,14 @@ Newest first. One line per change: date, concept path, what changed, who.
   storage term out. The three loading skills now say that a
   plugin-relative path resolves under the plugin's own root, which
   cut a whole class of wasted work in the measurement and is true for
-  an installed plugin as well. Rates are in evals/RESULTS.md and are
-  marked provisional: the eval runner does not enforce a trial's tool
-  allow-list, so a trial can read outside its workspace, and the cases
-  will be measured again once that is fixed. (claude-code/fable-5)
+  an installed plugin as well. All three cases measure 5 of 5 at
+  N=5 under enforced trial isolation, and evals/RESULTS.md keeps the
+  four earlier runs beside them because each one's failure is the
+  evidence for a fix that followed it: a judge that discarded a
+  verdict it had been handed, an eval runner that let a trial read
+  outside its workspace, skills that did not say where their fixtures
+  live, and a turn budget set for one kind of tooling.
+  (claude-code/fable-5)
 
 - 2026-09-07 · knowledge/computations/basin-water-balance.md authored as
   a draft, no verified event, with its sanctioned executor
