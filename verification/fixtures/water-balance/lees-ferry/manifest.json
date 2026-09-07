@@ -1,0 +1,44 @@
+{
+ "basin": "lees-ferry",
+ "window": {
+  "start": "2022-10-01",
+  "end": "2023-09-30"
+ },
+ "frozen_at": "2026-09-07T03:15:22Z",
+ "frozen_by": "verification/fixtures/freeze_water_balance_inputs.py",
+ "files": {
+  "basin.geojson": {
+   "sha256": "a1af86bd6606f0f4fffa179bf42b8e9979c9796cd0a39969f4cd45e84ce4841f",
+   "from": "verification/fixtures/basins/usgs_09380000_nldi.geojson",
+   "area_km2": 276443.7,
+   "geometry_sha256": "883736418a56ae536d4ee9391a5d3169ab2ac499d9c47edb96123e138ff9947b",
+   "site": "USGS-09380000"
+  },
+  "precipitation.json": {
+   "sha256": "41d12489c453b1c1f763131abea1f84409f4b22f99b1df5bbc88296887f317e7",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/p_lees_ferry.json",
+   "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+  },
+  "evapotranspiration.json": {
+   "sha256": "ed9bd228be0948039f455e793251e23bb9d3c4db5f5dca129f5ec12466426663",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/et_lees_ferry_wy2023.json",
+   "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+  },
+  "discharge.json": {
+   "sha256": "9055d15839b26b572c6a2970808bf94c27d31e0369257f51febedc9c574577e8",
+   "capture_id": "20260907T025948Z-225e6b0c",
+   "content_sha256": "225e6b0c3d07819549c01abf85558535dabb9712e7da8cd308faea4324f34801"
+  },
+  "partial_check.json": {
+   "sha256": "1bfdb6df07410223d5d93437aa81c62f9013c154d117c0ae6ebd52c7aac14205",
+   "capture_id": "20260907T030010Z-64ea169d",
+   "content_sha256": "64ea169d98b47e320e8b9f634722564698dff11113f37366f95038fd7c729433"
+  },
+  "storage.json": {
+   "sha256": "350463ed81e72780720f78337aa2039136fad027ef8fed11ab93a7e55f9d0fd1",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/grace/GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+   "granule_sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd"
+  }
+ },
+ "note": "the executor reads this tree and nothing else; every file's sha256 is here and the receipts carry the window files' own hashes, granule ids and routes"
+}

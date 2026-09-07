@@ -1,0 +1,182 @@
+{
+ "computation": "basin-water-balance",
+ "concept": "knowledge/computations/basin-water-balance.md",
+ "tool_version": "0.1.0",
+ "code_sha256": "273171a766371e299ade9dc6c4c82bd1dabc839c9488c668ac18982634cfc203",
+ "run_at": "2026-09-07T03:17:21Z",
+ "identity": "P + I - ET - Q - X = dS",
+ "basin": {
+  "name": "lees-ferry",
+  "area_km2": 276443.7,
+  "site": "USGS-09380000",
+  "geometry_sha256": "883736418a56ae536d4ee9391a5d3169ab2ac499d9c47edb96123e138ff9947b"
+ },
+ "window": {
+  "start": "2022-10-01",
+  "end": "2023-09-30",
+  "days": 365
+ },
+ "inputs": {
+  "tree": "verification/fixtures/water-balance/lees-ferry",
+  "frozen_at": "2026-09-07T03:15:22Z",
+  "files": {
+   "basin.geojson": {
+    "sha256": "a1af86bd6606f0f4fffa179bf42b8e9979c9796cd0a39969f4cd45e84ce4841f",
+    "from": "verification/fixtures/basins/usgs_09380000_nldi.geojson",
+    "area_km2": 276443.7,
+    "geometry_sha256": "883736418a56ae536d4ee9391a5d3169ab2ac499d9c47edb96123e138ff9947b",
+    "site": "USGS-09380000"
+   },
+   "precipitation.json": {
+    "sha256": "41d12489c453b1c1f763131abea1f84409f4b22f99b1df5bbc88296887f317e7",
+    "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/p_lees_ferry.json",
+    "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+   },
+   "evapotranspiration.json": {
+    "sha256": "ed9bd228be0948039f455e793251e23bb9d3c4db5f5dca129f5ec12466426663",
+    "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/et_lees_ferry_wy2023.json",
+    "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+   },
+   "discharge.json": {
+    "sha256": "9055d15839b26b572c6a2970808bf94c27d31e0369257f51febedc9c574577e8",
+    "capture_id": "20260907T025948Z-225e6b0c",
+    "content_sha256": "225e6b0c3d07819549c01abf85558535dabb9712e7da8cd308faea4324f34801"
+   },
+   "partial_check.json": {
+    "sha256": "1bfdb6df07410223d5d93437aa81c62f9013c154d117c0ae6ebd52c7aac14205",
+    "capture_id": "20260907T030010Z-64ea169d",
+    "content_sha256": "64ea169d98b47e320e8b9f634722564698dff11113f37366f95038fd7c729433"
+   },
+   "storage.json": {
+    "sha256": "350463ed81e72780720f78337aa2039136fad027ef8fed11ab93a7e55f9d0fd1",
+    "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/grace/GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+    "granule_sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd"
+   }
+  }
+ },
+ "terms": {
+  "precipitation": {
+   "km3": 88.585,
+   "mm": 320.445,
+   "sigma_km3": 8.8585,
+   "source": "GPM_3IMERGDF run final, DOI 10.5067/GPM/IMERGDF/DAY/07",
+   "run_by_month": {
+    "2022-10": "final",
+    "2022-11": "final",
+    "2022-12": "final",
+    "2023-01": "final",
+    "2023-02": "final",
+    "2023-03": "final",
+    "2023-04": "final",
+    "2023-05": "final",
+    "2023-06": "final",
+    "2023-07": "final",
+    "2023-08": "final",
+    "2023-09": "final"
+   },
+   "seams": [],
+   "uncertainty_source": "IMERG V07 documented uncertainty over land at monthly to annual scales, as knowledge/datasets/imerg-v07.md records it",
+   "coverage": {
+    "cells_in_window": 5412,
+    "cells_inside": 2869,
+    "fraction_of_window_inside": 0.5301,
+    "inside_cell_area_km2": 275193.5,
+    "inside_area_over_polygon_area": 0.9955,
+    "cell_size_deg": [
+     0.09999999999999432,
+     0.100006103515625
+    ],
+    "mean": "cosine-latitude weighted over cells whose centre is inside the polygon",
+    "volume": "basin-mean depth times the polygon's equal-area area from its provenance"
+   }
+  },
+  "evapotranspiration": {
+   "km3": 83.719447,
+   "mm": 307.989,
+   "sigma_km3": 16.743889,
+   "source": "MOD16A2GF 061, DOI 10.5067/MODIS/MOD16A2GF.061, tiles h08v05, h09v04, h09v05, h10v04",
+   "uncertainty_source": "MOD16 validation against flux towers and watersheds, as knowledge/datasets/mod16a2gf.md records it",
+   "masked_fraction": 0.0136,
+   "covered_fraction": 0.9968,
+   "open_water": "cells the product marks as water (32766) are excluded from the mean: MOD16 computes no open-water evaporation, so this basin mean is land evapotranspiration and any reservoir evaporation has to be added from another source"
+  },
+  "discharge": {
+   "km3": 10.768749,
+   "sigma_km3": 0.538437,
+   "source": "USGS capture 20260907T025948Z-225e6b0c (09380000), content sha256 225e6b0c3d07",
+   "days": 365,
+   "days_qualified": 0,
+   "days_provisional": 0,
+   "uncertainty_source": "USGS rating class good, plus or minus 5 per cent of the daily value, from the station description; a poorer class widens this and the receipt says which",
+   "relative_uncertainty": 0.05,
+   "regulated": true,
+   "regulated_note": "the outlet gauge is regulated: this discharge measures reservoir operations as well as hydrology, and the residual carries that. The term is flagged, never refused"
+  },
+  "imports": {
+   "km3": 0.0,
+   "entries": [],
+   "assumption": "none known, assumed zero"
+  },
+  "exports": {
+   "km3": 0.0,
+   "entries": [],
+   "assumption": "none known, assumed zero"
+  },
+  "storage": {
+   "refused": false,
+   "first_epoch": "2022-09-16",
+   "last_epoch": "2023-09-16",
+   "first_offset_days": -15,
+   "last_offset_days": -14,
+   "lwe_first_cm": -9.7893,
+   "lwe_last_cm": -5.0094,
+   "d_lwe_cm": 4.7799,
+   "km3": 13.213732,
+   "sigma_cm": 1.0337,
+   "sigma_km3": 2.857709,
+   "mascons": 7,
+   "mascon_ids": [
+    767,
+    768,
+    859,
+    860,
+    954,
+    955,
+    956
+   ],
+   "basin_km2": 276443.7,
+   "floor_km2": 111266.4,
+   "record_last_epoch": "2026-06-16",
+   "endpoint_open": false,
+   "endpoint_note": "both endpoints fall inside the mascon record; the epochs are mid-month and the offsets from the window's ends are stated in days"
+  }
+ },
+ "partial_checks": [
+  {
+   "name": "reservoir pool elevation",
+   "capture_id": "20260907T030010Z-64ea169d",
+   "parameter": "62614",
+   "first": {
+    "date": "2022-10-01",
+    "value_ft": 3529.1
+   },
+   "last": {
+    "date": "2023-09-30",
+    "value_ft": 3573.2
+   },
+   "change_ft": 44.1,
+   "note": "Lake Powell pool elevation at Glen Canyon Dam (USGS-09379900, parameter 62614) over the same window, in feet: a check on the sign and rough size of the storage term, not a term in the identity and never folded into dS",
+   "folded_into_ds": false
+  }
+ ],
+ "residual": {
+  "reported": true,
+  "km3": -19.116928,
+  "mm": -69.1531,
+  "sigma_km3": 19.16474,
+  "residual_over_sigma": -0.9975,
+  "residual_over_precipitation": -0.2158,
+  "definition": "P + I - ET - Q - X - dS, so a positive residual means the terms deliver more water than the storage change accounts for",
+  "sigma_definition": "quadrature sum of the four term uncertainties, each from the source named beside its term"
+ }
+}

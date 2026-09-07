@@ -122,27 +122,34 @@ def basin_bbox(path: Path):
     return (min(xs), min(ys), max(xs), max(ys)), sha, doc.get("provenance", {})
 
 
-def window_indices(bbox, margin=1):
-    """Rows and columns of the one tile that holds the bbox. Every
-    corner is tested: a bbox that reaches into a second tile is a
-    refusal, not a mosaic."""
-    corners = [(bbox[0], bbox[1]), (bbox[0], bbox[3]), (bbox[2], bbox[1]), (bbox[2], bbox[3])]
-    tiles = {tile_of(lon, lat) for lon, lat in corners}
-    if len(tiles) != 1:
-        names = ", ".join(f"h{h:02d}v{v:02d}" for h, v in sorted(tiles))
-        raise SystemExit(f"REFUSED: the bounding box spans {len(tiles)} sinusoidal tiles ({names}). "
-                         "Each tile has its own row and column origin, so a window cut across tiles "
-                         "would place cells wrongly. Fetch one tile at a time.")
-    h, v = tiles.pop()
-    # The sinusoidal grid converges toward the poles, so the western
-    # column at one latitude is not the western column at another:
-    # take the extreme over all four corners.
-    rc = [cell_of(lon, lat, h, v) for lon, lat in corners]
+def lattice(bbox, step):
+    lons = [bbox[0] + i * step for i in range(int((bbox[2] - bbox[0]) / step) + 1)] + [bbox[2]]
+    lats = [bbox[1] + i * step for i in range(int((bbox[3] - bbox[1]) / step) + 1)] + [bbox[3]]
+    return lons, lats
+
+
+def tiles_for(bbox, step=0.05):
+    """Every sinusoidal tile the bounding box touches. The corners are
+    not enough: the grid converges toward the poles, so a box can cross
+    a tile boundary between two corners."""
+    lons, lats = lattice(bbox, step)
+    return sorted({tile_of(lon, lat) for lon in lons for lat in lats})
+
+
+def window_indices(bbox, h, v, margin=1, step=0.02):
+    """Rows and columns of ONE tile holding the part of the bbox that
+    falls inside it. Clipped to the tile: what reaches past its edge is
+    covered by the neighbouring tile's own window, and the two are
+    never mosaicked by index because they share no origin."""
+    lons, lats = lattice(bbox, step)
+    rc = [cell_of(lon, lat, h, v) for lon in lons for lat in lats if tile_of(lon, lat) == (h, v)]
+    if not rc:
+        raise SystemExit(f"REFUSED: no part of the bounding box falls in tile h{h:02d}v{v:02d}")
     r0 = max(0, min(r for r, _ in rc) - margin)
     r1 = min(2399, max(r for r, _ in rc) + margin)
     c0 = max(0, min(c for _, c in rc) - margin)
     c1 = min(2399, max(c for _, c in rc) + margin)
-    return h, v, r0, r1, c0, c1
+    return r0, r1, c0, c1
 
 
 def cell_centres(h, v, r0, r1, c0, c1):
@@ -281,39 +288,15 @@ def write_window(out: Path, product, short, ver, starts, days, lon, lat, et, qc,
             ds.setncattr(k, json.dumps(val) if isinstance(val, (dict, list)) else val)
 
 
-def main():
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--product", default="mod16a2gf", choices=list(PRODUCTS))
-    ap.add_argument("--basin", type=Path, help="basin polygon fixture (GeoJSON with a provenance member)")
-    ap.add_argument("--bbox", help="west,south,east,north in degrees, when there is no basin polygon")
-    ap.add_argument("--name", default="", help="a name for the window when --bbox is used")
-    ap.add_argument("--start", required=True, help="first day, YYYY-MM-DD")
-    ap.add_argument("--end", required=True, help="last day, YYYY-MM-DD (inclusive)")
-    ap.add_argument("--out", required=True, type=Path)
-    ap.add_argument("--threads", type=int, default=6)
-    a = ap.parse_args()
-
-    if not a.basin and not a.bbox:
-        ap.error("one of --basin or --bbox is required")
-    short, ver = PRODUCTS[a.product]
-    start = dt.date.fromisoformat(a.start)
-    end = dt.date.fromisoformat(a.end)
-
-    if a.basin:
-        bbox, sha, bprov = basin_bbox(a.basin)
-        wname = a.name or a.basin.stem
-    else:
-        bbox = tuple(float(x) for x in a.bbox.split(","))
-        sha, bprov, wname = "", {}, a.name or "bbox"
-    h, v, r0, r1, c0, c1 = window_indices(bbox)
+def fetch_tile(a, short, ver, session, bbox, sha, bprov, wname, start, end, h, v, out):
+    """One tile's window, written to its own file: a basin larger than
+    a tile is one file per tile, and the loader combines them by summing
+    their cells."""
     tile = f"h{h:02d}v{v:02d}"
+    r0, r1, c0, c1 = window_indices(bbox, h, v)
     log(f"window of {short} over {tile}: rows {r0}..{r1}, cols {c0}..{c1} "
-        f"({r1 - r0 + 1} by {c1 - c0 + 1}) for bbox {bbox}")
+        f"({r1 - r0 + 1} by {c1 - c0 + 1})")
 
-    auth = earthaccess.login(strategy="netrc")
-    if not getattr(auth, "authenticated", False):
-        auth = earthaccess.login()
-    session = auth.get_session()
 
     granules = earthaccess.search_data(short_name=short, version=ver, granule_name=f"*.{tile}.*",
                                        temporal=(f"{start}T00:00:00", f"{end}T23:59:59"), count=-1)
@@ -397,10 +380,58 @@ def main():
         "credential_note": ("Earthdata Login through earthaccess (netrc, environment or prompt) with the "
                             "LP DAAC application authorized; no credential is stored in this file"),
     }
-    write_window(a.out, a.product, short, ver, starts, days, lon, lat, et, qc, labels, routes, urs, attrs)
-    sz = a.out.stat().st_size
-    log(f"{a.out}: {len(keep)} composites, {nbytes / 1e6:.2f} MB transferred in "
+    write_window(out, a.product, short, ver, starts, days, lon, lat, et, qc, labels, routes, urs, attrs)
+    sz = out.stat().st_size
+    log(f"{out}: {len(keep)} composites, {nbytes / 1e6:.2f} MB transferred in "
         f"{time.time() - t0:.0f} s, file {sz / 1e6:.2f} MB, routes {sorted(set(routes))}")
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--product", default="mod16a2gf", choices=list(PRODUCTS))
+    ap.add_argument("--basin", type=Path, help="basin polygon fixture (GeoJSON with a provenance member)")
+    ap.add_argument("--bbox", help="west,south,east,north in degrees, when there is no basin polygon")
+    ap.add_argument("--name", default="", help="a name for the window when --bbox is used")
+    ap.add_argument("--start", required=True, help="first day, YYYY-MM-DD")
+    ap.add_argument("--end", required=True, help="last day, YYYY-MM-DD (inclusive)")
+    ap.add_argument("--out", required=True, type=Path)
+    ap.add_argument("--threads", type=int, default=6)
+    a = ap.parse_args()
+
+    if not a.basin and not a.bbox:
+        ap.error("one of --basin or --bbox is required")
+    short, ver = PRODUCTS[a.product]
+    start = dt.date.fromisoformat(a.start)
+    end = dt.date.fromisoformat(a.end)
+
+    if a.basin:
+        bbox, sha, bprov = basin_bbox(a.basin)
+        wname = a.name or a.basin.stem
+    else:
+        bbox = tuple(float(x) for x in a.bbox.split(","))
+        sha, bprov, wname = "", {}, a.name or "bbox"
+    tiles = tiles_for(bbox)
+    log(f"the bounding box {bbox} touches {len(tiles)} sinusoidal tile(s): "
+        + ", ".join(f"h{h:02d}v{v:02d}" for h, v in tiles))
+    if len(tiles) > 1 and "{tile}" not in a.out.name:
+        raise SystemExit(f"REFUSED: this bounding box spans {len(tiles)} tiles, so it is {len(tiles)} window "
+                         f"files, one per tile: put {{tile}} in --out (for example "
+                         f"{a.out.parent / (a.out.stem + '_{tile}' + a.out.suffix)}). Tiles share no row and "
+                         f"column origin, so they are never mosaicked by index; the loader takes one --window "
+                         f"per tile and combines them by summing their cells")
+
+    auth = earthaccess.login(strategy="netrc")
+    if not getattr(auth, "authenticated", False):
+        auth = earthaccess.login()
+    session = auth.get_session()
+
+    written = []
+    for h, v in tiles:
+        out = Path(str(a.out).replace("{tile}", f"h{h:02d}v{v:02d}"))
+        fetch_tile(a, short, ver, session, bbox, sha, bprov, wname, start, end, h, v, out)
+        written.append(out)
+    if len(written) > 1:
+        log(f"{len(written)} window files, one per tile; the loader takes one --window per file")
 
 
 if __name__ == "__main__":

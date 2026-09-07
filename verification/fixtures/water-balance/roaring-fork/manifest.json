@@ -1,0 +1,39 @@
+{
+ "basin": "roaring-fork",
+ "window": {
+  "start": "2022-10-01",
+  "end": "2023-09-30"
+ },
+ "frozen_at": "2026-09-07T03:15:36Z",
+ "frozen_by": "verification/fixtures/freeze_water_balance_inputs.py",
+ "files": {
+  "basin.geojson": {
+   "sha256": "ae62f5be9542562b5c7bbb97d0ab6ed510b52c5253911a7131393fea836df440",
+   "from": "verification/fixtures/basins/usgs_09085000_nldi.geojson",
+   "area_km2": 3767.1,
+   "geometry_sha256": "9d02af22607da6bb813bd8c671d5e238ca785c7d50ddf69d1653f97d31809909",
+   "site": "USGS-09085000"
+  },
+  "precipitation.json": {
+   "sha256": "a4ab2e0f52c48530c6becba56de81913daf257bc4ab83d940d84f63aaa030140",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/p_roaring_fork.json",
+   "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+  },
+  "evapotranspiration.json": {
+   "sha256": "265ee06b62aed4eb6869bc3e04d3b81d6a32827d149312a32c3beee7fe70fb65",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/et_roaring_fork.json",
+   "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+  },
+  "discharge.json": {
+   "sha256": "bd19312881bebeebf9fd9454f6df575f23302bdfff4ca038c5a9f02b9355aca0",
+   "capture_id": "20260907T025949Z-3745a43d",
+   "content_sha256": "3745a43da378924490bcf9aaaadbf88859cce70e7333c9647a87cb53b32d98eb"
+  },
+  "storage.json": {
+   "sha256": "258ae4781e51a7d475262963fca0b81a25a2ddf44531c9b6dadafa49f787cadd",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/grace/GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+   "granule_sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd"
+  }
+ },
+ "note": "the executor reads this tree and nothing else; every file's sha256 is here and the receipts carry the window files' own hashes, granule ids and routes"
+}
