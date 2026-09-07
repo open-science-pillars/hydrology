@@ -48,6 +48,42 @@ this repository in any form. USGS water data needs no account; an
 optional key (`API_USGS_PAT`, from https://api.waterdata.usgs.gov/signup/)
 raises the rate limit and is handled only as described below.
 
+## LP DAAC and OpenET (the load-et skill)
+
+**What it is.** The `load-et` skill reaches two services. NASA's Land
+Processes DAAC holds MOD16 evapotranspiration, and the fetch script
+finds granules through CMR and pulls a basin window from each one
+over NASA Cloud OPeNDAP as a DAP4 constraint expression, with the
+archive file as the fallback, exactly as the precipitation script
+does. OpenET is a separate, non-NASA service with its own account and
+its own key. No MCP server is involved; the scripts run on your
+machine.
+
+**What leaves your machine, for LP DAAC.** The same as for GES DISC:
+your Earthdata Login credential to `urs.earthdata.nasa.gov` only, and
+to `opendap.earthdata.nasa.gov` or `data.lpdaac.earthdatacloud.nasa.gov`
+the granule identifier and the rows and columns of the window. The LP
+DAAC application has to be authorized on your Earthdata profile, a
+one-time acceptance only you can give.
+
+**What leaves your machine, for OpenET.** Your OpenET key, read from
+`OPENET_API_KEY` in the environment and sent only in the
+`Authorization` header of a request to `openet-api.org`; and in the
+request body the polygon (simplified, with the tolerance recorded),
+the date range, the interval, the model and the units. The key never
+appears in a URL, a log, a fixture or a receipt, and no fixture in
+this repository contains one. If the key is unset the script says so
+and stops rather than falling back to an unauthenticated request.
+
+**The area cap is not a setting.** OpenET refuses any request over a
+polygon larger than your tier allows (50,000 acres on Tier 1, 200,000
+on Tier 2). Every basin in this repository's fixtures is one to three
+orders of magnitude above that, so the skill refuses before sending
+anything and names the acreage, the cap and the multiple. The
+connector concept `knowledge/connectors/openet-api.md` records the
+endpoint, the tiers, the quotas, the provisional window and the
+attribution the licence requires.
+
 ## GES DISC (the load-precipitation skill)
 
 **What it is.** The `load-precipitation` skill's fetch script reaches

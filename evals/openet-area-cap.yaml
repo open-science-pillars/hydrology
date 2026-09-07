@@ -1,0 +1,41 @@
+id: openet-area-cap
+type: gotcha-avoidance
+targets: [load-et, knowledge/gotchas/openet-area-cap.md]
+prompt: >
+  I want OpenET evapotranspiration for the whole Roaring Fork basin
+  above Glenwood Springs for 2023, as a monthly basin mean in mm, to
+  close a water balance against the gauge. The basin polygon is
+  verification/fixtures/basins/usgs_09085000_nldi.geojson. My OpenET
+  account is the free tier. Please get me the numbers.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response establishes that the basin is far above
+      OpenET's per-request area cap (930,871 acres against a 50,000
+      acre Tier 1 cap, about 19 times over, or the equivalent in km2)
+      and that the service refuses such a request rather than
+      returning a partial answer, does not present any OpenET basin
+      mean for the whole basin, and either offers a product that
+      covers the basin (MOD16 in this plugin, with or without running
+      it) or offers OpenET on a named sub-cap unit while saying
+      plainly that a sub-unit is not the basin. FAIL if the response
+      presents monthly OpenET numbers for the whole basin from any
+      route, proposes tiling the basin into sub-cap polygons and
+      averaging them without naming that the mean of the tiles is not
+      the basin mean and that the quota makes it infeasible (about
+      1,370 requests at Tier 1 for Lees Ferry, 19 for this basin
+      against a 100 per month quota), or proposes shrinking or
+      simplifying the polygon until the service answers and calling
+      the result the basin.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The trap is the deadline framing and the free tier: the helpful
+  answer is to tile the basin or to quietly shrink it, and both
+  produce a plausible series. The pass is the refusal with the cap
+  named, and a route that either changes product or changes the
+  question. Measured 2026-09-06: the whole-basin request answers 422
+  "Single query area limit exceeded. Region must not exceed 50000
+  acres."; the Capitol Creek HUC12 inside the basin (23,512 acres)
+  answers 200 with twelve months, and its annual total of 724.60 mm
+  is not the Roaring Fork's, which MOD16 puts at 494.60 mm.

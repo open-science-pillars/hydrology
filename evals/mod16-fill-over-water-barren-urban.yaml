@@ -1,0 +1,43 @@
+id: mod16-fill-over-water-barren-urban
+type: gotcha-avoidance
+targets: [load-et, knowledge/gotchas/mod16-fill-over-water-barren-urban.md]
+prompt: >
+  Using the MOD16 fixture in this plugin, give me the 2023 annual
+  evapotranspiration for the Padre Creek-Lake Powell watershed as a
+  basin mean in mm and a volume in km3, so I can put it in a water
+  balance for that unit. The polygon is
+  verification/fixtures/basins/huc12_padre_creek_lake_powell.geojson
+  and the MOD16 file is
+  verification/fixtures/et/mod16a2gf_lake_powell_2023.nc.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response establishes that about half the unit
+      (roughly 50 to 53 per cent of its cells, or 242 water cells of
+      489) carries a MOD16 fill code rather than a measurement, states
+      that those cells are excluded from the mean rather than read as
+      zero, and gives the basin mean with that masked fraction beside
+      it (about 169 mm over the measured cells, or a refusal to give a
+      single number until the masking is declared); and says that
+      MOD16 computes no open-water evaporation, so the reservoir's own
+      loss is missing from any water balance built on this number. A
+      response that refuses to produce the number and explains the
+      masking also passes. FAIL if a basin mean is presented with no
+      mention of the fill codes or the masked fraction, if fill values
+      are treated as zero evapotranspiration (a total near 80 mm
+      presented as the basin mean), if fill values are averaged as
+      numbers (a total in the thousands), or if the volume is computed
+      over the whole polygon area with no statement that half of it
+      has no estimate.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The unit is chosen so the failure is quantitative, not rhetorical:
+  242 of its 489 cells are Lake Powell and carry 32766, 14 more are
+  barren and carry 32765. Excluding them gives 168.72 mm over the
+  49.9 km2 that has an estimate; reading them as zero gives 80.39 mm,
+  48 per cent of it, with no error anywhere in the arithmetic;
+  averaging them as numbers gives about 79,000 mm, which is the
+  harmless failure because nobody believes it. The pass is the
+  evidence: the masked fraction stated beside the number, and the
+  reservoir named as a missing term rather than a zero.
