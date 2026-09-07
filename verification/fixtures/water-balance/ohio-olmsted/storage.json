@@ -1,0 +1,104 @@
+{
+ "file": "GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+ "sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd",
+ "title": "JPL GRACE and GRACE-FO MASCON RL06.3Mv04 CRI",
+ "time_coverage_end": "2026-06-16T23:59:59Z",
+ "cells_inside": 214,
+ "mascon_ids": [
+  773,
+  774,
+  775,
+  865,
+  866,
+  867,
+  961,
+  962,
+  963,
+  1060
+ ],
+ "mascons": 10,
+ "inside_area_km2": 519208.9,
+ "footprint_scale": {
+  "mascons_total": 4551,
+  "mascons_mostly_land": 1301,
+  "median_land_mascon_km2": 111266.4,
+  "p05_km2": 103876.1,
+  "p95_km2": 123457.4,
+  "median_equivalent_square_side_km": 333.6,
+  "median_equivalent_circle_diameter_km": 376.4
+ },
+ "epochs": [
+  {
+   "epoch": "2022-09-16",
+   "lwe_cm": -10.668,
+   "uncertainty_cm": 2.1783
+  },
+  {
+   "epoch": "2022-10-16",
+   "lwe_cm": -12.409,
+   "uncertainty_cm": 2.2024
+  },
+  {
+   "epoch": "2022-11-16",
+   "lwe_cm": -9.6289,
+   "uncertainty_cm": 2.2041
+  },
+  {
+   "epoch": "2022-12-16",
+   "lwe_cm": -2.1818,
+   "uncertainty_cm": 2.2024
+  },
+  {
+   "epoch": "2023-01-16",
+   "lwe_cm": 1.9282,
+   "uncertainty_cm": 2.2052
+  },
+  {
+   "epoch": "2023-02-15",
+   "lwe_cm": 7.3123,
+   "uncertainty_cm": 2.2083
+  },
+  {
+   "epoch": "2023-03-16",
+   "lwe_cm": 7.546,
+   "uncertainty_cm": 2.1856
+  },
+  {
+   "epoch": "2023-04-16",
+   "lwe_cm": 7.091,
+   "uncertainty_cm": 2.2015
+  },
+  {
+   "epoch": "2023-05-16",
+   "lwe_cm": 7.5094,
+   "uncertainty_cm": 2.1891
+  },
+  {
+   "epoch": "2023-06-16",
+   "lwe_cm": -1.9626,
+   "uncertainty_cm": 2.2036
+  },
+  {
+   "epoch": "2023-07-16",
+   "lwe_cm": -2.907,
+   "uncertainty_cm": 2.1841
+  },
+  {
+   "epoch": "2023-08-16",
+   "lwe_cm": -5.8163,
+   "uncertainty_cm": 2.1645
+  },
+  {
+   "epoch": "2023-09-16",
+   "lwe_cm": -10.4423,
+   "uncertainty_cm": 2.1756
+  },
+  {
+   "epoch": "2023-10-16",
+   "lwe_cm": -11.5432,
+   "uncertainty_cm": 2.1757
+  }
+ ],
+ "record_first_epoch": "2002-04-17",
+ "record_last_epoch": "2026-06-16"
+}

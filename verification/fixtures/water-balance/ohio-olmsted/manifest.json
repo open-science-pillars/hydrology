@@ -1,0 +1,39 @@
+{
+ "basin": "ohio-olmsted",
+ "window": {
+  "start": "2022-10-01",
+  "end": "2023-09-30"
+ },
+ "frozen_at": "2026-09-07T03:15:34Z",
+ "frozen_by": "verification/fixtures/freeze_water_balance_inputs.py",
+ "files": {
+  "basin.geojson": {
+   "sha256": "226a1b553c6f82778a9e138b3e70f1f559eb4fd167bdec3e7387c5efa59a552b",
+   "from": "verification/fixtures/basins/usgs_03612600_nldi.geojson",
+   "area_km2": 524135.9,
+   "geometry_sha256": "49f8e969acd03457858802669e10c2d20701dbfbd0cb7f13dfad2dc15ad8419a",
+   "site": "USGS-03612600"
+  },
+  "precipitation.json": {
+   "sha256": "a7ea7483826d910f706c2733b0729aeaac39891b056fce5ca8eebc53ec4341e3",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/p_olmsted.json",
+   "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+  },
+  "evapotranspiration.json": {
+   "sha256": "0a081adfeece7eca04b08ef98b2769b41a99d98da4989bdf98edf182b7897c1e",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/et_olmsted.json",
+   "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+  },
+  "discharge.json": {
+   "sha256": "23b8cb78816bfec666628c8d894943e8a0d117934f2c8e74d6fb7264a9296cfe",
+   "capture_id": "20260907T031403Z-bdde0fb1",
+   "content_sha256": "bdde0fb1c9a9c2aeea1b88336bd326a4edd4e845e833958f1fb9f1c1953f2e59"
+  },
+  "storage.json": {
+   "sha256": "f349e05aa2fb838ff001535a53f08cc26efc64fd60b57afefad3b0069393f36f",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/grace/GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+   "granule_sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd"
+  }
+ },
+ "note": "the executor reads this tree and nothing else; every file's sha256 is here and the receipts carry the window files' own hashes, granule ids and routes"
+}

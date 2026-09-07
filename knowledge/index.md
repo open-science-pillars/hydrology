@@ -45,6 +45,10 @@ conflict.
 - [The OpenET provisional window: the last 120 days will change, and a receipt without its access date cannot be reproduced](gotchas/openet-provisional-window.md), severity medium, status: stable
 - [The OpenET monthly ensemble is not always the sum of its own days: three repeated months over Colorado headwater units in 2023](gotchas/openet-monthly-not-the-daily-sum.md), severity medium, status: stable
 
+## computations
+
+- [Basin water balance from observations: P + I - ET - Q - X = dS, with a footprint floor that refuses small basins](computations/basin-water-balance.md), status: draft
+
 ## recipes
 
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: stable

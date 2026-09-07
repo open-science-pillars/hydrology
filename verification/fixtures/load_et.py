@@ -125,42 +125,51 @@ def inside_mask(poly, lat, lon):
     return mask
 
 
-def read_window(paths):
-    comps, meta = {}, []
-    lat = lon = None
+def read_windows(paths):
+    """Every window file, each with its own grid.
+
+    A basin larger than a sinusoidal tile is covered by one window per
+    tile, and the tiles do not share a row and column origin, so the
+    windows are kept separate and combined per composite by summing
+    their cells: they cover disjoint ground. Two windows on the same
+    tile holding the same composite would double-count, and are
+    refused."""
+    windows, meta = [], []
     for p in paths:
         with netCDF4.Dataset(p) as ds:
             if ds.getncattr("source") != "mod16":
                 die(f"{p} holds source {ds.getncattr('source')!r}, not 'mod16'")
-            la = np.asarray(ds["lat"][:])
-            lo = np.asarray(ds["lon"][:])
-            if lat is None:
-                lat, lon = la, lo
-            elif la.shape != lat.shape or not (np.allclose(la, lat) and np.allclose(lo, lon)):
-                die(f"{p} is on a different window than the first file; every window file in one load shares a grid")
+            w = {"file": Path(p).name, "tile": ds.getncattr("tile"),
+                 "product": ds.getncattr("product"),
+                 "lat": np.asarray(ds["lat"][:]), "lon": np.asarray(ds["lon"][:]),
+                 "rows": {}}
             t = np.asarray(ds["time"][:])
             days = np.asarray(ds["composite_days"][:])
             et = np.asarray(ds["ET_500m"][:])
-            qc = np.asarray(ds["ET_QC_500m"][:])
-            product = ds.getncattr("product")
             labels = [str(x) for x in ds["label"][:]]
             grans = [str(x) for x in ds["granule"][:]]
             for k in range(len(t)):
                 start = EPOCH + dt.timedelta(int(t[k]))
-                if start in comps:
-                    die(f"the composite starting {start} appears in two window files "
-                        f"({comps[start]['file']} and {Path(p).name}); a composite has one source row")
-                comps[start] = {"et": et[k], "qc": qc[k], "days": int(days[k]), "product": product,
-                                "label": labels[k], "granule": grans[k], "file": Path(p).name}
-            meta.append({"file": Path(p).name, "product": product,
+                w["rows"][start] = {"et": et[k], "days": int(days[k]),
+                                    "label": labels[k], "granule": grans[k]}
+            meta.append({"file": Path(p).name, "product": w["product"],
                          "short_name": ds.getncattr("short_name"), "version": ds.getncattr("version"),
-                         "doi": ds.getncattr("doi"), "tile": ds.getncattr("tile"),
+                         "doi": ds.getncattr("doi"), "tile": w["tile"],
                          "retrieved": ds.getncattr("retrieved"), "composites": int(ds.getncattr("composites")),
                          "route": ds.getncattr("route"), "dap4_constraint": ds.getncattr("dap4_constraint"),
                          "basin_fixture": ds.getncattr("basin_fixture"),
                          "basin_geometry_sha256": ds.getncattr("basin_geometry_sha256"),
                          "sha256": hashlib.sha256(Path(p).read_bytes()).hexdigest()})
-    return sorted(comps), comps, lat, lon, meta
+        windows.append(w)
+    seen = {}
+    for w in windows:
+        for start in w["rows"]:
+            key = (w["tile"], start)
+            if key in seen:
+                die(f"the composite starting {start} appears in two window files on tile {w['tile']} "
+                    f"({seen[key]} and {w['file']}); a composite has one source row per tile")
+            seen[key] = w["file"]
+    return windows, meta
 
 
 def classify(values, inside):
@@ -211,11 +220,15 @@ def main():
     ap.add_argument("--interval", default="monthly", choices=["monthly", "daily"],
                     help="the interval of a live request; a recorded response is read at whatever interval it holds")
     ap.add_argument("--tier", default="tier1", choices=list(OPENET_TIERS), help="the OpenET account tier, which sets the area cap")
-    ap.add_argument("--start", help="first day, YYYY-MM-DD (OpenET request window)")
-    ap.add_argument("--end", help="last day, YYYY-MM-DD (OpenET request window)")
+    ap.add_argument("--start", help="first day of the window, YYYY-MM-DD; for MOD16 the composites are clipped "
+                                    "to it, so a composite straddling the edge contributes only its days inside")
+    ap.add_argument("--end", help="last day of the window, YYYY-MM-DD (inclusive)")
     ap.add_argument("--open-water", default="exclude", choices=["exclude", "zero"],
                     help="what to do with cells the product marks as water: exclude them from the mean (default) "
                          "or count them as zero evapotranspiration (never silently: the choice is in the receipt)")
+    ap.add_argument("--min-covered", type=float, default=0.9,
+                    help="refuse when the window files cover less than this fraction of the polygon: a mean over "
+                         "part of a basin is not the basin's mean")
     ap.add_argument("--max-masked", type=float, default=0.5,
                     help="refuse the basin mean when more than this fraction of the basin's cells carry a fill code")
     ap.add_argument("--out", type=Path, help="write the receipt here as JSON")
@@ -290,56 +303,99 @@ def main():
 
     if not a.window:
         die("--window names at least one MOD16 window file (fetch one with fetch_et_fixtures.py)")
-    starts, comps, lat, lon, meta = read_window(a.window)
-    inside = inside_mask(poly, lat, lon)
-    n_inside = int(inside.sum())
-    if not n_inside:
-        die("no window cell centre falls inside the polygon; the window and the basin do not overlap")
+    windows, meta = read_windows(a.window)
 
-    products = sorted({comps[s]["product"] for s in starts})
+    products = sorted({w["product"] for w in windows})
     if len(products) > 1:
         die(f"the window files hold more than one product ({', '.join(products)}); MOD16A2GF is gap-filled "
             f"and MOD16A2 is not, so a series that mixes them is not one series. Load them separately")
 
+    # One inside-mask per window: the tiles cover disjoint ground, so a
+    # cell counted in one window is not counted in another.
+    n_inside = 0
+    cells_in_window = 0
+    for w in windows:
+        w["inside"] = inside_mask(poly, w["lat"], w["lon"])
+        w["n_inside"] = int(w["inside"].sum())
+        w["masked_any"] = np.zeros(w["lat"].shape, bool)
+        n_inside += w["n_inside"]
+        cells_in_window += int(w["lat"].size)
+    if not n_inside:
+        die("no window cell centre falls inside the polygon; the window and the basin do not overlap")
+
+    # The guard the basin needs before the one the cells need: a window
+    # that covers a corner of a basin can still produce a mean, and that
+    # mean is not the basin's.
+    covered_km2 = n_inside * CELL_KM2
+    covered = covered_km2 / area_km2
+    if covered < a.min_covered:
+        tiles = ", ".join(sorted({w["tile"] for w in windows}))
+        die(f"the window files cover {covered:.1%} of the basin ({covered_km2:,.0f} km2 of {area_km2:,.0f} km2 "
+            f"in {len(windows)} file(s) on tile(s) {tiles}), less than --min-covered {a.min_covered:.0%}: a mean "
+            f"over part of a basin is not the basin's mean. Fetch the window for every sinusoidal tile the "
+            f"polygon touches and pass one --window per tile")
+
+    win_start = dt.date.fromisoformat(a.start) if a.start else None
+    win_end = dt.date.fromisoformat(a.end) if a.end else None
+    starts = sorted({s for w in windows for s in w["rows"]})
     daily = defaultdict(float)          # calendar day -> basin-mean mm for that day
     daily_km3 = defaultdict(float)      # calendar day -> volume over the area the mean represents
     per_composite = []
-    masked_any = np.zeros(lat.shape, bool)
     for s in starts:
-        c = comps[s]
-        valid, counts = classify(c["et"], inside)
-        n_valid = int(valid.sum())
-        masked = n_inside - n_valid
-        if a.open_water == "zero":
-            water = inside & (c["et"] == 32766)
-            n_water = int(water.sum())
-        else:
-            n_water = 0
-        masked_any |= inside & ~valid
+        n_valid = n_water = 0
+        total = 0.0
+        counts = defaultdict(int)
+        days = set()
+        labels, grans, files = set(), set(), set()
+        for w in windows:
+            c = w["rows"].get(s)
+            if c is None:
+                continue
+            valid, cnt = classify(c["et"], w["inside"])
+            w["masked_any"] |= w["inside"] & ~valid
+            n_valid += int(valid.sum())
+            total += float(np.sum(c["et"][valid])) * 0.1          # scale factor 0.1
+            if a.open_water == "zero":
+                n_water += int((w["inside"] & (c["et"] == 32766)).sum())
+            for k, v in cnt.items():
+                counts[k] += v
+            days.add(c["days"])
+            labels.add(c["label"])
+            grans.add(c["granule"])
+            files.add(w["file"])
+        if len(days) > 1:
+            die(f"the composite starting {s} has different lengths in different tiles ({sorted(days)}); "
+                f"a composite's period is a property of the product, not of the tile")
         n_mean = n_valid + n_water                                # zeros add to the denominator only
+        masked = n_inside - n_valid
         if n_mean == 0:
             mm = float("nan")
             area = 0.0
         else:
-            total = float(np.sum(c["et"][valid])) * 0.1          # scale factor 0.1
             mm = total / n_mean
             area = n_mean * CELL_KM2
         per_composite.append({
-            "start": s.isoformat(), "days": c["days"], "mm": None if mm != mm else round(mm, 4),
+            "start": s.isoformat(), "days": days.pop(), "mm": None if mm != mm else round(mm, 4),
             "cells_measured": n_valid, "cells_masked": masked,
             "masked_fraction": round(masked / n_inside, 4),
             "measured_area_km2": round(area, 3),
             "km3": None if mm != mm else round(mm * 1e-6 * area, 6),
-            "fill_classes": counts, "label": c["label"], "granule": c["granule"],
+            "fill_classes": dict(sorted(counts.items())),
+            "label": ",".join(sorted(labels)), "granule": ",".join(sorted(grans)),
+            "tiles": len(files),
         })
         if mm == mm:
-            rate = mm / c["days"]
-            vol = mm * 1e-6 * area / c["days"]
-            for k in range(c["days"]):
-                daily[s + dt.timedelta(k)] += rate
-                daily_km3[s + dt.timedelta(k)] += vol
+            n = per_composite[-1]["days"]
+            rate = mm / n
+            vol = mm * 1e-6 * area / n
+            for k in range(n):
+                day = s + dt.timedelta(k)
+                if (win_start and day < win_start) or (win_end and day > win_end):
+                    continue          # a composite straddling the edge gives only its days inside
+                daily[day] += rate
+                daily_km3[day] += vol
 
-    masked_fraction_any = float(masked_any.sum()) / n_inside
+    masked_fraction_any = sum(int(w['masked_any'].sum()) for w in windows) / n_inside
     if masked_fraction_any > a.max_masked:
         die(f"{masked_fraction_any:.1%} of the basin's cells carry a fill code in at least one composite "
             f"(more than --max-masked {a.max_masked:.0%}): the basin mean would be an average over the "
@@ -371,13 +427,17 @@ def main():
         "basin": {"fixture": a.basin.name, "geometry_sha256": sha, "site": prov.get("site", ""),
                   "area_km2": area_km2},
         "window_files": meta,
-        "window": {"first_composite": starts[0].isoformat(), "last_composite": starts[-1].isoformat(),
-                   "composites": len(starts),
-                   "composite_days": sorted({comps[s]["days"] for s in starts}),
-                   "short_periods": [{"start": s.isoformat(), "days": comps[s]["days"]}
-                                     for s in starts if comps[s]["days"] != 8]},
-        "coverage": {"cells_in_window": int(lat.size), "cells_inside": n_inside,
-                     "fraction_of_window_inside": round(n_inside / lat.size, 4),
+        "window": {"start": a.start or "", "end": a.end or "",
+                   "first_composite": starts[0].isoformat(), "last_composite": starts[-1].isoformat(),
+                   "composites": len(starts), "window_files": len(windows),
+                   "composite_days": sorted({c["days"] for c in per_composite}),
+                   "short_periods": [{"start": c["start"], "days": c["days"]}
+                                     for c in per_composite if c["days"] != 8]},
+        "coverage": {"cells_in_window": cells_in_window, "cells_inside": n_inside,
+                     "fraction_of_window_inside": round(n_inside / cells_in_window, 4),
+                     "covered_area_km2": round(covered_km2, 3),
+                     "covered_area_over_polygon_area": round(covered, 4),
+                     "tiles": sorted({w["tile"] for w in windows}),
                      "masked_fraction_any_composite": round(masked_fraction_any, 4),
                      "polygon_area_km2": round(area_km2, 3),
                      "mean_measured_area_km2": round(mean_measured_area, 3),
@@ -400,8 +460,9 @@ def main():
         "total": {"mm": round(total_mm, 3), "km3": round(total_km3, 6),
                   "days": sum(month_days.values())},
     }
-    print(f"{products[0]} over {a.basin.stem}: {len(starts)} composites, "
-          f"{n_inside} cells inside, masked {masked_fraction_any:.1%}")
+    print(f"{products[0]} over {a.basin.stem}: {len(starts)} composites from {len(windows)} window file(s) "
+          f"on tile(s) {', '.join(sorted({w['tile'] for w in windows}))}, {n_inside} cells inside "
+          f"({covered:.1%} of the polygon), masked {masked_fraction_any:.1%}")
     print("month     mm       km3")
     for m in monthly:
         print(f"{m['month']}  {m['mm']:8.2f}  {m['km3']:8.4f}")

@@ -1,0 +1,136 @@
+{
+ "computation": "basin-water-balance",
+ "concept": "knowledge/computations/basin-water-balance.md",
+ "tool_version": "0.1.0",
+ "code_sha256": "273171a766371e299ade9dc6c4c82bd1dabc839c9488c668ac18982634cfc203",
+ "run_at": "2026-09-07T03:18:39Z",
+ "identity": "P + I - ET - Q - X = dS",
+ "basin": {
+  "name": "roaring-fork",
+  "area_km2": 3767.1,
+  "site": "USGS-09085000",
+  "geometry_sha256": "9d02af22607da6bb813bd8c671d5e238ca785c7d50ddf69d1653f97d31809909"
+ },
+ "window": {
+  "start": "2022-10-01",
+  "end": "2023-09-30",
+  "days": 365
+ },
+ "inputs": {
+  "tree": "verification/fixtures/water-balance/roaring-fork",
+  "frozen_at": "2026-09-07T03:15:36Z",
+  "files": {
+   "basin.geojson": {
+    "sha256": "ae62f5be9542562b5c7bbb97d0ab6ed510b52c5253911a7131393fea836df440",
+    "from": "verification/fixtures/basins/usgs_09085000_nldi.geojson",
+    "area_km2": 3767.1,
+    "geometry_sha256": "9d02af22607da6bb813bd8c671d5e238ca785c7d50ddf69d1653f97d31809909",
+    "site": "USGS-09085000"
+   },
+   "precipitation.json": {
+    "sha256": "a4ab2e0f52c48530c6becba56de81913daf257bc4ab83d940d84f63aaa030140",
+    "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/p_roaring_fork.json",
+    "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+   },
+   "evapotranspiration.json": {
+    "sha256": "265ee06b62aed4eb6869bc3e04d3b81d6a32827d149312a32c3beee7fe70fb65",
+    "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/et_roaring_fork.json",
+    "kind": "loader receipt (the grids behind it are refetchable, not stored)"
+   },
+   "discharge.json": {
+    "sha256": "bd19312881bebeebf9fd9454f6df575f23302bdfff4ca038c5a9f02b9355aca0",
+    "capture_id": "20260907T025949Z-3745a43d",
+    "content_sha256": "3745a43da378924490bcf9aaaadbf88859cce70e7333c9647a87cb53b32d98eb"
+   },
+   "storage.json": {
+    "sha256": "258ae4781e51a7d475262963fca0b81a25a2ddf44531c9b6dadafa49f787cadd",
+    "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/grace/GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+    "granule_sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd"
+   }
+  }
+ },
+ "terms": {
+  "precipitation": {
+   "km3": 1.3693,
+   "mm": 363.484,
+   "sigma_km3": 0.13693,
+   "source": "GPM_3IMERGDF run final, DOI 10.5067/GPM/IMERGDF/DAY/07",
+   "run_by_month": {
+    "2022-10": "final",
+    "2022-11": "final",
+    "2022-12": "final",
+    "2023-01": "final",
+    "2023-02": "final",
+    "2023-03": "final",
+    "2023-04": "final",
+    "2023-05": "final",
+    "2023-06": "final",
+    "2023-07": "final",
+    "2023-08": "final",
+    "2023-09": "final"
+   },
+   "seams": [],
+   "uncertainty_source": "IMERG V07 documented uncertainty over land at monthly to annual scales, as knowledge/datasets/imerg-v07.md records it",
+   "coverage": {
+    "cells_in_window": 117,
+    "cells_inside": 38,
+    "fraction_of_window_inside": 0.3248,
+    "inside_cell_area_km2": 3638.7,
+    "inside_area_over_polygon_area": 0.9659,
+    "cell_size_deg": [
+     0.09999999999999432,
+     0.100006103515625
+    ],
+    "mean": "cosine-latitude weighted over cells whose centre is inside the polygon",
+    "volume": "basin-mean depth times the polygon's equal-area area from its provenance"
+   }
+  },
+  "evapotranspiration": {
+   "km3": 1.819046,
+   "mm": 489.212,
+   "sigma_km3": 0.363809,
+   "source": "MOD16A2GF 061, DOI 10.5067/MODIS/MOD16A2GF.061, tiles h09v05",
+   "uncertainty_source": "MOD16 validation against flux towers and watersheds, as knowledge/datasets/mod16a2gf.md records it",
+   "masked_fraction": 0.0119,
+   "covered_fraction": 0.999,
+   "open_water": "cells the product marks as water (32766) are excluded from the mean: MOD16 computes no open-water evaporation, so this basin mean is land evapotranspiration and any reservoir evaporation has to be added from another source"
+  },
+  "discharge": {
+   "km3": 1.127969,
+   "sigma_km3": 0.056398,
+   "source": "USGS capture 20260907T025949Z-3745a43d (09085000), content sha256 3745a43da378",
+   "days": 365,
+   "days_qualified": 25,
+   "days_provisional": 0,
+   "uncertainty_source": "USGS rating class good, plus or minus 5 per cent of the daily value, from the station description; a poorer class widens this and the receipt says which",
+   "relative_uncertainty": 0.05,
+   "regulated": false,
+   "regulated_note": "not declared regulated"
+  },
+  "imports": {
+   "km3": 0.0,
+   "entries": [],
+   "assumption": "none known, assumed zero"
+  },
+  "exports": {
+   "km3": 0.0,
+   "entries": [],
+   "assumption": "none known, assumed zero"
+  },
+  "storage": {
+   "refused": true,
+   "reason": "the basin is 3,767 km2, below the footprint floor of 111,266 km2 (one mostly-land mascon, derived from the product's own geometry): it spans 1 mascon(s), so the mascon field carries no signal that is this basin's rather than its neighbourhood's. No storage term exists, the residual is not reported, and a gain factor is not applied to rescue it",
+   "basin_km2": 3767.1,
+   "floor_km2": 111266.4,
+   "mascons": 1,
+   "mascon_ids": [
+    860
+   ]
+  }
+ },
+ "partial_checks": [],
+ "residual": {
+  "reported": false,
+  "reason": "the basin is 3,767 km2, below the footprint floor of 111,266 km2 (one mostly-land mascon, derived from the product's own geometry): it spans 1 mascon(s), so the mascon field carries no signal that is this basin's rather than its neighbourhood's. No storage term exists, the residual is not reported, and a gain factor is not applied to rescue it"
+ }
+}

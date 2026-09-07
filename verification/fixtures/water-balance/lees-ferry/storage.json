@@ -1,0 +1,101 @@
+{
+ "file": "GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+ "sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd",
+ "title": "JPL GRACE and GRACE-FO MASCON RL06.3Mv04 CRI",
+ "time_coverage_end": "2026-06-16T23:59:59Z",
+ "cells_inside": 118,
+ "mascon_ids": [
+  767,
+  768,
+  859,
+  860,
+  954,
+  955,
+  956
+ ],
+ "mascons": 7,
+ "inside_area_km2": 282929.6,
+ "footprint_scale": {
+  "mascons_total": 4551,
+  "mascons_mostly_land": 1301,
+  "median_land_mascon_km2": 111266.4,
+  "p05_km2": 103876.1,
+  "p95_km2": 123457.4,
+  "median_equivalent_square_side_km": 333.6,
+  "median_equivalent_circle_diameter_km": 376.4
+ },
+ "epochs": [
+  {
+   "epoch": "2022-09-16",
+   "lwe_cm": -9.7893,
+   "uncertainty_cm": 1.9351
+  },
+  {
+   "epoch": "2022-10-16",
+   "lwe_cm": -11.7545,
+   "uncertainty_cm": 1.9491
+  },
+  {
+   "epoch": "2022-11-16",
+   "lwe_cm": -10.79,
+   "uncertainty_cm": 1.954
+  },
+  {
+   "epoch": "2022-12-16",
+   "lwe_cm": -9.1101,
+   "uncertainty_cm": 1.9527
+  },
+  {
+   "epoch": "2023-01-16",
+   "lwe_cm": -3.2744,
+   "uncertainty_cm": 1.9522
+  },
+  {
+   "epoch": "2023-02-15",
+   "lwe_cm": 0.033,
+   "uncertainty_cm": 1.9508
+  },
+  {
+   "epoch": "2023-03-16",
+   "lwe_cm": 2.2489,
+   "uncertainty_cm": 1.9384
+  },
+  {
+   "epoch": "2023-04-16",
+   "lwe_cm": 5.0838,
+   "uncertainty_cm": 1.9393
+  },
+  {
+   "epoch": "2023-05-16",
+   "lwe_cm": 5.6374,
+   "uncertainty_cm": 1.936
+  },
+  {
+   "epoch": "2023-06-16",
+   "lwe_cm": 3.9912,
+   "uncertainty_cm": 1.9437
+  },
+  {
+   "epoch": "2023-07-16",
+   "lwe_cm": -0.2097,
+   "uncertainty_cm": 1.9372
+  },
+  {
+   "epoch": "2023-08-16",
+   "lwe_cm": -3.6709,
+   "uncertainty_cm": 1.9246
+  },
+  {
+   "epoch": "2023-09-16",
+   "lwe_cm": -5.0094,
+   "uncertainty_cm": 1.9328
+  },
+  {
+   "epoch": "2023-10-16",
+   "lwe_cm": -5.7117,
+   "uncertainty_cm": 1.9337
+  }
+ ],
+ "record_first_epoch": "2002-04-17",
+ "record_last_epoch": "2026-06-16"
+}

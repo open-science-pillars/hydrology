@@ -2,6 +2,26 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-07 · knowledge/computations/basin-water-balance.md authored as
+  a draft, no verified event, with its sanctioned executor
+  (knowledge/references/computations/basin_water_balance.py) and
+  attester (knowledge/references/attesters/basin_water_balance_check.py),
+  the frozen input trees for three basins over water year 2023 under
+  verification/fixtures/water-balance/, and the three receipts beside
+  them. The first attested computation in this bundle. The footprint
+  floor is derived from the mascon product's own geometry rather than
+  remembered: 111,266 km2, the median mostly-land mascon, a 334 km
+  square. Measured for water year 2023: the Ohio at Olmsted closes at
+  +70.174 km3 against a combined sigma of 96.874 (+0.72 sigma), the
+  Colorado above Lees Ferry at -19.117 against 19.165 (-1.00 sigma, the
+  outlet flagged regulated and the transmountain exports missing for
+  want of a sourced number), and the Roaring Fork is refused on the
+  storage term at 3.4 per cent of one mascon. The loader for
+  evapotranspiration gained a coverage guard and a multi-tile route in
+  the same change, after it was found returning a basin mean for the
+  Lees Ferry polygon from a window covering three per cent of it.
+  (claude-code/fable-5)
+
 - 2026-09-07 · STEWARD SIGNING of knowledge/datasets/mod16a2gf.md,
   knowledge/connectors/openet-api.md,
   knowledge/gotchas/mod16-fill-over-water-barren-urban.md,
