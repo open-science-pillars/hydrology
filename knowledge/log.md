@@ -2,6 +2,22 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-07 · knowledge/recipes/basin-water-balance.md authored as a
+  draft, no verified event, with the basin-water-balance skill, the
+  golden verification/basin_water_balance.py and three eval cases in
+  evals/. The refusal language in the computation concept, the recipe
+  and the skill was strengthened after a measured trial refused the
+  storage term correctly and then produced a closure by another route:
+  below the footprint floor no residual follows by any route,
+  including a hand calculation of P minus ET minus Q that leaves the
+  storage term out. The three loading skills now say that a
+  plugin-relative path resolves under the plugin's own root, which
+  cut a whole class of wasted work in the measurement and is true for
+  an installed plugin as well. Rates are in evals/RESULTS.md and are
+  marked provisional: the eval runner does not enforce a trial's tool
+  allow-list, so a trial can read outside its workspace, and the cases
+  will be measured again once that is fixed. (claude-code/fable-5)
+
 - 2026-09-07 · knowledge/computations/basin-water-balance.md authored as
   a draft, no verified event, with its sanctioned executor
   (knowledge/references/computations/basin_water_balance.py) and

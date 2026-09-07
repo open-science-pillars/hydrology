@@ -13,6 +13,93 @@ measurement: rates from different models are not comparable with each
 other, and an entry says so where it differs from the ones around
 it.
 
+## 2026-09-07, N=5, claude-opus-5: the three water-balance cases (PROVISIONAL, isolation not enforced)
+
+**Read the caveat before the rates.** While diagnosing a turn-budget
+failure in these runs, a streamed transcript showed a trial whose
+manifest row allows only `Read,Skill` using Bash, ToolSearch and MCP
+tools, querying CMR live, and reading two things it should never have
+seen: this workspace's session memory files and the transcripts of an
+earlier eval. A minimal test confirmed the mechanism: a headless trial
+launched with `--allowedTools "Read"` and asked to run a shell command
+runs it, and neither `--permission-mode default` nor a `deny` rule in
+`--settings` changes that. The allow-list is advisory, and launching
+from an empty directory does not isolate a trial that can read the
+whole filesystem.
+
+So these rates are recorded and marked provisional. They are not
+withdrawn (the transcripts are real and the failures they show are
+real), but no rate below should be read as measuring what the plugin
+alone supplies: a case whose answer exists in this workspace's memory,
+in a prior transcript, or in the concepts themselves could be answered
+from those. The runner is being fixed and the cases will be measured
+again under enforced isolation; those rates will supersede these.
+
+Workspace: the hydrology checkout at the water-balance merge
+(open-science-pillars/hydrology pull 36) handed to each trial with
+`--plugin-dir`, the installed plugin disabled by a `--settings`
+override; core 0.4.1 and nasa-daac-knowledge 2026.9.2 as installed.
+Trials and rubric judge both on claude-opus-5, so these rates are not
+comparable with the claude-fable-5 entries below.
+
+### Second run, after two fixes (the rates)
+
+| Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
+|---|---|---|---|---|---|---|
+| water-balance-sub-floor-refusal | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+| water-balance-regulated-flag | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+| water-balance-run-declared | 0 | 5 | 0.00 | [0.00, 0.43] | 0 | FAIL |
+
+Every regulated-flag trial named the outlet as regulated and said the
+discharge measures operations as well as hydrology. Every sub-floor
+trial refused the storage term on the footprint floor, reported no
+residual, and reached for no gain factor; the fastest ran in 77 s
+against 436 s in the first run.
+
+Every run-declared trial exhausted its turn budget with no answer
+written, and the streamed probe says why: the trial spends its turns
+verifying the IMERG, MOD16 and GRACE records live against CMR rather
+than answering from the frozen fixture, which is possible only because
+the allow-list does not bind. The case asks about a window ending this
+month, which invites exactly that. This is the clearest evidence in
+the run that the isolation problem changes behaviour and not just
+provenance.
+
+### First run, and the two defects it exposed
+
+| Case | Passes | Valid | Rate | Errors | Verdict |
+|---|---|---|---|---|---|
+| water-balance-sub-floor-refusal | 3 | 4 recorded (truly 5) | 0.75 recorded (truly 0.60) | 1 | FAIL |
+| water-balance-regulated-flag | 5 | 5 | 1.00 | 0 | PASS |
+| water-balance-run-declared | 3 | 5 | 0.60 | 0 | FAIL |
+
+Two defects, both fixed before the second run:
+
+- **The judge discarded a verdict it had been given.** A judge answered
+  `{"grade": "FAIL", "reason": "Although the storage term is correctly
+  refused ... the response still delivers a basin closure number by
+  another route` and was cut off mid-reason. The runner recorded an
+  infrastructure error and dropped the trial from the denominator,
+  reporting 3 of 4 rather than 3 of 5. A verdict that was stated is a
+  verdict even when its envelope is damaged, and it is now salvaged;
+  ERROR is reserved for replies stating no grade at all
+  (open-science-pillars/evals pull 17). Note what that judge caught:
+  the trial refused the storage term correctly and then produced a
+  closure by another route, which is exactly the failure the case
+  exists to detect, and the concept, recipe and skill now say that no
+  residual follows by any route including a hand calculation that
+  leaves the storage term out.
+- **The skills did not say where their fixtures live.** A trial starts
+  in an empty directory and the case prompts name fixtures by a
+  plugin-relative path, so trials searched the filesystem, and a
+  recursive search of a home directory burns the full two-minute
+  command timeout without returning anything. Three of the six
+  non-passes in the first run were turn exhaustion of this kind. The
+  three loading skills now say that a plugin-relative path resolves
+  under `${CLAUDE_PLUGIN_ROOT}`, which is also true for an installed
+  plugin and so helps real users. The sub-floor case went from 3 of 5
+  to 5 of 5 on that change alone.
+
 ## 2026-09-06, N=5, claude-opus-5: the two evapotranspiration cases (first run)
 
 **A different measurement basis from every entry below.** These two

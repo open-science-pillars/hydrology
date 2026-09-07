@@ -59,6 +59,12 @@ here.
    basin or OpenET on a named sub-cap unit; never tile a basin into
    sub-cap pieces and average them, and never shrink the polygon
    until the service answers.
+**Where the files are.** A path a user gives relative to the plugin
+(`verification/fixtures/...`) resolves under `${CLAUDE_PLUGIN_ROOT}`,
+not under the working directory: the fixtures ship with the plugin.
+Resolve it there first rather than searching the filesystem, which is
+slow and can find the wrong copy.
+
 4. **Load through the script, not by hand.** Run
    `uv run ${CLAUDE_PLUGIN_ROOT}/verification/fixtures/load_et.py`
    (the script ships with this plugin; the variable is this plugin's
