@@ -13,92 +13,101 @@ measurement: rates from different models are not comparable with each
 other, and an entry says so where it differs from the ones around
 it.
 
-## 2026-09-07, N=5, claude-opus-5: the three water-balance cases (PROVISIONAL, isolation not enforced)
+## 2026-09-07, N=5, claude-opus-5: the three water-balance cases
 
-**Read the caveat before the rates.** While diagnosing a turn-budget
-failure in these runs, a streamed transcript showed a trial whose
-manifest row allows only `Read,Skill` using Bash, ToolSearch and MCP
-tools, querying CMR live, and reading two things it should never have
-seen: this workspace's session memory files and the transcripts of an
-earlier eval. A minimal test confirmed the mechanism: a headless trial
-launched with `--allowedTools "Read"` and asked to run a shell command
-runs it, and neither `--permission-mode default` nor a `deny` rule in
-`--settings` changes that. The allow-list is advisory, and launching
-from an empty directory does not isolate a trial that can read the
-whole filesystem.
-
-So these rates are recorded and marked provisional. They are not
-withdrawn (the transcripts are real and the failures they show are
-real), but no rate below should be read as measuring what the plugin
-alone supplies: a case whose answer exists in this workspace's memory,
-in a prior transcript, or in the concepts themselves could be answered
-from those. The runner is being fixed and the cases will be measured
-again under enforced isolation; those rates will supersede these.
-
-Workspace: the hydrology checkout at the water-balance merge
-(open-science-pillars/hydrology pull 36) handed to each trial with
-`--plugin-dir`, the installed plugin disabled by a `--settings`
-override; core 0.4.1 and nasa-daac-knowledge 2026.9.2 as installed.
-Trials and rubric judge both on claude-opus-5, so these rates are not
-comparable with the claude-fable-5 entries below.
-
-### Second run, after two fixes (the rates)
+The cases written beside the attested basin water balance
+(open-science-pillars/hydrology pull 36 and 37), measured under
+enforced trial isolation. Workspace: the hydrology checkout at that
+merge, handed to each trial with `--plugin-dir` and the installed
+plugin disabled by a `--settings` override; core 0.4.1 and
+nasa-daac-knowledge 2026.9.2 as installed. Trials and rubric judge
+both on claude-opus-5, so these rates are not comparable with the
+claude-fable-5 entries below.
 
 | Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
 |---|---|---|---|---|---|---|
 | water-balance-sub-floor-refusal | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
 | water-balance-regulated-flag | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
-| water-balance-run-declared | 0 | 5 | 0.00 | [0.00, 0.43] | 0 | FAIL |
+| water-balance-run-declared | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
 
-Every regulated-flag trial named the outlet as regulated and said the
-discharge measures operations as well as hydrology. Every sub-floor
-trial refused the storage term on the footprint floor, reported no
-residual, and reached for no gain factor; the fastest ran in 77 s
-against 436 s in the first run.
+Every sub-floor trial refused the storage term on the footprint floor,
+reported no residual and reached for no gain factor. Every
+regulated-flag trial named the outlet as regulated and said the
+discharge measures operations as well as hydrology. Every run-declared
+trial named both dated limits: no Final run exists for water year 2026
+(the V07 Final record ends 2025-09-30, and the run seam falls exactly
+on the water-year boundary), and the storage endpoint for a window
+ending this month is open because the mascon record runs months
+behind.
 
-Every run-declared trial exhausted its turn budget with no answer
-written, and the streamed probe says why: the trial spends its turns
-verifying the IMERG, MOD16 and GRACE records live against CMR rather
-than answering from the frozen fixture, which is possible only because
-the allow-list does not bind. The case asks about a window ending this
-month, which invites exactly that. This is the clearest evidence in
-the run that the isolation problem changes behaviour and not just
-provenance.
+**Isolation, and why these rates mean more than the ones that came
+before them.** `--allowedTools` is a permission rule, and a rule loses
+to the permission mode a parent session leaves in the settings: a
+trial launched with `--allowedTools "Read,Skill"` was measured running
+shell commands, querying CMR through MCP servers, and reading the
+launching session's memory files and an earlier eval's transcripts.
+Trials now run under `--restricted` with `--tools` from the case's own
+allowed_tools, `--strict-mcp-config`, and `--add-dir` on the checkout
+under test alone (open-science-pillars/evals pull 19). A probe case
+asking for the launching session's memory and a shell command now gets
+neither. No rate above could have been answered from this workspace's
+memory, from an earlier transcript, or from a live catalogue.
 
-### First run, and the two defects it exposed
+### What it took to get here, and what each step measured
 
-| Case | Passes | Valid | Rate | Errors | Verdict |
-|---|---|---|---|---|---|
-| water-balance-sub-floor-refusal | 3 | 4 recorded (truly 5) | 0.75 recorded (truly 0.60) | 1 | FAIL |
-| water-balance-regulated-flag | 5 | 5 | 1.00 | 0 | PASS |
-| water-balance-run-declared | 3 | 5 | 0.60 | 0 | FAIL |
+Four runs, because the first three were measuring the harness as much
+as the plugin. The sequence is kept because each step's failure is the
+evidence for the fix that followed it.
 
-Two defects, both fixed before the second run:
+| Run | sub-floor | regulated | run-declared | What changed after it |
+|---|---|---|---|---|
+| 1, isolation not enforced | 3/4 recorded (truly 3/5) | 5/5 | 3/5 | the judge fix and the fixture-path pointer |
+| 2, isolation not enforced | 5/5 | 5/5 | 0/5 | isolation enforced in the runner |
+| 3, isolation enforced | 5/5 | 5/5 | 1/5 | the turn budget sized from measurement |
+| 4, budget 35 | | | 3/5 | the consult made two-tier |
+| 5, final | 5/5 | 5/5 | 5/5 | |
 
-- **The judge discarded a verdict it had been given.** A judge answered
-  `{"grade": "FAIL", "reason": "Although the storage term is correctly
-  refused ... the response still delivers a basin closure number by
-  another route` and was cut off mid-reason. The runner recorded an
+Four defects were found and fixed by these runs, three of them in the
+measuring apparatus rather than in the plugin:
+
+- **The judge discarded a verdict it had been given.** A reply
+  truncated mid-reason still states its grade; the runner recorded an
   infrastructure error and dropped the trial from the denominator,
-  reporting 3 of 4 rather than 3 of 5. A verdict that was stated is a
-  verdict even when its envelope is damaged, and it is now salvaged;
-  ERROR is reserved for replies stating no grade at all
-  (open-science-pillars/evals pull 17). Note what that judge caught:
-  the trial refused the storage term correctly and then produced a
-  closure by another route, which is exactly the failure the case
-  exists to detect, and the concept, recipe and skill now say that no
-  residual follows by any route including a hand calculation that
-  leaves the storage term out.
-- **The skills did not say where their fixtures live.** A trial starts
-  in an empty directory and the case prompts name fixtures by a
-  plugin-relative path, so trials searched the filesystem, and a
-  recursive search of a home directory burns the full two-minute
-  command timeout without returning anything. Three of the six
-  non-passes in the first run were turn exhaustion of this kind. The
-  three loading skills now say that a plugin-relative path resolves
-  under `${CLAUDE_PLUGIN_ROOT}`, which is also true for an installed
-  plugin and so helps real users. The sub-floor case went from 3 of 5
-  to 5 of 5 on that change alone.
+  reporting 3 of 4 rather than 3 of 5. A stated verdict is now
+  salvaged, and ERROR is reserved for replies stating no grade at all
+  (open-science-pillars/evals pull 17). What that judge caught was
+  real: the trial refused the storage term correctly and then produced
+  a closure by another route, so the computation concept, the recipe
+  and the skill now say that below the floor no residual follows by
+  any route, including a hand calculation that leaves the storage term
+  out.
+- **Trials could read anything.** Fixed as described above.
+- **The skills did not say where their fixtures live.** Trials start in
+  an empty directory while case prompts name fixtures by a
+  plugin-relative path, so trials searched the filesystem and a
+  recursive search of a home directory burns a full command timeout
+  returning nothing. The three loading skills now say such a path
+  resolves under `${CLAUDE_PLUGIN_ROOT}`, which is true for an
+  installed plugin as well. The sub-floor case went from 3 of 5 to 5
+  of 5 on that change alone.
+- **A turn budget set for one kind of tooling.** The run-declared case
+  allows `Read,Skill` only, and a tool that reads one file per call
+  spends a call on every concept: a streamed probe finished the
+  reasoning correctly in 26 turns against a budget of 20, so the case
+  could not pass however well it reasoned. The budget was raised to 35
+  from that measurement, which took it to 3 of 5, and the remaining
+  failures were a consult that read seven concepts by habit. Listing
+  the concepts in two tiers, one read always and the rest against the
+  condition that makes each bind, took it to 5 of 5. Note that the
+  first attempt at this was a soft hint ("read in order of what
+  decides the question") sitting directly below the flat list of
+  seven, and it changed nothing: an enumerated list outweighs a hint
+  about how to use it.
+
+The last of those is a fact about the skill's own economics, not about
+the case: a flat list of seven concepts invites reading all seven, and
+a reader who must pay a call per file pays for the habit. The two-tier
+form is better guidance for a person as well.
 
 ## 2026-09-06, N=5, claude-opus-5: the two evapotranspiration cases (first run)
 
