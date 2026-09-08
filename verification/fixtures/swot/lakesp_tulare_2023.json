@@ -1,0 +1,253 @@
+{
+ "product": "SWOT_L2_HR_LakeSP",
+ "family": "D",
+ "concept_id": "C3233944983-POCLOUD",
+ "lake_complex": {
+  "prior_lake_ids": [
+   "7740005332",
+   "7740005342",
+   "7740005352",
+   "7740005572"
+  ],
+  "note": "the Tulare lake bed's prior-lake features on the valley floor near 53 m; the hydrologic unit also contains Sierra reservoirs above 600 m, so a statistic over every feature in the unit is not a lake level. SWOT merges adjacent prior lakes into a combined identifier as the water coalesces, which is why some rows carry several ids joined by semicolons"
+ },
+ "basin": {
+  "fixture": "tulare_lake_bed_wbd.geojson",
+  "area_km2": 9808.2,
+  "geometry_sha256": "745d492d2e2d1e5f62e461dd51e803aa20d60e20cd4b23025353e6bf52d3b615"
+ },
+ "granules_that_observed_the_complex": 17,
+ "datum_note": "elevations are as the product reports them, against its own reference, never differenced against a gauge here",
+ "retrieved": "2026-09-07T23:47:25Z",
+ "rows": [
+  {
+   "observed_at": "2023-07-30T13:05:49Z",
+   "features": 1,
+   "lake_ids": [
+    "7740005332"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 53.331,
+    "min": 53.331,
+    "max": 53.331
+   }
+  },
+  {
+   "observed_at": "2023-07-30T23:46:41Z",
+   "features": 1,
+   "lake_ids": [
+    "7740005332;7740005352;7740005342"
+   ],
+   "merged": true,
+   "wse_m": {
+    "median": 54.295,
+    "min": 54.295,
+    "max": 54.295
+   }
+  },
+  {
+   "observed_at": "2023-08-09T22:12:10Z",
+   "features": 1,
+   "lake_ids": [
+    "7740005332;7740005572;7740005352"
+   ],
+   "merged": true,
+   "wse_m": {
+    "median": 53.07,
+    "min": 53.07,
+    "max": 53.07
+   }
+  },
+  {
+   "observed_at": "2023-08-10T11:28:44Z",
+   "features": 2,
+   "lake_ids": [
+    "7740005332",
+    "7740005352"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 53.173,
+    "min": 53.111,
+    "max": 53.236
+   }
+  },
+  {
+   "observed_at": "2023-08-30T18:54:13Z",
+   "features": 1,
+   "lake_ids": [
+    "7740005352"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 53.219,
+    "min": 53.219,
+    "max": 53.219
+   }
+  },
+  {
+   "observed_at": "2023-08-31T08:13:46Z",
+   "features": 2,
+   "lake_ids": [
+    "7740005332;7740005572",
+    "7740005352"
+   ],
+   "merged": true,
+   "wse_m": {
+    "median": 53.139,
+    "min": 53.129,
+    "max": 53.148
+   }
+  },
+  {
+   "observed_at": "2023-09-10T17:16:52Z",
+   "features": 1,
+   "lake_ids": [
+    "7740005352"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 53.23,
+    "min": 53.23,
+    "max": 53.23
+   }
+  },
+  {
+   "observed_at": "2023-09-20T15:39:19Z",
+   "features": 2,
+   "lake_ids": [
+    "7740005352",
+    "7740005572"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 52.985,
+    "min": 52.979,
+    "max": 52.991
+   }
+  },
+  {
+   "observed_at": "2023-09-21T04:58:54Z",
+   "features": 1,
+   "lake_ids": [
+    "7740005572;7740005352"
+   ],
+   "merged": true,
+   "wse_m": {
+    "median": 53.024,
+    "min": 53.024,
+    "max": 53.024
+   }
+  },
+  {
+   "observed_at": "2023-10-01T03:21:03Z",
+   "features": 2,
+   "lake_ids": [
+    "7740005352",
+    "7740005572"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 52.819,
+    "min": 52.812,
+    "max": 52.825
+   }
+  },
+  {
+   "observed_at": "2023-10-01T14:01:55Z",
+   "features": 2,
+   "lake_ids": [
+    "7740005332",
+    "7740005572"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 53.25,
+    "min": 52.927,
+    "max": 53.573
+   }
+  },
+  {
+   "observed_at": "2023-10-11T12:24:21Z",
+   "features": 1,
+   "lake_ids": [
+    "7740005352"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 52.988,
+    "min": 52.988,
+    "max": 52.988
+   }
+  },
+  {
+   "observed_at": "2023-10-12T01:43:57Z",
+   "features": 1,
+   "lake_ids": [
+    "7740005352"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 53.013,
+    "min": 53.013,
+    "max": 53.013
+   }
+  },
+  {
+   "observed_at": "2023-10-22T00:06:07Z",
+   "features": 2,
+   "lake_ids": [
+    "7740005352",
+    "7740005572"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 52.791,
+    "min": 52.744,
+    "max": 52.838
+   }
+  },
+  {
+   "observed_at": "2023-10-22T10:46:59Z",
+   "features": 2,
+   "lake_ids": [
+    "7740005352",
+    "7740005572"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 52.855,
+    "min": 52.821,
+    "max": 52.889
+   }
+  },
+  {
+   "observed_at": "2023-11-01T09:09:26Z",
+   "features": 1,
+   "lake_ids": [
+    "7740005572"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 52.848,
+    "min": 52.848,
+    "max": 52.848
+   }
+  },
+  {
+   "observed_at": "2023-11-01T22:29:02Z",
+   "features": 2,
+   "lake_ids": [
+    "7740005352",
+    "7740005572"
+   ],
+   "merged": false,
+   "wse_m": {
+    "median": 52.947,
+    "min": 52.936,
+    "max": 52.957
+   }
+  }
+ ]
+}

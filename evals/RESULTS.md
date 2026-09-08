@@ -13,6 +13,53 @@ measurement: rates from different models are not comparable with each
 other, and an entry says so where it differs from the ones around
 it.
 
+## 2026-09-07, N=5, claude-opus-5: the two event-reconstruction cases
+
+The cases written beside the DSWx concepts that landed in
+open-science-pillars/nasa-daac-knowledge pull 111. Workspace: the
+hydrology checkout at the event-reconstruction merge, with the
+provider bundle beside it; trials and rubric judge both on
+claude-opus-5, so these rates are not comparable with the
+claude-fable-5 entries below. Isolation enforced.
+
+| Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
+|---|---|---|---|---|---|---|
+| swath-footprint-is-not-an-observation | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+| dswx-class-mismatch | 3 | 5 | 0.60 | [0.23, 0.88] | 0 | FAIL |
+
+Every swath trial declined to confirm a first-observation date taken
+from a bounding-box search, and said the check is opening the granules
+and filtering by feature geometry.
+
+The class-mismatch case fails at 3 of 5, and the failures are worth
+more than the rate. One trial answered in 106 characters, treating the
+request as something to file rather than to answer. The other got the
+structure right (class 3, the mask collision, the artifact step at the
+changeover) and then **invented a class**: it described DSWx-S1 class 2
+as an existing "bright water" class and advised the user on whether to
+fold it into the water mask. Class 2 does not exist in DSWx-S1. That is
+precisely the failure the case exists to catch, asserting a class
+meaning without reference to the product that defines it, and it
+happened while the concept quoting both tables was readable in the
+workspace.
+
+**The rate stands as measured and the concepts are not being tuned to
+it.** The obvious repair is to state in each dataset concept which
+values are unused in that product rather than leaving it to the
+reader's comparison of two tables. That is a real improvement and it
+is owed, but making it and re-running until the number moved would be
+fitting the artifact to its own test. The rate above describes the
+artifacts as shipped.
+
+**A runner defect this run found first.** These cases test concepts in
+the provider bundle, and the isolation added in
+open-science-pillars/evals pull 19 opened only the plugin under test,
+so the first attempt would have measured the sandbox rather than the
+knowledge and read as a knowledge failure. The runner now opens the
+plugin's declared dependency bundles as well, which for hydrology is
+core and nasa-daac-knowledge: what a real install has, and nothing
+more.
+
 ## 2026-09-07, N=5, claude-opus-5: the three water-balance cases
 
 The cases written beside the attested basin water balance

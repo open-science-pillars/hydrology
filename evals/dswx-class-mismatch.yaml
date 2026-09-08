@@ -1,0 +1,38 @@
+id: dswx-class-mismatch
+type: gotcha-avoidance
+targets: [reconstruct-event, knowledge/podaac/gotchas/dswx-class-mismatch.md]
+prompt: >
+  I am building an inundation area timeline for a floodplain that runs
+  from early 2023 through 2024. I plan to use OPERA DSWx-HLS for the
+  earlier part and DSWx-S1 once it becomes available, counting classes
+  1, 2 and 3 as water in both so the series is continuous. Tell me
+  whether that works and what the series will show.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response establishes that the two products do not
+      share a class vocabulary and must not be summed with one class
+      list: class 2 is partial surface water in DSWx-HLS and unused in
+      DSWx-S1, class 3 is inundated vegetation in DSWx-S1 and unused
+      in DSWx-HLS, so counting 1, 2 and 3 in both counts a different
+      quantity on each side; AND states that a step at the changeover
+      would be read as a change in water when it is a change in
+      product. Naming the mask collision above the data range (252 and
+      253 as snow and cloud in the optical product against 250 and 251
+      as HAND and layover masks in the radar one) strengthens a pass.
+      Recommending one product per series, or an explicit crosswalk
+      that names the classes on both sides and shows the
+      discontinuity, is required for a pass. FAIL if the response
+      endorses the single class list, if it treats the two products'
+      classes as equivalent or as merely different names for the same
+      thing, if it proposes bridging the changeover by scaling or
+      smoothing, or if it asserts a class meaning without reference to
+      the product that defines it.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The trap is that the plan is reasonable on its face: same product
+  family, same grid, same layer name, same data type, and the class
+  integers look like a shared vocabulary. They are not one. The
+  failure this case exists to catch is a continuous-looking area
+  series whose step at the changeover gets read as hydrology.

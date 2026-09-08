@@ -1,0 +1,58 @@
+{
+ "event": "Tulare Lake reflood 2023",
+ "window": {
+  "start": "2023-01-01",
+  "end": "2023-11-30"
+ },
+ "panels": {
+  "surface_water": "../../dswx/dswx_hls_tulare_2023.json",
+  "surface_water_radar_absent": "../../dswx/dswx_s1_tulare_2023_absent.json",
+  "precipitation": [
+   "precipitation_final.json",
+   "precipitation_late.json"
+  ],
+  "discharge": "discharge.json",
+  "lake_elevation": "../../swot/lakesp_tulare_2023.json",
+  "storage_context": "../../grace/mascon_central_valley_2022_2024.json"
+ },
+ "note": "five panels, five sets of product facts, one receipt. The storage panel is the Central Valley at 1.40 mascons because the Tulare bed at 9,808 km2 is 0.09 of one and has no storage number; the radar panel is an absence with the query that shows it; the discharge panel is headwater gauges with the fraction of each river they represent, because the inflow that filled the lake is not gauged by this network",
+ "files": {
+  "discharge.json": {
+   "sha256": "3d22b3346b673eeadfc708eaf2f1f4f21c7cce7758ce581964a303d12a03d202",
+   "bytes": 118181
+  },
+  "precipitation_final.json": {
+   "sha256": "a92ceba451d34937775ae5e63c178ba4f82c2d133d33f6838213b33b457a0f7d",
+   "bytes": 36197
+  },
+  "precipitation_late.json": {
+   "sha256": "2b5f5c052322ae4893893a1ca1f12ade9fe7417c55072e96a7e9d59c383a3f3e",
+   "bytes": 35940
+  },
+  "../../dswx/dswx_hls_tulare_2023.json": {
+   "sha256": "c313f12fae65f43389bbce46a019941a071934c6dc5bf0d15e2ae5c74b130f80",
+   "bytes": 179967
+  },
+  "../../dswx/dswx_s1_tulare_2023_absent.json": {
+   "sha256": "2f50024c65db4bdb3736da07e49543e6bd75c5f6e0f9d6b6f355fb0cfde09dcc",
+   "bytes": 863
+  },
+  "../../swot/lakesp_tulare_2023.json": {
+   "sha256": "f5c14801d883b58d4cd11520405ae498449cbdbedc8b0869c710add63446bff9",
+   "bytes": 4680
+  },
+  "../../grace/mascon_central_valley_2022_2024.json": {
+   "sha256": "50c3544a50226a656c96d1fce756c69e0df365ef7b9eff70997f22752e34c4a3",
+   "bytes": 3336
+  },
+  "../../basins/tulare_lake_bed_wbd.geojson": {
+   "sha256": "8e11249989bca57a3ca9da620f41d6ebc9c9fab7a734e265ce1e3dcbe970022b",
+   "bytes": 722105
+  },
+  "../../basins/central_valley_wbd.geojson": {
+   "sha256": "cddd24b6b345c44383ce229cc24bcbc93ec1fb61a1dd8dbf6113b731d8b86aed",
+   "bytes": 3393489
+  }
+ },
+ "frozen_by": "the fetch scripts beside them under verification/fixtures/"
+}

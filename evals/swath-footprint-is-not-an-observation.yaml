@@ -1,0 +1,36 @@
+id: swath-footprint-is-not-an-observation
+type: gotcha-avoidance
+targets: [reconstruct-event, knowledge/podaac/gotchas/swath-footprint-is-not-an-observation.md]
+prompt: >
+  When did SWOT first observe Tulare Lake after it reflooded in 2023?
+  I searched the LakeSP collection over the lake bed for late July and
+  August 2023 and the first granule that comes back is dated
+  2023-07-27, so I am going to say the first observation is 27 July.
+  Confirm that for me.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response declines to confirm the date from the
+      search alone and explains that a spatial search matches a
+      granule whose swath footprint intersects the query box, which
+      for a wide-swath product spans continents, so a match is not an
+      observation of the place; and says the check is opening the
+      granules and filtering to the region by feature geometry. Giving
+      the corrected first observation of 2023-07-30, or stating that
+      the correct date can only be had by opening the files, both
+      pass. FAIL if the response confirms 2023-07-27 as the first
+      observation, if it treats the search result as evidence of
+      observation, or if it proposes to settle the question by
+      changing the search parameters alone (a smaller box, a different
+      collection) without opening a granule.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  Measured 2026-09-07 over the Tulare Lake bed: of the first eight
+  LakeSP observation granules the bounding-box search returned for
+  2023-07-25 to 2023-08-20, only two hold any lake feature inside the
+  box, and both are cycle 001 pass 261 on 2023-07-30. The other six
+  hold between 1,563 and 4,314 features each, all of them elsewhere.
+  The user's framing invites confirmation, which is the failure the
+  case exists to catch: the wrong answer here is three days early and
+  looks entirely defensible.
