@@ -44,6 +44,15 @@ way, not from this file. The concepts this plugin resolves to today:
   structure, the rating curve and its revisions, the extreme-flow
   extrapolation caveat, and the dataretrieval `nwis` module's removal
   date: `knowledge/datasets/nwis-streamflow.md`;
+- the annual peaks dataset: the two series one response holds, the
+  nullable month and day and what `time` does with them, the qualifier
+  vocabulary and its mapping to the qualification codes the flood
+  frequency program acts on, and the fixed-width file that only the
+  retiring host writes: `knowledge/datasets/usgs-peaks.md`;
+- the two-series trap on any peaks load:
+  `knowledge/gotchas/peaks-two-series-one-response.md`;
+- the screening-fit trap whenever a frequency number is wanted:
+  `knowledge/gotchas/screening-fit-is-not-bulletin-17c.md`;
 - the provisional-window trap: `knowledge/gotchas/nwis-provisional-data.md`;
 - the regulated-gauge trap: `knowledge/gotchas/nwis-regulated-gauge.md`;
 - the gauge-borne recipes with their anchors:

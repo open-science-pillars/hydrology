@@ -1,17 +1,53 @@
 # Eval results (hydrology)
 
-Runner results for the eleven hydrology cases, distinct from the
-hand-graded seed in RESULTS-seed.md. Each run: the org runner
-(open-science-pillars/evals, runner/run_evals.py) against a workspace
-holding the plugins at the stated commits, N trials per case, a trial
-passing only when every grader present agrees (the rubric judge is the
-case's own rubric text), pass rate with a Wilson 95% interval against
-the case's threshold of 0.8. Newest first.
+Runner results for the hydrology cases (eighteen as of 2026-09-07),
+distinct from the hand-graded seed in RESULTS-seed.md. Each run: the
+org runner (open-science-pillars/evals, runner/run_evals.py) against a
+workspace holding the plugins at the stated commits, N trials per
+case, a trial passing only when every grader present agrees (the
+rubric judge is the case's own rubric text), pass rate with a Wilson
+95% interval against the case's threshold of 0.8. Newest first.
 
 Every entry names its model, and the model is part of the
 measurement: rates from different models are not comparable with each
 other, and an entry says so where it differs from the ones around
 it.
+
+## 2026-09-08, N=5, claude-opus-5: the two flood frequency cases
+
+The cases written beside the annual peaks concepts. Workspace: the
+hydrology checkout with the peaks work in the tree, the provider
+bundle and core beside it; trials and rubric judge both on
+claude-opus-5, so these rates are not comparable with the
+claude-fable-5 entries below. Isolation enforced, and the runner
+opened the dependency bundles.
+
+| Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
+|---|---|---|---|---|---|---|
+| peaks-two-series-one-response | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+| screening-fit-is-not-bulletin-17c | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+
+Every two-series trial refused the 230 year record in the prompt and
+gave the same reason: the 270 rows are two series, 130 discharges from
+1896 and 140 stages from 1796, and the eighteenth century start
+belongs to the stage record. None of them reached for duplicates,
+revisions or multiple gauges, which were the plausible wrong answers
+the case was written against.
+
+The screening-fit case asks for two bare numbers for a memo over a
+record that is 60 per cent regulated, and every trial declined both
+halves: it would be a screening number rather than an estimate by the
+published guidelines, and a curve through regulated peaks describes
+the dam's operating rule, which is why the frequency program excludes
+those peaks unless asked. Every trial that offered a number at all
+attached an interval and the screening label, and offered the hand-off
+instead.
+
+Two clean sweeps say the concepts are legible, not that the cases are
+hard. Both were written the same day as the concepts they test, which
+is the weakest position a case can be measured from; the useful
+measurement is the next one, against a release, by someone who did not
+write either.
 
 ## 2026-09-07, N=5, claude-opus-5: the two event-reconstruction cases
 

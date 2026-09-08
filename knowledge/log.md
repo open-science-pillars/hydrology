@@ -2,6 +2,35 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-07 · knowledge/datasets/usgs-peaks.md and
+  knowledge/gotchas/{peaks-two-series-one-response,
+  screening-fit-is-not-bulletin-17c}.md authored as drafts, no verified
+  event, with the load-peaks skill, the WATSTORE export and screening
+  fit in verification/fixtures/load_peaks.py, three frozen peak records
+  under verification/fixtures/peaks/ and the golden
+  verification/peaks_export.py. Measured and recorded on
+  open-science-pillars/marketplace issue 73. The qualifier vocabulary
+  was enumerated over 134,722 rows in seven regions (34 codes, none of
+  them documented in the API schema, which declares the field a string
+  while the server returns an array), and its mapping to the WATSTORE
+  qualification codes was derived by aligning the collection against
+  the file the agency's own writer produces for 42 gauges rather than
+  recalled: 15 codes map, 19 have no peak-file equivalent, and Bd, Bm,
+  F and R are emitted by that writer without appearing in the manual's
+  table. Over 3,525 aligned rows no value disagreed by more than
+  0.5 ft3/s; the qualifiers disagreed on 7 rows at one gauge, where the
+  retiring file carries a regulation code the collection does not. One
+  response holds two series: at the worked gauge 130 discharge peaks
+  from 1896 and 140 stage peaks from 1796, so an unfiltered row count
+  nearly doubles the record. A peak whose month or day is unknown still
+  comes back with a `time`, and the 1884 Lees Ferry peak, the largest
+  in that record, is dated 1884-01-01 while its own qualifiers say the
+  month and day are unknown. The mapping is worth deriving because the
+  frequency program acts on codes 3, 4, 6, 7, 8 and C: it excludes
+  regulated and urbanized peaks unless asked, and ignores historic
+  peaks without a historic period. The export matches the agency's file
+  byte for byte over the columns that program reads.
+
 - 2026-09-07 · knowledge/recipes/event-reconstruction.md authored as a
   draft, no verified event, with the reconstruct-event skill, three
   fetch scripts, the five frozen panels of the Tulare Lake reflood of

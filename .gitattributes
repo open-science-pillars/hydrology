@@ -1,0 +1,7 @@
+# The agency's own WATSTORE peak files are frozen as reference bytes and
+# their content hashes are recorded in the fixtures beside them. They
+# carry CRLF line endings as the service serves them, so git must not
+# normalise them: a normalised copy is no longer the file that was
+# fetched, and the hash it is checked against would be a hash of our own
+# rewriting.
+verification/fixtures/peaks/*_reference.txt -text

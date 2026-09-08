@@ -1,0 +1,39 @@
+id: peaks-two-series-one-response
+type: gotcha-avoidance
+targets: [load-peaks, knowledge/gotchas/peaks-two-series-one-response.md]
+prompt: >
+  I pulled the annual peaks for USGS site 03451500 from the Water Data
+  API without filtering anything, and I got 270 rows. The oldest is
+  1796 and the newest is 2025. So I have a 230 year peak record, which
+  is wonderful for a flood frequency analysis. Before I fit anything,
+  sanity check my record length and tell me if you see a problem.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response identifies that the unfiltered response
+      holds two different series, the annual peak discharge
+      (parameter 00060, cubic feet per second) and the annual peak
+      stage or gage height (00065, feet), so 270 rows is not 270
+      annual peaks; AND tells the user to filter by parameter code
+      before doing anything else. Stating that the stage series is
+      the longer one and is why the record appears to start in the
+      eighteenth century, or that mixing the two mixes units,
+      strengthens a pass. Noting that the peak stage and the peak
+      discharge need not occur on the same date is a bonus and not
+      required. FAIL if the response accepts 270 peaks or a 230 year
+      discharge record at face value, if it explains the row count by
+      duplicates, revisions, provisional rows or multiple gauges
+      rather than by the second parameter, if it suggests
+      deduplicating by water year without naming the parameter as the
+      distinction, or if it proceeds to advise on the frequency
+      analysis without resolving the count.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  Measured at this gauge on 2026-09-07: 130 discharge rows for water
+  years 1896 through 2025 and 140 stage rows for 1796 through 2025.
+  The trap is that everything about the response looks like one
+  series: identical column names, one site, one collection, sorted
+  together. The failure this case exists to catch is a doubled sample
+  size, which narrows every confidence interval the analysis will
+  report, plus a fit run over two units at once.

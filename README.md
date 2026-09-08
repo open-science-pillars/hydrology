@@ -65,6 +65,19 @@ from it.
   flagged rather than refused, and an import or export without a
   source is refused outright. Measured for water year 2023 on three
   basins, one of which is the refusal.
+- **Annual peaks and the flood frequency hand-off**: the peak record
+  loaded whole, including the historic peaks whose month or day is
+  unknown, with the parameter required because one response carries
+  both the peak discharge and the peak stage in different units. The
+  peak file the field's software reads is exported with each qualifier
+  mapped to its qualification code, and the mapping was derived by
+  aligning the record against the file the agency's own writer
+  produces rather than recalled. No frequency estimate is computed
+  here: a fit made in the session is labelled screening, refuses a
+  regulated, historic or censored record until the analyst says which
+  convention they want, and never reports a return period without an
+  interval. The published number comes from the program the field
+  uses, run by the analyst, and is read back with its own limits.
 - **Applied workflows**: a streamflow drought index and a reservoir
   storage-change analysis, each validated against real gauge records.
 - **Basin delineation**: the polygon above a gauge or a snapped point
