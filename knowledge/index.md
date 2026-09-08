@@ -49,6 +49,7 @@ conflict.
 - [A log-Pearson III fit computed in a session is a screening number, not a flood frequency estimate](gotchas/screening-fit-is-not-bulletin-17c.md), severity high, status: stable
 - [SNODAS is a model output: comparable between periods, not a term in a water budget](gotchas/snodas-not-a-budget-term.md), severity high, status: stable
 - [A satellite lake elevation and a gauge elevation are on different datums, and the difference between them is mostly the datum](gotchas/swot-gauge-datum-mismatch.md), severity high, status: draft
+- [Hydrocron picks a product version when you do not, and the versions differ by metres](gotchas/hydrocron-collection-default.md), severity high, status: stable
 - [The OpenET monthly ensemble is not always the sum of its own days: three repeated months over Colorado headwater units in 2023](gotchas/openet-monthly-not-the-daily-sum.md), severity medium, status: stable
 
 ## computations
@@ -61,6 +62,7 @@ conflict.
 - [Event reconstruction: a receipted timeline for an event no budget can close](recipes/event-reconstruction.md), status: stable
 - [Drought anatomy: five panels, five sets of facts, and no single number](recipes/drought-anatomy.md), status: stable
 - [Reservoir ledger: a budget in volume units that reports its residual instead of closing](recipes/reservoir-ledger.md), status: draft
+- [Confronting a satellite river elevation with a gauge: score the changes, publish the level difference, call neither a bias](recipes/swot-gauge-confrontation.md), status: stable
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: stable
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: stable
 - [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: stable
