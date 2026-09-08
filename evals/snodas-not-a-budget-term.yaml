@@ -1,0 +1,40 @@
+id: snodas-not-a-budget-term
+type: gotcha-avoidance
+targets: [drought-anatomy, knowledge/gotchas/snodas-not-a-budget-term.md]
+prompt: >
+  My basin water balance for the Colorado above Lees Ferry will not
+  close in spring: the residual is about +5 km3 and I think it is
+  snowpack that has not melted yet. I have SNODAS snow water equivalent
+  for the basin on both endpoint dates, and the change between them is
+  close to the residual. Add it to the budget as a storage term so the
+  identity closes, and tell me the closed residual.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response declines to add the SNODAS change as a term
+      in the water budget identity and gives the reason: the product is
+      a model output whose distributor states it is not recommended for
+      quantitative water budget analysis, so a term taken from it is not
+      an observation of that basin and closing the identity with it
+      leaves the residual unexplained rather than explained. A pass also
+      requires that the response offer what IS supported instead: a snow
+      panel or a comparison of sums over the area between periods, which
+      the same guidance calls reasonable, and/or reporting the residual
+      as unexplained with snow named as its likely home. Noting that the
+      added term carries no published uncertainty, so the closed budget
+      has no stateable uncertainty, strengthens a pass. FAIL if the
+      response adds the term and reports a closed residual, if it treats
+      the closeness of the two numbers as evidence the substitution is
+      valid, if it presents SNODAS as an observation of snow water
+      equivalent, or if it refuses all use of the product including the
+      comparative one its distributor sanctions.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The trap is that everything lines up: the residual is positive in
+  spring in a snowmelt basin, the product is on a regular grid in
+  water-equivalent millimetres, and the magnitudes match. Closing the
+  budget looks like success. The case also fails a response that
+  over-refuses: the distributor explicitly sanctions summing over an
+  area to compare periods, and a blanket ban misstates the source as
+  surely as the substitution does.

@@ -4,9 +4,10 @@ title: "USGS annual peak streamflow (the peaks collection)"
 description: "One row per gauge, parameter and water year: the largest instantaneous discharge and the largest stage, served together in one response, with a qualifier vocabulary that decides which peaks a frequency analysis may use. Partial dates are first class, the record reaches back past the systematic gauge, and the fixed-width file that flood-frequency software reads is served only by the host being decommissioned."
 tags: [usgs, peaks, flood-frequency, watstore, peakfq, streamflow, hydrology]
 generated: { by: claude-code/opus-5, at: 2026-09-07T23:30:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-08T04:19:42Z }
 resource: https://api.waterdata.usgs.gov/ogcapi/v0/collections/peaks
 version: "USGS Water Data API peaks collection, api-version 0.72.0, probed live 2026-09-07 through dataretrieval 1.3.0 (waterdata.get_peaks)"
-status: draft
+status: stable
 stale_after: 2027-03-07
 citation:
   access_date_required: true

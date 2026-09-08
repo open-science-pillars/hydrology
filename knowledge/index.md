@@ -46,6 +46,7 @@ conflict.
 - [The OpenET provisional window: the last 120 days will change, and a receipt without its access date cannot be reproduced](gotchas/openet-provisional-window.md), severity medium, status: stable
 - [One peaks response holds two series, and they are not the same event](gotchas/peaks-two-series-one-response.md), severity high, status: draft
 - [A log-Pearson III fit computed in a session is a screening number, not a flood frequency estimate](gotchas/screening-fit-is-not-bulletin-17c.md), severity high, status: draft
+- [SNODAS is a model output: comparable between periods, not a term in a water budget](gotchas/snodas-not-a-budget-term.md), severity high, status: draft
 - [The OpenET monthly ensemble is not always the sum of its own days: three repeated months over Colorado headwater units in 2023](gotchas/openet-monthly-not-the-daily-sum.md), severity medium, status: stable
 
 ## computations
@@ -56,6 +57,7 @@ conflict.
 
 - [Basin water balance: when the identity can be closed from observations, and what it refuses](recipes/basin-water-balance.md), status: stable
 - [Event reconstruction: a receipted timeline for an event no budget can close](recipes/event-reconstruction.md), status: draft
+- [Drought anatomy: five panels, five sets of facts, and no single number](recipes/drought-anatomy.md), status: draft
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: stable
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: stable
 - [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: stable
@@ -67,3 +69,4 @@ conflict.
 - [USGS NLDI basin tracing: the polygon upstream of a gauge or a snapped point](connectors/nldi-basin.md), status: stable
 - [GES DISC through earthaccess: Earthdata Login plus a one-time application authorization, and the window pull over Cloud OPeNDAP](connectors/gesdisc-earthaccess.md), status: stable
 - [The OpenET API: a key in a header, a per-request area cap that no basin clears, and a 120-day window in which values change](connectors/openet-api.md), status: stable
+- [SNODAS: a registered collection with no granules, served from a dated directory](connectors/snodas-nsidc.md), status: draft

@@ -51,6 +51,11 @@ FIXTURES = {
     "roaring_fork_00060_2021_dv": ("USGS-09085000", "00060", "2021-01-01/2021-12-31"),
     "roaring_fork_00060_2023_dv": ("USGS-09085000", "00060", "2023-01-01/2023-12-31"),
     "roaring_fork_00060_clim9120_dv": ("USGS-09085000", "00060", "1991-01-01/2020-12-31"),
+    # The drought view's streamflow panel, by water year rather than
+    # calendar year, at a gauge below a major dam: the panel is an
+    # operations record and is labelled as one.
+    "lees_ferry_00060_wy2021_dv": ("USGS-09380000", "00060", "2020-10-01/2021-09-30"),
+    "lees_ferry_00060_wy2023_dv": ("USGS-09380000", "00060", "2022-10-01/2023-09-30"),
 }
 LEGACY_ROWS = {"lees_ferry_00060_2023_dv": 365}
 

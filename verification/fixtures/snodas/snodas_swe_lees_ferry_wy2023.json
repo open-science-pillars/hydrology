@@ -1,0 +1,183 @@
+{
+ "product": "SNODAS (NOAA NOHRSC), distributed by NSIDC as G02158",
+ "collection_concept_id": "C1386246263-NSIDCV0",
+ "doi": "10.7265/N5TB14TC",
+ "route": {
+  "kind": "direct HTTPS, no credential, no catalog search",
+  "base": "https://noaadata.apps.nsidc.org/NOAA/G02158",
+  "tree": "masked",
+  "path_form": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/YYYY/MM_Mon/SNODAS_YYYYMMDD.tar",
+  "note": "a granule search on the collection returns zero results for any window, so a catalog route does not exist and an agent that searches concludes the data is missing"
+ },
+ "layer": {
+  "code": "11034",
+  "header": {
+   "Description": "Modeled snow water equivalent, total of snow layers",
+   "Data units": "Meters / 1000.000000",
+   "Data type": "integer",
+   "Number of columns": "6935",
+   "Number of rows": "3351",
+   "No data value": "-9999.00000000000"
+  },
+  "note": "the description and the scale are read from the header packed beside the layer, because the file name codes are not self-describing"
+ },
+ "quantitative_use": "the producer's guidance is that this is a model output and is not recommended for quantitative water budget analysis, while summing over an area between periods for comparison is reasonable; nothing here is a budget term",
+ "basin": {
+  "fixture": "usgs_09380000_nldi.geojson",
+  "geometry_sha256": "883736418a56ae536d4ee9391a5d3169ab2ac499d9c47edb96123e138ff9947b",
+  "area_km2": 276443.7,
+  "site": "USGS-09380000"
+ },
+ "label": "lees_ferry_wy2023",
+ "dates": 12,
+ "bytes_transferred": 153733120,
+ "retrieved": "2026-09-08T03:44:43Z",
+ "fetch_script": "verification/fixtures/fetch_snodas_fixtures.py",
+ "license": "NSIDC distribution, US Government work",
+ "rows": [
+  {
+   "date": "2022-10-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2022/10_Oct/SNODAS_20221001.tar",
+   "status": 200,
+   "bytes": 2611200,
+   "sha256": "e124301a2d3a919c945c4d08d7549be4492e6741d8b7002defff1122c13eacb7",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 0.1475,
+   "swe_max_mm": 26.0,
+   "cells_with_snow": 15064
+  },
+  {
+   "date": "2022-11-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2022/11_Nov/SNODAS_20221101.tar",
+   "status": 200,
+   "bytes": 7352320,
+   "sha256": "7530334cd16f15a493c588b9db444b3602472ab87f902cb2685f8537b232942b",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 5.2689,
+   "swe_max_mm": 99.0,
+   "cells_with_snow": 106866
+  },
+  {
+   "date": "2022-12-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2022/12_Dec/SNODAS_20221201.tar",
+   "status": 200,
+   "bytes": 18524160,
+   "sha256": "93d6bfa51b2e4662ed92454efaaf4aebcbeea8350eaa39dddf71e755859982ba",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 17.162,
+   "swe_max_mm": 232.0,
+   "cells_with_snow": 211260
+  },
+  {
+   "date": "2023-01-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2023/01_Jan/SNODAS_20230101.tar",
+   "status": 200,
+   "bytes": 24514560,
+   "sha256": "4320cc6c2b747140a211227f2486a3128a8d02a81085199bcdf36cfbc13a3a94",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 55.8013,
+   "swe_max_mm": 583.0,
+   "cells_with_snow": 309504
+  },
+  {
+   "date": "2023-02-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2023/02_Feb/SNODAS_20230201.tar",
+   "status": 200,
+   "bytes": 27156480,
+   "sha256": "d1f1cb19cfbdd86ae7208c70cde038b64a793920c4ff1d77140d4ba50926f6d9",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 105.4691,
+   "swe_max_mm": 972.0,
+   "cells_with_snow": 354099
+  },
+  {
+   "date": "2023-03-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2023/03_Mar/SNODAS_20230301.tar",
+   "status": 200,
+   "bytes": 25241600,
+   "sha256": "3d463f4a2cc9fabb9e7dfdd14c91d81fa8a60e6224cf07d172061bcc033d10a1",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 125.1548,
+   "swe_max_mm": 1234.0,
+   "cells_with_snow": 290189
+  },
+  {
+   "date": "2023-04-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2023/04_Apr/SNODAS_20230401.tar",
+   "status": 200,
+   "bytes": 24678400,
+   "sha256": "549ec9fc195db2998c10bbc56f2c5dc9e51919196ad2a899dcf57cbb00f575bc",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 163.1353,
+   "swe_max_mm": 1556.0,
+   "cells_with_snow": 251524
+  },
+  {
+   "date": "2023-05-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2023/05_May/SNODAS_20230501.tar",
+   "status": 200,
+   "bytes": 10280960,
+   "sha256": "edbefcf81197548c1538af71ee80558a79aa41a56064d5e34447e2cc0676d7af",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 94.3984,
+   "swe_max_mm": 1659.0,
+   "cells_with_snow": 99645
+  },
+  {
+   "date": "2023-06-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2023/06_Jun/SNODAS_20230601.tar",
+   "status": 200,
+   "bytes": 5724160,
+   "sha256": "e73275e01be86bac071d209241b12aaef3306f7a82657e606fea58f05e459bb5",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 21.2013,
+   "swe_max_mm": 1683.0,
+   "cells_with_snow": 33296
+  },
+  {
+   "date": "2023-07-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2023/07_Jul/SNODAS_20230701.tar",
+   "status": 200,
+   "bytes": 3287040,
+   "sha256": "a58020049f51ca1520efb54be55c465dfad509d25432c2ef81462fb58356f585",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 0.5292,
+   "swe_max_mm": 984.0,
+   "cells_with_snow": 1602
+  },
+  {
+   "date": "2023-08-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2023/08_Aug/SNODAS_20230801.tar",
+   "status": 200,
+   "bytes": 2908160,
+   "sha256": "85ff0fc01c47a2c2801f13d027917ccb64ba8d048f47288182550078b3a91860",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 0.0,
+   "swe_max_mm": 0.0,
+   "cells_with_snow": 0
+  },
+  {
+   "date": "2023-09-01",
+   "url": "https://noaadata.apps.nsidc.org/NOAA/G02158/masked/2023/09_Sep/SNODAS_20230901.tar",
+   "status": 200,
+   "bytes": 1454080,
+   "sha256": "4369704c2e8d093448cf1e4b690e9af1ce1fcd3187972054cd72d3acc923e5a9",
+   "cells_inside": 414683,
+   "cells_with_data": 414522,
+   "swe_mean_mm": 0.0,
+   "swe_max_mm": 0.0,
+   "cells_with_snow": 0
+  }
+ ]
+}

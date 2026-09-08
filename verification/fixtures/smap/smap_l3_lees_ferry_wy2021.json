@@ -1,0 +1,3695 @@
+{
+ "product": "SMAP L3 radiometer global daily soil moisture (SPL3SMP) v009",
+ "collection_concept_id": "C2938664585-NSIDC_CPRD",
+ "group": "Soil_Moisture_Retrieval_Data_AM",
+ "variable": "soil_moisture",
+ "units": "cm3/cm3",
+ "fill_value": -9999.0,
+ "overpass": "AM (descending), the overpass the retrieval is validated for; the PM fields carry a _pm suffix in the same file and are not mixed in here",
+ "record_begins": "2015-03-31",
+ "record_note": "the record is too short for a percentile against a climatology of the kind a long gauge record allows, so the panels compare years rather than ranking one",
+ "coverage_note": "the retrieval is gappy: frozen, snow covered, densely vegetated and open water cells are not retrieved, so cells_retrieved moves through the year and a mean is the mean of what was retrieved",
+ "window": {
+  "rows": [
+   63,
+   84
+  ],
+  "cols": [
+   182,
+   198
+  ],
+  "shape": [
+   22,
+   17
+  ],
+  "cells_inside_polygon": 213,
+  "coordinate_granules_scanned": 12,
+  "note": "the coordinate arrays are written only where a day retrieved something, so they are accumulated across granules until the located set stops growing; a window taken from one granule is that day's coverage and two such windows are not comparable"
+ },
+ "basin": {
+  "fixture": "usgs_09380000_nldi.geojson",
+  "geometry_sha256": "883736418a56ae536d4ee9391a5d3169ab2ac499d9c47edb96123e138ff9947b",
+  "area_km2": 276443.7,
+  "site": "USGS-09380000"
+ },
+ "label": "lees_ferry_wy2021",
+ "start": "2020-10-01",
+ "end": "2021-09-30",
+ "days": 365,
+ "bytes_transferred": 2438565,
+ "retrieved": "2026-09-08T04:05:22Z",
+ "fetch_script": "verification/fixtures/fetch_smap_fixtures.py",
+ "license": "NASA data, public (EOSDIS data use guidance)",
+ "rows": [
+  {
+   "date": "2020-10-01",
+   "granule": "SMAP_L3_SM_P_20201001_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-10-02",
+   "granule": "SMAP_L3_SM_P_20201002_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 199,
+   "cells_recommended": 159,
+   "mean_m3m3": 0.07866,
+   "sd_m3m3": 0.02201,
+   "mean_recommended_m3m3": 0.07588
+  },
+  {
+   "date": "2020-10-03",
+   "granule": "SMAP_L3_SM_P_20201003_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 148,
+   "cells_recommended": 134,
+   "mean_m3m3": 0.07512,
+   "sd_m3m3": 0.01775,
+   "mean_recommended_m3m3": 0.07596
+  },
+  {
+   "date": "2020-10-04",
+   "granule": "SMAP_L3_SM_P_20201004_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-10-05",
+   "granule": "SMAP_L3_SM_P_20201005_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 173,
+   "mean_m3m3": 0.07937,
+   "sd_m3m3": 0.01974,
+   "mean_recommended_m3m3": 0.07784
+  },
+  {
+   "date": "2020-10-06",
+   "granule": "SMAP_L3_SM_P_20201006_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 27,
+   "cells_recommended": 26,
+   "mean_m3m3": 0.08551,
+   "sd_m3m3": 0.01842,
+   "mean_recommended_m3m3": 0.08346
+  },
+  {
+   "date": "2020-10-07",
+   "granule": "SMAP_L3_SM_P_20201007_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 66,
+   "cells_recommended": 41,
+   "mean_m3m3": 0.0906,
+   "sd_m3m3": 0.02199,
+   "mean_recommended_m3m3": 0.08456
+  },
+  {
+   "date": "2020-10-08",
+   "granule": "SMAP_L3_SM_P_20201008_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 175,
+   "mean_m3m3": 0.08104,
+   "sd_m3m3": 0.01977,
+   "mean_recommended_m3m3": 0.07901
+  },
+  {
+   "date": "2020-10-09",
+   "granule": "SMAP_L3_SM_P_20201009_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-10-10",
+   "granule": "SMAP_L3_SM_P_20201010_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 200,
+   "cells_recommended": 163,
+   "mean_m3m3": 0.08126,
+   "sd_m3m3": 0.01952,
+   "mean_recommended_m3m3": 0.07918
+  },
+  {
+   "date": "2020-10-11",
+   "granule": "SMAP_L3_SM_P_20201011_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 141,
+   "cells_recommended": 109,
+   "mean_m3m3": 0.10393,
+   "sd_m3m3": 0.06215,
+   "mean_recommended_m3m3": 0.08624
+  },
+  {
+   "date": "2020-10-12",
+   "granule": "SMAP_L3_SM_P_20201012_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-10-13",
+   "granule": "SMAP_L3_SM_P_20201013_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 166,
+   "mean_m3m3": 0.09035,
+   "sd_m3m3": 0.03092,
+   "mean_recommended_m3m3": 0.08669
+  },
+  {
+   "date": "2020-10-14",
+   "granule": "SMAP_L3_SM_P_20201014_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 28,
+   "cells_recommended": 24,
+   "mean_m3m3": 0.13382,
+   "sd_m3m3": 0.0495,
+   "mean_recommended_m3m3": 0.12271
+  },
+  {
+   "date": "2020-10-15",
+   "granule": "SMAP_L3_SM_P_20201015_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 65,
+   "cells_recommended": 41,
+   "mean_m3m3": 0.09989,
+   "sd_m3m3": 0.02778,
+   "mean_recommended_m3m3": 0.091
+  },
+  {
+   "date": "2020-10-16",
+   "granule": "SMAP_L3_SM_P_20201016_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 168,
+   "mean_m3m3": 0.08078,
+   "sd_m3m3": 0.02092,
+   "mean_recommended_m3m3": 0.07814
+  },
+  {
+   "date": "2020-10-17",
+   "granule": "SMAP_L3_SM_P_20201017_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-10-18",
+   "granule": "SMAP_L3_SM_P_20201018_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 199,
+   "cells_recommended": 149,
+   "mean_m3m3": 0.07565,
+   "sd_m3m3": 0.02169,
+   "mean_recommended_m3m3": 0.07327
+  },
+  {
+   "date": "2020-10-19",
+   "granule": "SMAP_L3_SM_P_20201019_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 149,
+   "cells_recommended": 127,
+   "mean_m3m3": 0.07545,
+   "sd_m3m3": 0.02123,
+   "mean_recommended_m3m3": 0.07536
+  },
+  {
+   "date": "2020-10-20",
+   "granule": "SMAP_L3_SM_P_20201020_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-10-21",
+   "granule": "SMAP_L3_SM_P_20201021_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 211,
+   "cells_recommended": 166,
+   "mean_m3m3": 0.08063,
+   "sd_m3m3": 0.02146,
+   "mean_recommended_m3m3": 0.07799
+  },
+  {
+   "date": "2020-10-22",
+   "granule": "SMAP_L3_SM_P_20201022_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 28,
+   "cells_recommended": 26,
+   "mean_m3m3": 0.09272,
+   "sd_m3m3": 0.02297,
+   "mean_recommended_m3m3": 0.08908
+  },
+  {
+   "date": "2020-10-23",
+   "granule": "SMAP_L3_SM_P_20201023_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 63,
+   "cells_recommended": 37,
+   "mean_m3m3": 0.08367,
+   "sd_m3m3": 0.0192,
+   "mean_recommended_m3m3": 0.07987
+  },
+  {
+   "date": "2020-10-24",
+   "granule": "SMAP_L3_SM_P_20201024_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 204,
+   "cells_recommended": 150,
+   "mean_m3m3": 0.07135,
+   "sd_m3m3": 0.01734,
+   "mean_recommended_m3m3": 0.07119
+  },
+  {
+   "date": "2020-10-25",
+   "granule": "SMAP_L3_SM_P_20201025_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-10-26",
+   "granule": "SMAP_L3_SM_P_20201026_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 27,
+   "cells_recommended": 6,
+   "mean_m3m3": 0.09837,
+   "sd_m3m3": 0.0344,
+   "mean_recommended_m3m3": 0.08361
+  },
+  {
+   "date": "2020-10-27",
+   "granule": "SMAP_L3_SM_P_20201027_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 62,
+   "cells_recommended": 18,
+   "mean_m3m3": 0.08019,
+   "sd_m3m3": 0.01608,
+   "mean_recommended_m3m3": 0.07512
+  },
+  {
+   "date": "2020-10-28",
+   "granule": "SMAP_L3_SM_P_20201028_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-10-29",
+   "granule": "SMAP_L3_SM_P_20201029_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 155,
+   "cells_recommended": 89,
+   "mean_m3m3": 0.10091,
+   "sd_m3m3": 0.03453,
+   "mean_recommended_m3m3": 0.09211
+  },
+  {
+   "date": "2020-10-30",
+   "granule": "SMAP_L3_SM_P_20201030_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 29,
+   "cells_recommended": 23,
+   "mean_m3m3": 0.09246,
+   "sd_m3m3": 0.01829,
+   "mean_recommended_m3m3": 0.0862
+  },
+  {
+   "date": "2020-10-31",
+   "granule": "SMAP_L3_SM_P_20201031_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 36,
+   "cells_recommended": 9,
+   "mean_m3m3": 0.15442,
+   "sd_m3m3": 0.03846,
+   "mean_recommended_m3m3": 0.1658
+  },
+  {
+   "date": "2020-11-01",
+   "granule": "SMAP_L3_SM_P_20201101_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 189,
+   "cells_recommended": 137,
+   "mean_m3m3": 0.10558,
+   "sd_m3m3": 0.03714,
+   "mean_recommended_m3m3": 0.09909
+  },
+  {
+   "date": "2020-11-02",
+   "granule": "SMAP_L3_SM_P_20201102_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-11-03",
+   "granule": "SMAP_L3_SM_P_20201103_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 193,
+   "cells_recommended": 144,
+   "mean_m3m3": 0.10875,
+   "sd_m3m3": 0.04089,
+   "mean_recommended_m3m3": 0.10117
+  },
+  {
+   "date": "2020-11-04",
+   "granule": "SMAP_L3_SM_P_20201104_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 151,
+   "cells_recommended": 138,
+   "mean_m3m3": 0.0994,
+   "sd_m3m3": 0.03171,
+   "mean_recommended_m3m3": 0.0981
+  },
+  {
+   "date": "2020-11-05",
+   "granule": "SMAP_L3_SM_P_20201105_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-11-06",
+   "granule": "SMAP_L3_SM_P_20201106_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 169,
+   "mean_m3m3": 0.1044,
+   "sd_m3m3": 0.03981,
+   "mean_recommended_m3m3": 0.09718
+  },
+  {
+   "date": "2020-11-07",
+   "granule": "SMAP_L3_SM_P_20201107_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 29,
+   "cells_recommended": 22,
+   "mean_m3m3": 0.09981,
+   "sd_m3m3": 0.02548,
+   "mean_recommended_m3m3": 0.09309
+  },
+  {
+   "date": "2020-11-08",
+   "granule": "SMAP_L3_SM_P_20201108_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 54,
+   "cells_recommended": 16,
+   "mean_m3m3": 0.24466,
+   "sd_m3m3": 0.05355,
+   "mean_recommended_m3m3": 0.24054
+  },
+  {
+   "date": "2020-11-09",
+   "granule": "SMAP_L3_SM_P_20201109_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 4,
+   "cells_recommended": 0,
+   "mean_m3m3": 0.13858,
+   "sd_m3m3": 0.0451,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-11-10",
+   "granule": "SMAP_L3_SM_P_20201110_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-11-11",
+   "granule": "SMAP_L3_SM_P_20201111_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 97,
+   "cells_recommended": 26,
+   "mean_m3m3": 0.10498,
+   "sd_m3m3": 0.02715,
+   "mean_recommended_m3m3": 0.09798
+  },
+  {
+   "date": "2020-11-12",
+   "granule": "SMAP_L3_SM_P_20201112_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 71,
+   "cells_recommended": 26,
+   "mean_m3m3": 0.09491,
+   "sd_m3m3": 0.02133,
+   "mean_recommended_m3m3": 0.08384
+  },
+  {
+   "date": "2020-11-13",
+   "granule": "SMAP_L3_SM_P_20201113_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-11-14",
+   "granule": "SMAP_L3_SM_P_20201114_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 106,
+   "cells_recommended": 52,
+   "mean_m3m3": 0.10498,
+   "sd_m3m3": 0.03381,
+   "mean_recommended_m3m3": 0.09562
+  },
+  {
+   "date": "2020-11-15",
+   "granule": "SMAP_L3_SM_P_20201115_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 4,
+   "cells_recommended": 1,
+   "mean_m3m3": 0.09391,
+   "sd_m3m3": 0.01006,
+   "mean_recommended_m3m3": 0.08894
+  },
+  {
+   "date": "2020-11-16",
+   "granule": "SMAP_L3_SM_P_20201116_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 22,
+   "cells_recommended": 14,
+   "mean_m3m3": 0.10058,
+   "sd_m3m3": 0.03599,
+   "mean_recommended_m3m3": 0.08642
+  },
+  {
+   "date": "2020-11-17",
+   "granule": "SMAP_L3_SM_P_20201117_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 161,
+   "cells_recommended": 82,
+   "mean_m3m3": 0.09795,
+   "sd_m3m3": 0.02881,
+   "mean_recommended_m3m3": 0.08446
+  },
+  {
+   "date": "2020-11-18",
+   "granule": "SMAP_L3_SM_P_20201118_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-11-19",
+   "granule": "SMAP_L3_SM_P_20201119_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 179,
+   "cells_recommended": 98,
+   "mean_m3m3": 0.12615,
+   "sd_m3m3": 0.05094,
+   "mean_recommended_m3m3": 0.11228
+  },
+  {
+   "date": "2020-11-20",
+   "granule": "SMAP_L3_SM_P_20201120_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 137,
+   "cells_recommended": 104,
+   "mean_m3m3": 0.10411,
+   "sd_m3m3": 0.03604,
+   "mean_recommended_m3m3": 0.09903
+  },
+  {
+   "date": "2020-11-21",
+   "granule": "SMAP_L3_SM_P_20201121_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-11-22",
+   "granule": "SMAP_L3_SM_P_20201122_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 180,
+   "cells_recommended": 124,
+   "mean_m3m3": 0.09564,
+   "sd_m3m3": 0.029,
+   "mean_recommended_m3m3": 0.08854
+  },
+  {
+   "date": "2020-11-23",
+   "granule": "SMAP_L3_SM_P_20201123_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 20,
+   "cells_recommended": 11,
+   "mean_m3m3": 0.09862,
+   "sd_m3m3": 0.00732,
+   "mean_recommended_m3m3": 0.09647
+  },
+  {
+   "date": "2020-11-24",
+   "granule": "SMAP_L3_SM_P_20201124_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 25,
+   "cells_recommended": 14,
+   "mean_m3m3": 0.13435,
+   "sd_m3m3": 0.06393,
+   "mean_recommended_m3m3": 0.1139
+  },
+  {
+   "date": "2020-11-25",
+   "granule": "SMAP_L3_SM_P_20201125_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 145,
+   "cells_recommended": 100,
+   "mean_m3m3": 0.09319,
+   "sd_m3m3": 0.02174,
+   "mean_recommended_m3m3": 0.08912
+  },
+  {
+   "date": "2020-11-26",
+   "granule": "SMAP_L3_SM_P_20201126_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-11-27",
+   "granule": "SMAP_L3_SM_P_20201127_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 120,
+   "cells_recommended": 70,
+   "mean_m3m3": 0.08202,
+   "sd_m3m3": 0.01998,
+   "mean_recommended_m3m3": 0.08126
+  },
+  {
+   "date": "2020-11-28",
+   "granule": "SMAP_L3_SM_P_20201128_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 118,
+   "cells_recommended": 87,
+   "mean_m3m3": 0.08198,
+   "sd_m3m3": 0.01444,
+   "mean_recommended_m3m3": 0.08162
+  },
+  {
+   "date": "2020-11-29",
+   "granule": "SMAP_L3_SM_P_20201129_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-11-30",
+   "granule": "SMAP_L3_SM_P_20201130_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 140,
+   "cells_recommended": 104,
+   "mean_m3m3": 0.0805,
+   "sd_m3m3": 0.01535,
+   "mean_recommended_m3m3": 0.07909
+  },
+  {
+   "date": "2020-12-01",
+   "granule": "SMAP_L3_SM_P_20201201_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 13,
+   "cells_recommended": 9,
+   "mean_m3m3": 0.08783,
+   "sd_m3m3": 0.00802,
+   "mean_recommended_m3m3": 0.08685
+  },
+  {
+   "date": "2020-12-02",
+   "granule": "SMAP_L3_SM_P_20201202_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 15,
+   "cells_recommended": 14,
+   "mean_m3m3": 0.07145,
+   "sd_m3m3": 0.01664,
+   "mean_recommended_m3m3": 0.07214
+  },
+  {
+   "date": "2020-12-03",
+   "granule": "SMAP_L3_SM_P_20201203_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 88,
+   "cells_recommended": 74,
+   "mean_m3m3": 0.07423,
+   "sd_m3m3": 0.01377,
+   "mean_recommended_m3m3": 0.07476
+  },
+  {
+   "date": "2020-12-04",
+   "granule": "SMAP_L3_SM_P_20201204_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-12-05",
+   "granule": "SMAP_L3_SM_P_20201205_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 103,
+   "cells_recommended": 88,
+   "mean_m3m3": 0.07287,
+   "sd_m3m3": 0.01448,
+   "mean_recommended_m3m3": 0.0725
+  },
+  {
+   "date": "2020-12-06",
+   "granule": "SMAP_L3_SM_P_20201206_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 92,
+   "cells_recommended": 77,
+   "mean_m3m3": 0.07496,
+   "sd_m3m3": 0.01538,
+   "mean_recommended_m3m3": 0.07625
+  },
+  {
+   "date": "2020-12-07",
+   "granule": "SMAP_L3_SM_P_20201207_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-12-08",
+   "granule": "SMAP_L3_SM_P_20201208_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 108,
+   "cells_recommended": 95,
+   "mean_m3m3": 0.07289,
+   "sd_m3m3": 0.01602,
+   "mean_recommended_m3m3": 0.07309
+  },
+  {
+   "date": "2020-12-09",
+   "granule": "SMAP_L3_SM_P_20201209_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 3,
+   "cells_recommended": 3,
+   "mean_m3m3": 0.07833,
+   "sd_m3m3": 0.0073,
+   "mean_recommended_m3m3": 0.07833
+  },
+  {
+   "date": "2020-12-10",
+   "granule": "SMAP_L3_SM_P_20201210_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 15,
+   "cells_recommended": 11,
+   "mean_m3m3": 0.06156,
+   "sd_m3m3": 0.01922,
+   "mean_recommended_m3m3": 0.06283
+  },
+  {
+   "date": "2020-12-11",
+   "granule": "SMAP_L3_SM_P_20201211_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 78,
+   "cells_recommended": 49,
+   "mean_m3m3": 0.08279,
+   "sd_m3m3": 0.01886,
+   "mean_recommended_m3m3": 0.07776
+  },
+  {
+   "date": "2020-12-12",
+   "granule": "SMAP_L3_SM_P_20201212_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-12-13",
+   "granule": "SMAP_L3_SM_P_20201213_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 13,
+   "cells_recommended": 5,
+   "mean_m3m3": 0.07686,
+   "sd_m3m3": 0.01052,
+   "mean_recommended_m3m3": 0.07742
+  },
+  {
+   "date": "2020-12-14",
+   "granule": "SMAP_L3_SM_P_20201214_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 18,
+   "cells_recommended": 7,
+   "mean_m3m3": 0.07167,
+   "sd_m3m3": 0.00961,
+   "mean_recommended_m3m3": 0.07173
+  },
+  {
+   "date": "2020-12-15",
+   "granule": "SMAP_L3_SM_P_20201215_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-12-16",
+   "granule": "SMAP_L3_SM_P_20201216_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 26,
+   "cells_recommended": 11,
+   "mean_m3m3": 0.07348,
+   "sd_m3m3": 0.00822,
+   "mean_recommended_m3m3": 0.07498
+  },
+  {
+   "date": "2020-12-17",
+   "granule": "SMAP_L3_SM_P_20201217_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 2,
+   "cells_recommended": 1,
+   "mean_m3m3": 0.08172,
+   "sd_m3m3": 0.00034,
+   "mean_recommended_m3m3": 0.08148
+  },
+  {
+   "date": "2020-12-18",
+   "granule": "SMAP_L3_SM_P_20201218_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 1,
+   "cells_recommended": 0,
+   "mean_m3m3": 0.0678,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-12-19",
+   "granule": "SMAP_L3_SM_P_20201219_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 36,
+   "cells_recommended": 9,
+   "mean_m3m3": 0.07685,
+   "sd_m3m3": 0.01004,
+   "mean_recommended_m3m3": 0.06943
+  },
+  {
+   "date": "2020-12-20",
+   "granule": "SMAP_L3_SM_P_20201220_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-12-21",
+   "granule": "SMAP_L3_SM_P_20201221_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 43,
+   "cells_recommended": 15,
+   "mean_m3m3": 0.07554,
+   "sd_m3m3": 0.01129,
+   "mean_recommended_m3m3": 0.07274
+  },
+  {
+   "date": "2020-12-22",
+   "granule": "SMAP_L3_SM_P_20201222_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 56,
+   "cells_recommended": 33,
+   "mean_m3m3": 0.07724,
+   "sd_m3m3": 0.01143,
+   "mean_recommended_m3m3": 0.0773
+  },
+  {
+   "date": "2020-12-23",
+   "granule": "SMAP_L3_SM_P_20201223_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-12-24",
+   "granule": "SMAP_L3_SM_P_20201224_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 41,
+   "cells_recommended": 25,
+   "mean_m3m3": 0.07449,
+   "sd_m3m3": 0.01116,
+   "mean_recommended_m3m3": 0.07383
+  },
+  {
+   "date": "2020-12-25",
+   "granule": "SMAP_L3_SM_P_20201225_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-12-26",
+   "granule": "SMAP_L3_SM_P_20201226_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 9,
+   "cells_recommended": 6,
+   "mean_m3m3": 0.07731,
+   "sd_m3m3": 0.01274,
+   "mean_recommended_m3m3": 0.07229
+  },
+  {
+   "date": "2020-12-27",
+   "granule": "SMAP_L3_SM_P_20201227_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 63,
+   "cells_recommended": 40,
+   "mean_m3m3": 0.07348,
+   "sd_m3m3": 0.01089,
+   "mean_recommended_m3m3": 0.07203
+  },
+  {
+   "date": "2020-12-28",
+   "granule": "SMAP_L3_SM_P_20201228_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2020-12-29",
+   "granule": "SMAP_L3_SM_P_20201229_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 28,
+   "cells_recommended": 11,
+   "mean_m3m3": 0.07319,
+   "sd_m3m3": 0.01813,
+   "mean_recommended_m3m3": 0.07436
+  },
+  {
+   "date": "2020-12-30",
+   "granule": "SMAP_L3_SM_P_20201230_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 20,
+   "cells_recommended": 11,
+   "mean_m3m3": 0.07702,
+   "sd_m3m3": 0.00727,
+   "mean_recommended_m3m3": 0.0747
+  },
+  {
+   "date": "2020-12-31",
+   "granule": "SMAP_L3_SM_P_20201231_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-01",
+   "granule": "SMAP_L3_SM_P_20210101_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 35,
+   "cells_recommended": 14,
+   "mean_m3m3": 0.07208,
+   "sd_m3m3": 0.01171,
+   "mean_recommended_m3m3": 0.06813
+  },
+  {
+   "date": "2021-01-02",
+   "granule": "SMAP_L3_SM_P_20210102_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-03",
+   "granule": "SMAP_L3_SM_P_20210103_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 11,
+   "cells_recommended": 3,
+   "mean_m3m3": 0.06915,
+   "sd_m3m3": 0.01247,
+   "mean_recommended_m3m3": 0.05756
+  },
+  {
+   "date": "2021-01-04",
+   "granule": "SMAP_L3_SM_P_20210104_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 41,
+   "cells_recommended": 20,
+   "mean_m3m3": 0.06982,
+   "sd_m3m3": 0.01232,
+   "mean_recommended_m3m3": 0.06703
+  },
+  {
+   "date": "2021-01-05",
+   "granule": "SMAP_L3_SM_P_20210105_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-06",
+   "granule": "SMAP_L3_SM_P_20210106_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 45,
+   "cells_recommended": 21,
+   "mean_m3m3": 0.07012,
+   "sd_m3m3": 0.01468,
+   "mean_recommended_m3m3": 0.0677
+  },
+  {
+   "date": "2021-01-07",
+   "granule": "SMAP_L3_SM_P_20210107_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 28,
+   "cells_recommended": 17,
+   "mean_m3m3": 0.06846,
+   "sd_m3m3": 0.01023,
+   "mean_recommended_m3m3": 0.06916
+  },
+  {
+   "date": "2021-01-08",
+   "granule": "SMAP_L3_SM_P_20210108_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-09",
+   "granule": "SMAP_L3_SM_P_20210109_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 52,
+   "cells_recommended": 32,
+   "mean_m3m3": 0.07172,
+   "sd_m3m3": 0.01343,
+   "mean_recommended_m3m3": 0.06782
+  },
+  {
+   "date": "2021-01-10",
+   "granule": "SMAP_L3_SM_P_20210110_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-11",
+   "granule": "SMAP_L3_SM_P_20210111_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 12,
+   "cells_recommended": 9,
+   "mean_m3m3": 0.0685,
+   "sd_m3m3": 0.01256,
+   "mean_recommended_m3m3": 0.06486
+  },
+  {
+   "date": "2021-01-12",
+   "granule": "SMAP_L3_SM_P_20210112_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 33,
+   "cells_recommended": 23,
+   "mean_m3m3": 0.06866,
+   "sd_m3m3": 0.01158,
+   "mean_recommended_m3m3": 0.0676
+  },
+  {
+   "date": "2021-01-13",
+   "granule": "SMAP_L3_SM_P_20210113_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-14",
+   "granule": "SMAP_L3_SM_P_20210114_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 59,
+   "cells_recommended": 32,
+   "mean_m3m3": 0.06848,
+   "sd_m3m3": 0.01287,
+   "mean_recommended_m3m3": 0.06558
+  },
+  {
+   "date": "2021-01-15",
+   "granule": "SMAP_L3_SM_P_20210115_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 34,
+   "cells_recommended": 23,
+   "mean_m3m3": 0.06547,
+   "sd_m3m3": 0.01065,
+   "mean_recommended_m3m3": 0.06632
+  },
+  {
+   "date": "2021-01-16",
+   "granule": "SMAP_L3_SM_P_20210116_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-17",
+   "granule": "SMAP_L3_SM_P_20210117_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 66,
+   "cells_recommended": 39,
+   "mean_m3m3": 0.06658,
+   "sd_m3m3": 0.01465,
+   "mean_recommended_m3m3": 0.06226
+  },
+  {
+   "date": "2021-01-18",
+   "granule": "SMAP_L3_SM_P_20210118_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 2,
+   "cells_recommended": 0,
+   "mean_m3m3": 0.09175,
+   "sd_m3m3": 0.01055,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-19",
+   "granule": "SMAP_L3_SM_P_20210119_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 15,
+   "cells_recommended": 7,
+   "mean_m3m3": 0.08255,
+   "sd_m3m3": 0.0319,
+   "mean_recommended_m3m3": 0.0643
+  },
+  {
+   "date": "2021-01-20",
+   "granule": "SMAP_L3_SM_P_20210120_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 30,
+   "cells_recommended": 13,
+   "mean_m3m3": 0.07204,
+   "sd_m3m3": 0.01168,
+   "mean_recommended_m3m3": 0.06824
+  },
+  {
+   "date": "2021-01-21",
+   "granule": "SMAP_L3_SM_P_20210121_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-22",
+   "granule": "SMAP_L3_SM_P_20210122_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 52,
+   "cells_recommended": 23,
+   "mean_m3m3": 0.07623,
+   "sd_m3m3": 0.01317,
+   "mean_recommended_m3m3": 0.07373
+  },
+  {
+   "date": "2021-01-23",
+   "granule": "SMAP_L3_SM_P_20210123_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 44,
+   "cells_recommended": 1,
+   "mean_m3m3": 0.18638,
+   "sd_m3m3": 0.02898,
+   "mean_recommended_m3m3": 0.14965
+  },
+  {
+   "date": "2021-01-24",
+   "granule": "SMAP_L3_SM_P_20210124_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-25",
+   "granule": "SMAP_L3_SM_P_20210125_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 37,
+   "cells_recommended": 21,
+   "mean_m3m3": 0.10211,
+   "sd_m3m3": 0.01929,
+   "mean_recommended_m3m3": 0.10389
+  },
+  {
+   "date": "2021-01-26",
+   "granule": "SMAP_L3_SM_P_20210126_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-27",
+   "granule": "SMAP_L3_SM_P_20210127_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 2,
+   "cells_recommended": 0,
+   "mean_m3m3": 0.08587,
+   "sd_m3m3": 0.00554,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-28",
+   "granule": "SMAP_L3_SM_P_20210128_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 15,
+   "cells_recommended": 0,
+   "mean_m3m3": 0.08537,
+   "sd_m3m3": 0.00884,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-29",
+   "granule": "SMAP_L3_SM_P_20210129_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-01-30",
+   "granule": "SMAP_L3_SM_P_20210130_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 42,
+   "cells_recommended": 9,
+   "mean_m3m3": 0.09695,
+   "sd_m3m3": 0.02096,
+   "mean_recommended_m3m3": 0.08769
+  },
+  {
+   "date": "2021-01-31",
+   "granule": "SMAP_L3_SM_P_20210131_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 40,
+   "cells_recommended": 12,
+   "mean_m3m3": 0.08723,
+   "sd_m3m3": 0.01051,
+   "mean_recommended_m3m3": 0.08275
+  },
+  {
+   "date": "2021-02-01",
+   "granule": "SMAP_L3_SM_P_20210201_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-02",
+   "granule": "SMAP_L3_SM_P_20210202_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 51,
+   "cells_recommended": 7,
+   "mean_m3m3": 0.10614,
+   "sd_m3m3": 0.02343,
+   "mean_recommended_m3m3": 0.08654
+  },
+  {
+   "date": "2021-02-03",
+   "granule": "SMAP_L3_SM_P_20210203_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-04",
+   "granule": "SMAP_L3_SM_P_20210204_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 12,
+   "cells_recommended": 3,
+   "mean_m3m3": 0.1142,
+   "sd_m3m3": 0.03699,
+   "mean_recommended_m3m3": 0.09513
+  },
+  {
+   "date": "2021-02-05",
+   "granule": "SMAP_L3_SM_P_20210205_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 66,
+   "cells_recommended": 35,
+   "mean_m3m3": 0.08793,
+   "sd_m3m3": 0.01719,
+   "mean_recommended_m3m3": 0.08082
+  },
+  {
+   "date": "2021-02-06",
+   "granule": "SMAP_L3_SM_P_20210206_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-07",
+   "granule": "SMAP_L3_SM_P_20210207_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 65,
+   "cells_recommended": 32,
+   "mean_m3m3": 0.07515,
+   "sd_m3m3": 0.02061,
+   "mean_recommended_m3m3": 0.06443
+  },
+  {
+   "date": "2021-02-08",
+   "granule": "SMAP_L3_SM_P_20210208_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 56,
+   "cells_recommended": 39,
+   "mean_m3m3": 0.07263,
+   "sd_m3m3": 0.01916,
+   "mean_recommended_m3m3": 0.06724
+  },
+  {
+   "date": "2021-02-09",
+   "granule": "SMAP_L3_SM_P_20210209_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-10",
+   "granule": "SMAP_L3_SM_P_20210210_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 84,
+   "cells_recommended": 43,
+   "mean_m3m3": 0.09439,
+   "sd_m3m3": 0.03861,
+   "mean_recommended_m3m3": 0.07394
+  },
+  {
+   "date": "2021-02-11",
+   "granule": "SMAP_L3_SM_P_20210211_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 2,
+   "cells_recommended": 1,
+   "mean_m3m3": 0.09225,
+   "sd_m3m3": 0.00232,
+   "mean_recommended_m3m3": 0.09389
+  },
+  {
+   "date": "2021-02-12",
+   "granule": "SMAP_L3_SM_P_20210212_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 14,
+   "cells_recommended": 6,
+   "mean_m3m3": 0.07134,
+   "sd_m3m3": 0.04099,
+   "mean_recommended_m3m3": 0.0699
+  },
+  {
+   "date": "2021-02-13",
+   "granule": "SMAP_L3_SM_P_20210213_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 86,
+   "cells_recommended": 45,
+   "mean_m3m3": 0.08781,
+   "sd_m3m3": 0.02832,
+   "mean_recommended_m3m3": 0.07674
+  },
+  {
+   "date": "2021-02-14",
+   "granule": "SMAP_L3_SM_P_20210214_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-15",
+   "granule": "SMAP_L3_SM_P_20210215_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 43,
+   "cells_recommended": 15,
+   "mean_m3m3": 0.08947,
+   "sd_m3m3": 0.01251,
+   "mean_recommended_m3m3": 0.08181
+  },
+  {
+   "date": "2021-02-16",
+   "granule": "SMAP_L3_SM_P_20210216_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 34,
+   "cells_recommended": 6,
+   "mean_m3m3": 0.12094,
+   "sd_m3m3": 0.02585,
+   "mean_recommended_m3m3": 0.10136
+  },
+  {
+   "date": "2021-02-17",
+   "granule": "SMAP_L3_SM_P_20210217_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-18",
+   "granule": "SMAP_L3_SM_P_20210218_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 38,
+   "cells_recommended": 16,
+   "mean_m3m3": 0.08345,
+   "sd_m3m3": 0.0116,
+   "mean_recommended_m3m3": 0.07863
+  },
+  {
+   "date": "2021-02-19",
+   "granule": "SMAP_L3_SM_P_20210219_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-20",
+   "granule": "SMAP_L3_SM_P_20210220_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 4,
+   "cells_recommended": 0,
+   "mean_m3m3": 0.08136,
+   "sd_m3m3": 0.00745,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-21",
+   "granule": "SMAP_L3_SM_P_20210221_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 54,
+   "cells_recommended": 20,
+   "mean_m3m3": 0.07359,
+   "sd_m3m3": 0.01727,
+   "mean_recommended_m3m3": 0.06179
+  },
+  {
+   "date": "2021-02-22",
+   "granule": "SMAP_L3_SM_P_20210222_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-23",
+   "granule": "SMAP_L3_SM_P_20210223_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 62,
+   "cells_recommended": 35,
+   "mean_m3m3": 0.07202,
+   "sd_m3m3": 0.02044,
+   "mean_recommended_m3m3": 0.06437
+  },
+  {
+   "date": "2021-02-24",
+   "granule": "SMAP_L3_SM_P_20210224_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 53,
+   "cells_recommended": 31,
+   "mean_m3m3": 0.07051,
+   "sd_m3m3": 0.02079,
+   "mean_recommended_m3m3": 0.06594
+  },
+  {
+   "date": "2021-02-25",
+   "granule": "SMAP_L3_SM_P_20210225_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-26",
+   "granule": "SMAP_L3_SM_P_20210226_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 65,
+   "cells_recommended": 41,
+   "mean_m3m3": 0.07107,
+   "sd_m3m3": 0.02128,
+   "mean_recommended_m3m3": 0.06285
+  },
+  {
+   "date": "2021-02-27",
+   "granule": "SMAP_L3_SM_P_20210227_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-02-28",
+   "granule": "SMAP_L3_SM_P_20210228_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 11,
+   "cells_recommended": 7,
+   "mean_m3m3": 0.06851,
+   "sd_m3m3": 0.02378,
+   "mean_recommended_m3m3": 0.06037
+  },
+  {
+   "date": "2021-03-01",
+   "granule": "SMAP_L3_SM_P_20210301_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 57,
+   "cells_recommended": 45,
+   "mean_m3m3": 0.06318,
+   "sd_m3m3": 0.01806,
+   "mean_recommended_m3m3": 0.0612
+  },
+  {
+   "date": "2021-03-02",
+   "granule": "SMAP_L3_SM_P_20210302_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-03-03",
+   "granule": "SMAP_L3_SM_P_20210303_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 81,
+   "cells_recommended": 51,
+   "mean_m3m3": 0.06668,
+   "sd_m3m3": 0.02126,
+   "mean_recommended_m3m3": 0.05937
+  },
+  {
+   "date": "2021-03-04",
+   "granule": "SMAP_L3_SM_P_20210304_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 82,
+   "cells_recommended": 40,
+   "mean_m3m3": 0.10111,
+   "sd_m3m3": 0.03282,
+   "mean_recommended_m3m3": 0.08686
+  },
+  {
+   "date": "2021-03-05",
+   "granule": "SMAP_L3_SM_P_20210305_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-03-06",
+   "granule": "SMAP_L3_SM_P_20210306_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 106,
+   "cells_recommended": 59,
+   "mean_m3m3": 0.07789,
+   "sd_m3m3": 0.02469,
+   "mean_recommended_m3m3": 0.06782
+  },
+  {
+   "date": "2021-03-07",
+   "granule": "SMAP_L3_SM_P_20210307_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 11,
+   "cells_recommended": 5,
+   "mean_m3m3": 0.09072,
+   "sd_m3m3": 0.01237,
+   "mean_recommended_m3m3": 0.08191
+  },
+  {
+   "date": "2021-03-08",
+   "granule": "SMAP_L3_SM_P_20210308_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 14,
+   "cells_recommended": 11,
+   "mean_m3m3": 0.08262,
+   "sd_m3m3": 0.04919,
+   "mean_recommended_m3m3": 0.07197
+  },
+  {
+   "date": "2021-03-09",
+   "granule": "SMAP_L3_SM_P_20210309_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 138,
+   "cells_recommended": 79,
+   "mean_m3m3": 0.09246,
+   "sd_m3m3": 0.03931,
+   "mean_recommended_m3m3": 0.08335
+  },
+  {
+   "date": "2021-03-10",
+   "granule": "SMAP_L3_SM_P_20210310_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-03-11",
+   "granule": "SMAP_L3_SM_P_20210311_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 102,
+   "cells_recommended": 56,
+   "mean_m3m3": 0.09268,
+   "sd_m3m3": 0.03527,
+   "mean_recommended_m3m3": 0.08264
+  },
+  {
+   "date": "2021-03-12",
+   "granule": "SMAP_L3_SM_P_20210312_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 90,
+   "cells_recommended": 35,
+   "mean_m3m3": 0.11619,
+   "sd_m3m3": 0.03782,
+   "mean_recommended_m3m3": 0.0936
+  },
+  {
+   "date": "2021-03-13",
+   "granule": "SMAP_L3_SM_P_20210313_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-03-14",
+   "granule": "SMAP_L3_SM_P_20210314_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 49,
+   "cells_recommended": 8,
+   "mean_m3m3": 0.12712,
+   "sd_m3m3": 0.05015,
+   "mean_recommended_m3m3": 0.09481
+  },
+  {
+   "date": "2021-03-15",
+   "granule": "SMAP_L3_SM_P_20210315_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 7,
+   "cells_recommended": 3,
+   "mean_m3m3": 0.10474,
+   "sd_m3m3": 0.01397,
+   "mean_recommended_m3m3": 0.10752
+  },
+  {
+   "date": "2021-03-16",
+   "granule": "SMAP_L3_SM_P_20210316_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 14,
+   "cells_recommended": 7,
+   "mean_m3m3": 0.0992,
+   "sd_m3m3": 0.0373,
+   "mean_recommended_m3m3": 0.11165
+  },
+  {
+   "date": "2021-03-17",
+   "granule": "SMAP_L3_SM_P_20210317_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 94,
+   "cells_recommended": 34,
+   "mean_m3m3": 0.11871,
+   "sd_m3m3": 0.0379,
+   "mean_recommended_m3m3": 0.09962
+  },
+  {
+   "date": "2021-03-18",
+   "granule": "SMAP_L3_SM_P_20210318_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-03-19",
+   "granule": "SMAP_L3_SM_P_20210319_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 105,
+   "cells_recommended": 58,
+   "mean_m3m3": 0.10498,
+   "sd_m3m3": 0.03962,
+   "mean_recommended_m3m3": 0.08704
+  },
+  {
+   "date": "2021-03-20",
+   "granule": "SMAP_L3_SM_P_20210320_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 115,
+   "cells_recommended": 50,
+   "mean_m3m3": 0.11774,
+   "sd_m3m3": 0.04934,
+   "mean_recommended_m3m3": 0.08834
+  },
+  {
+   "date": "2021-03-21",
+   "granule": "SMAP_L3_SM_P_20210321_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-03-22",
+   "granule": "SMAP_L3_SM_P_20210322_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 134,
+   "cells_recommended": 79,
+   "mean_m3m3": 0.09653,
+   "sd_m3m3": 0.03708,
+   "mean_recommended_m3m3": 0.08583
+  },
+  {
+   "date": "2021-03-23",
+   "granule": "SMAP_L3_SM_P_20210323_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 12,
+   "cells_recommended": 6,
+   "mean_m3m3": 0.09366,
+   "sd_m3m3": 0.01155,
+   "mean_recommended_m3m3": 0.08752
+  },
+  {
+   "date": "2021-03-24",
+   "granule": "SMAP_L3_SM_P_20210324_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 14,
+   "cells_recommended": 5,
+   "mean_m3m3": 0.19852,
+   "sd_m3m3": 0.0257,
+   "mean_recommended_m3m3": 0.18244
+  },
+  {
+   "date": "2021-03-25",
+   "granule": "SMAP_L3_SM_P_20210325_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 127,
+   "cells_recommended": 56,
+   "mean_m3m3": 0.10176,
+   "sd_m3m3": 0.03211,
+   "mean_recommended_m3m3": 0.08977
+  },
+  {
+   "date": "2021-03-26",
+   "granule": "SMAP_L3_SM_P_20210326_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-03-27",
+   "granule": "SMAP_L3_SM_P_20210327_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 112,
+   "cells_recommended": 51,
+   "mean_m3m3": 0.11066,
+   "sd_m3m3": 0.02499,
+   "mean_recommended_m3m3": 0.10242
+  },
+  {
+   "date": "2021-03-28",
+   "granule": "SMAP_L3_SM_P_20210328_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 108,
+   "cells_recommended": 54,
+   "mean_m3m3": 0.10237,
+   "sd_m3m3": 0.02511,
+   "mean_recommended_m3m3": 0.09288
+  },
+  {
+   "date": "2021-03-29",
+   "granule": "SMAP_L3_SM_P_20210329_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-03-30",
+   "granule": "SMAP_L3_SM_P_20210330_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 142,
+   "cells_recommended": 85,
+   "mean_m3m3": 0.09813,
+   "sd_m3m3": 0.03873,
+   "mean_recommended_m3m3": 0.08782
+  },
+  {
+   "date": "2021-03-31",
+   "granule": "SMAP_L3_SM_P_20210331_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 9,
+   "cells_recommended": 4,
+   "mean_m3m3": 0.08179,
+   "sd_m3m3": 0.01164,
+   "mean_recommended_m3m3": 0.07357
+  },
+  {
+   "date": "2021-04-01",
+   "granule": "SMAP_L3_SM_P_20210401_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 15,
+   "cells_recommended": 12,
+   "mean_m3m3": 0.0778,
+   "sd_m3m3": 0.04731,
+   "mean_recommended_m3m3": 0.07692
+  },
+  {
+   "date": "2021-04-02",
+   "granule": "SMAP_L3_SM_P_20210402_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 144,
+   "cells_recommended": 92,
+   "mean_m3m3": 0.08239,
+   "sd_m3m3": 0.03833,
+   "mean_recommended_m3m3": 0.07277
+  },
+  {
+   "date": "2021-04-03",
+   "granule": "SMAP_L3_SM_P_20210403_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-04-04",
+   "granule": "SMAP_L3_SM_P_20210404_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 145,
+   "cells_recommended": 99,
+   "mean_m3m3": 0.08861,
+   "sd_m3m3": 0.04165,
+   "mean_recommended_m3m3": 0.07475
+  },
+  {
+   "date": "2021-04-05",
+   "granule": "SMAP_L3_SM_P_20210405_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 136,
+   "cells_recommended": 93,
+   "mean_m3m3": 0.08835,
+   "sd_m3m3": 0.03901,
+   "mean_recommended_m3m3": 0.07606
+  },
+  {
+   "date": "2021-04-06",
+   "granule": "SMAP_L3_SM_P_20210406_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-04-07",
+   "granule": "SMAP_L3_SM_P_20210407_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 162,
+   "cells_recommended": 92,
+   "mean_m3m3": 0.08732,
+   "sd_m3m3": 0.03633,
+   "mean_recommended_m3m3": 0.07656
+  },
+  {
+   "date": "2021-04-08",
+   "granule": "SMAP_L3_SM_P_20210408_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-04-09",
+   "granule": "SMAP_L3_SM_P_20210409_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 36,
+   "cells_recommended": 14,
+   "mean_m3m3": 0.11776,
+   "sd_m3m3": 0.05313,
+   "mean_recommended_m3m3": 0.06944
+  },
+  {
+   "date": "2021-04-10",
+   "granule": "SMAP_L3_SM_P_20210410_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 175,
+   "cells_recommended": 120,
+   "mean_m3m3": 0.08077,
+   "sd_m3m3": 0.03426,
+   "mean_recommended_m3m3": 0.06909
+  },
+  {
+   "date": "2021-04-11",
+   "granule": "SMAP_L3_SM_P_20210411_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-04-12",
+   "granule": "SMAP_L3_SM_P_20210412_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 165,
+   "cells_recommended": 110,
+   "mean_m3m3": 0.07992,
+   "sd_m3m3": 0.04022,
+   "mean_recommended_m3m3": 0.06423
+  },
+  {
+   "date": "2021-04-13",
+   "granule": "SMAP_L3_SM_P_20210413_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 138,
+   "cells_recommended": 98,
+   "mean_m3m3": 0.07006,
+   "sd_m3m3": 0.02901,
+   "mean_recommended_m3m3": 0.06235
+  },
+  {
+   "date": "2021-04-14",
+   "granule": "SMAP_L3_SM_P_20210414_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-04-15",
+   "granule": "SMAP_L3_SM_P_20210415_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 164,
+   "cells_recommended": 98,
+   "mean_m3m3": 0.09608,
+   "sd_m3m3": 0.04675,
+   "mean_recommended_m3m3": 0.07625
+  },
+  {
+   "date": "2021-04-16",
+   "granule": "SMAP_L3_SM_P_20210416_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 18,
+   "cells_recommended": 6,
+   "mean_m3m3": 0.10832,
+   "sd_m3m3": 0.01826,
+   "mean_recommended_m3m3": 0.0946
+  },
+  {
+   "date": "2021-04-17",
+   "granule": "SMAP_L3_SM_P_20210417_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 25,
+   "cells_recommended": 10,
+   "mean_m3m3": 0.0965,
+   "sd_m3m3": 0.0373,
+   "mean_recommended_m3m3": 0.07499
+  },
+  {
+   "date": "2021-04-18",
+   "granule": "SMAP_L3_SM_P_20210418_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 154,
+   "cells_recommended": 91,
+   "mean_m3m3": 0.08047,
+   "sd_m3m3": 0.03009,
+   "mean_recommended_m3m3": 0.07185
+  },
+  {
+   "date": "2021-04-19",
+   "granule": "SMAP_L3_SM_P_20210419_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-04-20",
+   "granule": "SMAP_L3_SM_P_20210420_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 139,
+   "cells_recommended": 89,
+   "mean_m3m3": 0.0795,
+   "sd_m3m3": 0.03457,
+   "mean_recommended_m3m3": 0.07071
+  },
+  {
+   "date": "2021-04-21",
+   "granule": "SMAP_L3_SM_P_20210421_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 132,
+   "cells_recommended": 97,
+   "mean_m3m3": 0.07043,
+   "sd_m3m3": 0.02664,
+   "mean_recommended_m3m3": 0.06633
+  },
+  {
+   "date": "2021-04-22",
+   "granule": "SMAP_L3_SM_P_20210422_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-04-23",
+   "granule": "SMAP_L3_SM_P_20210423_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 178,
+   "cells_recommended": 116,
+   "mean_m3m3": 0.08731,
+   "sd_m3m3": 0.03512,
+   "mean_recommended_m3m3": 0.07658
+  },
+  {
+   "date": "2021-04-24",
+   "granule": "SMAP_L3_SM_P_20210424_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 25,
+   "cells_recommended": 12,
+   "mean_m3m3": 0.0925,
+   "sd_m3m3": 0.03122,
+   "mean_recommended_m3m3": 0.07891
+  },
+  {
+   "date": "2021-04-25",
+   "granule": "SMAP_L3_SM_P_20210425_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 41,
+   "cells_recommended": 13,
+   "mean_m3m3": 0.12309,
+   "sd_m3m3": 0.05696,
+   "mean_recommended_m3m3": 0.07367
+  },
+  {
+   "date": "2021-04-26",
+   "granule": "SMAP_L3_SM_P_20210426_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 197,
+   "cells_recommended": 127,
+   "mean_m3m3": 0.08921,
+   "sd_m3m3": 0.04522,
+   "mean_recommended_m3m3": 0.07483
+  },
+  {
+   "date": "2021-04-27",
+   "granule": "SMAP_L3_SM_P_20210427_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-04-28",
+   "granule": "SMAP_L3_SM_P_20210428_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 167,
+   "cells_recommended": 80,
+   "mean_m3m3": 0.13515,
+   "sd_m3m3": 0.04026,
+   "mean_recommended_m3m3": 0.11766
+  },
+  {
+   "date": "2021-04-29",
+   "granule": "SMAP_L3_SM_P_20210429_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 147,
+   "cells_recommended": 88,
+   "mean_m3m3": 0.10336,
+   "sd_m3m3": 0.03516,
+   "mean_recommended_m3m3": 0.09606
+  },
+  {
+   "date": "2021-04-30",
+   "granule": "SMAP_L3_SM_P_20210430_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-05-01",
+   "granule": "SMAP_L3_SM_P_20210501_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 189,
+   "cells_recommended": 133,
+   "mean_m3m3": 0.09168,
+   "sd_m3m3": 0.04625,
+   "mean_recommended_m3m3": 0.07585
+  },
+  {
+   "date": "2021-05-02",
+   "granule": "SMAP_L3_SM_P_20210502_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 26,
+   "cells_recommended": 13,
+   "mean_m3m3": 0.11194,
+   "sd_m3m3": 0.03855,
+   "mean_recommended_m3m3": 0.09598
+  },
+  {
+   "date": "2021-05-03",
+   "granule": "SMAP_L3_SM_P_20210503_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 47,
+   "cells_recommended": 17,
+   "mean_m3m3": 0.14123,
+   "sd_m3m3": 0.06827,
+   "mean_recommended_m3m3": 0.10613
+  },
+  {
+   "date": "2021-05-04",
+   "granule": "SMAP_L3_SM_P_20210504_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 183,
+   "cells_recommended": 121,
+   "mean_m3m3": 0.11738,
+   "sd_m3m3": 0.04598,
+   "mean_recommended_m3m3": 0.10533
+  },
+  {
+   "date": "2021-05-05",
+   "granule": "SMAP_L3_SM_P_20210505_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-05-06",
+   "granule": "SMAP_L3_SM_P_20210506_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 186,
+   "cells_recommended": 132,
+   "mean_m3m3": 0.1032,
+   "sd_m3m3": 0.05455,
+   "mean_recommended_m3m3": 0.0863
+  },
+  {
+   "date": "2021-05-07",
+   "granule": "SMAP_L3_SM_P_20210507_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 149,
+   "cells_recommended": 119,
+   "mean_m3m3": 0.08529,
+   "sd_m3m3": 0.04132,
+   "mean_recommended_m3m3": 0.07841
+  },
+  {
+   "date": "2021-05-08",
+   "granule": "SMAP_L3_SM_P_20210508_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-05-09",
+   "granule": "SMAP_L3_SM_P_20210509_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 203,
+   "cells_recommended": 144,
+   "mean_m3m3": 0.09459,
+   "sd_m3m3": 0.04926,
+   "mean_recommended_m3m3": 0.07727
+  },
+  {
+   "date": "2021-05-10",
+   "granule": "SMAP_L3_SM_P_20210510_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 28,
+   "cells_recommended": 19,
+   "mean_m3m3": 0.09495,
+   "sd_m3m3": 0.03513,
+   "mean_recommended_m3m3": 0.08043
+  },
+  {
+   "date": "2021-05-11",
+   "granule": "SMAP_L3_SM_P_20210511_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 54,
+   "cells_recommended": 22,
+   "mean_m3m3": 0.12238,
+   "sd_m3m3": 0.04883,
+   "mean_recommended_m3m3": 0.09868
+  },
+  {
+   "date": "2021-05-12",
+   "granule": "SMAP_L3_SM_P_20210512_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 200,
+   "cells_recommended": 130,
+   "mean_m3m3": 0.09746,
+   "sd_m3m3": 0.04777,
+   "mean_recommended_m3m3": 0.08485
+  },
+  {
+   "date": "2021-05-13",
+   "granule": "SMAP_L3_SM_P_20210513_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-05-14",
+   "granule": "SMAP_L3_SM_P_20210514_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 190,
+   "cells_recommended": 144,
+   "mean_m3m3": 0.09297,
+   "sd_m3m3": 0.05189,
+   "mean_recommended_m3m3": 0.0767
+  },
+  {
+   "date": "2021-05-15",
+   "granule": "SMAP_L3_SM_P_20210515_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 146,
+   "cells_recommended": 122,
+   "mean_m3m3": 0.0787,
+   "sd_m3m3": 0.035,
+   "mean_recommended_m3m3": 0.07311
+  },
+  {
+   "date": "2021-05-16",
+   "granule": "SMAP_L3_SM_P_20210516_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-05-17",
+   "granule": "SMAP_L3_SM_P_20210517_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 204,
+   "cells_recommended": 145,
+   "mean_m3m3": 0.09653,
+   "sd_m3m3": 0.04944,
+   "mean_recommended_m3m3": 0.08191
+  },
+  {
+   "date": "2021-05-18",
+   "granule": "SMAP_L3_SM_P_20210518_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 26,
+   "cells_recommended": 16,
+   "mean_m3m3": 0.13678,
+   "sd_m3m3": 0.03643,
+   "mean_recommended_m3m3": 0.12627
+  },
+  {
+   "date": "2021-05-19",
+   "granule": "SMAP_L3_SM_P_20210519_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 60,
+   "cells_recommended": 23,
+   "mean_m3m3": 0.15552,
+   "sd_m3m3": 0.03409,
+   "mean_recommended_m3m3": 0.14774
+  },
+  {
+   "date": "2021-05-20",
+   "granule": "SMAP_L3_SM_P_20210520_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 206,
+   "cells_recommended": 147,
+   "mean_m3m3": 0.09997,
+   "sd_m3m3": 0.0466,
+   "mean_recommended_m3m3": 0.08674
+  },
+  {
+   "date": "2021-05-21",
+   "granule": "SMAP_L3_SM_P_20210521_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-05-22",
+   "granule": "SMAP_L3_SM_P_20210522_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 196,
+   "cells_recommended": 135,
+   "mean_m3m3": 0.12409,
+   "sd_m3m3": 0.05591,
+   "mean_recommended_m3m3": 0.11667
+  },
+  {
+   "date": "2021-05-23",
+   "granule": "SMAP_L3_SM_P_20210523_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 146,
+   "cells_recommended": 105,
+   "mean_m3m3": 0.12216,
+   "sd_m3m3": 0.0642,
+   "mean_recommended_m3m3": 0.10921
+  },
+  {
+   "date": "2021-05-24",
+   "granule": "SMAP_L3_SM_P_20210524_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-05-25",
+   "granule": "SMAP_L3_SM_P_20210525_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 149,
+   "mean_m3m3": 0.09956,
+   "sd_m3m3": 0.05179,
+   "mean_recommended_m3m3": 0.08558
+  },
+  {
+   "date": "2021-05-26",
+   "granule": "SMAP_L3_SM_P_20210526_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-05-27",
+   "granule": "SMAP_L3_SM_P_20210527_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 68,
+   "cells_recommended": 33,
+   "mean_m3m3": 0.12598,
+   "sd_m3m3": 0.05645,
+   "mean_recommended_m3m3": 0.10076
+  },
+  {
+   "date": "2021-05-28",
+   "granule": "SMAP_L3_SM_P_20210528_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 159,
+   "mean_m3m3": 0.09019,
+   "sd_m3m3": 0.04716,
+   "mean_recommended_m3m3": 0.07754
+  },
+  {
+   "date": "2021-05-29",
+   "granule": "SMAP_L3_SM_P_20210529_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-05-30",
+   "granule": "SMAP_L3_SM_P_20210530_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 201,
+   "cells_recommended": 153,
+   "mean_m3m3": 0.08767,
+   "sd_m3m3": 0.04457,
+   "mean_recommended_m3m3": 0.07317
+  },
+  {
+   "date": "2021-05-31",
+   "granule": "SMAP_L3_SM_P_20210531_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 144,
+   "cells_recommended": 126,
+   "mean_m3m3": 0.08747,
+   "sd_m3m3": 0.03511,
+   "mean_recommended_m3m3": 0.08445
+  },
+  {
+   "date": "2021-06-01",
+   "granule": "SMAP_L3_SM_P_20210601_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-06-02",
+   "granule": "SMAP_L3_SM_P_20210602_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 158,
+   "mean_m3m3": 0.09042,
+   "sd_m3m3": 0.04367,
+   "mean_recommended_m3m3": 0.0784
+  },
+  {
+   "date": "2021-06-03",
+   "granule": "SMAP_L3_SM_P_20210603_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 25,
+   "cells_recommended": 20,
+   "mean_m3m3": 0.1101,
+   "sd_m3m3": 0.03945,
+   "mean_recommended_m3m3": 0.09722
+  },
+  {
+   "date": "2021-06-04",
+   "granule": "SMAP_L3_SM_P_20210604_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 68,
+   "cells_recommended": 36,
+   "mean_m3m3": 0.11997,
+   "sd_m3m3": 0.04465,
+   "mean_recommended_m3m3": 0.09952
+  },
+  {
+   "date": "2021-06-05",
+   "granule": "SMAP_L3_SM_P_20210605_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 159,
+   "mean_m3m3": 0.09088,
+   "sd_m3m3": 0.03926,
+   "mean_recommended_m3m3": 0.08115
+  },
+  {
+   "date": "2021-06-06",
+   "granule": "SMAP_L3_SM_P_20210606_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-06-07",
+   "granule": "SMAP_L3_SM_P_20210607_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 202,
+   "cells_recommended": 153,
+   "mean_m3m3": 0.08918,
+   "sd_m3m3": 0.04254,
+   "mean_recommended_m3m3": 0.0769
+  },
+  {
+   "date": "2021-06-08",
+   "granule": "SMAP_L3_SM_P_20210608_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 146,
+   "cells_recommended": 128,
+   "mean_m3m3": 0.07292,
+   "sd_m3m3": 0.02743,
+   "mean_recommended_m3m3": 0.07031
+  },
+  {
+   "date": "2021-06-09",
+   "granule": "SMAP_L3_SM_P_20210609_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-06-10",
+   "granule": "SMAP_L3_SM_P_20210610_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 159,
+   "mean_m3m3": 0.08118,
+   "sd_m3m3": 0.03733,
+   "mean_recommended_m3m3": 0.07164
+  },
+  {
+   "date": "2021-06-11",
+   "granule": "SMAP_L3_SM_P_20210611_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 26,
+   "cells_recommended": 22,
+   "mean_m3m3": 0.09251,
+   "sd_m3m3": 0.03033,
+   "mean_recommended_m3m3": 0.08331
+  },
+  {
+   "date": "2021-06-12",
+   "granule": "SMAP_L3_SM_P_20210612_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 67,
+   "cells_recommended": 33,
+   "mean_m3m3": 0.1002,
+   "sd_m3m3": 0.03883,
+   "mean_recommended_m3m3": 0.08057
+  },
+  {
+   "date": "2021-06-13",
+   "granule": "SMAP_L3_SM_P_20210613_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 167,
+   "mean_m3m3": 0.07504,
+   "sd_m3m3": 0.03052,
+   "mean_recommended_m3m3": 0.06656
+  },
+  {
+   "date": "2021-06-14",
+   "granule": "SMAP_L3_SM_P_20210614_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-06-15",
+   "granule": "SMAP_L3_SM_P_20210615_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 201,
+   "cells_recommended": 155,
+   "mean_m3m3": 0.07777,
+   "sd_m3m3": 0.03112,
+   "mean_recommended_m3m3": 0.06954
+  },
+  {
+   "date": "2021-06-16",
+   "granule": "SMAP_L3_SM_P_20210616_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 147,
+   "cells_recommended": 134,
+   "mean_m3m3": 0.07039,
+   "sd_m3m3": 0.02343,
+   "mean_recommended_m3m3": 0.06914
+  },
+  {
+   "date": "2021-06-17",
+   "granule": "SMAP_L3_SM_P_20210617_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-06-18",
+   "granule": "SMAP_L3_SM_P_20210618_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 168,
+   "mean_m3m3": 0.08444,
+   "sd_m3m3": 0.02987,
+   "mean_recommended_m3m3": 0.07785
+  },
+  {
+   "date": "2021-06-19",
+   "granule": "SMAP_L3_SM_P_20210619_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 26,
+   "cells_recommended": 23,
+   "mean_m3m3": 0.09347,
+   "sd_m3m3": 0.02896,
+   "mean_recommended_m3m3": 0.08794
+  },
+  {
+   "date": "2021-06-20",
+   "granule": "SMAP_L3_SM_P_20210620_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 66,
+   "cells_recommended": 34,
+   "mean_m3m3": 0.11249,
+   "sd_m3m3": 0.04099,
+   "mean_recommended_m3m3": 0.1004
+  },
+  {
+   "date": "2021-06-21",
+   "granule": "SMAP_L3_SM_P_20210621_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 169,
+   "mean_m3m3": 0.08428,
+   "sd_m3m3": 0.03004,
+   "mean_recommended_m3m3": 0.07911
+  },
+  {
+   "date": "2021-06-22",
+   "granule": "SMAP_L3_SM_P_20210622_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-06-23",
+   "granule": "SMAP_L3_SM_P_20210623_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 200,
+   "cells_recommended": 163,
+   "mean_m3m3": 0.07641,
+   "sd_m3m3": 0.02763,
+   "mean_recommended_m3m3": 0.07047
+  },
+  {
+   "date": "2021-06-24",
+   "granule": "SMAP_L3_SM_P_20210624_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 147,
+   "cells_recommended": 133,
+   "mean_m3m3": 0.08264,
+   "sd_m3m3": 0.02582,
+   "mean_recommended_m3m3": 0.0817
+  },
+  {
+   "date": "2021-06-25",
+   "granule": "SMAP_L3_SM_P_20210625_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-06-26",
+   "granule": "SMAP_L3_SM_P_20210626_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 148,
+   "mean_m3m3": 0.16678,
+   "sd_m3m3": 0.06693,
+   "mean_recommended_m3m3": 0.16252
+  },
+  {
+   "date": "2021-06-27",
+   "granule": "SMAP_L3_SM_P_20210627_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 27,
+   "cells_recommended": 23,
+   "mean_m3m3": 0.13611,
+   "sd_m3m3": 0.03285,
+   "mean_recommended_m3m3": 0.13213
+  },
+  {
+   "date": "2021-06-28",
+   "granule": "SMAP_L3_SM_P_20210628_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 65,
+   "cells_recommended": 33,
+   "mean_m3m3": 0.19895,
+   "sd_m3m3": 0.06018,
+   "mean_recommended_m3m3": 0.18234
+  },
+  {
+   "date": "2021-06-29",
+   "granule": "SMAP_L3_SM_P_20210629_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 153,
+   "mean_m3m3": 0.12177,
+   "sd_m3m3": 0.05628,
+   "mean_recommended_m3m3": 0.10658
+  },
+  {
+   "date": "2021-06-30",
+   "granule": "SMAP_L3_SM_P_20210630_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-07-01",
+   "granule": "SMAP_L3_SM_P_20210701_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 199,
+   "cells_recommended": 147,
+   "mean_m3m3": 0.12151,
+   "sd_m3m3": 0.05175,
+   "mean_recommended_m3m3": 0.11227
+  },
+  {
+   "date": "2021-07-02",
+   "granule": "SMAP_L3_SM_P_20210702_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 148,
+   "cells_recommended": 132,
+   "mean_m3m3": 0.09568,
+   "sd_m3m3": 0.0324,
+   "mean_recommended_m3m3": 0.09727
+  },
+  {
+   "date": "2021-07-03",
+   "granule": "SMAP_L3_SM_P_20210703_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-07-04",
+   "granule": "SMAP_L3_SM_P_20210704_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 171,
+   "mean_m3m3": 0.10351,
+   "sd_m3m3": 0.04599,
+   "mean_recommended_m3m3": 0.09417
+  },
+  {
+   "date": "2021-07-05",
+   "granule": "SMAP_L3_SM_P_20210705_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 29,
+   "cells_recommended": 27,
+   "mean_m3m3": 0.13062,
+   "sd_m3m3": 0.02863,
+   "mean_recommended_m3m3": 0.12771
+  },
+  {
+   "date": "2021-07-06",
+   "granule": "SMAP_L3_SM_P_20210706_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 64,
+   "cells_recommended": 32,
+   "mean_m3m3": 0.16447,
+   "sd_m3m3": 0.06715,
+   "mean_recommended_m3m3": 0.1456
+  },
+  {
+   "date": "2021-07-07",
+   "granule": "SMAP_L3_SM_P_20210707_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 167,
+   "mean_m3m3": 0.09722,
+   "sd_m3m3": 0.04241,
+   "mean_recommended_m3m3": 0.08871
+  },
+  {
+   "date": "2021-07-08",
+   "granule": "SMAP_L3_SM_P_20210708_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-07-09",
+   "granule": "SMAP_L3_SM_P_20210709_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 199,
+   "cells_recommended": 155,
+   "mean_m3m3": 0.08987,
+   "sd_m3m3": 0.03705,
+   "mean_recommended_m3m3": 0.0828
+  },
+  {
+   "date": "2021-07-10",
+   "granule": "SMAP_L3_SM_P_20210710_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 149,
+   "cells_recommended": 133,
+   "mean_m3m3": 0.07846,
+   "sd_m3m3": 0.02176,
+   "mean_recommended_m3m3": 0.07938
+  },
+  {
+   "date": "2021-07-11",
+   "granule": "SMAP_L3_SM_P_20210711_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-07-12",
+   "granule": "SMAP_L3_SM_P_20210712_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 211,
+   "cells_recommended": 166,
+   "mean_m3m3": 0.08934,
+   "sd_m3m3": 0.02833,
+   "mean_recommended_m3m3": 0.08499
+  },
+  {
+   "date": "2021-07-13",
+   "granule": "SMAP_L3_SM_P_20210713_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 29,
+   "cells_recommended": 27,
+   "mean_m3m3": 0.09374,
+   "sd_m3m3": 0.01992,
+   "mean_recommended_m3m3": 0.09273
+  },
+  {
+   "date": "2021-07-14",
+   "granule": "SMAP_L3_SM_P_20210714_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 62,
+   "cells_recommended": 29,
+   "mean_m3m3": 0.1899,
+   "sd_m3m3": 0.08202,
+   "mean_recommended_m3m3": 0.18697
+  },
+  {
+   "date": "2021-07-15",
+   "granule": "SMAP_L3_SM_P_20210715_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 147,
+   "mean_m3m3": 0.14868,
+   "sd_m3m3": 0.0664,
+   "mean_recommended_m3m3": 0.13671
+  },
+  {
+   "date": "2021-07-16",
+   "granule": "SMAP_L3_SM_P_20210716_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-07-17",
+   "granule": "SMAP_L3_SM_P_20210717_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 196,
+   "cells_recommended": 151,
+   "mean_m3m3": 0.10825,
+   "sd_m3m3": 0.04512,
+   "mean_recommended_m3m3": 0.0999
+  },
+  {
+   "date": "2021-07-18",
+   "granule": "SMAP_L3_SM_P_20210718_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 151,
+   "cells_recommended": 136,
+   "mean_m3m3": 0.08777,
+   "sd_m3m3": 0.02594,
+   "mean_recommended_m3m3": 0.08859
+  },
+  {
+   "date": "2021-07-19",
+   "granule": "SMAP_L3_SM_P_20210719_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-07-20",
+   "granule": "SMAP_L3_SM_P_20210720_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 157,
+   "mean_m3m3": 0.1145,
+   "sd_m3m3": 0.0439,
+   "mean_recommended_m3m3": 0.10893
+  },
+  {
+   "date": "2021-07-21",
+   "granule": "SMAP_L3_SM_P_20210721_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 30,
+   "cells_recommended": 28,
+   "mean_m3m3": 0.13412,
+   "sd_m3m3": 0.05133,
+   "mean_recommended_m3m3": 0.13232
+  },
+  {
+   "date": "2021-07-22",
+   "granule": "SMAP_L3_SM_P_20210722_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 63,
+   "cells_recommended": 30,
+   "mean_m3m3": 0.19565,
+   "sd_m3m3": 0.04792,
+   "mean_recommended_m3m3": 0.17991
+  },
+  {
+   "date": "2021-07-23",
+   "granule": "SMAP_L3_SM_P_20210723_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 139,
+   "mean_m3m3": 0.16977,
+   "sd_m3m3": 0.05751,
+   "mean_recommended_m3m3": 0.15646
+  },
+  {
+   "date": "2021-07-24",
+   "granule": "SMAP_L3_SM_P_20210724_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-07-25",
+   "granule": "SMAP_L3_SM_P_20210725_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 194,
+   "cells_recommended": 123,
+   "mean_m3m3": 0.1638,
+   "sd_m3m3": 0.0899,
+   "mean_recommended_m3m3": 0.13052
+  },
+  {
+   "date": "2021-07-26",
+   "granule": "SMAP_L3_SM_P_20210726_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 151,
+   "cells_recommended": 119,
+   "mean_m3m3": 0.12376,
+   "sd_m3m3": 0.05156,
+   "mean_recommended_m3m3": 0.12137
+  },
+  {
+   "date": "2021-07-27",
+   "granule": "SMAP_L3_SM_P_20210727_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-07-28",
+   "granule": "SMAP_L3_SM_P_20210728_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 155,
+   "mean_m3m3": 0.14297,
+   "sd_m3m3": 0.0661,
+   "mean_recommended_m3m3": 0.13057
+  },
+  {
+   "date": "2021-07-29",
+   "granule": "SMAP_L3_SM_P_20210729_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 31,
+   "cells_recommended": 28,
+   "mean_m3m3": 0.17942,
+   "sd_m3m3": 0.04055,
+   "mean_recommended_m3m3": 0.17704
+  },
+  {
+   "date": "2021-07-30",
+   "granule": "SMAP_L3_SM_P_20210730_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 61,
+   "cells_recommended": 31,
+   "mean_m3m3": 0.21738,
+   "sd_m3m3": 0.08634,
+   "mean_recommended_m3m3": 0.20319
+  },
+  {
+   "date": "2021-07-31",
+   "granule": "SMAP_L3_SM_P_20210731_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 144,
+   "mean_m3m3": 0.19696,
+   "sd_m3m3": 0.07406,
+   "mean_recommended_m3m3": 0.18862
+  },
+  {
+   "date": "2021-08-01",
+   "granule": "SMAP_L3_SM_P_20210801_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-08-02",
+   "granule": "SMAP_L3_SM_P_20210802_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 192,
+   "cells_recommended": 102,
+   "mean_m3m3": 0.2192,
+   "sd_m3m3": 0.08171,
+   "mean_recommended_m3m3": 0.2011
+  },
+  {
+   "date": "2021-08-03",
+   "granule": "SMAP_L3_SM_P_20210803_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 152,
+   "cells_recommended": 114,
+   "mean_m3m3": 0.17574,
+   "sd_m3m3": 0.05998,
+   "mean_recommended_m3m3": 0.17647
+  },
+  {
+   "date": "2021-08-04",
+   "granule": "SMAP_L3_SM_P_20210804_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-08-05",
+   "granule": "SMAP_L3_SM_P_20210805_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 172,
+   "mean_m3m3": 0.1399,
+   "sd_m3m3": 0.06667,
+   "mean_recommended_m3m3": 0.12675
+  },
+  {
+   "date": "2021-08-06",
+   "granule": "SMAP_L3_SM_P_20210806_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 33,
+   "cells_recommended": 31,
+   "mean_m3m3": 0.1398,
+   "sd_m3m3": 0.04135,
+   "mean_recommended_m3m3": 0.1359
+  },
+  {
+   "date": "2021-08-07",
+   "granule": "SMAP_L3_SM_P_20210807_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 60,
+   "cells_recommended": 32,
+   "mean_m3m3": 0.17977,
+   "sd_m3m3": 0.06825,
+   "mean_recommended_m3m3": 0.15659
+  },
+  {
+   "date": "2021-08-08",
+   "granule": "SMAP_L3_SM_P_20210808_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-08-09",
+   "granule": "SMAP_L3_SM_P_20210809_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-08-10",
+   "granule": "SMAP_L3_SM_P_20210810_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 192,
+   "cells_recommended": 151,
+   "mean_m3m3": 0.09886,
+   "sd_m3m3": 0.03727,
+   "mean_recommended_m3m3": 0.09055
+  },
+  {
+   "date": "2021-08-11",
+   "granule": "SMAP_L3_SM_P_20210811_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 153,
+   "cells_recommended": 134,
+   "mean_m3m3": 0.08327,
+   "sd_m3m3": 0.02153,
+   "mean_recommended_m3m3": 0.08385
+  },
+  {
+   "date": "2021-08-12",
+   "granule": "SMAP_L3_SM_P_20210812_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-08-13",
+   "granule": "SMAP_L3_SM_P_20210813_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 163,
+   "mean_m3m3": 0.09085,
+   "sd_m3m3": 0.02658,
+   "mean_recommended_m3m3": 0.08719
+  },
+  {
+   "date": "2021-08-14",
+   "granule": "SMAP_L3_SM_P_20210814_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 34,
+   "cells_recommended": 30,
+   "mean_m3m3": 0.0909,
+   "sd_m3m3": 0.0238,
+   "mean_recommended_m3m3": 0.0909
+  },
+  {
+   "date": "2021-08-15",
+   "granule": "SMAP_L3_SM_P_20210815_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 59,
+   "cells_recommended": 29,
+   "mean_m3m3": 0.13589,
+   "sd_m3m3": 0.03849,
+   "mean_recommended_m3m3": 0.12634
+  },
+  {
+   "date": "2021-08-16",
+   "granule": "SMAP_L3_SM_P_20210816_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 155,
+   "mean_m3m3": 0.11459,
+   "sd_m3m3": 0.04759,
+   "mean_recommended_m3m3": 0.10265
+  },
+  {
+   "date": "2021-08-17",
+   "granule": "SMAP_L3_SM_P_20210817_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-08-18",
+   "granule": "SMAP_L3_SM_P_20210818_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 189,
+   "cells_recommended": 129,
+   "mean_m3m3": 0.11909,
+   "sd_m3m3": 0.05612,
+   "mean_recommended_m3m3": 0.11289
+  },
+  {
+   "date": "2021-08-19",
+   "granule": "SMAP_L3_SM_P_20210819_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 154,
+   "cells_recommended": 44,
+   "mean_m3m3": 0.35228,
+   "sd_m3m3": 0.05656,
+   "mean_recommended_m3m3": 0.36367
+  },
+  {
+   "date": "2021-08-20",
+   "granule": "SMAP_L3_SM_P_20210820_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-08-21",
+   "granule": "SMAP_L3_SM_P_20210821_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 107,
+   "mean_m3m3": 0.20349,
+   "sd_m3m3": 0.06443,
+   "mean_recommended_m3m3": 0.20358
+  },
+  {
+   "date": "2021-08-22",
+   "granule": "SMAP_L3_SM_P_20210822_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 34,
+   "cells_recommended": 21,
+   "mean_m3m3": 0.27742,
+   "sd_m3m3": 0.05745,
+   "mean_recommended_m3m3": 0.26864
+  },
+  {
+   "date": "2021-08-23",
+   "granule": "SMAP_L3_SM_P_20210823_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 56,
+   "cells_recommended": 29,
+   "mean_m3m3": 0.1611,
+   "sd_m3m3": 0.05873,
+   "mean_recommended_m3m3": 0.14339
+  },
+  {
+   "date": "2021-08-24",
+   "granule": "SMAP_L3_SM_P_20210824_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 169,
+   "mean_m3m3": 0.13702,
+   "sd_m3m3": 0.05001,
+   "mean_recommended_m3m3": 0.13085
+  },
+  {
+   "date": "2021-08-25",
+   "granule": "SMAP_L3_SM_P_20210825_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-08-26",
+   "granule": "SMAP_L3_SM_P_20210826_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 186,
+   "cells_recommended": 147,
+   "mean_m3m3": 0.11184,
+   "sd_m3m3": 0.03682,
+   "mean_recommended_m3m3": 0.10904
+  },
+  {
+   "date": "2021-08-27",
+   "granule": "SMAP_L3_SM_P_20210827_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 157,
+   "cells_recommended": 138,
+   "mean_m3m3": 0.13097,
+   "sd_m3m3": 0.04051,
+   "mean_recommended_m3m3": 0.13151
+  },
+  {
+   "date": "2021-08-28",
+   "granule": "SMAP_L3_SM_P_20210828_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-08-29",
+   "granule": "SMAP_L3_SM_P_20210829_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 171,
+   "mean_m3m3": 0.10574,
+   "sd_m3m3": 0.0317,
+   "mean_recommended_m3m3": 0.10124
+  },
+  {
+   "date": "2021-08-30",
+   "granule": "SMAP_L3_SM_P_20210830_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 8,
+   "cells_recommended": 8,
+   "mean_m3m3": 0.08963,
+   "sd_m3m3": 0.03816,
+   "mean_recommended_m3m3": 0.08963
+  },
+  {
+   "date": "2021-08-31",
+   "granule": "SMAP_L3_SM_P_20210831_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 52,
+   "cells_recommended": 28,
+   "mean_m3m3": 0.11628,
+   "sd_m3m3": 0.02677,
+   "mean_recommended_m3m3": 0.10839
+  },
+  {
+   "date": "2021-09-01",
+   "granule": "SMAP_L3_SM_P_20210901_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 99,
+   "mean_m3m3": 0.18318,
+   "sd_m3m3": 0.1035,
+   "mean_recommended_m3m3": 0.12509
+  },
+  {
+   "date": "2021-09-02",
+   "granule": "SMAP_L3_SM_P_20210902_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-09-03",
+   "granule": "SMAP_L3_SM_P_20210903_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 185,
+   "cells_recommended": 81,
+   "mean_m3m3": 0.21277,
+   "sd_m3m3": 0.04833,
+   "mean_recommended_m3m3": 0.20527
+  },
+  {
+   "date": "2021-09-04",
+   "granule": "SMAP_L3_SM_P_20210904_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 158,
+   "cells_recommended": 109,
+   "mean_m3m3": 0.17174,
+   "sd_m3m3": 0.0402,
+   "mean_recommended_m3m3": 0.17428
+  },
+  {
+   "date": "2021-09-05",
+   "granule": "SMAP_L3_SM_P_20210905_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-09-06",
+   "granule": "SMAP_L3_SM_P_20210906_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 177,
+   "mean_m3m3": 0.12267,
+   "sd_m3m3": 0.04129,
+   "mean_recommended_m3m3": 0.11683
+  },
+  {
+   "date": "2021-09-07",
+   "granule": "SMAP_L3_SM_P_20210907_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 36,
+   "cells_recommended": 34,
+   "mean_m3m3": 0.12221,
+   "sd_m3m3": 0.03111,
+   "mean_recommended_m3m3": 0.12114
+  },
+  {
+   "date": "2021-09-08",
+   "granule": "SMAP_L3_SM_P_20210908_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 55,
+   "cells_recommended": 31,
+   "mean_m3m3": 0.12701,
+   "sd_m3m3": 0.03684,
+   "mean_recommended_m3m3": 0.10959
+  },
+  {
+   "date": "2021-09-09",
+   "granule": "SMAP_L3_SM_P_20210909_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 175,
+   "mean_m3m3": 0.09921,
+   "sd_m3m3": 0.02767,
+   "mean_recommended_m3m3": 0.09511
+  },
+  {
+   "date": "2021-09-10",
+   "granule": "SMAP_L3_SM_P_20210910_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-09-11",
+   "granule": "SMAP_L3_SM_P_20210911_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 188,
+   "cells_recommended": 151,
+   "mean_m3m3": 0.10366,
+   "sd_m3m3": 0.03024,
+   "mean_recommended_m3m3": 0.10238
+  },
+  {
+   "date": "2021-09-12",
+   "granule": "SMAP_L3_SM_P_20210912_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 156,
+   "cells_recommended": 115,
+   "mean_m3m3": 0.16367,
+   "sd_m3m3": 0.05734,
+   "mean_recommended_m3m3": 0.15698
+  },
+  {
+   "date": "2021-09-13",
+   "granule": "SMAP_L3_SM_P_20210913_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-09-14",
+   "granule": "SMAP_L3_SM_P_20210914_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 164,
+   "mean_m3m3": 0.12009,
+   "sd_m3m3": 0.04007,
+   "mean_recommended_m3m3": 0.11827
+  },
+  {
+   "date": "2021-09-15",
+   "granule": "SMAP_L3_SM_P_20210915_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 35,
+   "cells_recommended": 32,
+   "mean_m3m3": 0.13922,
+   "sd_m3m3": 0.03149,
+   "mean_recommended_m3m3": 0.13796
+  },
+  {
+   "date": "2021-09-16",
+   "granule": "SMAP_L3_SM_P_20210916_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 56,
+   "cells_recommended": 30,
+   "mean_m3m3": 0.10828,
+   "sd_m3m3": 0.02637,
+   "mean_recommended_m3m3": 0.10036
+  },
+  {
+   "date": "2021-09-17",
+   "granule": "SMAP_L3_SM_P_20210917_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 174,
+   "mean_m3m3": 0.09589,
+   "sd_m3m3": 0.0236,
+   "mean_recommended_m3m3": 0.09415
+  },
+  {
+   "date": "2021-09-18",
+   "granule": "SMAP_L3_SM_P_20210918_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-09-19",
+   "granule": "SMAP_L3_SM_P_20210919_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 190,
+   "cells_recommended": 115,
+   "mean_m3m3": 0.18583,
+   "sd_m3m3": 0.07967,
+   "mean_recommended_m3m3": 0.15891
+  },
+  {
+   "date": "2021-09-20",
+   "granule": "SMAP_L3_SM_P_20210920_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 156,
+   "cells_recommended": 129,
+   "mean_m3m3": 0.1403,
+   "sd_m3m3": 0.05237,
+   "mean_recommended_m3m3": 0.14289
+  },
+  {
+   "date": "2021-09-21",
+   "granule": "SMAP_L3_SM_P_20210921_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-09-22",
+   "granule": "SMAP_L3_SM_P_20210922_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 171,
+   "mean_m3m3": 0.1054,
+   "sd_m3m3": 0.03785,
+   "mean_recommended_m3m3": 0.1014
+  },
+  {
+   "date": "2021-09-23",
+   "granule": "SMAP_L3_SM_P_20210923_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 34,
+   "cells_recommended": 32,
+   "mean_m3m3": 0.1062,
+   "sd_m3m3": 0.03169,
+   "mean_recommended_m3m3": 0.10451
+  },
+  {
+   "date": "2021-09-24",
+   "granule": "SMAP_L3_SM_P_20210924_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 59,
+   "cells_recommended": 31,
+   "mean_m3m3": 0.12052,
+   "sd_m3m3": 0.03629,
+   "mean_recommended_m3m3": 0.11626
+  },
+  {
+   "date": "2021-09-25",
+   "granule": "SMAP_L3_SM_P_20210925_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 213,
+   "cells_recommended": 170,
+   "mean_m3m3": 0.09419,
+   "sd_m3m3": 0.02626,
+   "mean_recommended_m3m3": 0.0916
+  },
+  {
+   "date": "2021-09-26",
+   "granule": "SMAP_L3_SM_P_20210926_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-09-27",
+   "granule": "SMAP_L3_SM_P_20210927_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 190,
+   "cells_recommended": 137,
+   "mean_m3m3": 0.11463,
+   "sd_m3m3": 0.05535,
+   "mean_recommended_m3m3": 0.10004
+  },
+  {
+   "date": "2021-09-28",
+   "granule": "SMAP_L3_SM_P_20210928_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 154,
+   "cells_recommended": 126,
+   "mean_m3m3": 0.10874,
+   "sd_m3m3": 0.05479,
+   "mean_recommended_m3m3": 0.09838
+  },
+  {
+   "date": "2021-09-29",
+   "granule": "SMAP_L3_SM_P_20210929_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 0,
+   "cells_recommended": 0,
+   "mean_m3m3": null,
+   "sd_m3m3": null,
+   "mean_recommended_m3m3": null
+  },
+  {
+   "date": "2021-09-30",
+   "granule": "SMAP_L3_SM_P_20210930_R19240_001.h5",
+   "cells_inside": 213,
+   "cells_retrieved": 212,
+   "cells_recommended": 109,
+   "mean_m3m3": 0.21904,
+   "sd_m3m3": 0.08084,
+   "mean_recommended_m3m3": 0.19807
+  }
+ ]
+}

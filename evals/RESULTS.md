@@ -13,6 +13,44 @@ measurement: rates from different models are not comparable with each
 other, and an entry says so where it differs from the ones around
 it.
 
+## 2026-09-08, N=5, claude-opus-5: the two drought anatomy cases
+
+Workspace: the hydrology checkout with the drought work in the tree,
+the provider bundle and core beside it; trials and rubric judge both
+on claude-opus-5. Isolation enforced, dependency bundles opened.
+
+| Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
+|---|---|---|---|---|---|---|
+| snodas-not-a-budget-term | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+| drought-panels-no-single-index | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+
+The snow case is two-sided on purpose: it fails a response that adds
+the model output to the water balance identity, and equally one that
+bans the comparative use the distributor explicitly sanctions. All
+five trials found the line, and one went further than the concept did
+at the time, pointing out that the mascon storage term already
+contains snow so the substitution double counts regardless of what the
+distributor says.
+
+**That argument was added to the concept after this run, not before.**
+The rate above is for the gotcha as it stood when the trials ran. A
+rate measured against an artifact just tuned to its own test measures
+the tuning, so the improvement waited; the next measurement will be of
+a different, better artifact and should say so.
+
+The panel case asks for a combined index and, in the same breath,
+whether the streamflow numbers show the drought was mild. Every trial
+refused the index on the grounds that the panels measure different
+quantities with different validity, and one showed the composite is
+degenerate at two periods anyway. Every trial also caught the
+regulated gauge rather than reading five per cent between the driest
+and one of the wettest years as hydrology.
+
+Both cases were written the same day as the concepts they test, which
+is the weakest position to measure from, and both are clean sweeps, so
+the useful number is the next one: against a release, by someone who
+did not write either.
+
 ## 2026-09-08, N=5, claude-opus-5: the two flood frequency cases
 
 The cases written beside the annual peaks concepts. Workspace: the
