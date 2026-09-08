@@ -4,10 +4,11 @@ title: "Event reconstruction: a receipted timeline for an event no budget can cl
 description: "How to assemble a timeline of one flood from several products when the water balance refuses the basin: each observation carries its product, version, acquisition date, production date and access date, and the recipe states for each sensor what it could not see. Worked on the Tulare Lake reflood of 2023, where the radar product did not yet exist, the satellite altimeter arrived after the peak, the optical product was mostly cloud, the storage product cannot resolve the basin, and the rivers that filled the lake are barely gauged."
 tags: [event, timeline, flood, dswx, swot, imerg, tulare, receipt, hydrology]
 generated: { by: claude-code/fable-5, at: 2026-09-07T21:00:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-08T04:19:42Z }
 inputs: "A basin polygon with its equal-area area; a DSWx class census over that polygon per granule; the discharge captures that exist for the window; the precipitation loader's runs; the mascon series at a scale above the footprint floor"
 expected: "The Tulare Lake bed for 2023: DSWx-S1 contributes nothing (zero granules before 2023-12-01), SWOT's first observation is 2023-07-30 against a search that offers 2023-07-27, the optical scenes are dominated by cloud, GRACE is a Central Valley panel and never a Tulare number, and USGS gauges cover headwaters rather than the inflow that reached the lake"
 expected_uncertainty: "Every area from the optical product carries the valid fraction of the basin on that date; a date with a low valid fraction carries an area that is a lower bound, not a measurement"
-status: draft
+status: stable
 stale_after: 2027-03-07
 ---
 

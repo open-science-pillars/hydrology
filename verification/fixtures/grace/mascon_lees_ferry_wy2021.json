@@ -1,0 +1,118 @@
+{
+ "product": "JPL GRACE and GRACE-FO MASCON RL06.3Mv04 CRI",
+ "collection_concept_id": "C3195527175-POCLOUD",
+ "file": "GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+ "sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd",
+ "record_first_epoch": "2002-04-17",
+ "record_last_epoch": "2026-06-16",
+ "time_coverage_end": "2026-06-16T23:59:59Z",
+ "lag_note": "the record ends a quarter or so behind the present, so this panel stops where the data stops rather than at the window's end",
+ "region": {
+  "fixture": "usgs_09380000_nldi.geojson",
+  "geometry_sha256": "883736418a56ae536d4ee9391a5d3169ab2ac499d9c47edb96123e138ff9947b",
+  "area_km2": 276443.7,
+  "site": "USGS-09380000"
+ },
+ "cells_inside": 118,
+ "inside_area_km2": 282929.6,
+ "mascon_ids": [
+  767,
+  768,
+  859,
+  860,
+  954,
+  955,
+  956
+ ],
+ "mascons": 7,
+ "footprint_scale": {
+  "mascons_total": 4551,
+  "mascons_mostly_land": 1301,
+  "median_land_mascon_km2": 111266.4,
+  "p05_km2": 103876.1,
+  "p95_km2": 123457.4,
+  "median_equivalent_square_side_km": 333.6,
+  "median_equivalent_circle_diameter_km": 376.4
+ },
+ "effective_sample_note": "cells inside one mascon carry one number, so the effective sample size of a basin mean is the mascon count and not the cell count",
+ "window": {
+  "start": "2020-10-01",
+  "end": "2021-09-30"
+ },
+ "label": "lees_ferry_wy2021",
+ "epochs": [
+  {
+   "epoch": "2020-09-16",
+   "lwe_cm": -8.2163,
+   "uncertainty_cm": 1.9076
+  },
+  {
+   "epoch": "2020-10-16",
+   "lwe_cm": -9.3176,
+   "uncertainty_cm": 1.9072
+  },
+  {
+   "epoch": "2020-11-16",
+   "lwe_cm": -5.9185,
+   "uncertainty_cm": 1.916
+  },
+  {
+   "epoch": "2020-12-16",
+   "lwe_cm": -6.8345,
+   "uncertainty_cm": 1.9148
+  },
+  {
+   "epoch": "2021-01-16",
+   "lwe_cm": -5.5051,
+   "uncertainty_cm": 1.8937
+  },
+  {
+   "epoch": "2021-02-15",
+   "lwe_cm": -2.82,
+   "uncertainty_cm": 1.9043
+  },
+  {
+   "epoch": "2021-03-16",
+   "lwe_cm": 0.8129,
+   "uncertainty_cm": 1.8969
+  },
+  {
+   "epoch": "2021-04-16",
+   "lwe_cm": 0.4662,
+   "uncertainty_cm": 1.8867
+  },
+  {
+   "epoch": "2021-05-16",
+   "lwe_cm": -0.1561,
+   "uncertainty_cm": 1.8885
+  },
+  {
+   "epoch": "2021-06-16",
+   "lwe_cm": -3.1887,
+   "uncertainty_cm": 1.8876
+  },
+  {
+   "epoch": "2021-07-16",
+   "lwe_cm": -5.0101,
+   "uncertainty_cm": 1.8892
+  },
+  {
+   "epoch": "2021-08-16",
+   "lwe_cm": -7.6333,
+   "uncertainty_cm": 1.8842
+  },
+  {
+   "epoch": "2021-09-16",
+   "lwe_cm": -8.7169,
+   "uncertainty_cm": 1.8895
+  },
+  {
+   "epoch": "2021-10-16",
+   "lwe_cm": -8.6275,
+   "uncertainty_cm": 1.8893
+  }
+ ],
+ "retrieved": "2026-09-08T03:49:50Z",
+ "fetch_script": "verification/fixtures/fetch_mascon_fixtures.py",
+ "license": "NASA data, public (EOSDIS data use guidance)"
+}

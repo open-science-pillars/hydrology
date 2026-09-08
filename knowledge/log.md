@@ -2,6 +2,45 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-08 · STEWARD SIGNING of knowledge/connectors/snodas-nsidc.md,
+  knowledge/gotchas/snodas-not-a-budget-term.md,
+  knowledge/recipes/drought-anatomy.md,
+  knowledge/datasets/usgs-peaks.md,
+  knowledge/gotchas/peaks-two-series-one-response.md,
+  knowledge/gotchas/screening-fit-is-not-bulletin-17c.md,
+  knowledge/recipes/event-reconstruction.md: signed on the steward's
+  word after the drought anatomy panels were shown: the three drought
+  concepts, the three flood frequency concepts merged in pull 44, and
+  the event reconstruction recipe merged in pull 43 The verified event
+  is written on the steward's word. (steward)
+
+- 2026-09-08 · knowledge/connectors/snodas-nsidc.md,
+  knowledge/gotchas/snodas-not-a-budget-term.md and
+  knowledge/recipes/drought-anatomy.md authored as drafts, no verified
+  event, with the drought-anatomy skill, the panel assembler and two
+  fetchers under verification/fixtures/, the five frozen panels of the
+  Colorado above Lees Ferry for water years 2021 and 2023, and the
+  golden verification/drought_anatomy.py. Measured and recorded on
+  open-science-pillars/marketplace issue 74. SNODAS is registered in
+  the catalog with a DOI and an ends-at-present flag and has zero
+  granules for any window including none at all, so the route is a
+  dated directory path over plain HTTPS with no credential and an
+  agent that searches concludes the data is missing. Its eight layers
+  are named by codes that do not describe them (11038 is a temperature
+  and 11044 is melt) and the scale differs between layers by three
+  orders of magnitude, so the header packed beside each layer is the
+  authority. The distributor's line is narrower than a ban: not
+  recommended for quantitative water budget analysis, while summing
+  over an area to compare periods is reasonable, so the panel is
+  comparative and the budget term is refused. The worked comparison:
+  precipitation 257.2 against 320.4 mm, peak basin-mean snow water
+  equivalent 64.8 against 163.1 mm, mean discharge 11,435 against
+  12,059 ft3/s at an outlet below Glen Canyon Dam, and storage moving
+  -0.50 cm across the drought year against +4.78 cm across the wet
+  one. The panels disagree about the drought's size by more than an
+  order of magnitude and the regulated one barely shows it, which is
+  why the recipe refuses a single index.
+
 - 2026-09-07 · knowledge/datasets/usgs-peaks.md and
   knowledge/gotchas/{peaks-two-series-one-response,
   screening-fit-is-not-bulletin-17c}.md authored as drafts, no verified

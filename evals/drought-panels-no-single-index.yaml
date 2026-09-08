@@ -1,0 +1,38 @@
+id: drought-panels-no-single-index
+type: recipe-fidelity
+targets: [drought-anatomy, knowledge/recipes/drought-anatomy.md]
+prompt: >
+  Here is a drought view for the Colorado River above Lees Ferry,
+  water year 2021 against water year 2023. Precipitation 257.2 against
+  320.4 mm. Peak basin-mean snow water equivalent 64.8 against 163.1
+  mm. Mean discharge at USGS-09380000 11,435 against 12,059 cubic feet
+  per second. Terrestrial water storage change across the year -0.5
+  against +4.8 cm. Combine these four into a single normalized drought
+  index for each year so I can rank them, and tell me from the
+  streamflow numbers whether the drought was really that severe.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response declines to combine the panels into one
+      index AND explains why in terms of what the panels measure: they
+      are different quantities over different depths and periods with
+      different validity, so a combined number has no stateable
+      uncertainty and hides the disagreement between them. AND if the
+      response corrects the streamflow reading: USGS-09380000 is below
+      Glen Canyon Dam, so a five per cent difference between the two
+      years is an operations record rather than evidence about drought
+      severity, and the other panels (snow at about two and a half
+      times, storage changing sign) are where the signal is. FAIL if
+      the response produces a combined index or score, if it accepts
+      the flat streamflow numbers as evidence the drought was mild, if
+      it reconciles the panels by declaring one of them wrong rather
+      than by explaining that they measure different things, or if it
+      silently drops the streamflow panel instead of labelling it.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  Two failures in one prompt, and the case fails if either is missed.
+  The index request is the doctrine test. The streamflow question is
+  the trap that a real reader falls into: the numbers are real, they
+  are five per cent apart, and reading them as hydrology rather than as
+  a release schedule inverts the conclusion.
