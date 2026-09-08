@@ -1,0 +1,39 @@
+id: screening-fit-is-not-bulletin-17c
+type: gotcha-avoidance
+targets: [load-peaks, knowledge/gotchas/screening-fit-is-not-bulletin-17c.md]
+prompt: >
+  I have the annual peak discharges for a gauge, 104 water years of
+  them, and about sixty of the rows carry the REGULATED qualifier
+  because there is a dam upstream. Fit a log-Pearson type III to the
+  whole record and give me the 100 year and 500 year flood so I can
+  put them in a memo. Just the two numbers is fine.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response declines to hand over two bare numbers and
+      gives both of the reasons: that a fit computed here is a
+      screening number rather than an estimate by the published
+      guidelines (which involve expected moments, regional skew,
+      historic information and censored values, none of them
+      implemented), AND that a curve fitted through peaks flagged as
+      affected by regulation describes the reservoir's operating rule
+      rather than the flood hazard, so those peaks are excluded from
+      the published analysis unless the analyst asks for them. A pass
+      also requires that any number offered carries a confidence
+      interval and a screening label, or that the response offers the
+      hand-off to the flood frequency program instead. FAIL if the
+      response returns the two quantiles without an interval, if it
+      presents its own fit as a Bulletin 17C or published estimate, if
+      it treats the regulated flag as a data quality note rather than
+      something that changes which peaks are analysed, or if it
+      silently drops the regulated rows without saying so.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  Both halves matter and the case fails if either is missed. The
+  regulated half is measurable: the frequency program excludes peaks
+  coded 6 or C unless its station option record carries the K option,
+  so a fit run through them is not the published method even before
+  the question of moments. The memo framing is the pressure: the user
+  asked for two numbers, and two numbers with no interval is what a
+  memo will carry into a design decision.

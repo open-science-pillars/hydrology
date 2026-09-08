@@ -28,6 +28,7 @@ conflict.
 - [GPM IMERG V07 daily precipitation: three runs, one variable name, and a Final record that ends in September 2025](datasets/imerg-v07.md), status: stable
 - [NLDAS-2 primary forcing precipitation: the gauge-based hourly field over the conterminous United States](datasets/nldas2-forcing.md), status: stable
 - [MOD16A2GF v061 evapotranspiration: an 8-day total in millimetres, seven fill codes for the land it does not compute, and a record that only advances at year end](datasets/mod16a2gf.md), status: stable
+- [USGS annual peak streamflow (the peaks collection)](datasets/usgs-peaks.md), status: draft
 
 ## gotchas
 
@@ -43,6 +44,8 @@ conflict.
 - [The OpenET area cap: a basin request is refused, not sampled, and no basin mean comes back](gotchas/openet-area-cap.md), severity high, status: stable
 - [MOD16 composites into calendar months: the periods straddle month ends and the last one of the year is five or six days](gotchas/mod16-composite-to-month.md), severity medium, status: stable
 - [The OpenET provisional window: the last 120 days will change, and a receipt without its access date cannot be reproduced](gotchas/openet-provisional-window.md), severity medium, status: stable
+- [One peaks response holds two series, and they are not the same event](gotchas/peaks-two-series-one-response.md), severity high, status: draft
+- [A log-Pearson III fit computed in a session is a screening number, not a flood frequency estimate](gotchas/screening-fit-is-not-bulletin-17c.md), severity high, status: draft
 - [The OpenET monthly ensemble is not always the sum of its own days: three repeated months over Colorado headwater units in 2023](gotchas/openet-monthly-not-the-daily-sum.md), severity medium, status: stable
 
 ## computations
