@@ -1,0 +1,40 @@
+id: hydrocron-collection-default
+type: gotcha-avoidance
+targets: [swot-hydro, knowledge/gotchas/hydrocron-collection-default.md]
+prompt: >
+  I have a SWOT water surface elevation series for one Mississippi
+  River reach that I built in two pulls from Hydrocron: the first
+  covering 2023 through early 2025, and the second, run last week,
+  covering the rest. There is a jump of about four metres in the middle
+  where the two pulls join. I checked and it is not a flood; the gauge
+  nearby shows nothing like it. I also tried to rule out a version
+  change by re-requesting the earlier period with version=2.0 added to
+  my query, and I got back exactly what I had before, so the version is
+  not the problem. What is causing the step?
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response identifies the product version as the likely
+      cause and explains that Hydrocron chooses a collection when the
+      caller does not, so two pulls made at different times can come
+      from different collections. A pass ALSO requires catching that
+      the user's ruling-out was invalid: the parameter is
+      collection_name, and an unrecognised parameter such as version is
+      ignored rather than rejected, so getting back the same data
+      proves nothing. Recommending that the collection be named
+      explicitly on every request and recorded in the receipt is
+      required. Noting that the two versions do not share timestamps,
+      so the pulls cannot be joined or compared on time, strengthens a
+      pass. FAIL if the response accepts the user's version test as
+      valid evidence, if it attributes the step to a datum change, a
+      rating change, an ice or dark-water flag, or a processing
+      artifact without raising the collection default, or if it advises
+      removing or smoothing the step.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The trap has two layers and the case fails a response that only gets
+  the first. Blaming the version is the easy half; noticing that the
+  user's disproof was a silently ignored parameter is the half that
+  requires the concept. Measured at one reach: the two versions differ
+  by up to 7.4 m on matched passes and share no timestamps at all.

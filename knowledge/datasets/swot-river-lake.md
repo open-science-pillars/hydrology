@@ -8,7 +8,9 @@ resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_RiverSP_reach_D
 version: "Version families C (*_2.0) and D (*_D) both live in CMR (swept 2026-09-04), mirroring the LR SSH pattern; the C family stops at cycle 032 (2025-05-03) and the D family carries the cal/val phase and forward processing; crid varies within collections as on the ocean side"
 status: stable
 upstream: pending
-verified: { by: human:PaulMRamirez, at: 2026-09-04T22:36:00Z }
+verified:
+  - { by: human:PaulMRamirez, at: 2026-09-04T22:36:00Z }
+  - { by: human:PaulMRamirez, at: 2026-09-08T05:18:36Z }
 stale_after: 2027-01-04
 sources:
   - id: cmr-sweep
@@ -107,6 +109,40 @@ granules carry the UTM zone in place of the continent
 - Quality attributes (`reach_q`, `node_q`, `xovr_cal_q`,
   `wse_sm_q`) are categorical gates, not quantitative uncertainty
   (core QC rule).
+
+## Discharge depends on gauges, and elevation does not
+
+**Recorded 2026-09-08.** The discharge variants are estimated from the
+observed width, slope and height together with prior information about
+each reach held in the SWORD database, and that prior information is
+informed by gauge records. So a comparison of a SWOT discharge with a
+gauge discharge is not independent: some of what the gauge knows is
+already inside the satellite estimate, and agreement partly measures
+that shared origin.
+
+The convention this bundle keeps, from the ocean confrontations:
+
+- **Water surface elevation against a gauge is a confrontation.** The
+  height is measured by the instrument and carries no gauge-derived
+  prior, so the comparison is between independent statements and the
+  scores mean what they appear to mean.
+- **Discharge against a gauge is a consistency check.** The word
+  confrontation is not used for it, and a receipt that reports such a
+  comparison states the dependence rather than leaving a reader to
+  assume independence.
+
+The distinction is about which word a receipt may use, and it is not a
+judgement about the discharge product's quality.
+
+## The service picks a version when you do not
+
+**Recorded 2026-09-08.** Hydrocron serves these products through a
+`collection_name` parameter and chooses a collection when the caller
+omits one. The default is Version D as of that date, and the versions
+differ by metres on the same reach while sharing no timestamps, so a
+series assembled across a change of default carries an undetectable
+step. The gotcha beside this concept holds the measurement and the
+rule: name the collection on every request.
 
 ## Known issues
 

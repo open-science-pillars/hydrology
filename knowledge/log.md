@@ -2,6 +2,37 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-08 · STEWARD RE-SIGNING of
+  knowledge/datasets/swot-river-lake.md,
+  knowledge/gotchas/hydrocron-collection-default.md,
+  knowledge/recipes/swot-gauge-confrontation.md: signed on the steward's
+  word: the SWOT concept re-signed for the SWORD prior dependence and
+  the collection default, and the two drafts from the confrontation work
+  The new verified event is appended on the steward's word, the earlier
+  events kept as history. (steward)
+
+- 2026-09-08 · knowledge/gotchas/hydrocron-collection-default.md and
+  knowledge/recipes/swot-gauge-confrontation.md authored as drafts, no
+  verified event, with the confrontation fetch and scoring scripts, the
+  frozen Baton Rouge pair and the golden
+  verification/swot_gauge_confrontation.py.
+  knowledge/datasets/swot-river-lake.md gained two dated facts and OWES
+  A RE-SIGN: the discharge variants rest on gauge-informed SWORD priors,
+  so discharge against a gauge is a consistency check while elevation is
+  a confrontation; and Hydrocron picks a collection when the caller does
+  not. Measured and recorded on open-science-pillars/marketplace issue
+  76. At reach 74210000331 the two product versions share no timestamp
+  and differ by up to 7.4 m, and the older one puts the Mississippi
+  three metres below the geoid at Baton Rouge, which the gauge says is
+  not where the river is. The confrontation over calendar 2024, 50 of 52
+  passes paired within 15 minutes: on changes, mean error +0.0019 m
+  [-0.1062, +0.1101], RMSD 0.3823 m, correlation +0.9567 against a gauge
+  change spread of 1.1959 m; the level difference is -0.2429 m and is
+  published as a level difference containing an uncited datum offset
+  rather than as a bias. The effective sample size is capped at the
+  count, because differencing induces negative lag-1 correlation and an
+  uncapped formula claimed 130 from 49 changes.
+
 - 2026-09-08 · knowledge/datasets/reclamation-area-capacity.md,
   knowledge/gotchas/swot-gauge-datum-mismatch.md and
   knowledge/recipes/reservoir-ledger.md authored as drafts, no verified

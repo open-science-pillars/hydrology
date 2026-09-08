@@ -13,6 +13,28 @@ measurement: rates from different models are not comparable with each
 other, and an entry says so where it differs from the ones around
 it.
 
+## 2026-09-08, N=5, claude-opus-5: the Hydrocron collection case
+
+| Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
+|---|---|---|---|---|---|---|
+| hydrocron-collection-default | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+
+The case has two layers and fails a response that gets only the first.
+Blaming the product version for a four metre step is the easy half. The
+half that needs the concept is noticing that the user's disproof was
+worthless: they ruled the version out by adding a `version` parameter,
+and the service ignores an unrecognised parameter rather than rejecting
+it, so identical data came back and proved nothing.
+
+All five trials found both layers. Several went further and pointed out
+that the two versions share no timestamps, so the two pulls cannot be
+compared on time either, which is the property that makes the step
+invisible to the obvious check.
+
+Written the same day as the concept it tests, like the five before it.
+The measurement that will matter is the first one taken against a
+release by someone who did not write the case.
+
 ## 2026-09-08, N=5, claude-opus-5: the datum mismatch case
 
 | Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |

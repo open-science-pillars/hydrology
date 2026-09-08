@@ -1,0 +1,3470 @@
+{
+ "pair": {
+  "reach_id": "74210000331",
+  "gauge": "USGS-07374000",
+  "site": {
+   "monitoring_location_name": "Mississippi River at Baton Rouge, LA",
+   "altitude": 0.0,
+   "altitude_accuracy": 0.01,
+   "altitude_method_name": "Level or other surveyed method.",
+   "vertical_datum": "NAVD88",
+   "vertical_datum_name": "North American Vertical Datum of 1988",
+   "drainage_area": 1125810.0,
+   "time_zone_abbreviation": "CST"
+  }
+ },
+ "window": {
+  "start": "2024-01-01",
+  "end": "2024-12-31"
+ },
+ "satellite": {
+  "service": "PO.DAAC Hydrocron",
+  "collection_named": "SWOT_L2_HR_RiverSP_reach_D",
+  "collection_note": "the collection is named on every request; the service picks one when the caller does not, and the default has moved between versions that differ by metres at this reach",
+  "request_url": "https://soto.podaac.earthdatacloud.nasa.gov/hydrocron/v1/timeseries",
+  "elevation_reference": "water surface elevation against a geoid model, as the product documents it; this is not a national vertical datum",
+  "passes": 52,
+  "rows": [
+   {
+    "time": "2024-01-01T10:59:06Z",
+    "wse_m": 1.2952,
+    "wse_u_m": 0.09839,
+    "width_m": 770.797134,
+    "slope": 5.95162e-06,
+    "reach_q": "2",
+    "dark_frac": 0.24719141757,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-01-02T21:50:37Z",
+    "wse_m": 1.5327,
+    "wse_u_m": 0.09696,
+    "width_m": 742.802789,
+    "slope": 1.000172e-05,
+    "reach_q": "1",
+    "dark_frac": 0.1140051959,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-01-12T20:12:49Z",
+    "wse_m": 2.5813,
+    "wse_u_m": 0.09466,
+    "width_m": 773.73639,
+    "slope": 2.135237e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01325751688,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-01-22T07:44:11Z",
+    "wse_m": 5.2914,
+    "wse_u_m": 0.09376,
+    "width_m": 793.520029,
+    "slope": 7.24364e-06,
+    "reach_q": "1",
+    "dark_frac": 0.01758590477,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-01-23T18:35:43Z",
+    "wse_m": 5.8245,
+    "wse_u_m": 0.09628,
+    "width_m": 773.342123,
+    "slope": 2.433884e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01722777806,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-02-02T16:57:56Z",
+    "wse_m": 7.2723,
+    "wse_u_m": 0.09437,
+    "width_m": 793.52688,
+    "slope": 2.420877e-05,
+    "reach_q": "1",
+    "dark_frac": 0.02368778345,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-02-12T04:29:16Z",
+    "wse_m": 8.9505,
+    "wse_u_m": 0.09359,
+    "width_m": 937.263482,
+    "slope": 2.608269e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01486619834,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-02-13T15:20:47Z",
+    "wse_m": 8.9652,
+    "wse_u_m": 0.09606,
+    "width_m": 820.750821,
+    "slope": 1.957364e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01338007595,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-02-23T13:43:01Z",
+    "wse_m": 7.8631,
+    "wse_u_m": 0.09327,
+    "width_m": 811.758693,
+    "slope": 3.195313e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01582654244,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-03-04T01:14:21Z",
+    "wse_m": 6.2166,
+    "wse_u_m": 0.10034,
+    "width_m": 807.364979,
+    "slope": 1.890154e-05,
+    "reach_q": "1",
+    "dark_frac": 0.00891459456,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-03-05T12:05:52Z",
+    "wse_m": 6.1647,
+    "wse_u_m": 0.09643,
+    "width_m": 781.444321,
+    "slope": 2.122756e-05,
+    "reach_q": "1",
+    "dark_frac": 0.02572937681,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-03-15T10:28:03Z",
+    "wse_m": 5.9316,
+    "wse_u_m": 0.10183,
+    "width_m": 779.411857,
+    "slope": 2.753305e-05,
+    "reach_q": "1",
+    "dark_frac": 0.18861279077,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-03-26T08:50:55Z",
+    "wse_m": 8.4002,
+    "wse_u_m": 0.29622,
+    "width_m": 756.003472,
+    "slope": 0.00013577457,
+    "reach_q": "1",
+    "dark_frac": 0.69218980748,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-04-05T07:13:07Z",
+    "wse_m": 6.1845,
+    "wse_u_m": 0.11015,
+    "width_m": 784.129475,
+    "slope": 2.169663e-05,
+    "reach_q": "1",
+    "dark_frac": 0.18149176654,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-04-14T18:44:30Z",
+    "wse_m": 7.7828,
+    "wse_u_m": 0.09421,
+    "width_m": 842.508636,
+    "slope": 3.070515e-05,
+    "reach_q": "1",
+    "dark_frac": 0.0093693662,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-04-16T05:36:01Z",
+    "wse_m": 8.4688,
+    "wse_u_m": 0.09576,
+    "width_m": 793.559069,
+    "slope": 2.652464e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01948560303,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-04-26T03:58:14Z",
+    "wse_m": 9.2896,
+    "wse_u_m": 0.09317,
+    "width_m": 817.587271,
+    "slope": 3.019683e-05,
+    "reach_q": "1",
+    "dark_frac": 0.0201664752,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-05-05T15:29:33Z",
+    "wse_m": 8.7465,
+    "wse_u_m": 0.09537,
+    "width_m": 831.477088,
+    "slope": 3.091636e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01302746064,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-05-07T02:21:04Z",
+    "wse_m": 8.5913,
+    "wse_u_m": 0.09686,
+    "width_m": 788.613196,
+    "slope": 3.106174e-05,
+    "reach_q": "1",
+    "dark_frac": 0.0524225232,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-05-17T00:43:18Z",
+    "wse_m": 9.6844,
+    "wse_u_m": 0.09341,
+    "width_m": 812.670277,
+    "slope": 4.199705e-05,
+    "reach_q": "1",
+    "dark_frac": 0.02179727234,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-05-26T12:14:38Z",
+    "wse_m": 10.1545,
+    "wse_u_m": 0.09555,
+    "width_m": 846.843724,
+    "slope": 3.551107e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01655131243,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-05-27T23:06:09Z",
+    "wse_m": 10.2011,
+    "wse_u_m": 0.09769,
+    "width_m": 784.549753,
+    "slope": 3.602101e-05,
+    "reach_q": "1",
+    "dark_frac": 0.14083701242,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-06-06T21:28:24Z",
+    "wse_m": 9.6055,
+    "wse_u_m": 0.09372,
+    "width_m": 813.574202,
+    "slope": 3.499311e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01458150891,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-06-16T08:59:44Z",
+    "wse_m": 9.5234,
+    "wse_u_m": 0.09376,
+    "width_m": 827.035637,
+    "slope": 3.296408e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01637127564,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-06-17T19:51:15Z",
+    "wse_m": 9.2554,
+    "wse_u_m": 0.09701,
+    "width_m": 821.170887,
+    "slope": 3.753103e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01530973216,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-06-27T18:13:27Z",
+    "wse_m": 5.6039,
+    "wse_u_m": 0.09543,
+    "width_m": 787.651727,
+    "slope": 2.340422e-05,
+    "reach_q": "1",
+    "dark_frac": 0.07149535838,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-07-07T05:44:46Z",
+    "wse_m": 4.1389,
+    "wse_u_m": 0.09321,
+    "width_m": 791.044098,
+    "slope": 2.096459e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01230057254,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-07-08T16:36:17Z",
+    "wse_m": 4.0066,
+    "wse_u_m": 0.09641,
+    "width_m": 772.878133,
+    "slope": 1.870913e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01307146045,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-07-18T14:58:32Z",
+    "wse_m": 6.1927,
+    "wse_u_m": 0.09382,
+    "width_m": 787.837505,
+    "slope": 3.239509e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01223735055,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-07-28T02:29:52Z",
+    "wse_m": 6.2155,
+    "wse_u_m": 0.09296,
+    "width_m": 806.171906,
+    "slope": 2.928921e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01546792634,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-07-29T13:21:23Z",
+    "wse_m": 6.1661,
+    "wse_u_m": 0.09614,
+    "width_m": 769.761593,
+    "slope": 2.670484e-05,
+    "reach_q": "1",
+    "dark_frac": 0.08021929108,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-08-08T11:43:36Z",
+    "wse_m": 4.1992,
+    "wse_u_m": 0.09495,
+    "width_m": 772.862241,
+    "slope": 1.8113e-05,
+    "reach_q": "1",
+    "dark_frac": 0.14703387974,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-08-17T23:14:56Z",
+    "wse_m": 3.0476,
+    "wse_u_m": 0.09814,
+    "width_m": 781.612936,
+    "slope": 6.29816e-06,
+    "reach_q": "1",
+    "dark_frac": 0.04918999015,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-08-19T10:06:27Z",
+    "wse_m": 2.8274,
+    "wse_u_m": 0.09576,
+    "width_m": 758.635162,
+    "slope": 1.931187e-05,
+    "reach_q": "1",
+    "dark_frac": 0.05028982117,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-08-29T08:28:41Z",
+    "wse_m": 2.0165,
+    "wse_u_m": 0.09816,
+    "width_m": 758.41938,
+    "slope": 1.458829e-05,
+    "reach_q": "1",
+    "dark_frac": 0.05370436344,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-09-07T20:00:02Z",
+    "wse_m": 1.7123,
+    "wse_u_m": 0.09598,
+    "width_m": 805.277818,
+    "slope": 3.50939e-06,
+    "reach_q": "1",
+    "dark_frac": 0.01577382607,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-09-09T06:51:33Z",
+    "wse_m": 1.6522,
+    "wse_u_m": 0.09634,
+    "width_m": 743.627222,
+    "slope": 1.06595e-05,
+    "reach_q": "1",
+    "dark_frac": 0.02519384886,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-09-19T05:13:47Z",
+    "wse_m": 1.5908,
+    "wse_u_m": 0.097,
+    "width_m": 758.919133,
+    "slope": 7.56334e-06,
+    "reach_q": "1",
+    "dark_frac": 0.16646213512,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-09-28T16:45:10Z",
+    "wse_m": 1.3622,
+    "wse_u_m": 0.0962,
+    "width_m": 784.726447,
+    "slope": 8.5638e-07,
+    "reach_q": "1",
+    "dark_frac": 0.01945633646,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-09-30T03:36:41Z",
+    "wse_m": 1.5208,
+    "wse_u_m": 0.09626,
+    "width_m": 740.224198,
+    "slope": -2.8009e-06,
+    "reach_q": "1",
+    "dark_frac": 0.18696306067,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-10-10T01:58:53Z",
+    "wse_m": 3.0167,
+    "wse_u_m": 0.09357,
+    "width_m": 768.403284,
+    "slope": 1.316127e-05,
+    "reach_q": "1",
+    "dark_frac": 0.02929695151,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-10-19T13:30:14Z",
+    "wse_m": 1.7406,
+    "wse_u_m": 0.09451,
+    "width_m": 774.137081,
+    "slope": 8.30442e-06,
+    "reach_q": "1",
+    "dark_frac": 0.01551314576,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-10-21T00:21:45Z",
+    "wse_m": 1.5245,
+    "wse_u_m": 0.09637,
+    "width_m": 745.24165,
+    "slope": 9.0716e-06,
+    "reach_q": "1",
+    "dark_frac": 0.1865606575,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-10-30T22:43:57Z",
+    "wse_m": -0.5344,
+    "wse_u_m": 0.09474,
+    "width_m": 763.370188,
+    "slope": -9.1345e-06,
+    "reach_q": "2",
+    "dark_frac": 0.01992202163,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-11-09T10:15:18Z",
+    "wse_m": 1.6132,
+    "wse_u_m": 0.09511,
+    "width_m": 777.836991,
+    "slope": 6.12039e-06,
+    "reach_q": "1",
+    "dark_frac": 0.01461920866,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-11-10T21:06:49Z",
+    "wse_m": 2.1828,
+    "wse_u_m": 0.09584,
+    "width_m": 752.963479,
+    "slope": 1.282546e-05,
+    "reach_q": "1",
+    "dark_frac": 0.02208132234,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-11-20T19:29:02Z",
+    "wse_m": 4.265,
+    "wse_u_m": 0.09395,
+    "width_m": 784.845062,
+    "slope": 2.23315e-05,
+    "reach_q": "1",
+    "dark_frac": 0.00874756101,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-11-30T07:00:23Z",
+    "wse_m": 3.1967,
+    "wse_u_m": 0.09633,
+    "width_m": 792.702758,
+    "slope": 1.521471e-05,
+    "reach_q": "2",
+    "dark_frac": 0.01964896498,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-12-01T17:51:54Z",
+    "wse_m": 2.8928,
+    "wse_u_m": 0.10317,
+    "width_m": 744.32534,
+    "slope": 6.66336e-06,
+    "reach_q": "1",
+    "dark_frac": 0.25100627619,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-12-11T16:14:07Z",
+    "wse_m": 2.6903,
+    "wse_u_m": 0.09401,
+    "width_m": 771.286306,
+    "slope": 1.65903e-05,
+    "reach_q": "1",
+    "dark_frac": 0.01658537917,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-12-21T03:45:26Z",
+    "wse_m": 2.1897,
+    "wse_u_m": 0.09426,
+    "width_m": 786.542778,
+    "slope": 1.423049e-05,
+    "reach_q": "1",
+    "dark_frac": 0.0151492259,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-12-22T14:36:58Z",
+    "wse_m": 2.7439,
+    "wse_u_m": 0.09566,
+    "width_m": 754.867723,
+    "slope": 1.363622e-05,
+    "reach_q": "1",
+    "dark_frac": 0.02320172504,
+    "ice_clim_f": "0"
+   }
+  ]
+ },
+ "satellite_other_version": {
+  "collection_named": "SWOT_L2_HR_RiverSP_reach_2.0",
+  "passes": 47,
+  "rows": [
+   {
+    "time": "2024-01-01T21:50:00Z",
+    "wse_m": -0.0654,
+    "wse_u_m": 5.48764,
+    "width_m": 659.268852,
+    "slope": 1.345454e-05,
+    "reach_q": "1",
+    "dark_frac": 0.034551,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-01-12T20:12:47Z",
+    "wse_m": 0.1678,
+    "wse_u_m": 0.09166,
+    "width_m": 749.517417,
+    "slope": 1.83076e-06,
+    "reach_q": "1",
+    "dark_frac": 0.006809,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-02-01T06:06:07Z",
+    "wse_m": 0.9718,
+    "wse_u_m": 34.97165,
+    "width_m": 80.159509,
+    "slope": -1.72072e-05,
+    "reach_q": "1",
+    "dark_frac": 0.010073,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-02-02T16:57:54Z",
+    "wse_m": 1.1229,
+    "wse_u_m": 0.09193,
+    "width_m": 729.120054,
+    "slope": -1.86016e-05,
+    "reach_q": "1",
+    "dark_frac": 0.198224,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-02-12T15:20:10Z",
+    "wse_m": 2.1052,
+    "wse_u_m": 5.48448,
+    "width_m": 691.968219,
+    "slope": -2.75768e-05,
+    "reach_q": "1",
+    "dark_frac": 0.004973,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-02-22T02:51:12Z",
+    "wse_m": 1.6373,
+    "wse_u_m": 57.51858,
+    "width_m": 438.930295,
+    "slope": 1.548431e-05,
+    "reach_q": "1",
+    "dark_frac": 0.000371,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-02-23T13:42:59Z",
+    "wse_m": 1.7885,
+    "wse_u_m": 0.09146,
+    "width_m": 750.900942,
+    "slope": -1.70048e-05,
+    "reach_q": "1",
+    "dark_frac": 0.005567,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-03-04T12:05:15Z",
+    "wse_m": 1.0447,
+    "wse_u_m": 3.9138,
+    "width_m": 653.061316,
+    "slope": 1.002018e-05,
+    "reach_q": "2",
+    "dark_frac": 0.189023,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-03-13T23:36:14Z",
+    "wse_m": 1.0831,
+    "wse_u_m": 0.30233,
+    "width_m": 595.404191,
+    "slope": -2.3589e-06,
+    "reach_q": "1",
+    "dark_frac": 0.001241,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-03-15T10:28:01Z",
+    "wse_m": 0.8405,
+    "wse_u_m": 0.09181,
+    "width_m": 738.41109,
+    "slope": -1.15726e-05,
+    "reach_q": "1",
+    "dark_frac": 0.010771,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-03-25T08:50:18Z",
+    "wse_m": 1.6212,
+    "wse_u_m": 3.54793,
+    "width_m": 681.449684,
+    "slope": 2.353239e-05,
+    "reach_q": "1",
+    "dark_frac": 0.012743,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-04-03T20:21:18Z",
+    "wse_m": 1.2658,
+    "wse_u_m": 0.6882,
+    "width_m": 412.600313,
+    "slope": 1.200599e-05,
+    "reach_q": "1",
+    "dark_frac": 0.003194,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-04-05T07:13:05Z",
+    "wse_m": 0.88,
+    "wse_u_m": 0.09122,
+    "width_m": 744.262438,
+    "slope": -1.07124e-05,
+    "reach_q": "1",
+    "dark_frac": 0.007778,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-04-15T05:35:23Z",
+    "wse_m": 2.3268,
+    "wse_u_m": 8.88504,
+    "width_m": 665.871498,
+    "slope": 0.00010991841,
+    "reach_q": "2",
+    "dark_frac": 0.903759,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-04-26T03:58:12Z",
+    "wse_m": 2.1431,
+    "wse_u_m": 0.09133,
+    "width_m": 737.515679,
+    "slope": -2.67416e-05,
+    "reach_q": "1",
+    "dark_frac": 0.082997,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-05-06T02:20:27Z",
+    "wse_m": 1.6859,
+    "wse_u_m": 20.05899,
+    "width_m": 586.759341,
+    "slope": -1.04224e-05,
+    "reach_q": "1",
+    "dark_frac": 0.09973,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-05-15T13:51:29Z",
+    "wse_m": 2.0851,
+    "wse_u_m": 58.37353,
+    "width_m": 362.783492,
+    "slope": -1.71935e-05,
+    "reach_q": "2",
+    "dark_frac": 0.0,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-05-17T00:43:16Z",
+    "wse_m": 2.2537,
+    "wse_u_m": 0.0915,
+    "width_m": 756.846054,
+    "slope": -2.22015e-05,
+    "reach_q": "1",
+    "dark_frac": 0.003217,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-05-26T23:05:32Z",
+    "wse_m": 2.5535,
+    "wse_u_m": 6.72662,
+    "width_m": 689.812502,
+    "slope": -1.19872e-05,
+    "reach_q": "1",
+    "dark_frac": 0.011398,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-06-06T21:28:22Z",
+    "wse_m": 2.4105,
+    "wse_u_m": 0.09112,
+    "width_m": 750.852552,
+    "slope": -2.09958e-05,
+    "reach_q": "1",
+    "dark_frac": 0.023465,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-06-16T19:50:38Z",
+    "wse_m": 2.3003,
+    "wse_u_m": 2.92044,
+    "width_m": 692.666112,
+    "slope": -4.271e-06,
+    "reach_q": "1",
+    "dark_frac": 0.007881,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-06-26T07:21:38Z",
+    "wse_m": 1.0014,
+    "wse_u_m": 41.32919,
+    "width_m": 179.414042,
+    "slope": -2.27676e-05,
+    "reach_q": "1",
+    "dark_frac": 0.0,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-06-27T18:13:25Z",
+    "wse_m": 0.8585,
+    "wse_u_m": 0.09146,
+    "width_m": 751.157809,
+    "slope": -1.1376e-05,
+    "reach_q": "1",
+    "dark_frac": 0.003552,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-07-07T16:35:40Z",
+    "wse_m": 0.9462,
+    "wse_u_m": 11.34144,
+    "width_m": 604.309146,
+    "slope": 7.38022e-06,
+    "reach_q": "1",
+    "dark_frac": 0.017635,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-07-17T04:06:42Z",
+    "wse_m": 0.8241,
+    "wse_u_m": 6.72897,
+    "width_m": 209.839485,
+    "slope": 2.628662e-05,
+    "reach_q": "1",
+    "dark_frac": 0.006218,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-07-18T14:58:30Z",
+    "wse_m": 1.0021,
+    "wse_u_m": 0.09206,
+    "width_m": 729.211261,
+    "slope": -9.0707e-06,
+    "reach_q": "1",
+    "dark_frac": 0.178865,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-07-28T13:20:46Z",
+    "wse_m": 1.262,
+    "wse_u_m": 6.73364,
+    "width_m": 650.09674,
+    "slope": -5.7819e-06,
+    "reach_q": "2",
+    "dark_frac": 0.800611,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-08-07T00:51:47Z",
+    "wse_m": -3.3468,
+    "wse_u_m": 97.11108,
+    "width_m": 256.818319,
+    "slope": 0.00083605691,
+    "reach_q": "1",
+    "dark_frac": 0.002269,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-08-08T11:43:34Z",
+    "wse_m": 0.7387,
+    "wse_u_m": 0.09139,
+    "width_m": 740.426042,
+    "slope": -6.6408e-06,
+    "reach_q": "1",
+    "dark_frac": 0.010791,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-08-18T10:05:50Z",
+    "wse_m": 0.5043,
+    "wse_u_m": 5.70559,
+    "width_m": 642.119693,
+    "slope": 1.112882e-05,
+    "reach_q": "2",
+    "dark_frac": 0.325494,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-08-27T21:36:51Z",
+    "wse_m": 0.1882,
+    "wse_u_m": 54.89538,
+    "width_m": 528.78507,
+    "slope": 3.322616e-05,
+    "reach_q": "1",
+    "dark_frac": 0.002391,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-08-29T08:28:39Z",
+    "wse_m": 0.3857,
+    "wse_u_m": 0.12323,
+    "width_m": 722.961548,
+    "slope": -4.4214e-06,
+    "reach_q": "2",
+    "dark_frac": 0.686798,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-09-08T06:50:56Z",
+    "wse_m": 0.6056,
+    "wse_u_m": 4.71162,
+    "width_m": 663.72046,
+    "slope": -2.05578e-05,
+    "reach_q": "1",
+    "dark_frac": 0.090723,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-09-17T18:21:58Z",
+    "wse_m": 1.0966,
+    "wse_u_m": 0.76769,
+    "width_m": 621.402022,
+    "slope": 5.105876e-05,
+    "reach_q": "2",
+    "dark_frac": 0.030285,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-09-19T05:13:45Z",
+    "wse_m": 0.6033,
+    "wse_u_m": 0.09157,
+    "width_m": 717.027858,
+    "slope": -4.9721e-06,
+    "reach_q": "1",
+    "dark_frac": 0.205903,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-09-29T03:36:03Z",
+    "wse_m": 0.1974,
+    "wse_u_m": 3.22789,
+    "width_m": 649.57079,
+    "slope": 9.4547e-06,
+    "reach_q": "1",
+    "dark_frac": 0.03596,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-10-08T15:07:04Z",
+    "wse_m": 0.223,
+    "wse_u_m": 57.79715,
+    "width_m": 296.530852,
+    "slope": 0.0001534803,
+    "reach_q": "1",
+    "dark_frac": 0.003309,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-10-10T01:58:51Z",
+    "wse_m": 0.5934,
+    "wse_u_m": 0.09875,
+    "width_m": 716.912743,
+    "slope": -3.5401e-06,
+    "reach_q": "2",
+    "dark_frac": 0.317305,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-10-20T00:21:07Z",
+    "wse_m": 0.4646,
+    "wse_u_m": 0.21756,
+    "width_m": 643.157426,
+    "slope": -5.4822e-06,
+    "reach_q": "1",
+    "dark_frac": 0.2773003941,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-10-29T11:52:08Z",
+    "wse_m": 0.3285,
+    "wse_u_m": 0.09415,
+    "width_m": 757.801129,
+    "slope": 6.264e-07,
+    "reach_q": "2",
+    "dark_frac": 0.1260837883,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-10-30T22:43:55Z",
+    "wse_m": 2.5609,
+    "wse_u_m": 0.09459,
+    "width_m": 749.201511,
+    "slope": -2.36352e-05,
+    "reach_q": "2",
+    "dark_frac": 0.0141083168,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-11-19T08:37:13Z",
+    "wse_m": 1.217,
+    "wse_u_m": 0.35292,
+    "width_m": 721.605565,
+    "slope": -4.66291e-05,
+    "reach_q": "2",
+    "dark_frac": 0.99445900114,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-11-20T19:29:00Z",
+    "wse_m": 0.7008,
+    "wse_u_m": 0.09443,
+    "width_m": 758.662121,
+    "slope": -8.7197e-06,
+    "reach_q": "1",
+    "dark_frac": 0.00939055473,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-11-30T17:51:17Z",
+    "wse_m": 0.4623,
+    "wse_u_m": 0.19822,
+    "width_m": 665.874016,
+    "slope": 6.40769e-06,
+    "reach_q": "1",
+    "dark_frac": 0.02343772721,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-12-10T05:22:17Z",
+    "wse_m": 0.4742,
+    "wse_u_m": 0.09513,
+    "width_m": 763.593551,
+    "slope": -4.6191e-06,
+    "reach_q": "2",
+    "dark_frac": 0.01779247663,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-12-11T16:14:04Z",
+    "wse_m": 0.2131,
+    "wse_u_m": 0.09428,
+    "width_m": 754.3917,
+    "slope": 1.30625e-06,
+    "reach_q": "1",
+    "dark_frac": 0.01155383019,
+    "ice_clim_f": "0"
+   },
+   {
+    "time": "2024-12-21T14:36:20Z",
+    "wse_m": 0.241,
+    "wse_u_m": 0.24807,
+    "width_m": 676.839826,
+    "slope": 5.9467e-07,
+    "reach_q": "1",
+    "dark_frac": 0.01642852565,
+    "ice_clim_f": "0"
+   }
+  ],
+  "why": "kept so the version step can be recomputed rather than quoted"
+ },
+ "gauge": {
+  "parameter": "00065",
+  "parameter_name": "Gage height, feet above the gauge datum",
+  "statistic": "00011",
+  "datum": "NAVD88",
+  "gauge_datum_altitude_ft": 0.0,
+  "elevation_note": "stage is height above the gauge datum, so an elevation is stage plus the datum altitude; at this gauge the datum sits at 0.00 ft so the two coincide, which is a property of this site and not a general rule",
+  "approval_present": [
+   "Provisional"
+  ],
+  "approval_note": "the daily record at this gauge is approved only through 2022 and the satellite record begins in 2023, so the overlap is against provisional values",
+  "window_minutes": 60,
+  "readings": 386,
+  "readings_by_pass": [
+   [
+    {
+     "t": "2024-01-01T10:00:00Z",
+     "stage_ft": 5.25,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-01T10:15:00Z",
+     "stage_ft": 5.25,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-01T10:30:00Z",
+     "stage_ft": 5.28,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-01T10:45:00Z",
+     "stage_ft": 5.31,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-01T11:00:00Z",
+     "stage_ft": 5.27,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-01T11:15:00Z",
+     "stage_ft": 5.33,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-01T11:30:00Z",
+     "stage_ft": 5.33,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-01T11:45:00Z",
+     "stage_ft": 5.35,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-01-02T21:00:00Z",
+     "stage_ft": 5.82,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-02T21:15:00Z",
+     "stage_ft": 5.84,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-02T21:30:00Z",
+     "stage_ft": 5.84,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-02T21:45:00Z",
+     "stage_ft": 5.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-02T22:00:00Z",
+     "stage_ft": 5.82,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-02T22:15:00Z",
+     "stage_ft": 5.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-02T22:30:00Z",
+     "stage_ft": 5.8,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-02T22:45:00Z",
+     "stage_ft": 5.8,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-01-12T19:15:00Z",
+     "stage_ft": 9.12,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-12T19:30:00Z",
+     "stage_ft": 9.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-12T19:45:00Z",
+     "stage_ft": 9.13,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-12T20:00:00Z",
+     "stage_ft": 9.05,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-12T20:15:00Z",
+     "stage_ft": 9.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-12T20:30:00Z",
+     "stage_ft": 9.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-12T20:45:00Z",
+     "stage_ft": 9.06,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-12T21:00:00Z",
+     "stage_ft": 9.03,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-01-22T06:45:00Z",
+     "stage_ft": 18.13,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-22T07:00:00Z",
+     "stage_ft": 18.15,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-22T07:15:00Z",
+     "stage_ft": 18.19,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-22T07:30:00Z",
+     "stage_ft": 18.21,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-22T07:45:00Z",
+     "stage_ft": 18.19,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-22T08:00:00Z",
+     "stage_ft": 18.21,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-22T08:15:00Z",
+     "stage_ft": 18.24,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-22T08:30:00Z",
+     "stage_ft": 18.26,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-01-23T17:45:00Z",
+     "stage_ft": 19.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-23T18:00:00Z",
+     "stage_ft": 19.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-23T18:15:00Z",
+     "stage_ft": 19.44,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-23T18:30:00Z",
+     "stage_ft": 19.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-23T18:45:00Z",
+     "stage_ft": 19.44,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-23T19:00:00Z",
+     "stage_ft": 19.45,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-23T19:15:00Z",
+     "stage_ft": 19.47,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-01-23T19:30:00Z",
+     "stage_ft": 19.41,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-02-02T16:00:00Z",
+     "stage_ft": 24.64,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-02T16:15:00Z",
+     "stage_ft": 24.66,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-02T16:30:00Z",
+     "stage_ft": 24.68,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-02T16:45:00Z",
+     "stage_ft": 24.67,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-02T17:00:00Z",
+     "stage_ft": 24.69,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-02T17:15:00Z",
+     "stage_ft": 24.66,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-02T17:30:00Z",
+     "stage_ft": 24.69,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-02T17:45:00Z",
+     "stage_ft": 24.72,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-02-12T03:30:00Z",
+     "stage_ft": 29.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-12T03:45:00Z",
+     "stage_ft": 29.81,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-12T04:00:00Z",
+     "stage_ft": 29.82,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-12T04:15:00Z",
+     "stage_ft": 29.9,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-12T04:30:00Z",
+     "stage_ft": 29.85,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-12T04:45:00Z",
+     "stage_ft": 29.86,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-12T05:00:00Z",
+     "stage_ft": 29.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-12T05:15:00Z",
+     "stage_ft": 29.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-02-13T14:30:00Z",
+     "stage_ft": 30.25,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-13T14:45:00Z",
+     "stage_ft": 30.19,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-13T15:00:00Z",
+     "stage_ft": 30.24,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-13T15:15:00Z",
+     "stage_ft": 30.25,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-13T15:30:00Z",
+     "stage_ft": 30.27,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-13T15:45:00Z",
+     "stage_ft": 30.27,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-13T16:00:00Z",
+     "stage_ft": 30.25,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-13T16:15:00Z",
+     "stage_ft": 30.27,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-02-23T13:00:00Z",
+     "stage_ft": 26.75,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-02-23T14:00:00Z",
+     "stage_ft": 26.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-03-04T01:00:00Z",
+     "stage_ft": 21.15,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-03-04T02:00:00Z",
+     "stage_ft": 21.14,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-03-05T12:00:00Z",
+     "stage_ft": 20.37,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-03-05T13:00:00Z",
+     "stage_ft": 20.35,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-03-15T10:00:00Z",
+     "stage_ft": 19.78,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-03-15T11:00:00Z",
+     "stage_ft": 19.82,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-03-26T08:00:00Z",
+     "stage_ft": 25.23,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-03-26T09:00:00Z",
+     "stage_ft": 25.21,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-04-05T06:15:00Z",
+     "stage_ft": 20.31,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-05T06:30:00Z",
+     "stage_ft": 20.3,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-05T06:45:00Z",
+     "stage_ft": 20.31,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-05T07:00:00Z",
+     "stage_ft": 20.29,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-05T07:15:00Z",
+     "stage_ft": 20.3,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-05T07:30:00Z",
+     "stage_ft": 20.28,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-05T07:45:00Z",
+     "stage_ft": 20.27,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-05T08:00:00Z",
+     "stage_ft": 20.27,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-04-14T17:45:00Z",
+     "stage_ft": 26.01,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-14T18:00:00Z",
+     "stage_ft": 26.04,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-14T18:15:00Z",
+     "stage_ft": 26.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-14T18:30:00Z",
+     "stage_ft": 26.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-14T18:45:00Z",
+     "stage_ft": 26.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-14T19:00:00Z",
+     "stage_ft": 26.11,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-14T19:15:00Z",
+     "stage_ft": 26.12,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-14T19:30:00Z",
+     "stage_ft": 26.14,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-04-16T04:45:00Z",
+     "stage_ft": 28.18,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-16T05:00:00Z",
+     "stage_ft": 28.2,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-16T05:15:00Z",
+     "stage_ft": 28.23,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-16T05:30:00Z",
+     "stage_ft": 28.23,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-16T05:45:00Z",
+     "stage_ft": 28.26,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-16T06:00:00Z",
+     "stage_ft": 28.25,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-16T06:15:00Z",
+     "stage_ft": 28.31,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-16T06:30:00Z",
+     "stage_ft": 28.32,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-04-26T03:00:00Z",
+     "stage_ft": 31.39,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-26T03:15:00Z",
+     "stage_ft": 31.38,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-26T03:30:00Z",
+     "stage_ft": 31.4,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-26T03:45:00Z",
+     "stage_ft": 31.41,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-26T04:00:00Z",
+     "stage_ft": 31.41,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-26T04:15:00Z",
+     "stage_ft": 31.4,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-26T04:30:00Z",
+     "stage_ft": 31.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-04-26T04:45:00Z",
+     "stage_ft": 31.41,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-05-05T14:30:00Z",
+     "stage_ft": 29.56,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-05T14:45:00Z",
+     "stage_ft": 29.55,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-05T15:00:00Z",
+     "stage_ft": 29.55,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-05T15:15:00Z",
+     "stage_ft": 29.55,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-05T15:30:00Z",
+     "stage_ft": 29.54,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-05T15:45:00Z",
+     "stage_ft": 29.52,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-05T16:00:00Z",
+     "stage_ft": 29.53,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-05T16:15:00Z",
+     "stage_ft": 29.51,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-05-07T01:30:00Z",
+     "stage_ft": 29.1,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-07T01:45:00Z",
+     "stage_ft": 29.08,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-07T02:00:00Z",
+     "stage_ft": 29.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-07T02:15:00Z",
+     "stage_ft": 29.08,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-07T02:30:00Z",
+     "stage_ft": 29.05,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-07T02:45:00Z",
+     "stage_ft": 29.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-07T03:00:00Z",
+     "stage_ft": 29.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-07T03:15:00Z",
+     "stage_ft": 29.05,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-05-16T23:45:00Z",
+     "stage_ft": 32.39,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-17T00:00:00Z",
+     "stage_ft": 32.45,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-17T00:15:00Z",
+     "stage_ft": 32.44,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-17T00:30:00Z",
+     "stage_ft": 32.41,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-17T00:45:00Z",
+     "stage_ft": 32.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-17T01:00:00Z",
+     "stage_ft": 32.42,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-17T01:15:00Z",
+     "stage_ft": 32.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-17T01:30:00Z",
+     "stage_ft": 32.45,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-05-26T11:15:00Z",
+     "stage_ft": 33.91,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-26T11:30:00Z",
+     "stage_ft": 33.91,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-26T11:45:00Z",
+     "stage_ft": 33.88,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-26T12:00:00Z",
+     "stage_ft": 33.9,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-26T12:15:00Z",
+     "stage_ft": 33.89,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-26T12:30:00Z",
+     "stage_ft": 33.91,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-26T12:45:00Z",
+     "stage_ft": 33.9,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-26T13:00:00Z",
+     "stage_ft": 33.91,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-05-27T22:15:00Z",
+     "stage_ft": 33.71,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-27T22:30:00Z",
+     "stage_ft": 33.71,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-27T22:45:00Z",
+     "stage_ft": 33.71,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-27T23:00:00Z",
+     "stage_ft": 33.7,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-27T23:15:00Z",
+     "stage_ft": 33.67,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-27T23:30:00Z",
+     "stage_ft": 33.69,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-27T23:45:00Z",
+     "stage_ft": 33.68,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-05-28T00:00:00Z",
+     "stage_ft": 33.68,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-06-06T20:30:00Z",
+     "stage_ft": 32.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-06T20:45:00Z",
+     "stage_ft": 32.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-06T21:00:00Z",
+     "stage_ft": 32.08,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-06T21:15:00Z",
+     "stage_ft": 32.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-06T21:30:00Z",
+     "stage_ft": 32.05,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-06T21:45:00Z",
+     "stage_ft": 32.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-06T22:00:00Z",
+     "stage_ft": 32.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-06T22:15:00Z",
+     "stage_ft": 32.1,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-06-16T08:00:00Z",
+     "stage_ft": 31.72,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-16T08:15:00Z",
+     "stage_ft": 31.69,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-16T08:30:00Z",
+     "stage_ft": 31.71,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-16T08:45:00Z",
+     "stage_ft": 31.7,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-16T09:00:00Z",
+     "stage_ft": 31.68,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-16T09:15:00Z",
+     "stage_ft": 31.69,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-16T09:30:00Z",
+     "stage_ft": 31.67,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-16T09:45:00Z",
+     "stage_ft": 31.69,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-06-17T19:00:00Z",
+     "stage_ft": 31.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-17T19:15:00Z",
+     "stage_ft": 31.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-17T19:30:00Z",
+     "stage_ft": 31.08,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-17T19:45:00Z",
+     "stage_ft": 31.08,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-17T20:00:00Z",
+     "stage_ft": 31.09,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-17T20:15:00Z",
+     "stage_ft": 31.06,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-17T20:30:00Z",
+     "stage_ft": 31.05,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-17T20:45:00Z",
+     "stage_ft": 31.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-06-27T17:15:00Z",
+     "stage_ft": 18.71,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-27T17:30:00Z",
+     "stage_ft": 18.71,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-27T17:45:00Z",
+     "stage_ft": 18.7,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-27T18:00:00Z",
+     "stage_ft": 18.69,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-27T18:15:00Z",
+     "stage_ft": 18.68,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-27T18:30:00Z",
+     "stage_ft": 18.64,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-27T18:45:00Z",
+     "stage_ft": 18.64,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-06-27T19:00:00Z",
+     "stage_ft": 18.63,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-07-07T04:45:00Z",
+     "stage_ft": 14.36,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-07T05:00:00Z",
+     "stage_ft": 14.33,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-07T05:15:00Z",
+     "stage_ft": 14.34,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-07T05:30:00Z",
+     "stage_ft": 14.34,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-07T05:45:00Z",
+     "stage_ft": 14.31,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-07T06:00:00Z",
+     "stage_ft": 14.32,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-07T06:15:00Z",
+     "stage_ft": 14.33,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-07T06:30:00Z",
+     "stage_ft": 14.32,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-07-08T15:45:00Z",
+     "stage_ft": 14.41,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-08T16:00:00Z",
+     "stage_ft": 14.39,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-08T16:15:00Z",
+     "stage_ft": 14.4,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-08T16:30:00Z",
+     "stage_ft": 14.42,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-08T16:45:00Z",
+     "stage_ft": 14.39,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-08T17:00:00Z",
+     "stage_ft": 14.37,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-08T17:15:00Z",
+     "stage_ft": 14.38,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-08T17:30:00Z",
+     "stage_ft": 14.39,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-07-18T14:00:00Z",
+     "stage_ft": 20.76,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-18T14:15:00Z",
+     "stage_ft": 20.76,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-18T14:30:00Z",
+     "stage_ft": 20.73,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-18T14:45:00Z",
+     "stage_ft": 20.76,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-18T15:00:00Z",
+     "stage_ft": 20.77,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-18T15:15:00Z",
+     "stage_ft": 20.77,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-18T15:30:00Z",
+     "stage_ft": 20.79,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-18T15:45:00Z",
+     "stage_ft": 20.79,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-07-28T01:30:00Z",
+     "stage_ft": 21.06,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-28T01:45:00Z",
+     "stage_ft": 21.06,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-28T02:00:00Z",
+     "stage_ft": 21.05,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-28T02:15:00Z",
+     "stage_ft": 21.05,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-28T02:30:00Z",
+     "stage_ft": 21.05,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-28T02:45:00Z",
+     "stage_ft": 21.04,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-28T03:00:00Z",
+     "stage_ft": 21.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-28T03:15:00Z",
+     "stage_ft": 21.06,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-07-29T12:30:00Z",
+     "stage_ft": 20.78,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-29T12:45:00Z",
+     "stage_ft": 20.76,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-29T13:00:00Z",
+     "stage_ft": 20.76,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-29T13:15:00Z",
+     "stage_ft": 20.75,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-29T13:30:00Z",
+     "stage_ft": 20.76,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-29T13:45:00Z",
+     "stage_ft": 20.75,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-29T14:00:00Z",
+     "stage_ft": 20.74,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-07-29T14:15:00Z",
+     "stage_ft": 20.74,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-08-08T10:45:00Z",
+     "stage_ft": 14.67,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-08T11:00:00Z",
+     "stage_ft": 14.68,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-08T11:15:00Z",
+     "stage_ft": 14.66,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-08T11:30:00Z",
+     "stage_ft": 14.67,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-08T11:45:00Z",
+     "stage_ft": 14.66,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-08T12:00:00Z",
+     "stage_ft": 14.66,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-08T12:15:00Z",
+     "stage_ft": 14.65,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-08T12:30:00Z",
+     "stage_ft": 14.63,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-08-17T22:15:00Z",
+     "stage_ft": 10.63,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-17T22:30:00Z",
+     "stage_ft": 10.64,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-17T22:45:00Z",
+     "stage_ft": 10.67,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-17T23:00:00Z",
+     "stage_ft": 10.64,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-17T23:15:00Z",
+     "stage_ft": 10.64,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-17T23:30:00Z",
+     "stage_ft": 10.66,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-17T23:45:00Z",
+     "stage_ft": 10.66,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-18T00:00:00Z",
+     "stage_ft": 10.68,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-08-19T09:15:00Z",
+     "stage_ft": 9.9,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-19T09:30:00Z",
+     "stage_ft": 9.88,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-19T09:45:00Z",
+     "stage_ft": 9.87,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-19T10:00:00Z",
+     "stage_ft": 9.82,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-19T10:15:00Z",
+     "stage_ft": 9.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-19T10:30:00Z",
+     "stage_ft": 9.84,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-19T10:45:00Z",
+     "stage_ft": 9.82,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-19T11:00:00Z",
+     "stage_ft": 9.81,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-08-29T07:30:00Z",
+     "stage_ft": 7.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-29T07:45:00Z",
+     "stage_ft": 7.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-29T08:00:00Z",
+     "stage_ft": 7.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-29T08:15:00Z",
+     "stage_ft": 7.41,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-29T08:30:00Z",
+     "stage_ft": 7.4,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-29T08:45:00Z",
+     "stage_ft": 7.39,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-29T09:00:00Z",
+     "stage_ft": 7.4,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-08-29T09:15:00Z",
+     "stage_ft": 7.32,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-09-07T19:15:00Z",
+     "stage_ft": 6.79,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-07T19:30:00Z",
+     "stage_ft": 6.8,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-07T19:45:00Z",
+     "stage_ft": 6.77,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-07T20:00:00Z",
+     "stage_ft": 6.77,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-07T20:15:00Z",
+     "stage_ft": 6.77,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-07T20:30:00Z",
+     "stage_ft": 6.74,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-07T20:45:00Z",
+     "stage_ft": 6.75,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-07T21:00:00Z",
+     "stage_ft": 6.72,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-09-09T06:00:00Z",
+     "stage_ft": 6.46,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-09T06:15:00Z",
+     "stage_ft": 6.46,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-09T06:30:00Z",
+     "stage_ft": 6.44,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-09T06:45:00Z",
+     "stage_ft": 6.45,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-09T07:00:00Z",
+     "stage_ft": 6.45,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-09T07:15:00Z",
+     "stage_ft": 6.42,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-09T07:30:00Z",
+     "stage_ft": 6.42,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-09T07:45:00Z",
+     "stage_ft": 6.42,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-09-19T04:15:00Z",
+     "stage_ft": 6.46,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-19T04:30:00Z",
+     "stage_ft": 6.47,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-19T04:45:00Z",
+     "stage_ft": 6.47,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-19T05:00:00Z",
+     "stage_ft": 6.47,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-19T05:15:00Z",
+     "stage_ft": 6.47,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-19T05:30:00Z",
+     "stage_ft": 6.46,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-19T05:45:00Z",
+     "stage_ft": 6.47,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-19T06:00:00Z",
+     "stage_ft": 6.47,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-09-28T16:00:00Z",
+     "stage_ft": 5.76,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-28T16:15:00Z",
+     "stage_ft": 5.79,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-28T16:30:00Z",
+     "stage_ft": 5.77,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-28T16:45:00Z",
+     "stage_ft": 5.81,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-28T17:00:00Z",
+     "stage_ft": 5.79,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-28T17:15:00Z",
+     "stage_ft": 5.81,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-28T17:30:00Z",
+     "stage_ft": 5.8,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-28T17:45:00Z",
+     "stage_ft": 5.84,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-09-30T02:45:00Z",
+     "stage_ft": 5.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-30T03:00:00Z",
+     "stage_ft": 5.42,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-30T03:15:00Z",
+     "stage_ft": 5.39,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-30T03:30:00Z",
+     "stage_ft": 5.39,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-30T03:45:00Z",
+     "stage_ft": 5.39,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-30T04:00:00Z",
+     "stage_ft": 5.38,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-30T04:15:00Z",
+     "stage_ft": 5.38,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-09-30T04:30:00Z",
+     "stage_ft": 5.41,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-10-10T01:00:00Z",
+     "stage_ft": 10.79,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-10T01:15:00Z",
+     "stage_ft": 10.78,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-10T01:30:00Z",
+     "stage_ft": 10.76,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-10T01:45:00Z",
+     "stage_ft": 10.73,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-10T02:00:00Z",
+     "stage_ft": 10.76,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-10T02:15:00Z",
+     "stage_ft": 10.71,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-10T02:30:00Z",
+     "stage_ft": 10.7,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-10T02:45:00Z",
+     "stage_ft": 10.7,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-10-19T12:45:00Z",
+     "stage_ft": 6.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-19T13:00:00Z",
+     "stage_ft": 6.84,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-19T13:15:00Z",
+     "stage_ft": 6.81,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-19T13:30:00Z",
+     "stage_ft": 6.82,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-19T13:45:00Z",
+     "stage_ft": 6.82,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-19T14:00:00Z",
+     "stage_ft": 6.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-19T14:15:00Z",
+     "stage_ft": 6.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-19T14:30:00Z",
+     "stage_ft": 6.84,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-10-20T23:30:00Z",
+     "stage_ft": 6.1,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-20T23:45:00Z",
+     "stage_ft": 6.07,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-21T00:00:00Z",
+     "stage_ft": 6.04,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-21T00:15:00Z",
+     "stage_ft": 6.03,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-21T00:30:00Z",
+     "stage_ft": 6.05,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-21T00:45:00Z",
+     "stage_ft": 5.99,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-21T01:00:00Z",
+     "stage_ft": 5.97,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-21T01:15:00Z",
+     "stage_ft": 5.95,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-10-30T21:45:00Z",
+     "stage_ft": 4.88,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-30T22:00:00Z",
+     "stage_ft": 4.85,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-30T22:15:00Z",
+     "stage_ft": 4.86,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-30T22:30:00Z",
+     "stage_ft": 4.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-30T22:45:00Z",
+     "stage_ft": 4.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-30T23:00:00Z",
+     "stage_ft": 4.9,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-30T23:15:00Z",
+     "stage_ft": 4.82,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-10-30T23:30:00Z",
+     "stage_ft": 4.8,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-11-09T09:30:00Z",
+     "stage_ft": 6.38,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-09T09:45:00Z",
+     "stage_ft": 6.41,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-09T10:00:00Z",
+     "stage_ft": 6.43,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-09T10:15:00Z",
+     "stage_ft": 6.49,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-09T10:30:00Z",
+     "stage_ft": 6.46,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-09T10:45:00Z",
+     "stage_ft": 6.5,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-09T11:00:00Z",
+     "stage_ft": 6.52,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-09T11:15:00Z",
+     "stage_ft": 6.54,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-11-10T20:15:00Z",
+     "stage_ft": 8.17,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-10T20:30:00Z",
+     "stage_ft": 8.2,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-10T20:45:00Z",
+     "stage_ft": 8.22,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-10T21:00:00Z",
+     "stage_ft": 8.21,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-10T21:15:00Z",
+     "stage_ft": 8.23,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-10T21:30:00Z",
+     "stage_ft": 8.23,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-10T21:45:00Z",
+     "stage_ft": 8.23,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-10T22:00:00Z",
+     "stage_ft": 8.28,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-11-20T18:30:00Z",
+     "stage_ft": 14.86,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-20T18:45:00Z",
+     "stage_ft": 14.83,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-20T19:00:00Z",
+     "stage_ft": 14.81,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-20T19:15:00Z",
+     "stage_ft": 14.84,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-20T19:30:00Z",
+     "stage_ft": 14.84,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-20T19:45:00Z",
+     "stage_ft": 14.84,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-20T20:00:00Z",
+     "stage_ft": 14.87,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-20T20:15:00Z",
+     "stage_ft": 14.86,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-11-30T06:15:00Z",
+     "stage_ft": 11.53,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-30T06:30:00Z",
+     "stage_ft": 11.52,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-30T06:45:00Z",
+     "stage_ft": 11.53,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-30T07:00:00Z",
+     "stage_ft": 11.52,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-30T07:15:00Z",
+     "stage_ft": 11.53,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-30T07:30:00Z",
+     "stage_ft": 11.51,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-30T07:45:00Z",
+     "stage_ft": 11.53,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-11-30T08:00:00Z",
+     "stage_ft": 11.52,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-12-01T17:00:00Z",
+     "stage_ft": 10.35,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-01T17:15:00Z",
+     "stage_ft": 10.3,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-01T17:30:00Z",
+     "stage_ft": 10.25,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-01T17:45:00Z",
+     "stage_ft": 10.25,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-01T18:00:00Z",
+     "stage_ft": 10.23,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-01T18:15:00Z",
+     "stage_ft": 10.19,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-01T18:30:00Z",
+     "stage_ft": 10.17,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-01T18:45:00Z",
+     "stage_ft": 10.17,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-12-11T15:15:00Z",
+     "stage_ft": 9.73,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-11T15:30:00Z",
+     "stage_ft": 9.74,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-11T15:45:00Z",
+     "stage_ft": 9.73,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-11T16:00:00Z",
+     "stage_ft": 9.71,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-11T16:15:00Z",
+     "stage_ft": 9.72,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-11T16:30:00Z",
+     "stage_ft": 9.7,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-11T16:45:00Z",
+     "stage_ft": 9.73,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-11T17:00:00Z",
+     "stage_ft": 9.69,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-12-21T03:00:00Z",
+     "stage_ft": 7.91,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-21T03:15:00Z",
+     "stage_ft": 7.9,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-21T03:30:00Z",
+     "stage_ft": 7.9,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-21T03:45:00Z",
+     "stage_ft": 7.9,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-21T04:00:00Z",
+     "stage_ft": 7.93,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-21T04:15:00Z",
+     "stage_ft": 7.92,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-21T04:30:00Z",
+     "stage_ft": 7.94,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-21T04:45:00Z",
+     "stage_ft": 7.93,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ],
+   [
+    {
+     "t": "2024-12-22T13:45:00Z",
+     "stage_ft": 9.59,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-22T14:00:00Z",
+     "stage_ft": 9.63,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-22T14:15:00Z",
+     "stage_ft": 9.53,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-22T14:30:00Z",
+     "stage_ft": 9.71,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-22T14:45:00Z",
+     "stage_ft": 9.62,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-22T15:00:00Z",
+     "stage_ft": 9.64,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-22T15:15:00Z",
+     "stage_ft": 9.66,
+     "approval": "Provisional",
+     "qualifiers": null
+    },
+    {
+     "t": "2024-12-22T15:30:00Z",
+     "stage_ft": 9.69,
+     "approval": "Provisional",
+     "qualifiers": null
+    }
+   ]
+  ]
+ },
+ "unit_note": "stage is feet, satellite elevation is metres; 1 ft = 0.3048 m",
+ "retrieved": "2026-09-08T05:12:04Z",
+ "fetch_script": "verification/fixtures/fetch_confrontation_fixtures.py",
+ "license": {
+  "satellite": "NASA data, public (EOSDIS data use guidance)",
+  "gauge": "US Government public domain"
+ }
+}
