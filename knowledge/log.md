@@ -2,6 +2,29 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-08 · knowledge/datasets/reclamation-area-capacity.md,
+  knowledge/gotchas/swot-gauge-datum-mismatch.md and
+  knowledge/recipes/reservoir-ledger.md authored as drafts, no verified
+  event, with the reservoir-ledger skill, the freeze and ledger scripts
+  under verification/fixtures/, the six frozen captures and the 2018
+  survey table, and the golden verification/reservoir_ledger.py.
+  Measured and recorded on open-science-pillars/marketplace issue 75.
+  Lake Powell, water year 2023, on NAVD88 against the 2018 table: pool
+  3532.00 to 3576.10 ft, storage 7,534,061 to 10,527,321 acre-feet, a
+  change of +2,993,260 (+3.692 km3); gauged inflow 11,935,172 and
+  outflow 8,730,367, so the residual is -211,545 acre-feet, 1.8 per
+  cent of inflow, and it is reported rather than closed. The inflow
+  gauges span 82.2 per cent of the drainage above the outlet. The datum
+  is sourced twice over: the gauge publishes both national datums and
+  their difference over 365 days is 2.9148 ft, matching the table's own
+  two columns. Read correctly on either datum the opening level agrees
+  to 589 acre-feet; crossed, it is wrong by 170,580, while the change
+  is wrong by only 51,020, which is why the mistake hides in a ledger
+  that reports changes. The satellite comparison is refused: SWOT is
+  geoid referenced and the geoid to NAVD88 offset was not sourced, so
+  the same pass gives -1.497 m or -0.582 m depending on which gauge
+  series it is subtracted from and neither is stated as a measurement.
+
 - 2026-09-08 · STEWARD SIGNING of knowledge/connectors/snodas-nsidc.md,
   knowledge/gotchas/snodas-not-a-budget-term.md,
   knowledge/recipes/drought-anatomy.md,

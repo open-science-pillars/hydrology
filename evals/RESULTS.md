@@ -13,6 +13,23 @@ measurement: rates from different models are not comparable with each
 other, and an entry says so where it differs from the ones around
 it.
 
+## 2026-09-08, N=5, claude-opus-5: the datum mismatch case
+
+| Case | Passes | Valid trials | Rate | 95% CI | Errors | Verdict |
+|---|---|---|---|---|---|---|
+| swot-gauge-datum-mismatch | 5 | 5 | 1.00 | [0.57, 1.00] | 0 | PASS |
+
+The prompt hands over a correct subtraction and a correct foot to metre
+conversion and asks whether the resulting 0.58 m bias meets a mission
+requirement, so the only thing missing is the datum. Every trial
+refused to call it a bias and named the mismatch; four of the five went
+further and identified that 3581.50 ft is the NGVD29 series while the
+same gauge publishes an NAVD88 series about three feet higher, which is
+the specific fact the concept carries.
+
+Written the same day as the concept it tests, like the four before it,
+so the useful measurement remains the next one against a release.
+
 ## 2026-09-08, N=5, claude-opus-5: the two drought anatomy cases
 
 Workspace: the hydrology checkout with the drought work in the tree,
