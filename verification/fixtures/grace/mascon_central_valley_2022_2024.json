@@ -1,0 +1,178 @@
+{
+ "product": "GRCTellus JPL mascon RL06.3M v04 CRI",
+ "file": "GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+ "sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd",
+ "region": {
+  "fixture": "central_valley_wbd.geojson",
+  "area_km2": 155496.7,
+  "geometry_sha256": "f6ddb006728418cc56929fd44a1158673442889fead26b7f7839eadbbb7003d6"
+ },
+ "footprint": {
+  "floor_km2": 111266.0,
+  "region_over_floor": 1.398,
+  "mascons": 6,
+  "mascon_ids": [
+   764,
+   765,
+   856,
+   857,
+   952,
+   953
+  ],
+  "statement": "this panel is the Central Valley at 1.40 mascons, above the footprint floor; the Tulare Lake bed at 9,808 km2 is 0.09 of a mascon and has no storage number"
+ },
+ "cells_inside": 62,
+ "epochs": [
+  {
+   "epoch": "2022-01-16",
+   "lwe_cm": -19.865,
+   "uncertainty_cm": 2.5775
+  },
+  {
+   "epoch": "2022-02-15",
+   "lwe_cm": -17.2847,
+   "uncertainty_cm": 2.5929
+  },
+  {
+   "epoch": "2022-03-16",
+   "lwe_cm": -22.0907,
+   "uncertainty_cm": 2.5971
+  },
+  {
+   "epoch": "2022-04-16",
+   "lwe_cm": -18.2419,
+   "uncertainty_cm": 2.6115
+  },
+  {
+   "epoch": "2022-05-16",
+   "lwe_cm": -21.7045,
+   "uncertainty_cm": 2.5594
+  },
+  {
+   "epoch": "2022-06-16",
+   "lwe_cm": -28.5689,
+   "uncertainty_cm": 2.5594
+  },
+  {
+   "epoch": "2022-07-16",
+   "lwe_cm": -33.3349,
+   "uncertainty_cm": 2.5985
+  },
+  {
+   "epoch": "2022-08-16",
+   "lwe_cm": -32.6212,
+   "uncertainty_cm": 2.6099
+  },
+  {
+   "epoch": "2022-09-16",
+   "lwe_cm": -32.5218,
+   "uncertainty_cm": 2.6566
+  },
+  {
+   "epoch": "2022-10-16",
+   "lwe_cm": -41.0299,
+   "uncertainty_cm": 2.6372
+  },
+  {
+   "epoch": "2022-11-16",
+   "lwe_cm": -41.2371,
+   "uncertainty_cm": 2.6416
+  },
+  {
+   "epoch": "2022-12-16",
+   "lwe_cm": -34.3654,
+   "uncertainty_cm": 2.6592
+  },
+  {
+   "epoch": "2023-01-16",
+   "lwe_cm": -9.6992,
+   "uncertainty_cm": 2.671
+  },
+  {
+   "epoch": "2023-02-15",
+   "lwe_cm": -4.761,
+   "uncertainty_cm": 2.7023
+  },
+  {
+   "epoch": "2023-03-16",
+   "lwe_cm": 5.8817,
+   "uncertainty_cm": 2.6325
+  },
+  {
+   "epoch": "2023-04-16",
+   "lwe_cm": 4.7088,
+   "uncertainty_cm": 2.6244
+  },
+  {
+   "epoch": "2023-05-16",
+   "lwe_cm": -2.4181,
+   "uncertainty_cm": 2.609
+  },
+  {
+   "epoch": "2023-06-16",
+   "lwe_cm": -7.3813,
+   "uncertainty_cm": 2.627
+  },
+  {
+   "epoch": "2023-07-16",
+   "lwe_cm": -9.9799,
+   "uncertainty_cm": 2.6429
+  },
+  {
+   "epoch": "2023-08-16",
+   "lwe_cm": -14.1719,
+   "uncertainty_cm": 2.6092
+  },
+  {
+   "epoch": "2023-09-16",
+   "lwe_cm": -20.2681,
+   "uncertainty_cm": 2.6101
+  },
+  {
+   "epoch": "2023-10-16",
+   "lwe_cm": -24.2132,
+   "uncertainty_cm": 2.6366
+  },
+  {
+   "epoch": "2023-11-16",
+   "lwe_cm": -24.7746,
+   "uncertainty_cm": 2.6386
+  },
+  {
+   "epoch": "2023-12-16",
+   "lwe_cm": -18.2457,
+   "uncertainty_cm": 2.614
+  },
+  {
+   "epoch": "2024-01-16",
+   "lwe_cm": -9.1307,
+   "uncertainty_cm": 2.6581
+  },
+  {
+   "epoch": "2024-02-15",
+   "lwe_cm": 0.0499,
+   "uncertainty_cm": 2.6388
+  },
+  {
+   "epoch": "2024-03-16",
+   "lwe_cm": -0.4113,
+   "uncertainty_cm": 2.617
+  },
+  {
+   "epoch": "2024-04-16",
+   "lwe_cm": 4.8802,
+   "uncertainty_cm": 2.6203
+  },
+  {
+   "epoch": "2024-05-16",
+   "lwe_cm": -2.3571,
+   "uncertainty_cm": 2.6388
+  },
+  {
+   "epoch": "2024-06-16",
+   "lwe_cm": -6.9072,
+   "uncertainty_cm": 2.6129
+  }
+ ],
+ "retrieved": "2026-09-07T23:44:06Z"
+}

@@ -1,0 +1,25 @@
+{
+ "product": "s1",
+ "short_name": "OPERA_L3_DSWX-S1_V1",
+ "concept_id": "C2949811996-POCLOUD",
+ "doi": "10.5067/OPDSWS1-L3V1",
+ "layer": "B01_WTR",
+ "class_table_source": "OPERA DSWx-S1 Product Specification Rev A, JPL D-108761",
+ "class_note": "counts are raw class values; the two DSWx products use the same integers for different classes, so the meaning comes from the product's own table and never from the value",
+ "basin": {
+  "fixture": "tulare_lake_bed_wbd.geojson",
+  "geometry_sha256": "745d492d2e2d1e5f62e461dd51e803aa20d60e20cd4b23025353e6bf52d3b615",
+  "area_km2": 9808.2,
+  "site": ""
+ },
+ "window": {
+  "start": "2023-03-01",
+  "end": "2023-07-31"
+ },
+ "granules_searched": 0,
+ "granules_intersecting": 0,
+ "bytes_transferred": 0,
+ "retrieved": "2026-09-07T22:08:36Z",
+ "fetch_script": "verification/fixtures/fetch_dswx_fixtures.py",
+ "rows": []
+}

@@ -2,6 +2,31 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-07 · knowledge/recipes/event-reconstruction.md authored as a
+  draft, no verified event, with the reconstruct-event skill, three
+  fetch scripts, the five frozen panels of the Tulare Lake reflood of
+  2023 under verification/fixtures/ and the golden
+  verification/event_reconstruction.py beside them. The DSWx concepts
+  the recipe cites are in the provider bundle
+  (open-science-pillars/nasa-daac-knowledge pull 111). Measured and
+  recorded on open-science-pillars/marketplace issue 72: surface water
+  peaks at 500.0 km2 on 2023-06-17, 5.1 per cent of the bed, and is
+  still 407.7 km2 on 2023-08-29; the radar product has zero granules
+  for the whole event; IMERG Late overstated January, the wettest
+  month, by 51 per cent against Final; the four gauges with a 2023
+  record see between 23 and 92 per cent of their rivers and none of
+  the inflow that filled the lake; the Central Valley storage rose
+  46.9 cm between October 2022 and March 2023 at 1.40 mascons, while
+  the bed at 0.09 of a mascon has no storage number; and SWOT observed
+  the lake complex 17 times from 2023-07-30, after the peak. Five
+  defects were found and fixed while building it, four of them in this
+  plugin's own fetch scripts: an outside-polygon marker sharing the
+  product's fill value, overlapping tiles inflating every area by a
+  factor of 2.4, a granule cap that truncated the record two days
+  after the peak, and a lake panel that tracked the hydrologic unit
+  rather than the lake and so mixed a 53 m valley floor with 615 m
+  reservoirs. (claude-code/fable-5)
+
 - 2026-09-07 · STEWARD SIGNING of
   knowledge/computations/basin-water-balance.md,
   knowledge/recipes/basin-water-balance.md: the steward's first verified
