@@ -1,6 +1,6 @@
 {
   "name": "hydrology",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "Hydrology: SWOT river and lake products, GRACE-FO groundwater, USGS streamflow and basin delineation, SMAP soil moisture, GPM IMERG and NLDAS-2 basin precipitation, MOD16 and OpenET evapotranspiration.",
   "dependencies": [
     {
