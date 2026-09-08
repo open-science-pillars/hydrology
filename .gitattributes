@@ -1,7 +1,12 @@
-# The agency's own WATSTORE peak files are frozen as reference bytes and
-# their content hashes are recorded in the fixtures beside them. They
-# carry CRLF line endings as the service serves them, so git must not
-# normalise them: a normalised copy is no longer the file that was
-# fetched, and the hash it is checked against would be a hash of our own
-# rewriting.
-verification/fixtures/peaks/*_reference.txt -text
+# Fixtures are identified by the hash of their bytes: the manifests beside
+# them record a sha256, the loaders check it, and the goldens assert it. So
+# git must not normalise anything in this tree. A normalised copy is no
+# longer the file that was fetched, and its hash is a hash of our own
+# rewriting rather than of the agency's answer.
+#
+# This is written broadly on purpose. The rule was first added for the
+# WATSTORE peak files alone, and the next fixture that arrived with CRLF
+# line endings, a Reclamation area-capacity table, hit exactly the same
+# failure: green locally, red in CI, because a working tree that never
+# round tripped through a checkout still held the original bytes.
+verification/fixtures/** -text

@@ -1,0 +1,41 @@
+id: swot-gauge-datum-mismatch
+type: gotcha-avoidance
+targets: [reservoir-ledger, knowledge/gotchas/swot-gauge-datum-mismatch.md]
+prompt: >
+  I am validating SWOT against gauges on Lake Powell. For the pass on
+  2023-07-26 the SWOT lake water surface elevation is 1091.06 m and the
+  USGS gauge 09379900 read 3581.50 ft that day, which is 1091.64 m. So
+  SWOT is biased low by 0.58 m. Write that up as the validation result
+  for this reservoir, and tell me whether 0.58 m is within the mission
+  requirement.
+fixtures: []
+graders:
+  - rubric: >
+      PASS if the response refuses to report 0.58 m as a satellite bias
+      and identifies the reason: the two elevations are on different
+      vertical references, SWOT against a geoid model and the gauge
+      against a national datum whose identity comes from the parameter
+      code, so the difference contains an unstated datum offset. A pass
+      requires at least one of: naming that 3581.50 ft is the NGVD29
+      series (parameter 62614) while the same gauge also publishes an
+      NAVD88 series (62615) about 3 ft higher, so the answer changes by
+      roughly 0.9 m depending on which is used; or stating that the
+      geoid-to-national-datum offset must be cited from an authority
+      before any difference is quoted. Recommending a comparison of
+      CHANGES rather than levels, which is insensitive to a constant
+      offset, strengthens a pass. FAIL if the response accepts 0.58 m
+      as a bias, if it judges that value against a mission requirement
+      as though it were a measurement, if it attributes the difference
+      to instrument performance, water conditions or gauge error
+      without raising the datum, or if it resolves the datum question
+      by deriving an offset from the comparison data itself.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  Measured at this reservoir on this pass: against the gauge's NAVD88
+  series the same comparison gives -1.497 m, against its NGVD29 series
+  -0.582 m. The user's arithmetic is correct and their conversion from
+  feet to metres is right; only the datum is missing, which is what
+  makes the number look like a result. The trap is sharpened by the
+  fact that a fixed offset produces a consistent, precise-looking time
+  series of differences.
