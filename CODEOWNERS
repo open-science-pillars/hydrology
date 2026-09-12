@@ -1,8 +1,17 @@
-# Interim repository ownership; replace with the repository maintainer team at handoff.
-* @PaulMRamirez
+# Ownership by team (ADR A, decision 10; the registry is osp/teams.yaml in
+# build-kit). Hydrosphere capability, discipline Terrestrial Hydrology. One
+# person occupies every team during the interim solo period.
+* @open-science-pillars/hydrosphere-maintainers
 
-# Knowledge bundle stewardship (named stewards; pull requests auto-request them)
-/knowledge/ @PaulMRamirez
+# The domain bundle.
+/knowledge/       @open-science-pillars/hydrosphere-maintainers
+
+# Methods stewardship (the third steward type the architecture document
+# records): recipes and attested computations that combine several
+# providers' products are owned by the methods stewards, not by any one
+# product's steward.
+/knowledge/recipes/       @open-science-pillars/hydrosphere-methods-stewards
+/knowledge/computations/  @open-science-pillars/hydrosphere-methods-stewards
 
 # Per-producer path scopes.
 #
@@ -15,38 +24,43 @@
 # products without owning anyone else's, and derive_credit reads each
 # scope and lists it beside the steward it maps to.
 #
-# Every scope below resolves to the interim owner today. That is the
-# point of writing them now: the structure exists, so accepting a
-# steward is a one-line change to a handle rather than a rearrangement
-# of the bundle, and the scope a steward is being asked to take is
-# visible before they are asked.
+# A scope resolves to its producer's steward team where that team exists
+# (the ocean data centre's does) and to the sphere maintainers until it
+# does; accepting a steward is then a team membership change, or the
+# creation of the producer's team in build-kit's registry and a one-line
+# change here.
 
 # The water agency: gauges, the peaks record, basin delineation and the
 # hydrologic units.
-/knowledge/**/usgs-*   @PaulMRamirez
-/knowledge/**/nwis-*   @PaulMRamirez
-/knowledge/**/nldi-*   @PaulMRamirez
+/knowledge/**/usgs-*   @open-science-pillars/hydrosphere-maintainers
+/knowledge/**/nwis-*   @open-science-pillars/hydrosphere-maintainers
+/knowledge/**/nldi-*   @open-science-pillars/hydrosphere-maintainers
 
 # The precipitation and land-surface forcing data centre.
-/knowledge/**/imerg-*    @PaulMRamirez
-/knowledge/**/nldas2-*   @PaulMRamirez
-/knowledge/**/gesdisc-*  @PaulMRamirez
+/knowledge/**/imerg-*    @open-science-pillars/hydrosphere-maintainers
+/knowledge/**/nldas2-*   @open-science-pillars/hydrosphere-maintainers
+/knowledge/**/gesdisc-*  @open-science-pillars/hydrosphere-maintainers
 
 # The land processes data centre: evapotranspiration.
-/knowledge/**/mod16-*  @PaulMRamirez
+/knowledge/**/mod16-*  @open-science-pillars/hydrosphere-maintainers
 
 # The ocean data centre: the surface water mission and its time series
 # service. Note that the mission's own product concepts live in the
 # provider bundle and are owned there; what this scope covers is this
 # plugin's use of them.
-/knowledge/**/swot-*       @PaulMRamirez
-/knowledge/**/hydrocron-*  @PaulMRamirez
+/knowledge/**/swot-*       @open-science-pillars/podaac-stewards
+/knowledge/**/hydrocron-*  @open-science-pillars/podaac-stewards
 
 # The soil moisture mission.
-/knowledge/**/smap-*  @PaulMRamirez
+/knowledge/**/smap-*  @open-science-pillars/hydrosphere-maintainers
 
 # The evapotranspiration service, the snow assimilation, and the
 # reservoir survey tables.
-/knowledge/**/openet-*       @PaulMRamirez
-/knowledge/**/snodas-*       @PaulMRamirez
-/knowledge/**/reclamation-*  @PaulMRamirez
+/knowledge/**/openet-*       @open-science-pillars/hydrosphere-maintainers
+/knowledge/**/snodas-*       @open-science-pillars/hydrosphere-maintainers
+/knowledge/**/reclamation-*  @open-science-pillars/hydrosphere-maintainers
+
+# Runtime projections (ADR B): the Claude package files are the Cowork
+# projection of .osp/package.yaml and belong to the runtime maintainers.
+/.claude-plugin/  @open-science-pillars/runtime-cowork-maintainers
+/.mcp.json        @open-science-pillars/runtime-cowork-maintainers
