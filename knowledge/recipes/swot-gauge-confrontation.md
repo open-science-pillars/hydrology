@@ -1,5 +1,6 @@
 ---
 type: recipe
+spheres: [hydrosphere]
 title: "Confronting a satellite river elevation with a gauge: score the changes, publish the level difference, call neither a bias"
 description: "How a SWOT reach is placed beside a gauge when the two are on different vertical references: name the collection, pair each pass with a gauge reading inside a stated tolerance, score the changes because a change is insensitive to a constant datum offset, and report the level difference separately in language that does not make it a bias. Worked on the Mississippi at Baton Rouge for 2024: 50 of 52 passes paired, change correlation +0.957, change RMSD 0.382 m against a gauge spread of 1.196 m, and a level difference of -0.243 m that is not a measurement of anything."
 tags: [swot, confrontation, gauge, stage, datum, skill-scores, hydrology]

@@ -1,5 +1,6 @@
 ---
 type: recipe
+spheres: [hydrosphere, geosphere]
 title: "GRACE-FO groundwater from terrestrial water storage: the partitioning residual"
 description: "Groundwater anomaly as the TWS-minus-other-stores residual: which product supplies each subtrahend, why the residual inherits their errors, and the basin-resolution and trend caveats."
 tags: [grace, grace-fo, groundwater, tws, partitioning, mascons, hydrology]

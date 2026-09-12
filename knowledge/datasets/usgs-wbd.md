@@ -1,5 +1,6 @@
 ---
 type: dataset
+spheres: [hydrosphere]
 title: "USGS Watershed Boundary Dataset (WBD): hydrologic units from HUC2 to HUC12"
 description: "The national hydrologic-unit polygons, versioned by publication date on the staged products and by loaddate and tnmid per unit on the map service; a unit is a drainage area with one outlet or a closed basin, and its areasqkm agrees with an equal-area measure of the polygon to five figures."
 tags: [wbd, huc, hydrologic-unit, watershed, usgs, nhd, hydrology]

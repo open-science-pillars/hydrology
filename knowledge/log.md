@@ -2,6 +2,14 @@
 
 Newest first. One line per change: date, concept path, what changed, who.
 
+- 2026-09-12 · every dataset, gotcha, recipe and computation: `spheres`
+  added to the frontmatter: hydrosphere throughout; hydrosphere with
+  atmosphere on the IMERG and NLDAS-2 concepts, with cryosphere on the
+  SNODAS gotcha and the drought anatomy recipe, with geosphere on the
+  GRACE groundwater partitioning. The key classifies the claim by
+  Earth science sphere (ADR A in the marketplace repository) and sits
+  outside the signed text, so nothing owes a re-sign. No claim
+  changed. (claude-code)
 - 2026-09-08 · STEWARD RE-SIGNING of
   knowledge/datasets/swot-river-lake.md,
   knowledge/gotchas/hydrocron-collection-default.md,

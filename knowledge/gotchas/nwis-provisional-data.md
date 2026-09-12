@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "NWIS provisional data: recent values are revisable and flagged Provisional"
 description: "Recent gauge data is provisional and can change or vanish on approval; statistics mixing Provisional and Approved values are silently unstable."
 tags: [nwis, provisional, qualifiers, streamflow]

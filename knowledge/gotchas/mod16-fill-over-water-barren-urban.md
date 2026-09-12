@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "MOD16 fill codes over water, barren and urban land: seven codes, one in the header, and none of them a zero"
 description: "MOD16 writes seven codes above its valid range for cells where evapotranspiration was not computed (water, barren, snow and ice, wetland, urban, unclassified, fill), and the file header advertises only 32767 while the catalog page names a third value. Averaged as numbers they are nonsense; read as zero they understate the basin. Over a HUC12 half covered by Lake Powell, 52.4 per cent of cells carry a code and the zero reading halves the basin mean. The basin mean must exclude them, count them, and state the masked fraction."
 tags: [mod16, modis, evapotranspiration, fill-value, water, urban, barren, basin-mean, lpdaac]

@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "Hydrocron picks a product version when you do not, and the versions differ by metres"
 description: "The timeseries service accepts a collection_name and chooses one when the caller omits it. The default is now Version D. Measured on one Mississippi reach for 2024: Version C spans -3.347 to 2.561 m and Version D spans -0.534 to 10.201 m, the two share no timestamps at all, and matched passes differ by up to 7.4 m. A series assembled across a change of default carries a step that is the product version, and it cannot be detected by joining on time because there is no overlap to join."
 tags: [swot, hydrocron, riversp, lakesp, version, collection, podaac, hydrology]

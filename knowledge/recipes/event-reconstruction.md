@@ -1,5 +1,6 @@
 ---
 type: recipe
+spheres: [hydrosphere]
 title: "Event reconstruction: a receipted timeline for an event no budget can close"
 description: "How to assemble a timeline of one flood from several products when the water balance refuses the basin: each observation carries its product, version, acquisition date, production date and access date, and the recipe states for each sensor what it could not see. Worked on the Tulare Lake reflood of 2023, where the radar product did not yet exist, the satellite altimeter arrived after the peak, the optical product was mostly cloud, the storage product cannot resolve the basin, and the rivers that filled the lake are barely gauged."
 tags: [event, timeline, flood, dswx, swot, imerg, tulare, receipt, hydrology]

@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere, cryosphere]
 title: "SNODAS is a model output: comparable between periods, not a term in a water budget"
 description: "The distributor's own guidance draws the line: not recommended for quantitative water budget analysis, while summing over an area between periods to compare them is reasonable. So a snow panel that contrasts two years is sanctioned and a snow storage change carried into P + I - ET - Q - X = dS is not. The product arrives beside observational products, on the same grid, in water-equivalent units, which is what makes it read like a term."
 tags: [snodas, snow, swe, water-balance, model-output, budget, hydrology]

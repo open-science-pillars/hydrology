@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "RiverSP reach vs node: statistics quoted at the wrong aggregation level"
 description: "Reach and node are separate collections at different aggregation levels; heights, widths, and especially discharge only mean something with the level named."
 tags: [swot, riversp, reach, node, scope]

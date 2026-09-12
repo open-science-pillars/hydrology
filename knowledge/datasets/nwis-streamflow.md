@@ -1,5 +1,6 @@
 ---
 type: dataset
+spheres: [hydrosphere]
 title: "USGS NWIS streamflow (daily and instantaneous values)"
 description: "Gauge discharge and stage from the National Water Information System, served by the USGS Water Data API; every value carries an approval status and a qualifier list, and discharge rides a revisable rating curve."
 tags: [nwis, usgs, streamflow, discharge, gauges, hydrology]

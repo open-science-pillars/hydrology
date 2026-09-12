@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "SMAP radar loss (July 2015): the product lineage breaks"
 description: "The radar failed 2015-07-07; the combined radar/radiometer 9 km line (SPL3SMAP) ends there, and records spanning 2015 mix product lineages."
 tags: [smap, radar, lineage, 2015]

@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "Regulated gauges: flow statistics measure operations, not hydrology"
 description: "Downstream of dams, percentiles, droughts, and trends reflect release decisions; drought indices need near-natural reference gauges."
 tags: [nwis, regulation, dams, drought, reference-gauges]

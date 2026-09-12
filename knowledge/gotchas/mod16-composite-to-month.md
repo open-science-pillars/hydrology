@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "MOD16 composites into calendar months: the periods straddle month ends and the last one of the year is five or six days"
 description: "MOD16 delivers 46 composites a year, each an 8-day total, except the last of each year which covers 5 days (6 in a leap year). Composites straddle month boundaries, so a monthly total is an apportioning by day, not a sum of composites. Dividing every period by 8 spreads the year-end total over three days that do not exist: over the Roaring Fork in 2023 that moves 1.67 mm out of December and into January, and assigning composites to months by their start date moves millimetres across every month boundary while the annual total barely changes."
 tags: [mod16, modis, evapotranspiration, compositing, monthly, aggregation, calendar]

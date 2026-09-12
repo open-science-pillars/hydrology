@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "A satellite lake elevation and a gauge elevation are on different datums, and the difference between them is mostly the datum"
 description: "SWOT reports water surface elevation against a geoid model; a reservoir gauge reports against NGVD29 or NAVD88, and which one is fixed by the parameter code rather than by the site. Measured at Lake Powell on one pass: the same comparison gives -1.497 m against the gauge's NAVD88 series and -0.582 m against its NGVD29 series, so the choice of datum moves the answer by 0.914 m, which is most of it. Neither number is a measurement until the relationship between the geoid model and the gauge's datum is cited."
 tags: [swot, lakesp, datum, navd88, ngvd29, geoid, reservoir, elevation, hydrology]

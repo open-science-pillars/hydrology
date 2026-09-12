@@ -1,5 +1,6 @@
 ---
 type: dataset
+spheres: [hydrosphere, atmosphere]
 title: "GPM IMERG V07 daily precipitation: three runs, one variable name, and a Final record that ends in September 2025"
 description: "Global 0.1 degree precipitation from GES DISC in three daily runs (Early, Late, Final) that share the variable name precipitation in mm/day but are calibrated differently: Final against the GPCC gauge analysis with undercatch correction, Early and Late by a climatological adjustment to Final. The V07 Final record stops at 2025-09-30; Late and Early continue in a hybrid posture whose calibration changed on 2026-03-01."
 tags: [imerg, gpm, precipitation, gesdisc, daily, final, late, early, hydrology]

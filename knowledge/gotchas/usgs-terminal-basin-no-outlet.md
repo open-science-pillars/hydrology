@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "Terminal basins: a closed hydrologic unit has no outlet, and a tool that expects one names the wrong river"
 description: "A closed basin such as Tulare Lake is a valid WBD unit with no downstream unit and no gauge at an outlet; delineate it as the union of its units, measure it, and state that there is no outlet rather than tracing from a river it does not reach."
 tags: [wbd, huc, closed-basin, terminal, endorheic, tulare, nldi, hydrology]

@@ -1,5 +1,6 @@
 ---
 type: Attested Computation
+spheres: [hydrosphere]
 title: "Basin water balance from observations: P + I - ET - Q - X = dS, with a footprint floor that refuses small basins"
 description: "The water balance closed over a basin polygon and a window from four independent observational products, each term carrying its source and its uncertainty source. The storage term is refused below a footprint floor derived here from the mascon product's own geometry (111,266 km2, one mostly-land mascon), because a basin smaller than one mascon has no signal of its own; a regulated outlet is flagged and never refused; imports and exports are receipt fields with a value and a source, or an explicit assumption of zero. Two bars for an observational budget: the residual within k sigma of the terms, and an attester's recompute from the receipt."
 tags: [water-balance, basin, attested, grace, imerg, mod16, discharge, footprint, hydrology]
