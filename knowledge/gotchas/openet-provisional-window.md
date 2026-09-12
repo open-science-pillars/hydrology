@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "The OpenET provisional window: the last 120 days will change, and a receipt without its access date cannot be reproduced"
 description: "OpenET states that real-time data is provisional for the last 120 days and that those values can and will change, because gridMET is not final for 60 days and new Landsat imagery is still being processed; updates run monthly for the prior three to four months. A number pulled inside that window is a draft, so it carries its access date, it is not a baseline, and a comparison that mixes provisional months with settled ones measures the pipeline as well as the weather."
 tags: [openet, evapotranspiration, et, provisional, reproducibility, access-date, api]

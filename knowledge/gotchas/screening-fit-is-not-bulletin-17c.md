@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "A log-Pearson III fit computed in a session is a screening number, not a flood frequency estimate"
 description: "The published method involves expected moments, a regional skew weighted against the station skew, a historic period with a threshold, and censored values entering the fit as inequalities. A fit that reads the peaks and calls the quantile function implements none of that, and it produces a number in the same units with the same name. The record itself says why it matters: peaks flagged regulated or urbanized are excluded from the published analysis by default, and historic peaks are ignored unless a historic period is supplied."
 tags: [flood-frequency, peakfq, bulletin-17c, log-pearson, statistics, hydrology, ownership]

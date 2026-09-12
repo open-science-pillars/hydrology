@@ -1,5 +1,6 @@
 ---
 type: recipe
+spheres: [hydrosphere]
 title: "Streamflow drought index: day-of-year percentiles at a reference gauge"
 description: "USDM-style flow percentiles against a fixed 30-year daily climatology at a near-natural gauge; anchors measured at Roaring Fork 2021 (drought) and 2023 (wet)."
 tags: [drought, streamflow, percentiles, usdm, reference-gauge]

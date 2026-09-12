@@ -1,5 +1,6 @@
 ---
 type: dataset
+spheres: [hydrosphere]
 title: "USGS annual peak streamflow (the peaks collection)"
 description: "One row per gauge, parameter and water year: the largest instantaneous discharge and the largest stage, served together in one response, with a qualifier vocabulary that decides which peaks a frequency analysis may use. Partial dates are first class, the record reaches back past the systematic gauge, and the fixed-width file that flood-frequency software reads is served only by the host being decommissioned."
 tags: [usgs, peaks, flood-frequency, watstore, peakfq, streamflow, hydrology]

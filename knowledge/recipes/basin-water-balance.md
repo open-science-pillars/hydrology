@@ -1,5 +1,6 @@
 ---
 type: recipe
+spheres: [hydrosphere]
 title: "Basin water balance: when the identity can be closed from observations, and what it refuses"
 description: "How to run P + I - ET - Q - X = dS over a basin and a window, what has to be true before it is worth running (a basin above the GRACE footprint floor, a window inside the mascon record, a declared precipitation run), how to read the receipt (the masked fraction, the regulated flag, the epochs and their offsets, the residual against its combined sigma), and the three cases it refuses rather than approximates."
 tags: [water-balance, basin, grace, imerg, mod16, discharge, residual, hydrology]

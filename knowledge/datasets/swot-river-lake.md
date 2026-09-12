@@ -1,5 +1,6 @@
 ---
 type: dataset
+spheres: [hydrosphere]
 title: "SWOT River and Lake Single-Pass vector products (RiverSP, LakeSP)"
 description: "Inland-water heights, widths, slopes, and discharge as zipped shapefiles per pass per continent; reach and node are separate collections with different attributes."
 tags: [swot, rivers, lakes, riversp, lakesp, hydrology, podaac]

@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "NLDI unsnapped point: a coordinate answers for the nearest flowline, not the river you meant"
 description: "A basin traced from a coordinate is the basin of whichever NHDPlus flowline is nearest (hydrolocation) or whichever catchment contains the point (comid/position); one kilometre from the Roaring Fork gauge both routes answer for the Colorado River, three times the area, and only the snapping route returns the distance, reach and measure that let the mismatch be seen."
 tags: [nldi, hydrolocation, snap, basin, delineation, point, usgs]

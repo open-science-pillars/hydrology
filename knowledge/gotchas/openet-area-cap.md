@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "The OpenET area cap: a basin request is refused, not sampled, and no basin mean comes back"
 description: "OpenET caps a single request at 50,000 acres on Tier 1 and 200,000 on Tier 2, and answers a larger polygon with 422 'Single query area limit exceeded'. Every basin in this bundle's fixtures is above the cap: the Roaring Fork by 18.6 times, the Colorado above Lees Ferry by 1,366, the Ohio at Metropolis by 2,584. The answer is not to tile the basin into sub-cap pieces and average them, nor to shrink the polygon until the service answers; it is to use a product that can see the basin and keep OpenET as a sub-cap check."
 tags: [openet, evapotranspiration, et, area-cap, quota, api, basin-mean, refusal]

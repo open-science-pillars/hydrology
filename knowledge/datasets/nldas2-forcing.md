@@ -1,5 +1,6 @@
 ---
 type: dataset
+spheres: [hydrosphere, atmosphere]
 title: "NLDAS-2 primary forcing precipitation: the gauge-based hourly field over the conterminous United States"
 description: "Hourly 0.125 degree precipitation (Rainf, kg m-2 per hour, summed over the hour) from the NLDAS-2 File A forcing at GES DISC, 1979 to the present: a temporal disaggregation of the CPC gauge-only daily analysis with a PRISM orographic adjustment, so its daily total is the gauge analysis. The hourly granule stamped hour H covers H minus one to H, and the day D total is granules D 01:00 through D+1 00:00; there is no daily collection."
 tags: [nldas, nldas2, precipitation, forcing, gauge, cpc, prism, gesdisc, conus, hydrology]

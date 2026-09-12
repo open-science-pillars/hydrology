@@ -1,5 +1,6 @@
 ---
 type: recipe
+spheres: [hydrosphere]
 title: "Reservoir ledger: a budget in volume units that reports its residual instead of closing"
 description: "Storage change from a gauge elevation through a named area-capacity revision, gauged inflow and outflow in acre-feet, and a residual that names what is in it: ungauged inflow, precipitation on the water, evaporation, bank storage, the reach below the dam and travel time. Worked on Lake Powell for water year 2023, where the inflow gauges span 82.2 per cent of the basin above the dam and the residual is -211,545 acre-feet, 1.8 per cent of inflow."
 tags: [reservoir, ledger, lake-powell, storage, inflow, outflow, datum, hydrology]

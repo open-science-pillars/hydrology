@@ -1,5 +1,6 @@
 ---
 type: recipe
+spheres: [hydrosphere]
 title: "Reservoir level change from gauge elevation: Lake Powell 2023"
 description: "Annual reservoir elevation change from NWIS daily lake-surface elevation (62614); anchor is Lake Powell's documented 2023 refill, +44.2 ft."
 tags: [reservoir, lake-powell, elevation, storage, water-resources]

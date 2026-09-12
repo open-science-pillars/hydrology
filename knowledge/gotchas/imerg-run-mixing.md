@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere, atmosphere]
 title: "IMERG run mixing: three calibrations under one variable name, and a Final record that ends in September 2025"
 description: "The Early, Late and Final daily products all carry precipitation in mm/day, and a series that concatenates them is not one series: Final is gauge-adjusted for its own month, Early and Late by a climatological ratio. Over the Lees Ferry basin Late exceeded Final by 53 per cent for October 2022. The Final record stops at 2025-09-30, so any series extended into 2026 changes run there and again at the 2026-03-01 calibration change."
 tags: [imerg, gpm, precipitation, run, calibration, final, late, early, seam, gesdisc]

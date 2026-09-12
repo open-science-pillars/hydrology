@@ -1,5 +1,6 @@
 ---
 type: dataset
+spheres: [hydrosphere]
 title: "Reservoir area-capacity tables: a survey, not a constant, and Lake Powell's is four per cent smaller than it was"
 description: "The elevation-to-volume relationship a reservoir ledger depends on comes from a bathymetric survey, and a resurvey replaces it. Lake Powell's 2018 survey, the first since 1986, found full-pool capacity of 25,160,000 acre-feet at 3702.91 ft NAVD88: 4.00 per cent below the 1986 figure and 6.79 per cent below 1963. The table is published on NAVD88 with an NGVD29 column beside it, at a step of about a third of a foot, and a volume quoted without its revision is a volume from an unnamed year."
 tags: [reservoir, area-capacity, lake-powell, bathymetry, sedimentation, navd88, storage, hydrology]

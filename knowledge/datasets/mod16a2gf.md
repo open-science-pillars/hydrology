@@ -1,5 +1,6 @@
 ---
 type: dataset
+spheres: [hydrosphere]
 title: "MOD16A2GF v061 evapotranspiration: an 8-day total in millimetres, seven fill codes for the land it does not compute, and a record that only advances at year end"
 description: "Terra MODIS evapotranspiration at 500 m on the sinusoidal grid, 8-day composites, from LP DAAC. ET_500m is an int16 total in kg per m2 (numerically mm) with scale factor 0.1 and a valid range of -32767 to 32700; everything above that range is one of seven fill codes naming the land cover where evapotranspiration was not computed, of which the file header advertises only one. The last composite of each year is 5 or 6 days, not 8. The gap-filled product is produced only at year end, so the current year exists only in the non-gap-filled MOD16A2 companion."
 tags: [mod16, modis, evapotranspiration, et, lpdaac, terra, sinusoidal, hydrology, water-balance]

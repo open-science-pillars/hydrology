@@ -1,5 +1,6 @@
 ---
 type: recipe
+spheres: [hydrosphere, cryosphere]
 title: "Drought anatomy: five panels, five sets of facts, and no single number"
 description: "How to show a drought from several products at once without letting any of them borrow another's validity: precipitation, soil moisture, streamflow and terrestrial water storage as the quantitative panels, snow as a qualitative one, each labelled with its product, its run or version, the counts behind it and the one thing it cannot show. Worked on the Colorado above Lees Ferry, water year 2021 against water year 2023, where the panels disagree about the size of the drought by more than an order of magnitude and one of them does not show it at all."
 tags: [drought, panels, imerg, smap, grace, snodas, streamflow, composite, hydrology]

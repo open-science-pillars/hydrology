@@ -1,5 +1,6 @@
 ---
 type: dataset-gotcha
+spheres: [hydrosphere]
 title: "One peaks response holds two series, and they are not the same event"
 description: "A peaks query without a parameter returns the annual peak discharge and the annual peak stage together, interleaved, with identical column names and different units. Measured at French Broad River at Asheville: 270 rows, 130 of them discharge in cubic feet per second for 1896 through 2025 and 140 stage in feet for 1796 through 2025. A count of the response is not a count of the record, and a series built from it mixes feet with cubic feet per second."
 tags: [usgs, peaks, flood-frequency, parameter, stage, discharge, hydrology]

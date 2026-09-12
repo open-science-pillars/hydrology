@@ -1,5 +1,6 @@
 ---
 type: dataset
+spheres: [hydrosphere]
 title: "SMAP L3 radiometer soil moisture (SPL3SMP, SPL3SMP_E)"
 description: "Daily global volumetric soil moisture for the top ~5 cm from the SMAP radiometer, 36 km and enhanced 9 km EASE-Grid; retrieval-quality flags gate every cell."
 tags: [smap, soil-moisture, radiometer, ease-grid, nsidc]
