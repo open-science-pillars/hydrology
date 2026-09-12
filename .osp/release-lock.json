@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "package": "hydrology",
+  "version": "0.7.0",
+  "package_type": "capability",
+  "agent_plugins_spec": "1.0.0",
+  "repository_classification_digest": "sha256:e32f02ee160486cbccc2cdc218a43b85fb5e7e9140e1738ee1b4220d11e31d72",
+  "dependencies": {
+    "capabilities": {
+      "core": ">=0.5.0"
+    },
+    "knowledge": {
+      "nasa-daac-knowledge": ">=2026.9.3"
+    }
+  },
+  "agents_digest": "sha256:9d046e33d9c0b0362ffcb8e8b4d9e2c94f03f63f387c5f038775f55684e63ffc",
+  "evals_digest": "sha256:c3ea92b76215ef56169aecc9db21258fa6e4bd8c54bd0579423c09cb1b0f1e32",
+  "knowledge_digest": "sha256:bc351ea58400e405d620276cc84ff2d1f639fbc13b28ba23c46123f8b26a1ebb",
+  "skills_digest": "sha256:5666bf7ce0d2ee3b4ee33a777d599a0b6aba94cf10651d106a9247d13dad6158",
+  "verification_digest": "sha256:4834f1b3cbc4443c6de655ffedc6a5e2760e47395f3b90c978505bf6b085dd9c",
+  "adapters": {
+    "claude": "sha256:ae825ccceff7dc14e8a350e882a1439542978d70a78bec3c295619d37e8b3f0b",
+    "agent-plugins": "sha256:aa9782f167d9d363cf3a69a3233fa39fb260943d8596836ff78b14d53d5a0862"
+  }
+}

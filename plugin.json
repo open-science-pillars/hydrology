@@ -1,0 +1,59 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "hydrology",
+  "version": "0.7.0",
+  "description": "Hydrology: SWOT river and lake products, GRACE-FO groundwater, USGS streamflow and basin delineation, SMAP soil moisture, GPM IMERG and NLDAS-2 basin precipitation, MOD16 and OpenET evapotranspiration.",
+  "author": {
+    "name": "Open Science Pillars Community"
+  },
+  "homepage": "https://github.com/open-science-pillars/hydrology",
+  "repository": "https://github.com/open-science-pillars/hydrology",
+  "license": "Apache-2.0",
+  "keywords": [
+    "hydrology",
+    "swot",
+    "rivers",
+    "lakes",
+    "grace",
+    "groundwater",
+    "nwis",
+    "streamflow",
+    "smap",
+    "soil-moisture",
+    "imerg",
+    "nldas",
+    "precipitation",
+    "basin",
+    "mod16",
+    "modis",
+    "evapotranspiration",
+    "openet"
+  ],
+  "extensions": {
+    "io.github.open-science-pillars": {
+      "kind": "capability",
+      "status": "developing",
+      "spheres": [
+        "hydrosphere",
+        "cryosphere"
+      ],
+      "primary_sphere": "hydrosphere",
+      "discipline": "Terrestrial Hydrology",
+      "package_type": "capability",
+      "dependencies": {
+        "capabilities": [
+          {
+            "name": "core",
+            "version": ">=0.5.0"
+          }
+        ],
+        "knowledge": [
+          {
+            "name": "nasa-daac-knowledge",
+            "version": ">=2026.9.3"
+          }
+        ]
+      }
+    }
+  }
+}
