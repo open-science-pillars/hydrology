@@ -26,7 +26,21 @@ _Historical note: older entries use build-era shorthand (a "close lint" is a kno
   mascon area the floor gotcha quotes is the one the basin water
   balance computation owns. The GRACE Tellus data pages returned 404;
   the Wiley journal pages sit behind a bot check. knowledge/index.md
-  updated. (knowledge-seeder)
+  updated. Severity rationale: the total-storage gotcha is medium
+  because the total-storage nature of the measurement is documented
+  product behaviour and the trap bites through an understated
+  uncertainty on a residual built with a second product, not through a
+  silently wrong single-product number; the gain-factor gotcha is
+  medium because the factors are an optional documented field and the
+  trap bites through a misapplied option (twice, the wrong set, the
+  wrong surface), the unscaled series being what the product delivers.
+  FOR THE MAINTAINER: two stable concepts disagree on the storage
+  term's formal error, knowledge/computations/basin-water-balance.md
+  divides the area-weighted per-mascon sigma by the square root of the
+  mascon count while the provider dataset concept says mascon errors
+  are correlated and basin averages quote the product's guidance, not
+  sqrt(N); the recipe states the provider's rule and neither stable
+  concept was edited. (knowledge-seeder)
 - 2026-09-12 · every dataset, gotcha, recipe and computation: `spheres`
   added to the frontmatter: hydrosphere throughout; hydrosphere with
   atmosphere on the IMERG and NLDAS-2 concepts, with cryosphere on the

@@ -7,13 +7,16 @@ okf_version: "0.2"
 The hydrology knowledge bundle. OKF v0.2 conformant (okf_version:
 "0.2"; the vendored spec text lives in marketplace docs/upstream).
 
-The GRACE concepts this plugin's skills rely on (the mascon dataset,
-the coastal leakage and GIA correction gotchas) live in the PO.DAAC
-provider bundle, canonical home
+The GRACE concepts this plugin's skills rely on (the mascon dataset
+concept and its four gotchas: coastal leakage, the GIA correction, the
+inter-mission gap and the degree-1 and C20/C30 replacements, and the
+mass-to-sea-level recipe the gain-factor gotcha cites) live in the
+PO.DAAC provider bundle, canonical home
 github.com/open-science-pillars/nasa-daac-knowledge (knowledge/podaac/),
 installed alongside this plugin as the nasa-daac-knowledge dependency
 at a release the plugin names a floor for; nothing from it is copied
-here. The core skill consult-knowledge finds every installed bundle
+here: this bundle's GRACE recipe and gotchas cite those concepts at a
+pinned commit and carry only the granule's own variable-level facts. The core skill consult-knowledge finds every installed bundle
 through the installer's record of installed plugins and globs each
 root the same way; this plugin cites provider concepts by bundle path,
 `knowledge/podaac/<type>/<concept>.md`. The provider concept wins on

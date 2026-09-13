@@ -12,9 +12,11 @@ severity: medium
 # the unscaled series is always the one the product delivers.
 # The dataset concept for the product lives in the PO.DAAC provider
 # bundle (knowledge/podaac/datasets/grace-fo-mascons.md in
-# nasa-daac-knowledge, installed beside this plugin); a relative path
-# to it from this key is not stable across installations, so the key
-# carries the product page, the same resource the recipe's sources name.
+# nasa-daac-knowledge, installed beside this plugin). This key carries
+# the product page, the same resource the recipe's sources name, and
+# the provider concepts are cited in sources by their repository URL
+# at a pinned commit, so neither depends on where the bundle is
+# installed.
 dataset: https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4
 status: draft
 stale_after: 2027-03-13
@@ -38,10 +40,10 @@ sources:
     resource: https://doi.org/10.1002/2014JB011547
     title: "Watkins and others, 2015, Improved methods for observing Earth's time variable mass distribution with GRACE using spherical cap mascons, Journal of Geophysical Research: Solid Earth (mascon solutions lower the dependence on scale factors: the global mean scale factor decreases by 0.17 against the spherical harmonic solution)"
   - id: dataset
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/datasets/grace-fo-mascons.md
-    title: "The provider bundle's mascon dataset concept (knowledge/podaac/datasets/grace-fo-mascons.md in nasa-daac-knowledge): the scale factors come from a land hydrology model and are not applied over ice"
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/datasets/grace-fo-mascons.md
+    title: "The provider bundle's mascon dataset concept (knowledge/podaac/datasets/grace-fo-mascons.md in nasa-daac-knowledge, cited at a pinned commit): the scale factors come from a land hydrology model and are not applied over ice"
   - id: sea-level-recipe
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/recipes/grace-mass-to-sea-level.md
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/recipes/grace-mass-to-sea-level.md
     title: "The provider bundle's mass-to-sea-level recipe (knowledge/podaac/recipes/grace-mass-to-sea-level.md): an ice-sheet region sums the unscaled mascons, the factors being for hydrology"
   - id: recipe
     resource: ../recipes/grace-basin-tws.md
@@ -65,9 +67,10 @@ CLM data from 2002-2009", dimensionless, with a valid range from about
 -2.9 to 24.1.[^virtual-listing] The product team derived the factors
 to reduce the leakage error that parameterizing the gravity field in
 mascons introduces, for continental hydrology, and measured the
-effect: combined with the CRI filter they reduce the leakage error of
-large basins (above 160,000 km2) by 11 to 30 per cent averaged
-globally, with local improvements of 38 to 81 per cent.[^wiese-2016]
+effect: combined with the CRI filter, the gain factors reduce the
+leakage error in the mass balance of large basins (above 160,000 km2)
+by 11 to 30 per cent averaged globally, with local improvements of 38
+to 81 per cent.[^wiese-2016]
 The factors are a model's spatial pattern: the granule states they
 are based on the CLM land model over 2002 to 2009, the same kind of
 construction as the earlier gain factors for the gridded spherical

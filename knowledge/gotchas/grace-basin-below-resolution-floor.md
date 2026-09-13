@@ -8,9 +8,11 @@ generated: { by: knowledge-seeder/claude, at: 2026-09-13T20:40:00Z }
 severity: high
 # The dataset concept for the product lives in the PO.DAAC provider
 # bundle (knowledge/podaac/datasets/grace-fo-mascons.md in
-# nasa-daac-knowledge, installed beside this plugin); a relative path
-# to it from this key is not stable across installations, so the key
-# carries the product page, the same resource the recipe's sources name.
+# nasa-daac-knowledge, installed beside this plugin). This key carries
+# the product page, the same resource the recipe's sources name, and
+# the provider concepts are cited in sources by their repository URL
+# at a pinned commit, so neither depends on where the bundle is
+# installed.
 dataset: https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4
 eval_case: grace-basin-below-resolution-floor
 status: draft
@@ -27,7 +29,7 @@ sources:
     title: "Landerer and Swenson, 2012, Accuracy of scaled GRACE terrestrial water storage estimates, Water Resources Research (the effective spatial resolution of GRACE TWS at length scales of a few hundred kilometers; gain factors from land hydrology models as the extrapolation to about 100 km, and the cases where they reduce accuracy)"
   - id: wiese-2016
     resource: https://doi.org/10.1002/2016WR019344
-    title: "Wiese, Landerer and Watkins, 2016, Quantifying and reducing leakage errors in the JPL RL05M GRACE mascon solution, Water Resources Research (leakage errors of 11 to 30 per cent remain, averaged globally, even for basins above 160,000 km2 before the gain factors are applied)"
+    title: "Wiese, Landerer and Watkins, 2016, Quantifying and reducing leakage errors in the JPL RL05M GRACE mascon solution, Water Resources Research (combined with the CRI filter, the gain factors reduce the leakage error in the mass balance of basins above 160,000 km2 by 11 to 30 per cent averaged globally, so leakage is a term even at that size)"
   - id: scanlon-2016
     resource: https://doi.org/10.1002/2016WR019494
     title: "Scanlon and others, 2016, Global evaluation of new GRACE mascon products for hydrologic applications, Water Resources Research (the mascon intercomparison in 176 river basins covering about 60 per cent of the global land area, the basin scale at which the products were judged usable)"
@@ -35,10 +37,10 @@ sources:
     resource: https://doi.org/10.1002/2014JB011547
     title: "Watkins and others, 2015, Improved methods for observing Earth's time variable mass distribution with GRACE using spherical cap mascons, Journal of Geophysical Research: Solid Earth (the a priori constraint from near-global geophysical models that the mascon solution carries)"
   - id: dataset
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/datasets/grace-fo-mascons.md
-    title: "The provider bundle's mascon dataset concept (knowledge/podaac/datasets/grace-fo-mascons.md in nasa-daac-knowledge): the native resolution is the mascon, of order 300 km, and a basin near or below it is resolution- and leakage-dominated"
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/datasets/grace-fo-mascons.md
+    title: "The provider bundle's mascon dataset concept (knowledge/podaac/datasets/grace-fo-mascons.md in nasa-daac-knowledge, cited at a pinned commit): the native resolution is the mascon, of order 300 km, and a basin near or below it is resolution- and leakage-dominated"
   - id: leakage
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/gotchas/grace-coastal-leakage.md
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/gotchas/grace-coastal-leakage.md
     title: "The provider bundle's coastal-leakage gotcha (knowledge/podaac/gotchas/grace-coastal-leakage.md): the same geometry at the coast"
   - id: water-balance
     resource: ../computations/basin-water-balance.md
@@ -64,10 +66,12 @@ area of 111,266 km2, a square of 334 km on a side, and a basin below
 that spans one mascon or part of one.[^water-balance] The mascon
 value itself is not the basin's storage even when the basin fills the
 mascon: the solution is estimated with an a priori constraint from
-geophysical models, the mascons act as an inherent smoother, and the
-product team's own synthetic tests leave leakage errors of 11 to 30
-per cent, averaged globally, in basins above 160,000 km2 before the
-gain factors are applied.[^watkins-2015][^product-page][^wiese-2016]
+geophysical models, the mascons act as an inherent smoother, and
+leakage is a term even in large basins: combined with the CRI filter,
+the gain factors reduce the leakage error in the mass balance of
+basins above 160,000 km2 by 11 to 30 per cent averaged globally,
+which is the size of the term they were built to
+reduce.[^watkins-2015][^product-page][^wiese-2016]
 The effective resolution of GRACE terrestrial water storage is a few
 hundred kilometers, and the published gain factors extrapolate from
 that scale toward about 100 kilometers using a land hydrology model,
@@ -96,14 +100,20 @@ scale it).[^landerer-2012][^water-balance]
 **Correct approach.** A basin's area is stated against the mascon
 count it spans before any series is extracted, with the region
 defined as whole mascons from the granule's `mascon_ID` field, never
-as clipped cells.[^recipe] Below one mascon there is no basin series
-by any route, and the storage term is refused as the water balance
-computation refuses it (the Roaring Fork, 3,767 km2, is 3.4 per cent
-of one mascon and was refused in the measured run).[^water-balance]
-At one to a few mascons the series exists with the leakage and
-constraint caveats stated as its own uncertainty term beside the
-formal error, and the coastal case carries the coastal-leakage gotcha
-as well.[^dataset][^leakage] A small basin's storage question is
+as clipped cells.[^recipe] Below one mascon the basin has no series
+of its own: what is delivered is the containing mascon's series,
+labelled as that region's storage with its mascon identifier and
+area, with the resolution and leakage caveats stated beside the
+formal uncertainty, and never presented as the basin's series, which
+is what the provider concept requires before a series near or below
+the mascon scale is delivered.[^dataset] A water balance is
+different: its storage term is refused there, as the computation
+refuses it (the Roaring Fork, 3,767 km2, is 3.4 per cent of one mascon
+and was refused in the measured run).[^water-balance] At one to a few
+mascons the series exists with the leakage and constraint caveats
+stated as its own uncertainty term beside the formal error, and the
+coastal case carries the coastal-leakage gotcha as
+well.[^dataset][^leakage] A small basin's storage question is
 answered from the mascons that contain it, described as that region,
 or from another observation (wells, snow products, reservoir records)
 with GRACE as the regional context.

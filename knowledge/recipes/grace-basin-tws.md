@@ -5,26 +5,9 @@ title: "A basin's terrestrial water storage anomaly from the JPL mascon CRI grid
 description: "How a monthly terrestrial water storage anomaly for one basin is read from the JPL RL06.3M version 4 CRI-filtered mascon grid: the region as whole mascons chosen from the granule's own mascon_ID field, the area-weighted sum of lwe_thickness against the 2004 to 2009 baseline, the CLM gain factors applied once and only for land hydrology, the per-mascon uncertainty combined as a floor, the trend fit on the calendar epochs with the missing months left as holes, and what a TWS number contains (snow, surface water, soil moisture and groundwater together) so that subtracting modeled stores for groundwater is understood as inheriting the model."
 tags: [grace, grace-fo, mascons, tws, terrestrial-water-storage, basin, hydrology, scale-factors, trend]
 generated: { by: knowledge-seeder/claude, at: 2026-09-13T20:40:00Z }
-inputs:
-  - collections: "TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4 (CMR concept C3195527175-POCLOUD, version RL06.3Mv04, DOI 10.5067/TEMSC-3JC634), one granule, GRCTellus.JPL.200204_202607.GLO.RL06.3M.MSCNv04CRI.nc at the verification date, carrying lwe_thickness, uncertainty, land_mask, mascon_ID, scale_factor and GAD on the 0.5-degree grid"
-  - region: "a set of whole mascons chosen from the granule's mascon_ID field, never a 0.5-degree cell mask; the basin polygon selects mascons, the mascons define the region, and the region's area is the true area of those mascons"
-  - method: "area-weighted mean of lwe_thickness over the region's mascons, per epoch, against the product's 2004 to 2009 baseline; the gain factors applied once to the CRI grid for a land hydrology region, and the scaled and unscaled series both kept; the formal error combined from the per-mascon uncertainty field; a trend fit with annual and semi-annual terms on the epochs read from the time axis, with the missing months and the 2017 to 2018 gap as holes"
-expected:
-  - quantity: "basin mean terrestrial water storage anomaly in centimeters of equivalent water thickness, and the basin volume anomaly in cubic kilometers"
-    statement: "for each epoch, the sum over the region's mascons of anomaly (cm) times mascon area (km2), divided by the region's total area, is the basin mean in cm; the same sum times 1e-5 is the volume anomaly in km3, and at the product's water density of 1000 kg per cubic meter the same number is gigatonnes; both are anomalies against the 2004.000 to 2009.999 time mean the product removed"
-  - quantity: "trend in cm per year over a stated window"
-    statement: "the slope of a fit with linear, annual and semi-annual terms over the epochs read from the file's time axis, with the window's first and last epochs named and the holes inside it listed; the file's global attribute months_missing lists 33 calendar months with no solution, and a window that crosses July 2017 through May 2018 states how the inter-mission continuity was handled"
-  - quantity: "numeric anchor"
-    statement: "none recorded yet: this recipe is a draft; the basin water balance computation in this bundle freezes each basin's mascon series from the granule and records the measured storage term and its uncertainty, and a first anchor for a named basin will be added from such a receipt, never from a remembered value"
-expected_uncertainty:
-  - quantity: "formal error"
-    statement: "from the granule's uncertainty field, which is a one-sigma value per 3-degree mascon and not per cell, area-weighted over the region's mascons; the basin water balance computation divides the weighted figure by the square root of the number of mascons spanned, and the provider bundle's dataset concept states that mascon errors are spatially correlated so that division understates the error; the formal error is the floor of the statement, never the whole of it"
-  - quantity: "leakage and the constraint"
-    statement: "a region of few mascons carries its neighbours' signal and the solution's a priori constraint; the CRI filter reduces coastal leakage by about half in the product team's synthetic tests, and the gain factors reduce the leakage error of large basins (above 160,000 km2) by 11 to 30 per cent averaged globally; the difference between the scaled and unscaled basin series is one bound on this term, and a basin near or below one mascon has no basin series at all (the resolution-floor gotcha)"
-  - quantity: "the gain factors themselves"
-    statement: "the factors come from a land model's simulated hydrology over 2002 to 2009, so the scaled series inherits that model's spatial pattern; a statement that used them names them, and the unscaled series is reported beside the scaled one"
-  - quantity: "the pre-applied corrections and the gap"
-    statement: "the GIA model (ICE6G-D), the geocenter and C20/C30 series (TN-13 based on the JPL mascons, TN-14) are named as applied and never re-applied; a trend across the 2017 to 2018 gap states its handling and cites the bridging evidence (the provider bundle's gotchas)"
+inputs: "The CRI-filtered JPL mascon grid, TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4 (CMR concept C3195527175-POCLOUD, version RL06.3Mv04, DOI 10.5067/TEMSC-3JC634), one granule, GRCTellus.JPL.200204_202607.GLO.RL06.3M.MSCNv04CRI.nc at the verification date, carrying lwe_thickness, uncertainty, land_mask, mascon_ID, scale_factor and GAD on the 0.5-degree grid; the region as a set of whole mascons chosen from the granule's mascon_ID field, never a 0.5-degree cell mask, with the region's area the true area of those mascons; the method an area-weighted mean of lwe_thickness over the region's mascons per epoch against the product's 2004 to 2009 baseline, the gain factors applied once to the CRI grid for a land hydrology region with the scaled and unscaled series both kept, the formal error combined from the per-mascon uncertainty field per the product's guidance on correlated errors, and a trend fit with annual and semi-annual terms on the epochs read from the time axis with the missing months and the 2017 to 2018 gap as holes"
+expected: "For each epoch, the sum over the region's mascons of anomaly (cm) times mascon area (km2), divided by the region's total area, is the basin mean in cm; the same sum times 1e-5 is the volume anomaly in km3, and at the product's water density of 1000 kg per cubic meter the same number is gigatonnes; both are anomalies against the 2004.000 to 2009.999 time mean the product removed. The trend in cm per year is the slope of a fit with linear, annual and semi-annual terms over the epochs read from the file's time axis, with the window's first and last epochs named and the holes inside it listed (the file's months_missing attribute lists 33 calendar months with no solution), and a window that crosses July 2017 through May 2018 states how the inter-mission continuity was handled. No numeric anchor is recorded yet: this recipe is a draft, and a first anchor for a named basin will be added from a basin water balance receipt, never from a remembered value"
+expected_uncertainty: "The formal error comes from the granule's uncertainty field, a one-sigma value per 3-degree mascon and not per cell, area-weighted over the region's mascons and combined per the product's guidance on correlated mascon errors rather than as independent errors, since the provider bundle's dataset concept states that mascon errors are spatially correlated and that basin averages quote the product's guidance, not the square root of the mascon count; it is the floor of the statement, never the whole of it. Leakage and the constraint are their own term: a region of few mascons carries its neighbours' signal and the solution's a priori constraint, the CRI filter reduces coastal leakage by about half in the product team's synthetic tests, and combined with the CRI filter the gain factors reduce the leakage error in the mass balance of large basins (above 160,000 km2) by 11 to 30 per cent averaged globally; a basin near or below one mascon has no series of its own (the resolution-floor gotcha). The gain factors themselves come from a land model's simulated hydrology over 2002 to 2009, so the scaled series inherits that model's spatial pattern, and the unscaled series is reported beside it. The pre-applied corrections, the GIA model (ICE6G-D), the geocenter (the granule's attribute reads 'We use a version of TN-13 based on the JPL mascons') and the C20 and C30 substitutions from TN-14, are named as applied and never re-applied, and a trend across the 2017 to 2018 gap states its handling and cites the bridging evidence (the provider bundle's gotchas)"
 sources:
   - id: product-page
     resource: https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4
@@ -57,19 +40,19 @@ sources:
     resource: https://doi.org/10.1002/2013WR014633
     title: "Joodaki, Wahr and Swenson, 2014, Estimating the human contribution to groundwater depletion in the Middle East, from GRACE data, land surface models, and well observations, Water Resources Research (a groundwater residual: lakes and the Caspian subtracted, then a land surface model's soil moisture, snow, canopy and river storage)"
   - id: dataset
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/datasets/grace-fo-mascons.md
-    title: "The provider bundle's mascon dataset concept (knowledge/podaac/datasets/grace-fo-mascons.md in nasa-daac-knowledge): the native scale, the uncertainty grids, the correlated errors and the pre-applied corrections"
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/datasets/grace-fo-mascons.md
+    title: "The provider bundle's mascon dataset concept (knowledge/podaac/datasets/grace-fo-mascons.md in nasa-daac-knowledge, cited at a pinned commit): the product's identity, structure, baseline and pre-applied corrections, the native scale, the uncertainty grids and the correlated errors"
   - id: leakage
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/gotchas/grace-coastal-leakage.md
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/gotchas/grace-coastal-leakage.md
     title: "The provider bundle's coastal-leakage gotcha (knowledge/podaac/gotchas/grace-coastal-leakage.md)"
   - id: gia
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/gotchas/grace-gia-correction.md
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/gotchas/grace-gia-correction.md
     title: "The provider bundle's GIA gotcha (knowledge/podaac/gotchas/grace-gia-correction.md)"
   - id: gap
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/gotchas/grace-intermission-gap.md
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/gotchas/grace-intermission-gap.md
     title: "The provider bundle's inter-mission gap gotcha (knowledge/podaac/gotchas/grace-intermission-gap.md)"
   - id: low-degree
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/gotchas/grace-low-degree-replacements.md
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/gotchas/grace-low-degree-replacements.md
     title: "The provider bundle's degree-1 and C20/C30 gotcha (knowledge/podaac/gotchas/grace-low-degree-replacements.md)"
   - id: floor
     resource: ../gotchas/grace-basin-below-resolution-floor.md
@@ -94,29 +77,20 @@ stale_after: 2027-03-13
 
 **What the file is.** The CRI-filtered JPL mascon product is one
 netCDF granule on a 0.5-degree grid whose native resolution is the
-3-degree equal-area mascon: 4,551 of them, with the coastline-straddling
-ones partitioned into land and ocean parts by the CRI
-filter.[^product-page][^virtual-listing] The granule carries
+3-degree mascon; its identity, structure, baseline and pre-applied
+corrections are the provider bundle's dataset concept,
+`knowledge/podaac/datasets/grace-fo-mascons.md` in nasa-daac-knowledge,
+and are not repeated here.[^dataset] The granule carries
 `lwe_thickness` (the anomaly in centimeters of equivalent water
-thickness, CRI applied), `uncertainty` (a one-sigma value per 3-degree
-mascon, written onto every cell of that mascon), `land_mask` (the
-binary mask the CRI filter used), `mascon_ID` (the mascon identifier,
-1 to 4,551, mapped to the grid), `scale_factor` (gridded gain factors
-"to be used with mascon solution that has the CRI filter applied; based
-on CLM data from 2002-2009") and `GAD` (the ocean and atmosphere
-de-aliasing model, added back to ocean pixels only), with `time` in
-days since 2002-01-01 and `time_bounds` giving the first and last day
-of each monthly solution.[^virtual-listing] The anomalies are relative
-to the time mean over 2004.000 to 2009.999; the GIA model ICE6G-D is
-removed, the geocenter is a TN-13-style series based on the JPL
-mascons, and C20 and C30 come from TN-14, all already applied.[^virtual-listing][^release-note][^dataset]
-The solution itself is estimated on the mascons with an a priori
-constraint from geophysical models, which is what removes the striping
-of spherical harmonic solutions and lowers the dependence on scale
-factors.[^watkins-2015]
-The mascon placement, the land mask and the scale factor files have
-not changed since RL05M, so a region defined on an earlier release
-still holds.[^release-note]
+thickness, CRI applied), `uncertainty` (centimeters, a one-sigma value
+per 3-degree mascon written onto every cell of that mascon),
+`land_mask` (binary, the mask the CRI filter used), `mascon_ID` (the
+mascon identifier, 1 to 4,551, mapped to the grid), `scale_factor`
+(dimensionless gain factors) and `GAD` (centimeters, the ocean and
+atmosphere de-aliasing model, added back to ocean pixels only), with
+`time` in days since 2002-01-01 and `time_bounds` the first and last
+day of each monthly solution, and its `time_mean_removed` attribute
+reads 2004.000 to 2009.999.[^virtual-listing]
 
 **Method.**
 
@@ -132,7 +106,11 @@ still holds.[^release-note]
    The region's area is the true area of its mascons, computed from
    the cell bounds on the sphere, and the statement carries the number
    of mascons spanned beside the basin's own area. A basin near or
-   below one mascon has no basin series by any route.[^floor][^water-balance]
+   below one mascon has no series of its own: what can be delivered
+   is the containing mascon's series, labelled as that region's
+   storage with the resolution and leakage caveats beside the formal
+   error, and a water balance refuses the storage term
+   there.[^floor][^water-balance]
    For a land hydrology region the cells are the land-mask cells of
    land mascons; a coastal mascon's ocean part carries ocean mass with
    GAD added back, a different quantity.[^virtual-listing][^leakage]
@@ -143,18 +121,23 @@ still holds.[^release-note]
    one square kilometer is 1e4 cubic meters), and at the product's
    water density of 1000 kilograms per cubic meter the same number is
    gigatonnes.[^virtual-listing] Both are anomalies against the
-   product's 2004 to 2009 baseline; a series re-baselined to another
-   period says so.[^release-note]
+   product's 2004 to 2009 baseline, which the release note states as
+   the reference of every released anomaly; a series re-baselined to
+   another period says so.[^release-note]
 3. **The gain factors, once and for hydrology.** For a land hydrology
    region the `scale_factor` field is multiplied into `lwe_thickness`
    cell by cell, once, before the area-weighted sum; the product
    describes the factors as optional and as the way to study mass
    change at sub-mascon resolution for continental hydrology, and the
    product team's paper derives them to reduce the leakage error that
-   parameterizing the field in mascons introduces, with a measured
-   reduction of 11 to 30 per cent (0.6 to 1.5 millimeters of
-   equivalent water height) averaged globally for basins above 160,000
-   km2 when combined with the CRI filter.[^product-page][^wiese-2016]
+   parameterizing the field in mascons introduces: combined with the
+   CRI filter, the gain factors reduce the leakage error in the mass
+   balance of large basins (above 160,000 km2) by 11 to 30 per cent
+   (0.6 to 1.5 millimeters of equivalent water height) averaged
+   globally.[^product-page][^wiese-2016] The mascon solution needs
+   less of this than a spherical harmonic one (the global mean scale
+   factor falls by 0.17), which is why the factors are an option and
+   not a step.[^watkins-2015]
    The factors come from a land model's simulated hydrology over 2002
    to 2009, so they are for hydrology and not for ice or ocean mass,
    and they are never applied a second time or to a series that was
@@ -162,12 +145,13 @@ still holds.[^release-note]
    the statement names which one it quotes.[^virtual-listing][^scale-factors][^dataset]
 4. **Formal error.** The `uncertainty` field is one sigma per mascon,
    not per cell, so the region's formal error is the area-weighted
-   combination over its mascons, never over its cells. This bundle's
-   basin water balance computation divides the weighted figure by the
-   square root of the number of mascons spanned; the provider bundle's
-   dataset concept states that mascon errors are spatially correlated,
-   so that division understates the error and the result is the floor
-   of the statement.[^virtual-listing][^water-balance][^dataset] The
+   combination over its mascons, never over its cells, combined per
+   the product's guidance on correlated mascon errors rather than as
+   independent errors: the provider bundle's dataset concept states
+   that mascon errors are spatially correlated and that a basin
+   average quotes the product's guidance, not the square root of the
+   mascon count, and the result is the floor of the
+   statement.[^virtual-listing][^dataset] The
    GRACE-FO months carry an uncertainty calibration updated in RL06.3M
    version 4 that mostly affects land mascons with low signal
    amplitude.[^release-note]
@@ -203,9 +187,11 @@ reversed, and arrives without an error bar unless one is
 constructed.[^total-storage][^partitioning]
 
 **Cross-check.** The unscaled and scaled basin series differ by the
-sub-mascon redistribution the factors impose; their difference is one
-bound on the leakage term for the region. The formal error is the
-other floor. A basin water balance closed over the same basin and
+sub-mascon redistribution the factors impose; the factors were derived
+to reduce the leakage error of the mascon parameterization, so their
+effect on the region's series is one bound on that term, and the
+coastal case carries the provider bundle's leakage gotcha beside
+it.[^wiese-2016][^leakage] The formal error is the other floor. A basin water balance closed over the same basin and
 window, with the storage change read from this series, tests the
 series against precipitation, evapotranspiration and discharge; the
 computation concept records how the residual is judged.[^water-balance]

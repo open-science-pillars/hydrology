@@ -13,9 +13,11 @@ severity: medium
 # and the recipe that owns the method already states it.
 # The dataset concept for the product lives in the PO.DAAC provider
 # bundle (knowledge/podaac/datasets/grace-fo-mascons.md in
-# nasa-daac-knowledge, installed beside this plugin); a relative path
-# to it from this key is not stable across installations, so the key
-# carries the product page, the same resource the recipe's sources name.
+# nasa-daac-knowledge, installed beside this plugin). This key carries
+# the product page, the same resource the recipe's sources name, and
+# the provider concepts are cited in sources by their repository URL
+# at a pinned commit, so neither depends on where the bundle is
+# installed.
 dataset: https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4
 status: draft
 stale_after: 2027-03-13
@@ -33,8 +35,8 @@ sources:
     resource: https://doi.org/10.1002/2016WR019494
     title: "Scanlon and others, 2016, Global evaluation of new GRACE mascon products for hydrologic applications, Water Resources Research (long-term trends up to 20 mm per year against seasonal amplitudes up to 250 mm across 176 basins)"
   - id: dataset
-    resource: ../../../nasa-daac-knowledge/knowledge/podaac/datasets/grace-fo-mascons.md
-    title: "The provider bundle's mascon dataset concept (knowledge/podaac/datasets/grace-fo-mascons.md in nasa-daac-knowledge): monthly mass anomaly as equivalent water thickness, with the formal errors as the floor"
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/16152b3776cd1307a9a4e03bab3f5376e9b5e63b/knowledge/podaac/datasets/grace-fo-mascons.md
+    title: "The provider bundle's mascon dataset concept (knowledge/podaac/datasets/grace-fo-mascons.md in nasa-daac-knowledge, cited at a pinned commit): monthly mass anomaly as equivalent water thickness, with the formal errors as the floor"
   - id: partitioning
     resource: ../recipes/grace-groundwater-partitioning.md
     title: "This bundle's groundwater partitioning recipe: groundwater as the TWS-minus-other-stores residual, bounded below by the mascon formal error and dominated by the subtrahends"
