@@ -5,6 +5,7 @@ title: "The mascon gain factors: applied once, to the CRI grid, for land hydrolo
 description: "The scale_factor field shipped in the JPL mascon CRI granule is a set of gridded gain factors derived from a land model's simulated hydrology (CLM, 2002 to 2009) to restore the sub-mascon signal the mascon parameterization and its constraint smooth away, for continental hydrology. They multiply the CRI-filtered lwe_thickness once, cell by cell, before any basin sum; they are not the spherical-harmonic Tellus gain factors, which belong to a different product; a series scaled twice, or scaled with the wrong set, is amplified by a model pattern that was never meant for it; and over ice sheets, glaciers and the ocean the factors carry no information about the mass that is there, so a scaled ice or ocean series is wrong. The placement, land mask and scale factor files have not changed since RL05M."
 tags: [grace, grace-fo, mascons, scale-factors, gain-factors, clm, hydrology, ice, ocean, cri]
 generated: { by: knowledge-seeder/claude, at: 2026-09-13T20:40:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-13T21:08:45Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/57 }
 severity: medium
 # medium, not high: the factors are optional and documented, and the
 # trap bites through a misapplied option (twice, the wrong set, or the
@@ -18,7 +19,7 @@ severity: medium
 # at a pinned commit, so neither depends on where the bundle is
 # installed.
 dataset: https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4
-status: draft
+status: stable
 stale_after: 2027-03-13
 sources:
   - id: product-page

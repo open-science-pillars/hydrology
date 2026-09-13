@@ -5,6 +5,7 @@ title: "GRACE terrestrial water storage is every store together: a groundwater t
 description: "The mascon anomaly is the change in total mass on land: snow and ice, surface water, soil moisture, canopy water and groundwater, inseparable in the measurement. Groundwater from GRACE is the residual after the other stores are subtracted from a land surface model or from observations, so whatever the model gets wrong in its soil moisture and snow (amplitude, phase, trend) lands in the groundwater series with the sign reversed, and the residual arrives without an error bar unless the model's is stated as a term beside the formal error."
 tags: [grace, grace-fo, tws, groundwater, soil-moisture, snow, land-surface-model, residual, partitioning]
 generated: { by: knowledge-seeder/claude, at: 2026-09-13T20:40:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-13T21:08:45Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/57 }
 severity: medium
 # medium, not high: the total-storage nature of the measurement is
 # documented product behavior and the residual method is the published
@@ -19,7 +20,7 @@ severity: medium
 # at a pinned commit, so neither depends on where the bundle is
 # installed.
 dataset: https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4
-status: draft
+status: stable
 stale_after: 2027-03-13
 sources:
   - id: product-page
