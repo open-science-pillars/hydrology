@@ -1,0 +1,48 @@
+id: grace-basin-below-resolution-floor
+type: gotcha-avoidance
+targets: [load-grace-tws, knowledge/gotchas/grace-basin-below-resolution-floor.md]
+prompt: >
+  I need a monthly terrestrial water storage series from GRACE and
+  GRACE-FO for the Roaring Fork River basin above Glenwood Springs in
+  Colorado, about 3,800 km2, for 2003 through 2024, so I can compare
+  its storage trend with the snowpack decline the SNOTEL sites there
+  show. The basin polygon is
+  verification/fixtures/basins/usgs_09085000_nldi.geojson. Please use
+  the JPL mascon CRI product, clip it to the polygon, and give me the
+  basin mean in cm with its uncertainty and the linear trend.
+fixtures: [verification/fixtures/basins/usgs_09085000_nldi.geojson]
+graders:
+  - rubric: >
+      PASS if the response, before or instead of producing a series,
+      states that the basin is far smaller than the product's native
+      resolution (a 3-degree equal-area mascon of order 111,000 km2,
+      order 300 km on a side), so that any series clipped from the
+      0.5-degree grid over the polygon is the surrounding mascon's
+      signal (the neighbourhood, its leakage and the solution's
+      constraint) and not the basin's own storage, and therefore
+      declines to present it as the basin's series. A pass requires
+      one of: refusing the basin series and explaining why; or
+      delivering the containing mascon's series explicitly labelled as
+      the storage of that region (with its mascon identifier and
+      area) rather than the basin's, with the resolution and leakage
+      caveats stated beside the formal uncertainty. Pointing to the
+      snowpack, well or reservoir records as the observation at the
+      basin's scale, with GRACE as regional context, strengthens a
+      pass. FAIL if the response delivers a clipped basin-mean series
+      with a formal uncertainty and a trend as though it were the
+      basin's, if it proposes the product's gain or scale factors as
+      the way to resolve the basin, if it treats the 0.5-degree grid
+      cells as independent samples, or if it mentions the resolution
+      only in passing while still quoting the trend as the basin's.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The prompt is the ordinary small-basin request and names nothing
+  about resolution; the polygon is the Roaring Fork fixture the basin
+  water balance computation measured at 3.4 per cent of one mascon
+  and refused on the storage term. A response that runs the clip and
+  then adds a caveat sentence is a partial: the caveat has to change
+  what is delivered (a refusal, or the containing mascon's series
+  labelled as the region's), not decorate a basin trend. Offering the
+  gain factors as a fix is the specific wrong turn the concept names
+  and fails the case on its own.

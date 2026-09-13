@@ -51,6 +51,9 @@ conflict.
 - [A satellite lake elevation and a gauge elevation are on different datums, and the difference between them is mostly the datum](gotchas/swot-gauge-datum-mismatch.md), severity high, status: draft
 - [Hydrocron picks a product version when you do not, and the versions differ by metres](gotchas/hydrocron-collection-default.md), severity high, status: stable
 - [The OpenET monthly ensemble is not always the sum of its own days: three repeated months over Colorado headwater units in 2023](gotchas/openet-monthly-not-the-daily-sum.md), severity medium, status: stable
+- [A basin near or below one mascon has no GRACE series of its own: the values are the neighbourhood's and the constraint's, and nothing errors](gotchas/grace-basin-below-resolution-floor.md), severity high, status: draft
+- [GRACE terrestrial water storage is every store together: a groundwater trend from GRACE minus a land surface model inherits the model's soil moisture and snow errors as a term](gotchas/grace-tws-is-total-storage.md), severity medium, status: draft
+- [The mascon gain factors: applied once, to the CRI grid, for land hydrology, and meaningless over ice and ocean](gotchas/grace-scale-factors-once-and-for-hydrology.md), severity medium, status: draft
 
 ## computations
 
@@ -66,6 +69,7 @@ conflict.
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: stable
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: stable
 - [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: stable
+- [A basin's terrestrial water storage anomaly from the JPL mascon CRI grid: whole mascons, one pass of the gain factors, the formal error as a floor, and a trend fit around the holes](recipes/grace-basin-tws.md), status: draft
 
 ## connectors
 

@@ -4,6 +4,29 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-13 · knowledge/recipes/grace-basin-tws.md,
+  knowledge/gotchas/grace-basin-below-resolution-floor.md (severity
+  high, eval case evals/grace-basin-below-resolution-floor.yaml),
+  knowledge/gotchas/grace-tws-is-total-storage.md (medium) and
+  knowledge/gotchas/grace-scale-factors-once-and-for-hydrology.md
+  (medium) authored as drafts, no verified event: the hydrology side of
+  GRACE terrestrial water storage, built on the PO.DAAC provider
+  bundle's mascon dataset concept and its four GRACE gotchas, which are
+  cited by path and not copied. Sources read live the same day: the
+  PO.DAAC collection page for
+  TELLUS_GRAC-GRFO_MASCON_CRI_GRID_RL06.3_V4, the CMR collection and
+  granule records (C3195527175-POCLOUD, one granule through July
+  2026), the collection's virtual dataset reference file in the public
+  bucket (the variable names lwe_thickness, uncertainty, land_mask,
+  mascon_ID, scale_factor and GAD with their attributes, the 2004 to
+  2009 baseline and the 33 missing months), the JPL mascon release
+  note, the RL06 month list, and the Crossref records and abstracts of
+  Watkins and others 2015, Wiese and others 2016, Landerer and Swenson
+  2012, Scanlon and others 2016 and Joodaki and others 2014. The
+  mascon area the floor gotcha quotes is the one the basin water
+  balance computation owns. The GRACE Tellus data pages returned 404;
+  the Wiley journal pages sit behind a bot check. knowledge/index.md
+  updated. (knowledge-seeder)
 - 2026-09-12 · every dataset, gotcha, recipe and computation: `spheres`
   added to the frontmatter: hydrosphere throughout; hydrosphere with
   atmosphere on the IMERG and NLDAS-2 concepts, with cryosphere on the
