@@ -4,6 +4,16 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-13 · STEWARD SIGNING of knowledge/recipes/grace-basin-tws.md,
+  knowledge/gotchas/grace-tws-is-total-storage.md,
+  knowledge/gotchas/grace-scale-factors-once-and-for-hydrology.md,
+  knowledge/gotchas/grace-basin-below-resolution-floor.md: maintainer's
+  review of PR 57 recorded on the maintainer's instruction; the recipe
+  and the two medium gotchas promoted to stable;
+  grace-basin-below-resolution-floor (high severity) keeps draft with
+  this first review until a second human review, per the two-review rule
+  The verified event is written on the steward's word. (steward)
+
 - 2026-09-13 · knowledge/recipes/grace-basin-tws.md,
   knowledge/gotchas/grace-basin-below-resolution-floor.md (severity
   high, eval case evals/grace-basin-below-resolution-floor.yaml),

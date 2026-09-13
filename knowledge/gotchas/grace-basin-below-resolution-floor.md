@@ -5,6 +5,7 @@ title: "A basin near or below one mascon has no GRACE series of its own: the val
 description: "The JPL mascon grid is written at 0.5 degrees but estimated on 3-degree equal-area mascons (one mostly-land mascon is about 111,000 km2, a square of about 330 km), and the effective resolution of GRACE terrestrial water storage is a few hundred kilometers. A basin whose area is near or below one mascon gets that mascon's value, which is the signal of everything inside the mascon and the leakage of its neighbours under the solution's a priori constraint, not the basin's storage; the extraction runs, returns monthly values with formal uncertainties, and nothing marks the series as not the basin's."
 tags: [grace, grace-fo, mascons, tws, resolution, leakage, basin-size, small-basin, footprint]
 generated: { by: knowledge-seeder/claude, at: 2026-09-13T20:40:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-13T21:08:45Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/57 }
 severity: high
 # The dataset concept for the product lives in the PO.DAAC provider
 # bundle (knowledge/podaac/datasets/grace-fo-mascons.md in
