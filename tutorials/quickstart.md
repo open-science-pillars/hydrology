@@ -48,7 +48,10 @@ basin against the GRACE footprint floor (about 111,000 km2, one
 mascon), the window against the mascon record's end (two to three
 months behind the present), and a declared IMERG run for every month.
 
-Then it runs the sanctioned computation and its attester:
+Then it runs the sanctioned computation and its attester. The two
+commands need a terminal with `uv` on the path (Claude Code runs them
+for you; in your own shell, run them from a checkout of this repository
+or the install path `claude plugin list` shows):
 
 ```
 uv run knowledge/references/computations/basin_water_balance.py \
