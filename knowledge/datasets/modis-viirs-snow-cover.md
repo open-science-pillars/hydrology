@@ -8,13 +8,14 @@ generated: { by: knowledge-seeder/claude, at: 2026-09-14T05:30:00Z }
 resource: https://nsidc.org/data/mod10a1/versions/61
 version: "MOD10A1 version 61 (C2565093311-NSIDC_CPRD), MOD10A1F version 61 (C3028765772-NSIDC_CPRD) and VNP10A1 version 2 (C3173441659-NSIDC_CPRD), CMR-verified 2026-09-14: the MODIS records begin 2000-02-24 and the VIIRS record 2012-01-19, all flagged as ending at present; the latest granules on the read date were 2026-09-12 for the two MODIS products and 2026-09-08 for VNP10A1"
 status: draft
+upstream: pending
 stale_after: 2027-03-14
 citation:
   access_date_required: true
   authority: https://nsidc.org/data/mod10a1/versions/61
   data: "Hall, D. K. and Riggs, G. A. (2021). MODIS/Terra Snow Cover Daily L3 Global 500m SIN Grid, Version 61. Boulder, Colorado USA. NASA National Snow and Ice Data Center Distributed Active Archive Center, accessed {access_date}, https://doi.org/10.5067/MODIS/MOD10A1.061"
-  doi: "10.5067/MODIS/MOD10A1.061 (MOD10A1), 10.5067/MODIS/MOD10A1F.061 (MOD10A1F), 10.5067/45VDCKJBXWEE (VNP10A1)"
-  note: "each product page carries its own citation with the subset used and the access date; the three DOIs resolve through doi.org to the NSIDC product pages and are not in Crossref"
+  doi: "10.5067/MODIS/MOD10A1.061"
+  note: "the DOI above is MOD10A1's; MOD10A1F is 10.5067/MODIS/MOD10A1F.061 (Hall and Riggs 2020) and VNP10A1 is 10.5067/45VDCKJBXWEE (Riggs and Hall 2023), each with its own citation on its product page with the subset used and the access date; the three DOIs resolve through doi.org to the NSIDC product pages and are not in Crossref"
 sources:
   - id: mod10a1-page
     resource: https://nsidc.org/data/mod10a1/versions/61
@@ -27,7 +28,7 @@ sources:
     title: "The NSIDC product page for VNP10A1 version 2, read 2026-09-14: the citation, the overview, coverage and format, and the banner on the July 2026 Suomi NPP anomaly"
   - id: mod10a1-guide
     resource: https://nsidc.org/sites/default/files/mod10a1-v061-userguide_1.pdf
-    title: "MOD10A1 version 61 user guide, NSIDC, published March 2021 and last updated December 2021, read 2026-09-14: Table 1 (the fields and their values), the algorithm flag bits, the grid, the selection criteria, the basic QA rules, the reported accuracy range and the Terra orbit note"
+    title: "MOD10A1 version 61 user guide, NSIDC, published March 2021 and last updated December 2021, read 2026-09-14: Table 1 (the fields and their values; the NDSI row reads 'Raw NDSI values (i.e. prior to screening). NDSI Values are scaled by 1 x 10^4. -10000 to 10000: valid values. -32768: fill value'), the algorithm flag bits, the grid, the selection criteria, the basic QA rules, the reported accuracy range and the Terra orbit note"
   - id: mod10a1f-guide
     resource: https://nsidc.org/sites/default/files/mod10a1f-v061-userguide_0.pdf
     title: "MOD10A1F version 61 user guide, NSIDC, published 25 October 2019 and last updated 10 December 2021, read 2026-09-14: the fields, the Cloud_Persistence semantics, the water-year series, the handling of missing tiles and fill"
@@ -41,7 +42,7 @@ sources:
     resource: https://nsidc.org/sites/default/files/documents/technical-reference/snpp_jpss1_viirs_snow_cover_products_collection_2_user_guide.pdf
     title: "SNPP/JPSS1 VIIRS Snow Cover Products Collection 2 User Guide, Riggs and Hall, 2021, read 2026-09-14: the NDSI formula on bands I1 and I3, the scaling into NDSI_Snow_Cover, the cloud mask reading at 750 m, the cloud and snow confusion section and the selection algorithm"
   - id: cmr
-    resource: https://cmr.earthdata.nasa.gov/search/collections.json?short_name[]=MOD10A1&short_name[]=MOD10A1F&short_name[]=VNP10A1&short_name[]=MYD10A1&short_name[]=VNP10A1F&short_name[]=MOD10A2&short_name[]=MYD10A1F&short_name[]=VJ110A1
+    resource: https://cmr.earthdata.nasa.gov/search/collections.json?short_name[]=MOD10A1&short_name[]=MOD10A1F&short_name[]=VNP10A1&short_name[]=MYD10A1&short_name[]=VNP10A1F&short_name[]=MOD10A2&short_name[]=MYD10A1F&short_name[]=VJ110A1&provider=NSIDC_CPRD
     title: "The CMR collection records for the snow cover family at NSIDC_CPRD (concept ids, versions, DOIs, temporal extents, resolutions, platforms), and the newest granule of each daily collection by start date, searched 2026-09-14"
   - id: faq-ndsi
     resource: https://nsidc.org/data/user-resources/help-center/what-ndsi-snow-cover-and-how-does-it-compare-fsc
@@ -89,9 +90,10 @@ family.[^cmr][^mod10a1-page][^vnp10a1-page][^vnp10a1-guide] On
 2026-09-14 the newest granules were dated 2026-09-12 for MOD10A1 and
 MOD10A1F and 2026-09-08 for VNP10A1; the VNP10A1 page carries a
 banner that Suomi NPP science products were disabled at 01:30 UTC on
-2026-07-11 after a spacecraft anomaly, that the spacecraft was nominal
-again as of 2026-07-21, and that recoverable missing products would be
-published after review. The MODIS pages carry a banner that version
+2026-07-11 after a spacecraft anomaly, that as of 2026-07-21 the spacecraft
+had been recovered to a nominal state, that forward processing would
+recommence the following week, and that "all missing data science
+products which are recoverable will be published following review". The MODIS pages carry a banner that version
 6.1 products from 7 July 2023 onward may be subject to more frequent
 non-recoverable data loss under the flight operations team's
 lights-out operations.[^cmr][^vnp10a1-page][^mod10a1-page] The
@@ -192,7 +194,7 @@ similar to MODIS for continuity of the record, at 375 m rather than
 500 m, and the two algorithms produce daily maps with 90 to 97 per
 cent agreement in snow cover extent across landscapes, with 2 to 15
 per cent differences attributed to viewing geometry, pixel spread and
-time of observation.[^faq-viirs][^riggs-hall-2020]
+time of observation.[^riggs-hall-2020][^faq-viirs]
 
 ## Uncertainty
 

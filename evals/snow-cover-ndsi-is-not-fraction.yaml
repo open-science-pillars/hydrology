@@ -47,10 +47,13 @@ notes: >
   out, cloud reported as the unobserved share of the basin on each
   of the two dates. A response that computes a correct count-based
   extent but then also reports a mean of the layer as the fraction
-  fails on the second number. March in the Colorado headwaters is
-  cloudy enough that one of the two dates will usually carry a
-  large cloud share; a comparison that ignores it is the failure
-  the case exists to catch, beside the fraction misread. Naming a
+  fails on the second number. The case tests two behaviours: the
+  reading of the layer (an index, not a fraction) and the handling
+  of the cloud share. The cloud share on the two dates is not fixed
+  by the case and has not been measured; whatever it is, a
+  comparison that does not state it on each date is the second
+  failure the case exists to catch, beside the fraction misread.
+  Naming a
   conversion to fractional cover is acceptable only when it is
   named as a conversion with its source and its scope (a regression
   built for the Collection 5 Terra products), never as what the
