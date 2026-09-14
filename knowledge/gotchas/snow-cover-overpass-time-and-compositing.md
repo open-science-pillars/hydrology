@@ -52,7 +52,7 @@ means lower solar elevation and more shadow. Suomi NPP crosses
 northbound at about 1:30 in the afternoon, JPSS-1 on the same orbit
 fifty minutes behind and JPSS-2 twenty minutes ahead. Near the poles
 a cell is seen by several overpasses and the selection chooses among
-them; at mid latitudes it is usually the one. Where cloud moved
+them; at mid latitudes it is often the only one. Where cloud moved
 between two overlapping swaths, the chosen observations alternate
 along the swath edge and the map shows a weave or stitch pattern with
 interwoven cloud and clear cells; the day-to-day gridding also shifts
@@ -72,9 +72,9 @@ absence is read as no snow. A difference between a Terra series and a
 Suomi NPP series over the same basin is attributed to the sensor when
 part of it is three hours of local time and the scan position. A
 weave along a swath boundary is read as a snow line. And a multi-year
-Terra series crosses the orbit drift, over which the illumination at
-the observation changes and the low-illumination flag fires more, a
-change in the observing conditions that a trend would carry as
+Terra series crosses the orbit drift, over which the guide expects
+lower solar elevation and more shadow at the observation, a change
+in the observing conditions that a trend would carry as
 snow.[^mod10a1-guide][^mod10a1-page][^riggs-hall-2020]
 
 **Correct approach.** A snow cover series names its platform and
@@ -92,7 +92,7 @@ before it is read as
 terrain.[^mod10a1-guide][^vnp10a1-guide][^riggs-hall-2020][^c61-guide]
 
 **Verification.** For one tile, decoding `granule_pnt` through the
-granule pointer and beginning-time arrays gives one or two acquisition
+granule pointer and beginning-time arrays gives a small number of acquisition
 times for the whole tile at mid latitudes and more near the poles, all
 within the platform's local morning (Terra) or early afternoon (Suomi
 NPP). Along an overlap between two swaths the pointer values
