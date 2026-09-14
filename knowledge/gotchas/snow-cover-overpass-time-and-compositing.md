@@ -5,9 +5,10 @@ title: "A daily snow cover tile is one overpass per cell at the platform's local
 description: "Each cell of MOD10A1 and VNP10A1 holds one swath observation of the day, selected from the one to several overpasses by three stated criteria: nearest local solar noon, nearest the orbit nadir track, most coverage in the cell. The time is the overpass: Terra descends across the equator at about 10:30 local time and has been drifting earlier since its last inclination manoeuvre in February 2020, Suomi NPP ascends at about 1:30 in the afternoon, JPSS-1 fifty minutes behind it and JPSS-2 twenty minutes ahead. Snow that comes and goes between overpasses is not in the record, adjacent swaths weave along their edges where cloud changed between them, and a Terra series compared with a VIIRS or Aqua series compares mornings with afternoons."
 tags: [modis, viirs, snow-cover, overpass, local-solar-time, compositing, terra, suomi-npp, orbit-drift, granule-pointer, nsidc, cryosphere, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-14T05:30:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-14T12:13:16Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/61 }
 severity: medium
 dataset: ../datasets/modis-viirs-snow-cover.md
-status: draft
+status: stable
 stale_after: 2027-03-14
 sources:
   - id: mod10a1-guide

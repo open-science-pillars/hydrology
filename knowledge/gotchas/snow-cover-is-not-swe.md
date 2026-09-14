@@ -5,9 +5,10 @@ title: "Snow cover is where the snow is, not how much: an observed NDSI index an
 description: "MOD10A1 and VNP10A1 report an index of snow presence per cell, 0 to 100, from visible and shortwave reflectance, with no depth and no mass in it; a cell at 100 says the contrast was strong, not that the pack is deep. SNODAS, the snow product beside it in this bundle, is a model output whose layers are snow water equivalent and depth in metres. Extent and amount are complementary and neither substitutes for the other: a full-extent basin with a thin pack and one with a deep pack read alike in the index, and a snow water equivalent field says nothing about the day's observed extent."
 tags: [modis, viirs, snow-cover, ndsi, snodas, snow-water-equivalent, swe, extent, model-output, nsidc, cryosphere, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-14T05:30:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-14T12:13:16Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/61 }
 severity: low
 dataset: ../datasets/modis-viirs-snow-cover.md
-status: draft
+status: stable
 stale_after: 2027-03-14
 sources:
   - id: mod10a1-guide

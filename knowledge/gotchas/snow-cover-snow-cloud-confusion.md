@@ -5,9 +5,10 @@ title: "Snow and cloud are confused in both directions, and the algorithm flags 
 description: "The snow algorithm calls a cell cloud only when the cloud mask says confident cloudy and reads the other three confidences as clear, recording probably cloudy and probably clear in bits 5 and 6 of the algorithm flags. Sub-pixel cloud, cloud fringes, popcorn cloud over vegetation and cloud in the shadow of cloud are spectrally indistinct from snow and pass as snow with no screen reversing them; thin or sparse snow on plains, and snow in Antarctica, is masked as confident cloudy when the cloud mask's snow background flag is wrong and appears as 250. Snow and cloud discrimination is the most frequent error in the product's accuracy assessment, and a misread cell passes through the gap-filled product as cloud that persists for days."
 tags: [modis, viirs, snow-cover, cloud-mask, mod35, cloud-snow-confusion, algorithm-flags, commission-error, omission-error, nsidc, cryosphere, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-14T05:30:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-14T12:13:16Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/61 }
 severity: medium
 dataset: ../datasets/modis-viirs-snow-cover.md
-status: draft
+status: stable
 stale_after: 2027-03-14
 sources:
   - id: c61-guide

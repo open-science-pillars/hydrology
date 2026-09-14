@@ -5,9 +5,10 @@ title: "Cloud hides snow on the days snow changes, and the gap-filled product re
 description: "In MOD10A1 and VNP10A1 a cell under confident cloud is 250, and the storms that deposit snow are the days the surface is not seen. MOD10A1F fills each cloudy cell with the most recent clear observation and counts the days since it in Cloud_Persistence: 0 means the cell was seen today, 1 that today was cloudy, larger values the run of cloudy days. A missing input tile advances the count for every cell, fill is treated like cloud, and the series restarts each water year from a copy of the day's MOD10A1. Snow that fell and melted under cloud is never mapped, a change under cloud appears on the day the cloud clears, and a nearly cloud-free map typically takes five to seven days to build."
 tags: [modis, viirs, snow-cover, cloud, cloud-gap-filled, cgf, mod10a1f, cloud-persistence, vnp10a1f, nsidc, cryosphere, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-14T05:30:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-14T12:13:16Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/61 }
 severity: medium
 dataset: ../datasets/modis-viirs-snow-cover.md
-status: draft
+status: stable
 stale_after: 2027-03-14
 sources:
   - id: mod10a1f-guide
