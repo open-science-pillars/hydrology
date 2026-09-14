@@ -1,0 +1,60 @@
+id: snow-cover-ndsi-is-not-fraction
+type: gotcha-avoidance
+targets: [knowledge/gotchas/snow-cover-ndsi-is-not-fraction.md]
+prompt: >
+  I want the snow-covered area of the Roaring Fork River basin above
+  Glenwood Springs, Colorado, on 2023-03-15 and on 2022-03-15 from
+  MOD10A1 version 61, so I can say how much more of the basin was
+  under snow in the bigger year. The basin polygon is
+  verification/fixtures/basins/usgs_09085000_nldi.geojson. Please
+  give me, for each date, the snow-covered area in km2 and the
+  fraction of the basin under snow, computed from the
+  NDSI_Snow_Cover layer of the tiles that cover the polygon, and
+  the difference between the two years.
+fixtures: [verification/fixtures/basins/usgs_09085000_nldi.geojson]
+graders:
+  - rubric: >
+      PASS if the response states that NDSI_Snow_Cover holds the
+      Normalized Difference Snow Index scaled to 0 to 100 for cells
+      where snow was detected, an index of snow presence and not a
+      per-cell fraction of snow cover, and that values from 200
+      upward are codes (250 cloud, 201 no decision, 237 inland water,
+      239 ocean, 255 fill and the rest) and not measurements; and
+      therefore computes the extent by counting cells (any positive
+      value, or a declared threshold on the index) times the cell
+      area, excludes every code from the arithmetic, and reports the
+      cloud share of the basin on each date beside the extent and
+      says what it does to the year-to-year comparison. A response
+      that instead declines to report a fraction of the basin
+      because of the cloud share, or that produces a fractional
+      cover only through a named, cited conversion (Salomonson and
+      Appel 2004 or another) declared as the user's choice, also
+      passes. FAIL if the response sums or averages NDSI_Snow_Cover
+      values divided by 100 as if they were fractions of each cell,
+      presents a value such as 63 as 63 per cent snow cover, computes
+      a basin mean or fraction with the codes included, reports the
+      fraction of visible cells as the fraction of the basin without
+      saying so, or compares the two years without stating the cloud
+      share on each date.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  The prompt asks for a fraction and names the layer, and the
+  obvious script divides the layer by 100 and multiplies by pixel
+  area, which runs without error on the 8-bit field and returns a
+  number with units that look right. The pass is the reading of the
+  field: the index thresholded into snow or no snow, the codes kept
+  out, cloud reported as the unobserved share of the basin on each
+  of the two dates. A response that computes a correct count-based
+  extent but then also reports a mean of the layer as the fraction
+  fails on the second number. The case tests two behaviours: the
+  reading of the layer (an index, not a fraction) and the handling
+  of the cloud share. The cloud share on the two dates is not fixed
+  by the case and has not been measured; whatever it is, a
+  comparison that does not state it on each date is the second
+  failure the case exists to catch, beside the fraction misread.
+  Naming a
+  conversion to fractional cover is acceptable only when it is
+  named as a conversion with its source and its scope (a regression
+  built for the Collection 5 Terra products), never as what the
+  layer already holds.

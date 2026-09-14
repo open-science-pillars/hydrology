@@ -4,6 +4,41 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-14 · knowledge/datasets/modis-viirs-snow-cover.md,
+  knowledge/gotchas/snow-cover-ndsi-is-not-fraction.md (severity
+  high, eval case evals/snow-cover-ndsi-is-not-fraction.yaml),
+  knowledge/gotchas/snow-cover-cloud-persistence-and-gap-filling.md
+  (medium), knowledge/gotchas/snow-cover-snow-cloud-confusion.md
+  (medium), knowledge/gotchas/snow-cover-overpass-time-and-compositing.md
+  (medium) and knowledge/gotchas/snow-cover-is-not-swe.md (low)
+  authored as drafts, no verified event: the daily NDSI snow cover
+  products MOD10A1 version 61, MOD10A1F version 61 and VNP10A1
+  version 2 at NSIDC DAAC, and the traps in reading them. Sources read
+  live the same day: the three NSIDC product pages and their user
+  guides (MOD10A1 v61 of December 2021, MOD10A1F v61 of December
+  2021, VNP10A1 v2 of January 2026), the MODIS Snow Products
+  Collection 6.1 User Guide and the SNPP/JPSS1 VIIRS Snow Cover
+  Products Collection 2 User Guide, the NSIDC help articles on NDSI
+  snow cover against FSC, on VIIRS against MODIS and on merging
+  collections, the NSIDC SNODAS page, the CMR collection records for
+  the family (C2565093311, C3028765772, C3173441659 and the Aqua,
+  JPSS and gap-filled siblings at NSIDC_CPRD) with the newest granule
+  of each daily collection, and the Crossref records and abstracts of
+  Hall and Riggs 2007, Riggs and Hall 2020, Hall and others 2010 and
+  2019, Riggs, Hall and Roman 2017, Salomonson and Appel 2004, Hall,
+  Riggs and Salomonson 1995 and Hall and others 2002. The three
+  product DOIs resolve through doi.org to the product pages and are
+  not Crossref records; the Elsevier journal pages sit behind a bot
+  check and are cited on their Crossref records. The SNODAS connector
+  and gotcha are linked, not repeated. knowledge/index.md updated.
+  Severity rationale: the NDSI gotcha is high because value over 100
+  times area runs silently on the 8-bit field and returns a number
+  with the right units and the wrong meaning; the three medium
+  gotchas are documented product behaviour whose trap bites through
+  a reading the file itself contradicts (an age field, a flag bit, a
+  pointer field); the SWE gotcha is low because the index has no
+  length unit and a units check catches the category error.
+  (knowledge-seeder)
 - 2026-09-13 · STEWARD SIGNING of knowledge/recipes/grace-basin-tws.md,
   knowledge/gotchas/grace-tws-is-total-storage.md,
   knowledge/gotchas/grace-scale-factors-once-and-for-hydrology.md,
