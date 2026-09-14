@@ -33,6 +33,7 @@ conflict.
 - [MOD16A2GF v061 evapotranspiration: an 8-day total in millimetres, seven fill codes for the land it does not compute, and a record that only advances at year end](datasets/mod16a2gf.md), status: stable
 - [USGS annual peak streamflow (the peaks collection)](datasets/usgs-peaks.md), status: stable
 - [Reservoir area-capacity tables: a survey, not a constant, and Lake Powell's is four per cent smaller than it was](datasets/reclamation-area-capacity.md), status: draft
+- [MODIS and VIIRS daily snow cover (MOD10A1 v61, MOD10A1F v61, VNP10A1 v2): an NDSI index per cell, flag codes above 100, one overpass per day](datasets/modis-viirs-snow-cover.md), status: draft
 
 ## gotchas
 
@@ -57,6 +58,11 @@ conflict.
 - [A basin near or below one mascon has no GRACE series of its own: the values are the neighbourhood's and the constraint's, and nothing errors](gotchas/grace-basin-below-resolution-floor.md), severity high, status: draft
 - [GRACE terrestrial water storage is every store together: a groundwater trend from GRACE minus a land surface model inherits the model's soil moisture and snow errors as a term](gotchas/grace-tws-is-total-storage.md), severity medium, status: stable
 - [The mascon gain factors: applied once, to the CRI grid, for land hydrology, and meaningless over ice and ocean](gotchas/grace-scale-factors-once-and-for-hydrology.md), severity medium, status: stable
+- [NDSI snow cover is an index thresholded into snow, not a fraction of the cell: a value of 40 is not 40 per cent snow, and the codes above 100 are not values](gotchas/snow-cover-ndsi-is-not-fraction.md), severity high, status: draft
+- [Cloud hides snow on the days snow changes, and the gap-filled product reuses an older view whose age is a field the reader has to consult](gotchas/snow-cover-cloud-persistence-and-gap-filling.md), severity medium, status: draft
+- [Snow and cloud are confused in both directions, and the algorithm flags name the cases: a cloud fringe read as snow, thin plains snow masked as cloud, and neither reversed by a screen](gotchas/snow-cover-snow-cloud-confusion.md), severity medium, status: draft
+- [A daily snow cover tile is one overpass per cell at the platform's local solar time, chosen by nearest solar noon, nearest nadir and most coverage, not a daily mean or a daily maximum](gotchas/snow-cover-overpass-time-and-compositing.md), severity medium, status: draft
+- [Snow cover is where the snow is, not how much: an observed NDSI index and SNODAS's modelled snow water equivalent are different quantities that arrive as daily grids of the same shape](gotchas/snow-cover-is-not-swe.md), severity low, status: draft
 
 ## computations
 
