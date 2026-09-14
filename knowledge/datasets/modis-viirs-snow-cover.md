@@ -5,9 +5,10 @@ title: "MODIS and VIIRS daily snow cover (MOD10A1 v61, MOD10A1F v61, VNP10A1 v2)
 description: "Daily snow cover from Terra MODIS at 500 m (MOD10A1 version 61, with the cloud-gap-filled MOD10A1F beside it) and from Suomi NPP VIIRS at 375 m (VNP10A1 version 2), on the sinusoidal tile grid at NSIDC DAAC. The value in NDSI_Snow_Cover is the Normalized Difference Snow Index scaled to 0 to 100, an index of snow presence and not a fraction of the cell; everything above 100 is a code (200 missing, 201 no decision, 211 night, 237 inland water, 239 ocean, 250 cloud, 255 fill). Each cell holds one swath observation chosen by stated rules, cloud is the largest gap, and the gap-filled product carries the age of the observation it reuses."
 tags: [modis, viirs, snow-cover, ndsi, mod10a1, mod10a1f, vnp10a1, cloud-gap-filled, nsidc, terra, suomi-npp, sinusoidal, cryosphere, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-14T05:30:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-14T12:13:16Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/61 }
 resource: https://nsidc.org/data/mod10a1/versions/61
 version: "MOD10A1 version 61 (C2565093311-NSIDC_CPRD), MOD10A1F version 61 (C3028765772-NSIDC_CPRD) and VNP10A1 version 2 (C3173441659-NSIDC_CPRD), CMR-verified 2026-09-14: the MODIS records begin 2000-02-24 and the VIIRS record 2012-01-19, all flagged as ending at present; the latest granules on the read date were 2026-09-12 for the two MODIS products and 2026-09-08 for VNP10A1"
-status: draft
+status: stable
 upstream: pending
 stale_after: 2027-03-14
 citation:
