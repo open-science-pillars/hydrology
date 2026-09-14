@@ -5,11 +5,13 @@ title: "NDSI snow cover is an index thresholded into snow, not a fraction of the
 description: "NDSI_Snow_Cover in MOD10A1, MOD10A1F and VNP10A1 holds the Normalized Difference Snow Index scaled to 0 to 100 for cells where the algorithm detected snow, and any positive index after the screens means some snow is present. It is not a sub-pixel fraction: fractional snow cover is not calculated in Collection 6.1, and the climate modeling grid percentages are tallies of binary detections over 0.05 degree cells. Values from 200 up are codes (250 is cloud). A snow-covered area computed as value over 100 times cell area, or a basin mean that includes the codes, is a number with no physical meaning."
 tags: [modis, viirs, snow-cover, ndsi, fractional-snow-cover, fsc, mod10a1, vnp10a1, flags, nsidc, cryosphere, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-14T05:30:00Z }
-verified: { by: human:PaulMRamirez, at: 2026-09-14T12:13:16Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/61 }
+verified:
+  - { by: human:PaulMRamirez, at: 2026-09-14T12:13:16Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/61 }
+  - { by: human:PaulMRamirez, at: 2026-09-14T12:27:07Z, role: maintainer, source: https://claude.ai/code/session_01DVKYxSeRJWncZVsmaxC4p4 }
 severity: high
 dataset: ../datasets/modis-viirs-snow-cover.md
 eval_case: snow-cover-ndsi-is-not-fraction
-status: draft
+status: stable
 stale_after: 2027-03-14
 sources:
   - id: faq-ndsi
