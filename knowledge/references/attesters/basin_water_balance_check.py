@@ -104,6 +104,10 @@ def recompute_groundwater(gw: dict, start: dt.date, end: dt.date, area_km2: floa
     unconfined well, the rise as first minus last depth, wells within
     the radius as one site, the mean rise over sites times the specific
     yield times the area."""
+    unit = str(gw.get("unit", ""))
+    if gw.get("parameter") != "72019" or "below land surface" not in unit:
+        fail(f"bar three: the well set is parameter {gw.get('parameter')!r} in {unit!r}, not 72019 depth to water "
+             f"below land surface in feet; an elevation parameter reverses the sign of the term")
     prm = gw["parameters"]
     sy, sy_sigma = float(prm["specific_yield"]["value"]), float(prm["specific_yield"]["sigma"])
     n_end, min_days = int(prm["end_window_days"]), int(prm["min_days_per_end"])
@@ -121,25 +125,45 @@ def recompute_groundwater(gw: dict, start: dt.date, end: dt.date, area_km2: floa
         if len(first) < min_days or len(last) < min_days:
             continue
         used.append((w["site"], w["lat"], w["lon"], (sum(first) / len(first) - sum(last) / len(last)) * FT_TO_M))
-    clusters = []
-    for site, lat, lon, rise in used:
-        for c in clusters:
-            if any(haversine_km(lat, lon, m[1], m[2]) <= radius for m in c):
-                c.append((site, lat, lon, rise))
-                break
-        else:
-            clusters.append([(site, lat, lon, rise)])
+    # Sites as connected components: two wells are in one site when a
+    # chain of wells within the radius joins them.
+    labels = list(range(len(used)))
+    changed = True
+    while changed:
+        changed = False
+        for i in range(len(used)):
+            for j in range(i + 1, len(used)):
+                if labels[i] != labels[j] and haversine_km(used[i][1], used[i][2], used[j][1], used[j][2]) <= radius:
+                    new = min(labels[i], labels[j])
+                    labels[i] = labels[j] = new
+                    changed = True
+    clusters = {}
+    for lab, w in zip(labels, used):
+        clusters.setdefault(lab, []).append(w)
+    clusters = [clusters[k] for k in sorted(clusters)]
     rises = [sum(m[3] for m in c) / len(c) for c in clusters]
-    out = {"wells_used": len(used), "sites": len(clusters), "min_sites": min_sites,
+    out = {"wells_used": len(used), "sites": len(clusters), "min_sites": min_sites, "parameter": gw.get("parameter"),
            "specific_yield": sy, "specific_yield_sigma": sy_sigma, "site_rises_m": rises}
     if len(clusters) < min_sites:
         return {**out, "refused": True}
     mean_m = sum(rises) / len(rises)
     sd = math.sqrt(sum((r - mean_m) ** 2 for r in rises) / (len(rises) - 1)) if len(rises) > 1 else 0.0
     se = sd / math.sqrt(len(rises))
-    return {**out, "refused": False, "mean_rise_m": mean_m, "spread_sd_m": sd,
+    srt = sorted(rises)
+    median = srt[len(srt) // 2] if len(srt) % 2 else (srt[len(srt) // 2 - 1] + srt[len(srt) // 2]) / 2
+    largest = max(range(len(rises)), key=lambda i: abs(rises[i]))
+    rest = [x for i, x in enumerate(rises) if i != largest]
+    mean_rest = sum(rest) / len(rest) if rest else 0.0
+    return {**out, "refused": False, "mean_rise_m": mean_m, "spread_sd_m": sd, "standard_error_m": se,
+            "median_rise_m": median, "min_rise_m": min(rises), "max_rise_m": max(rises),
+            "mm": sy * mean_m * 1000,
             "km3": sy * mean_m * area_km2 * 1e-3,
-            "sigma_km3": area_km2 * 1e-3 * math.hypot(sy_sigma * mean_m, sy * se)}
+            "km3_low": (sy - sy_sigma) * mean_m * area_km2 * 1e-3,
+            "km3_high": (sy + sy_sigma) * mean_m * area_km2 * 1e-3,
+            "sigma_km3": area_km2 * 1e-3 * math.hypot(sy_sigma * mean_m, sy * se),
+            "sigma_km3_at_spread": area_km2 * 1e-3 * math.hypot(sy_sigma * mean_m, sy * sd),
+            "without_largest_rise_m": rises[largest], "without_largest_mean_m": mean_rest,
+            "without_largest_km3": sy * mean_rest * area_km2 * 1e-3}
 
 
 def attest(receipt_path: Path, computation: Path, k: float) -> list[str]:
@@ -265,6 +289,28 @@ def attest(receipt_path: Path, computation: Path, k: float) -> list[str]:
                 fail(f"groundwater: receipt {gw_r['km3']}, recomputed {round(gw['km3'], 6)}")
             if not close(gw["sigma_km3"], gw_r["sigma_km3"], 1e-5):
                 fail(f"groundwater sigma: receipt {gw_r['sigma_km3']}, recomputed {round(gw['sigma_km3'], 6)}")
+            if not close(gw["mm"], gw_r["mm"], 1e-3):
+                fail(f"groundwater mm: receipt {gw_r['mm']}, recomputed {round(gw['mm'], 4)}")
+            if not close(gw["km3_low"], gw_r["km3_at_specific_yield_low"], 1e-5) or \
+                    not close(gw["km3_high"], gw_r["km3_at_specific_yield_high"], 1e-5):
+                fail(f"groundwater bracket: receipt {gw_r['km3_at_specific_yield_low']} to "
+                     f"{gw_r['km3_at_specific_yield_high']}, recomputed {round(gw['km3_low'], 6)} to "
+                     f"{round(gw['km3_high'], 6)}")
+            if not close(gw["standard_error_m"], gw_r["standard_error_m"], 1e-3):
+                fail(f"groundwater standard error: receipt {gw_r['standard_error_m']}, recomputed "
+                     f"{round(gw['standard_error_m'], 4)}")
+            for key in ("median_rise_m", "min_rise_m", "max_rise_m"):
+                if not close(gw[key], gw_r[key], 1e-3):
+                    fail(f"groundwater {key}: receipt {gw_r[key]}, recomputed {round(gw[key], 4)}")
+            if not close(gw["sigma_km3_at_spread"], gw_r["sigma_km3_at_spread"], 1e-5):
+                fail(f"groundwater sigma at spread: receipt {gw_r['sigma_km3_at_spread']}, recomputed "
+                     f"{round(gw['sigma_km3_at_spread'], 6)}")
+            wl = gw_r["without_largest_site"]
+            if not close(gw["without_largest_rise_m"], wl["rise_m"], 1e-3) or \
+                    not close(gw["without_largest_mean_m"], wl["mean_rise_m"], 1e-3) or \
+                    not close(gw["without_largest_km3"], wl["km3"], 1e-5):
+                fail(f"groundwater without the largest site: receipt {wl['km3']} km3, recomputed "
+                     f"{round(gw['without_largest_km3'], 6)}")
             lines.append(f"PASS: groundwater term recomputed from the frozen well set: {gw['wells_used']} wells, "
                          f"{gw['sites']} sites, mean rise {gw['mean_rise_m']:+.4f} m, {gw['km3']:+.3f} km3 at "
                          f"specific yield {gw['specific_yield']}")
@@ -335,7 +381,8 @@ def attest(receipt_path: Path, computation: Path, k: float) -> list[str]:
             fail("partition: a fraction of dS is reported while dS is within two sigma of zero")
         lines.append(f"PASS: partition dS = dS_gw + dS_other recomputed ({r['terms']['storage']['km3']:+.3f} = "
                      f"{gw_r['km3']:+.3f} + {other:+.3f} km3), and the part is no larger than the whole")
-        lines.append(f"bar three, plausibility: specific yield {gw['specific_yield']} in (0, {SPECIFIC_YIELD_BOUND}], "
+        lines.append(f"bar three, plausibility: parameter {gw['parameter']} (depth to water below land surface), "
+                     f"specific yield {gw['specific_yield']} in (0, {SPECIFIC_YIELD_BOUND}], "
                      f"{gw['sites']} sites at or above {gw['min_sites']}, every site change within "
                      f"{LEVEL_CHANGE_BOUND_M:.0f} m, |dS_gw| {abs(gw_r['km3']):.3f} against |dS| + k sigma {whole:.3f} km3")
 
@@ -366,7 +413,8 @@ def run_attest(receipt_path: Path, computation: Path, k: float) -> int:
 
 
 # ------------------------------------------------------------- selftest
-def _synthetic_tree(root: Path, with_groundwater: bool, sy: float = 0.2, n_wells: int = 6, rise_ft: float = 1.0):
+def _synthetic_tree(root: Path, with_groundwater: bool, sy: float = 0.2, n_wells: int = 6, rise_ft: float = 1.0,
+                    parameter: str = "72019"):
     """A small frozen tree with round numbers, so the arithmetic of every
     term and of the groundwater partition can be checked by hand:
     P 100, ET 40, Q 30 km3 over a 200,000 km2 basin of 2 mascons,
@@ -414,7 +462,8 @@ def _synthetic_tree(root: Path, with_groundwater: bool, sy: float = 0.2, n_wells
         wells.append({"site": "TEST-S", "lat": 39.8, "lon": -84.3, "aquifer_type_code": "U",
                       "well_constructed_depth_ft": 40.0, "rows": wells[0]["rows"][:10]})
         files["groundwater.json"] = {
-            "parameter": "72019", "statistic": "00003", "unit": "ft below land surface",
+            "parameter": parameter, "statistic": "00003",
+            "unit": "ft below land surface" if parameter == "72019" else "ft above NGVD29",
             "window": {"start": start.isoformat(), "end": end.isoformat()},
             "parameters": {"specific_yield": {"value": sy, "sigma": 0.02, "source": "selftest: a stated value"},
                            "end_window_days": 30, "min_days_per_end": 20, "cluster_radius_km": 2.0,
@@ -529,6 +578,45 @@ def selftest(computation: Path) -> int:
         def d_part(r):
             r["residual"]["partition"]["other_storage_km3"] = 0.0
         doctored(d_part, "partition arithmetic", "partition: dS_other")
+
+        def d_mm(r):
+            r["terms"]["groundwater"]["mm"] = 99.0
+        doctored(d_mm, "millimetres", "groundwater mm")
+
+        def d_low(r):
+            r["terms"]["groundwater"]["km3_at_specific_yield_low"] = 1.0
+        doctored(d_low, "specific yield bracket", "groundwater bracket")
+
+        def d_se(r):
+            r["terms"]["groundwater"]["standard_error_m"] = 0.5
+        doctored(d_se, "standard error", "groundwater standard error")
+
+        def d_med(r):
+            r["terms"]["groundwater"]["median_rise_m"] = 9.0
+        doctored(d_med, "median", "groundwater median_rise_m")
+
+        def d_spread(r):
+            r["terms"]["groundwater"]["sigma_km3_at_spread"] = 0.0
+        doctored(d_spread, "sigma at spread", "groundwater sigma at spread")
+
+        def d_wl(r):
+            r["terms"]["groundwater"]["without_largest_site"]["km3"] = 0.0
+        doctored(d_wl, "term without the largest site", "groundwater without the largest site")
+
+        # The sigma at the spread and the term without the largest site are
+        # the hand values on identical rises: the spread is zero, so the
+        # sigma at the spread is the specific yield part alone, and
+        # removing one of six equal sites leaves the same mean.
+        case("sigma at spread is the specific yield part on identical rises",
+             close(g["sigma_km3_at_spread"], 0.02 * 0.3048 * (335 / 364) * 200000 * 1e-3, 1e-3))
+        case("without the largest site the term is unchanged on identical rises",
+             close(g["without_largest_site"]["km3"], g["km3"], 1e-3) and g["without_largest_site"]["sites"] == 5)
+
+    # 3b. A well set frozen under an elevation parameter is refused by the
+    #     executor before any arithmetic: the sign convention is 72019's.
+    t_el = _synthetic_tree(tmp / "elev", with_groundwater=True, parameter="62610")
+    rc, out = run(t_el, tmp / "elev.json")
+    case("an elevation parameter is refused by the executor", rc == 2 and "sign reversed" in out, out[-120:].strip())
 
     # 4. A specific yield outside the bound, and a groundwater change larger
     #    than the whole, are refused by bar three even when the arithmetic

@@ -4,7 +4,7 @@
   "start": "2022-10-01",
   "end": "2023-09-30"
  },
- "frozen_at": "2026-09-15T17:57:19Z",
+ "frozen_at": "2026-09-15T18:53:21Z",
  "frozen_by": "verification/fixtures/water-balance/freeze_groundwater_term.py",
  "from_tree": {
   "name": "ohio-olmsted",
@@ -50,7 +50,7 @@
    "copied_note": "byte for byte from the tree named, so the four terms are the same numbers"
   },
   "groundwater.json": {
-   "sha256": "4e30a04100900360302dd4f1a23e808b298c042e82af5cf4b36525decb391f73",
+   "sha256": "7be4a408f79d8d63b4e64d1dfb67622c1cfbde4e38f87ac1a3c908087ff19bfa",
    "kind": "well set for the groundwater term, from captures",
    "captures": [
     "20260915T175104Z-547c91be",

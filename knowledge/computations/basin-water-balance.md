@@ -162,7 +162,10 @@ water table is a rise. A well with fewer than `min_days_per_end` daily
 values (20) in either end window is excluded by name with the counts.
 Wells within `cluster_radius_km` of one another (2 km) are one site,
 because a well field samples one water table and would otherwise be
-counted once per well; the mean over sites is the basin's level
+counted once per well; sites are the connected components of the
+wells joined by that distance, so a well within the radius of two
+groups joins them into one and the result does not depend on the
+order the wells are visited in. The mean over sites is the basin's level
 change, and its spread over sites, its standard error and its median
 travel beside the mean. Fewer than `min_sites` sites (3) is a refusal
 of the term, not a smaller term.
@@ -190,9 +193,19 @@ changing the arithmetic.[^johnson1967]
 yield's sigma times the mean rise and the specific yield times the
 standard error of the site mean. The standard error is the spread
 over sites divided by the square root of the site count, which is the
-statistic for a random sample; the wells are the wells there are, not
-a designed sample of the basin, so the spread itself is reported
-beside the sigma and a reader may prefer it.
+sigma of the mean only if the sites are a random sample of the
+basin's water table; the wells are the wells there are, not a
+designed sample of the basin. On the Ohio the quoted sigma of 14.98
+km3 is almost entirely the standard-error component (14.91 km3,
+against 1.39 km3 from the specific yield's sigma), and with the
+spread over sites in its place the sigma would be 93.2 km3, at which
+bar three's "part no larger than the whole" is satisfied by any
+groundwater change at all. The choice of the standard error is
+therefore what gives bar three teeth, and it rests on the sampling
+assumption named above. The receipt carries both figures,
+`sigma_km3` and `sigma_km3_at_spread`, with the two components of the
+first, and the attester recomputes all of them; a reader who does not
+grant the assumption reads the second.
 
 ## The footprint floor, derived rather than remembered
 
@@ -258,8 +271,10 @@ the well set with its own arithmetic, the residual and the partition,
 and requires agreement within 1e-6 km3.
 
 **Bar three, plausibility of the groundwater term**, applied only when
-a receipt carries one: the specific yield inside (0, 0.5], the
-receipt's value equal to the tree's, a source beside it, the site
+a receipt carries one: the well set's parameter 72019 in feet below
+land surface (an elevation parameter would reverse the sign of the
+term, and the executor refuses one), the specific yield inside
+(0, 0.5], the receipt's value equal to the tree's, a source beside it, the site
 count at or above the parameters' minimum, every site's level change
 within 30 m, the partition arithmetic exact, and the part no larger
 than the whole: the groundwater change does not exceed the total
@@ -342,14 +357,48 @@ byte for byte and adds the well set; measured 2026-09-15):
 The groundwater term is within one sigma of zero, and so is the
 mascons' total; the median rise is negative while the mean is
 positive, because one well field near the Ohio at Louisville rose
-3.3 m and the other 38 sites sit between -1.5 and +1.9 m. The receipt
-does not report a groundwater fraction of dS, because a fraction of a
-storage change indistinguishable from zero is not a number. What the
-partition does say is that the terms less the groundwater change
+3.3 m and the other 38 sites sit between -1.5 and +2.6 m. Without
+that one site the mean over the other 38 is +0.003 m and the term
+is +0.339 km3: the whole positive term is one riverbank well field
+beside the Ohio, whose water table follows the river's stage and the
+field's pumping, and the receipt carries the term without its
+largest site (`without_largest_site`, recomputed by the attester) so
+that this is a number and not a remark. Four of the eight
+completeness exclusions are Louisville wells as well. The receipt
+does not report a groundwater fraction of dS, because a fraction of
+a storage change indistinguishable from zero is not a number. What
+the partition does say is that the terms less the groundwater change
 still deliver about 62 km3 more than the other stores account for,
 inside a combined sigma of 97 km3 that the evapotranspiration term
 dominates: the groundwater term neither creates nor removes the
 Ohio's residual.
+
+**The well set is not an areal sample.** The 58 wells sit in 11
+states, 18 in Kentucky, 13 in Indiana and 11 in Pennsylvania, and
+the 39 sites are 11 in Pennsylvania, 8 in Indiana, 6 in Tennessee, 4
+in Kentucky and 4 in North Carolina with one each in six other
+states; the western and northern parts of the basin (Ohio, Illinois,
+most of Indiana) are thinly sampled and the Appalachian edge is
+dense. A site mean weights every site equally wherever it stands.
+The next step, not taken here, is an areal weighting, by Thiessen
+polygons over the basin or by the area of each state's share of it,
+which the frozen tree already holds the coordinates for.
+
+**The specific yield does not describe most of this set.** By the
+receipt's national aquifer codes the 50 wells used are 13 in the
+Pennsylvanian aquifers, 11 alluvial, 9 glacial, 5 Piedmont and Blue
+Ridge crystalline, 5 Mississippian, 4 Valley and Ridge, 1
+Ordovician, 1 Silurian-Devonian and 1 other: 30 of the 50 are in
+bedrock aquifers, and their constructed depths run from 18 to 363
+ft. The 0.21 plus or minus 0.03 is a gravimetric measurement at one
+alluvial site, and the plus or minus 0.03 covers that measurement,
+not its application to fractured sandstone, carbonate or crystalline
+rock, for which an alluvial value is not a bracket. The replacement
+that changes the number without changing the arithmetic is a value
+per aquifer type from the compilation of record, Johnson 1967, or a
+basin study, applied per well before the site mean; the tree's
+parameter block is where it goes, and the receipt's sensitivity to
+it is linear.[^johnson1967]
 
 [^mascons]: the GRACE and GRACE-FO mascon concept in the provider bundle
 [^imerg]: this bundle's IMERG V07 concept

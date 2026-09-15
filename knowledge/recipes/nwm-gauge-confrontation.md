@@ -6,7 +6,7 @@ description: "How a USGS gauge's daily mean discharge is placed beside the Natio
 tags: [nwm, national-water-model, retrospective, confrontation, gauge, streamflow, hydrology]
 generated: { by: process:claude-code, at: 2026-09-15T18:30:00Z }
 inputs: "A USGS gauge with a daily mean discharge record over the window (parameter 00060, statistic 00003, with approval status and qualifiers), and the retrospective's daily means at the reach carrying that gauge through nwm_retrospective_streamflow on the observations server, the window inside the store's time axis and the fourteen-chunk budget"
-expected: "Roaring Fork River at Glenwood Springs, USGS-09085000, against NHDPlus reach 1324997 (feature index 119426, the reach whose gage_id is 09085000), calendar 2021, 365 model days of 24 hours each from chunks 546 to 559: daily correlation +0.952, Nash-Sutcliffe efficiency -0.030 on flows and +0.625 on their logarithms, Kling-Gupta efficiency 0.122 with a variability ratio of 1.801 and a mean ratio of 1.355, percent bias +35.5 per cent; annual volume 0.586 km3 at the gauge and 0.794 km3 in the model; monthly means agreeing within 1 m3/s from January to April and the model's June mean 100.59 against the gauge's 57.29 m3/s; peaks 92.3 m3/s on 2021-06-06 at the gauge and 139.2 on 2021-06-11 in the model; the gauge's day t correlating best with the model's day t+1 (0.968, against 0.952 at the same day and 0.929 the other way)"
+expected: "Roaring Fork River at Glenwood Springs, USGS-09085000, against NHDPlus reach 1324997 (feature index 119426, the reach whose gage_id is 09085000), calendar 2021, 365 model days of 24 hours each from chunks 546 to 559: daily correlation +0.952, Nash-Sutcliffe efficiency -0.030 on flows and +0.625 on their logarithms, Kling-Gupta efficiency 0.122 with a variability ratio of 1.801 and a mean ratio of 1.355, percent bias +35.5 per cent; annual volume 0.586 km3 at the gauge and 0.794 km3 in the model; monthly means agreeing within 1.1 m3/s from January to April and the model's June mean 100.59 against the gauge's 57.29 m3/s; peaks 92.3 m3/s on 2021-06-06 at the gauge and 139.2 on 2021-06-11 in the model; the gauge's day t correlating best with the model's day t+1 (0.968, against 0.952 at the same day and 0.929 the other way)"
 expected_uncertainty: "No sampling intervals are attached: the scores are descriptive statistics of one year at one reach, and the gauge record is Approved throughout with 8 ESTIMATED days, so the gauge side carries the rating's own uncertainty (about 5 per cent for a good rating) and the model side carries none that the store publishes. A change of the aggregation day (the model's UTC day against the gauge's Mountain Standard day) moves the daily correlation by about 0.015, which is the size of the one-day lag effect measured here"
 status: draft
 stale_after: 2027-03-15
@@ -171,10 +171,10 @@ chunks 546 to 559; the gauge from this plugin's frozen 2021 record,
 | Nash-Sutcliffe efficiency, flows | -0.030 |
 | Nash-Sutcliffe efficiency, log flows | +0.625 |
 | Kling-Gupta efficiency | 0.122 (correlation 0.952, variability ratio 1.801, mean ratio 1.355) |
-| Seven-day means | correlation +0.962, percent bias +35.3 per cent |
+| Seven-day block means (consecutive non-overlapping seven-day blocks from 1 January, 53 blocks) | correlation +0.962, percent bias +35.3 per cent; a seven-day rolling mean gives +0.964 and +35.7 per cent |
 
 **How to read it.** The model has the year's shape: the recession,
-the low winter flows within 1 m3/s of the gauge, the rise in April
+the low winter flows within 1.1 m3/s of the gauge, the rise in April
 and the fall from July. It has the melt's size wrong by a third, all
 of it in May to August, with a peak a third larger and five days
 later than the gauge's, which is why the efficiency on flows is

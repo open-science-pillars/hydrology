@@ -149,13 +149,24 @@ def _(attest, compute, json, ohio, tmp):
     assert abs(_pt["groundwater_km3"] + _pt["other_storage_km3"] - gw["terms"]["storage"]["km3"]) < 1e-5
     assert abs(_pt["terms_less_groundwater_km3"] - _pt["other_storage_km3"] - gw["residual"]["km3"]) < 1e-5
     assert _pt["groundwater_fraction_of_storage_change"] is None, "dS is within two sigma of zero"
-    assert len(gw["bookkeeping"]) == 4 and "not a sixth term" in gw["bookkeeping"][-1] or "not added to the identity" in gw["bookkeeping"][-1]
+    assert len(gw["bookkeeping"]) == 4 and ("not a sixth term" in gw["bookkeeping"][-1]
+                                           or "not added to the identity" in gw["bookkeeping"][-1])
+    # The sigma is almost entirely the standard-error component; at the
+    # spread it would be 93 km3, and without the Louisville site the term
+    # is a third of a cubic kilometre.
+    assert abs(_g["sigma_components_km3"]["standard_error"] - 14.914) < 0.01
+    assert abs(_g["sigma_components_km3"]["specific_yield"] - 1.393) < 0.01
+    assert abs(_g["sigma_km3_at_spread"] - 93.161) < 0.01
+    _wl = _g["without_largest_site"]
+    assert _wl["sites"] == 38 and len(_wl["site"]) == 12 and abs(_wl["rise_m"] - 3.3384) < 0.001
+    assert abs(_wl["mean_rise_m"] - 0.0031) < 0.001 and abs(_wl["km3"] - 0.339) < 0.01
+    assert _g["parameter"] == "72019" and "connected components" in _g["clustering"]
     assert "dS_gw" in _out and "dS_other" in _out
 
     _rc, _o, _e = attest(gw_path)
     assert _rc == 0, _o + _e
     assert "PASS: groundwater term recomputed from the frozen well set: 50 wells, 39 sites" in _o
-    assert "bar three, plausibility: specific yield 0.21 in (0, 0.5], 39 sites at or above 3" in _o
+    assert "bar three, plausibility: parameter 72019 (depth to water below land surface), specific yield 0.21 in (0, 0.5], 39 sites at or above 3" in _o
     assert "= 0.72 against k = 2.0 -> within the bar" in _o
 
     # A doctored groundwater volume fails bar two on the recompute from
@@ -334,6 +345,11 @@ def _(root, tmp):
                        / "groundwater.json").read_text())
     assert _gw["parameters"]["specific_yield"]["source"]
     assert _gw["selection"]["wells_captured"] == 58 and _gw["selection"]["wells_kept"] == 58
+    _sel = _gw["selection"]
+    assert _sel["wells_covering_window"] == 249 and _sel["inside_polygon"] == 141
+    assert _sel["inside_by_aquifer_type"] == {"U": 62, "C": 34, "M": 3, "X": 1, "none": 41}
+    assert len(_sel["unconfined_without_constructed_depth"]) == 4 and len(_sel["inside_without_aquifer_type_code"]) == 41
+    assert len(_sel["selected"]) == 58 and set(_sel["selected"]) == {w["site"] for w in _gw["wells"]}
     assert len(_gw["captures"]) == 6 and all(c["content_sha256"] and c["capture_id"] for c in _gw["captures"])
     assert all(w["aquifer_type_code"] == "U" and w["capture_id"] for w in _gw["wells"])
     _p = _sp.run(["uv", "run", str(root / "knowledge" / "references" / "attesters" / "basin_water_balance_check.py"),

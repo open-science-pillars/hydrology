@@ -2,32 +2,53 @@
 # requires-python = ">=3.11"
 # dependencies = ["shapely>=2,<3", "numpy>=1.26,<3"]
 # ///
-"""Freeze the groundwater term beside an existing water-balance tree:
-a new tree that copies the frozen files byte for byte and adds
-groundwater.json, the well set behind the water-table fluctuation
-term, with its parameters and their sources.
+"""Select the well set for the groundwater term, and freeze it beside an
+existing water-balance tree: a new tree that copies the frozen files
+byte for byte and adds groundwater.json, the well set behind the
+water-table fluctuation term, with its parameters and their sources.
 
-What is frozen. The daily mean depth to water (USGS parameter 72019,
-statistic 00003, feet below land surface) at every well the captures
-hold, over the tree's window, read out of captures taken with core's
-obs_capture.py (the same tool the discharge term comes through, so
-every series carries a capture id and a content hash); the site file
-of every well from the monitoring-locations collection (the aquifer,
-its type, the constructed depth, the altitude and its datum); the
-selection that produced the well set, re-run here so the counts are
-recorded with the date; and the parameters the executor binds: the
-specific yield with its uncertainty and its source, the averaging
-window at each end of the window, the completeness rule, the
-clustering radius that turns a well field into one site, and the
-smallest site count the term is computed on.
+The selection is performed here, in two modes of one script:
 
-What is not decided here. The executor computes the term from these
-files; this script records inputs and parameters and computes
-nothing that the receipt reports. The screened interval of a well is
-not served by the Water Data API; the constructed depth is the depth
-the site file states, and the receipt says so.
+  --select    run the selection and print the site list to capture,
+              one line of ten bare site numbers per capture, so the
+              captures are taken with core's obs_capture.py exactly
+              over the selected set;
+  (default)   run the selection again, read the captures, refuse a
+              captured set that is not the selected set, fetch nothing
+              that the captures hold, and write the tree.
+
+The selection, with every count recorded in groundwater.json: every
+daily mean series of parameter 72019 (depth to water below land
+surface, feet) with statistic 00003 in the polygon's bounding box
+from the time-series-metadata collection; of those, the wells whose
+record begins on or before the window's start and ends on or after
+its end; of those, by the site file from the monitoring-locations
+collection, the wells inside the polygon, counted by aquifer type
+code; of those, the unconfined wells (aquifer_type_code U, because a
+confined well's head change is not a storage change at specific
+yield); of those, the wells with a constructed depth stated. Wells
+inside the polygon with no aquifer type code, and unconfined wells
+with no constructed depth, are listed by site rather than dropped
+silently.
+
+What is frozen. The captured daily series at every selected well over
+the tree's window (each series with its capture id and content hash);
+the site file of every well (the aquifer, its type, the constructed
+depth, the altitude and its datum; the API serves no screened
+interval, so the constructed depth is the depth stated); the
+selection above with its requests, dates and counts; and the
+parameters the executor binds: the specific yield with its
+uncertainty and its source, the averaging window at each end of the
+window, the completeness rule, the clustering radius that turns a
+well field into one site, and the smallest site count the term is
+computed on. The executor computes the term from these files; this
+script computes nothing that the receipt reports.
 
 Usage:
+  uv run verification/fixtures/water-balance/freeze_groundwater_term.py \
+      --from-tree verification/fixtures/water-balance/ohio-olmsted --select
+  (take the captures: obs_capture.py capture --source usgs-dv -p sites=... \
+      -p parameter_cd=72019 -p start_date=... -p end_date=..., one per line)
   uv run verification/fixtures/water-balance/freeze_groundwater_term.py \
       --from-tree verification/fixtures/water-balance/ohio-olmsted \
       --name ohio-olmsted-groundwater --captures CAPTURE_STORE \
@@ -39,8 +60,8 @@ import datetime as dt
 import hashlib
 import json
 import shutil
-import urllib.parse
 import urllib.request
+from collections import Counter
 from pathlib import Path
 
 from shapely.geometry import Point, shape
@@ -51,22 +72,25 @@ PARAMETER = "72019"
 STATISTIC = "00003"
 
 
+def now_utc() -> str:
+    return dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
 def sha256(path: Path) -> str:
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def get_json(url: str) -> dict:
     req = urllib.request.Request(url, headers={"Accept": "application/json",
-                                               "User-Agent": "osp-hydrology-freeze/0.1"})
+                                               "User-Agent": "osp-hydrology-freeze/0.2"})
     with urllib.request.urlopen(req, timeout=120) as r:
         return json.loads(r.read().decode())
 
 
-def site_records(ids: list[str]) -> dict[str, dict]:
+def site_records(ids: list[str]) -> tuple[dict[str, dict], list[str]]:
     """The monitoring-locations record of every well, fetched in
-    batches, with the request recorded beside the answer."""
-    out = {}
-    requests = []
+    batches, with the requests recorded beside the answer."""
+    out, requests = {}, []
     for i in range(0, len(ids), 40):
         url = (f"{USGS_API}/monitoring-locations/items?f=json&limit=100&id="
                + ",".join(ids[i:i + 40]))
@@ -78,31 +102,75 @@ def site_records(ids: list[str]) -> dict[str, dict]:
     return out, requests
 
 
-def selection_counts(poly, start: str, end: str):
-    """The selection re-run for its counts: every daily 72019 mean
-    series in the polygon's bounding box, those covering the window."""
+def select_wells(poly, start: str, end: str) -> tuple[dict, dict[str, dict]]:
+    """The selection, with every count recorded, and the site records
+    of every candidate so the tree can be written without a second
+    fetch."""
+    pp = prep(poly)
     x0, y0, x1, y1 = poly.bounds
     url = (f"{USGS_API}/time-series-metadata/items?parameter_code={PARAMETER}&statistic_id={STATISTIC}"
            f"&bbox={x0:.2f},{y0:.2f},{x1:.2f},{y1:.2f}&limit=2000&skipGeometry=true&f=json")
+    read_at = now_utc()
     j = get_json(url)
     feats = j.get("features", [])
     covering = sorted({f["properties"]["monitoring_location_id"] for f in feats
                        if (f["properties"].get("begin") or "9") <= start
                        and (f["properties"].get("end") or "0") >= end})
-    return {"request": url, "read_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "series_in_bbox": len(feats), "wells_covering_window": len(covering),
-            "next_link": any(link.get("rel") == "next" for link in j.get("links", []))}, covering
+    records, site_requests = site_records(covering)
+    inside, by_type, no_type, no_depth, kept, no_record = [], Counter(), [], [], [], []
+    for sid in covering:
+        rec = records.get(sid)
+        if rec is None:
+            no_record.append(sid)
+            continue
+        if not pp.contains(Point(rec["lon"], rec["lat"])):
+            continue
+        inside.append(sid)
+        t = rec.get("aquifer_type_code")
+        by_type[t or "none"] += 1
+        if t is None:
+            no_type.append(sid)
+            continue
+        if t != "U":
+            continue
+        if not rec.get("well_constructed_depth"):
+            no_depth.append(sid)
+            continue
+        kept.append(sid)
+    selection = {
+        "request": url, "read_at": read_at,
+        "series_in_bbox": len(feats), "wells_covering_window": len(covering),
+        "next_link": any(link.get("rel") == "next" for link in j.get("links", [])),
+        "criteria": ["a daily mean series of parameter 72019 whose record begins on or before the window's "
+                     "start and ends on or after its end",
+                     "the well inside the basin polygon",
+                     "aquifer type code U (unconfined) in the site file, because a confined well's head "
+                     "change is not a storage change at specific yield",
+                     "a constructed depth stated in the site file"],
+        "wells_without_site_file": no_record,
+        "outside_polygon": len(covering) - len(inside) - len(no_record),
+        "inside_polygon": len(inside),
+        "inside_by_aquifer_type": dict(sorted(by_type.items())),
+        "inside_without_aquifer_type_code": no_type,
+        "unconfined_without_constructed_depth": no_depth,
+        "selected": kept,
+        "site_file_requests": site_requests,
+        "site_file_read_at": now_utc(),
+    }
+    return selection, records
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--from-tree", required=True, type=Path, help="the frozen tree the new one copies")
-    ap.add_argument("--name", required=True, help="the new tree's name")
-    ap.add_argument("--captures", required=True, type=Path, help="the capture store holding the well captures")
-    ap.add_argument("--out", required=True, type=Path)
-    ap.add_argument("--specific-yield", required=True, type=float)
-    ap.add_argument("--specific-yield-sigma", required=True, type=float)
-    ap.add_argument("--specific-yield-source", required=True)
+    ap.add_argument("--select", action="store_true",
+                    help="run the selection and print the site list to capture, ten per line, then stop")
+    ap.add_argument("--name", help="the new tree's name")
+    ap.add_argument("--captures", type=Path, help="the capture store holding the well captures")
+    ap.add_argument("--out", type=Path)
+    ap.add_argument("--specific-yield", type=float)
+    ap.add_argument("--specific-yield-sigma", type=float)
+    ap.add_argument("--specific-yield-source")
     ap.add_argument("--end-window-days", type=int, default=30,
                     help="the level at each end of the window is the mean over this many days inside it")
     ap.add_argument("--min-days-per-end", type=int, default=20,
@@ -116,11 +184,26 @@ def main():
     start, end = src_man["window"]["start"], src_man["window"]["end"]
     basin = json.loads((a.from_tree / "basin.geojson").read_text())
     poly = shape(basin["features"][0]["geometry"])
-    pp = prep(poly)
 
-    # The captures: every usgs-dv capture of parameter 72019 in the store.
-    captures = []
-    series = {}
+    selection, records = select_wells(poly, start, end)
+    print(f"selection: {selection['series_in_bbox']} series in the bounding box, "
+          f"{selection['wells_covering_window']} wells covering {start} to {end}, "
+          f"{selection['inside_polygon']} inside the polygon by aquifer type {selection['inside_by_aquifer_type']}, "
+          f"{len(selection['inside_without_aquifer_type_code'])} without a type code, "
+          f"{len(selection['unconfined_without_constructed_depth'])} unconfined without a constructed depth, "
+          f"{len(selection['selected'])} selected")
+    if a.select:
+        bare = [s.split("-", 1)[1] for s in selection["selected"]]
+        for i in range(0, len(bare), 10):
+            print(",".join(bare[i:i + 10]))
+        return
+
+    for flag in ("name", "captures", "out", "specific_yield", "specific_yield_sigma", "specific_yield_source"):
+        if getattr(a, flag) is None:
+            ap.error(f"--{flag.replace('_', '-')} is required to write a tree")
+
+    # The captures: every usgs-dv capture of parameter 72019 over the window.
+    captures, series = [], {}
     for line in (a.captures / "manifest.jsonl").read_text().splitlines():
         row = json.loads(line)
         if row.get("source") != "usgs-dv" or row.get("params", {}).get("parameter_cd") != PARAMETER:
@@ -143,26 +226,17 @@ def main():
     if not series:
         raise SystemExit("REFUSED: the capture store holds no daily 72019 series")
 
-    ids = sorted(f"USGS-{s}" for s in series)
-    records, site_requests = site_records(ids)
-    selection, covering = selection_counts(poly, start, end)
+    captured = sorted(f"USGS-{s}" for s in series)
+    if set(captured) != set(selection["selected"]):
+        missing = sorted(set(selection["selected"]) - set(captured))
+        extra = sorted(set(captured) - set(selection["selected"]))
+        raise SystemExit(f"REFUSED: the captured set is not the selected set; {len(missing)} selected and not "
+                         f"captured ({', '.join(missing[:5])}), {len(extra)} captured and not selected "
+                         f"({', '.join(extra[:5])}). Run --select and take the captures over its list")
 
-    wells, excluded = [], []
-    for sid in ids:
-        rec = records.get(sid)
-        if rec is None:
-            excluded.append({"site": sid, "reason": "no monitoring-locations record"})
-            continue
-        reasons = []
-        if not pp.contains(Point(rec["lon"], rec["lat"])):
-            reasons.append("outside the basin polygon")
-        if rec.get("aquifer_type_code") != "U":
-            reasons.append(f"aquifer type {rec.get('aquifer_type_code')!r} is not unconfined")
-        if not rec.get("well_constructed_depth"):
-            reasons.append("no constructed depth in the site file")
-        if reasons:
-            excluded.append({"site": sid, "reason": "; ".join(reasons)})
-            continue
+    wells = []
+    for sid in captured:
+        rec = records[sid]
         wells.append({
             "site": sid, "name": rec.get("monitoring_location_name"),
             "lat": rec["lat"], "lon": rec["lon"], "state": rec.get("state_name"), "county": rec.get("county_name"),
@@ -186,18 +260,8 @@ def main():
                  "tool); the site file from the monitoring-locations collection; the candidate set from the "
                  "time-series-metadata collection. A continuously recorded well is a daily series through "
                  "usgs_daily rather than a field-measurements series, as the groundwater connector concept says",
-        "selection": {
-            **selection,
-            "criteria": ["a daily mean series of parameter 72019 whose record begins on or before the window's "
-                         "start and ends on or after its end",
-                         "the well inside the basin polygon",
-                         "aquifer type code U (unconfined) in the site file, because a confined well's head "
-                         "change is not a storage change at specific yield",
-                         "a constructed depth stated in the site file"],
-            "wells_captured": len(ids), "wells_kept": len(wells), "wells_excluded": excluded,
-            "site_file_requests": site_requests,
-            "site_file_read_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        },
+        "selection": {**selection, "wells_captured": len(captured), "wells_kept": len(wells),
+                      "wells_excluded": []},
         "parameters": {
             "specific_yield": {"value": a.specific_yield, "sigma": a.specific_yield_sigma,
                                "source": a.specific_yield_source,
@@ -232,7 +296,7 @@ def main():
                                  "content_sha256": [c["content_sha256"] for c in captures],
                                  "wells": len(wells)}
     manifest = {"basin": a.name, "window": {"start": start, "end": end},
-                "frozen_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                "frozen_at": now_utc(),
                 "frozen_by": "verification/fixtures/water-balance/freeze_groundwater_term.py",
                 "from_tree": {"name": src_man["basin"], "frozen_at": src_man["frozen_at"],
                               "frozen_by": src_man["frozen_by"]},
@@ -242,9 +306,7 @@ def main():
                          "of the groundwater term with their sources")}
     (root / "manifest.json").write_text(json.dumps(manifest, indent=1))
     total = sum((root / f).stat().st_size for f in files)
-    print(f"{root}: {len(files)} files, {total / 1e3:.1f} kB; {len(ids)} wells captured, {len(wells)} kept, "
-          f"{len(excluded)} excluded; {selection['wells_covering_window']} candidates covered the window in the "
-          f"bounding box")
+    print(f"{root}: {len(files)} files, {total / 1e3:.1f} kB; {len(captured)} wells captured and selected")
 
 
 if __name__ == "__main__":

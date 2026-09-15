@@ -231,6 +231,12 @@ def groundwater_term(gw, start, end, area_km2):
     standard error of the site mean, and the spread over sites is
     reported beside it. Fewer than min_sites sites is a refusal of the
     term, not a smaller term."""
+    unit = str(gw.get("unit", ""))
+    if gw.get("parameter") != "72019" or "below land surface" not in unit:
+        die(f"the groundwater well set is parameter {gw.get('parameter')!r} in {unit!r}; the term is computed only "
+            f"from parameter 72019, depth to water below land surface in feet, because the sign convention (a "
+            f"shallower depth is a rise) is that parameter's, and an elevation parameter (62610, 62611, 72150, "
+            f"72229) would compute the term with the sign reversed")
     prm = gw["parameters"]
     sy = float(prm["specific_yield"]["value"])
     sy_sigma = float(prm["specific_yield"]["sigma"])
@@ -283,16 +289,26 @@ def groundwater_term(gw, start, end, area_km2):
                      "rise_ft": round(rise_ft, 4), "rise_m": round(rise_ft * FT_TO_M, 4),
                      "_rise_m": rise_ft * FT_TO_M})
 
-    # Wells within the radius of any member of a cluster join it, in
-    # site order, so the clustering is deterministic.
-    clusters = []
-    for w in used:
-        for c in clusters:
-            if any(haversine_km(w["lat"], w["lon"], m["lat"], m["lon"]) <= radius for m in c):
-                c.append(w)
-                break
-        else:
-            clusters.append([w])
+    # Sites are the connected components of the graph whose edges join
+    # wells within the radius of one another, so the result does not
+    # depend on the order the wells are visited in; the components are
+    # listed by their first member in site order.
+    parent = list(range(len(used)))
+
+    def find(i):
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    for i in range(len(used)):
+        for j in range(i + 1, len(used)):
+            if haversine_km(used[i]["lat"], used[i]["lon"], used[j]["lat"], used[j]["lon"]) <= radius:
+                parent[find(i)] = find(j)
+    groups = {}
+    for i, w in enumerate(used):
+        groups.setdefault(find(i), []).append(w)
+    clusters = sorted(groups.values(), key=lambda c: c[0]["site"])
     site_rises = [float(np.mean([m["_rise_m"] for m in c])) for c in clusters]
     sites = [{"members": [m["site"] for m in c],
               "lat": round(float(np.mean([m["lat"] for m in c])), 5),
@@ -302,6 +318,7 @@ def groundwater_term(gw, start, end, area_km2):
         del w["_rise_m"]
     base = {"method": "water-table fluctuation: specific yield times the mean water-level change over the site "
                       "set times the basin area; a partition of dS, not a term of the identity",
+            "clustering": "sites are the connected components of wells within cluster_radius_km of one another",
             "parameter": gw.get("parameter"), "statistic": gw.get("statistic"), "unit_of_levels": gw.get("unit"),
             "specific_yield": sy, "specific_yield_sigma": sy_sigma,
             "specific_yield_source": prm["specific_yield"]["source"],
@@ -326,12 +343,27 @@ def groundwater_term(gw, start, end, area_km2):
     se_m = sd_m / math.sqrt(len(rises))
     km3 = sy * mean_m * area_km2 * 1e-3                       # m over km2 is 1e-3 km3
     sigma_km3 = area_km2 * 1e-3 * math.hypot(sy_sigma * mean_m, sy * se_m)
+    # The term without its largest site (by the size of the level
+    # change), because one well field can carry the whole mean.
+    largest = max(range(len(sites)), key=lambda i: abs(site_rises[i]))
+    rest = [x for i, x in enumerate(site_rises) if i != largest]
+    mean_rest = float(np.mean(rest)) if rest else 0.0
     return {**base, "refused": False,
             "mean_rise_m": round(mean_m, 4), "median_rise_m": round(float(np.median(rises)), 4),
             "spread_sd_m": round(sd_m, 4), "standard_error_m": round(se_m, 4),
             "min_rise_m": round(float(rises.min()), 4), "max_rise_m": round(float(rises.max()), 4),
             "km3": round(km3, 6), "mm": round(sy * mean_m * 1000, 4),
             "sigma_km3": round(sigma_km3, 6),
+            "sigma_components_km3": {"specific_yield": round(area_km2 * 1e-3 * sy_sigma * abs(mean_m), 6),
+                                     "standard_error": round(area_km2 * 1e-3 * sy * se_m, 6)},
+            "sigma_km3_at_spread": round(area_km2 * 1e-3 * math.hypot(sy_sigma * mean_m, sy * sd_m), 6),
+            "sigma_note": "sigma_km3 uses the standard error of the site mean, which is the sigma of the mean "
+                          "only if the sites are a random sample of the basin's water table; sigma_km3_at_spread "
+                          "uses the spread over sites instead and is the figure for a reader who does not grant "
+                          "that assumption",
+            "without_largest_site": {"site": sites[largest]["members"], "rise_m": round(site_rises[largest], 4),
+                                     "sites": len(rest), "mean_rise_m": round(mean_rest, 4),
+                                     "km3": round(sy * mean_rest * area_km2 * 1e-3, 6)},
             "km3_at_specific_yield_low": round((sy - sy_sigma) * mean_m * area_km2 * 1e-3, 6),
             "km3_at_specific_yield_high": round((sy + sy_sigma) * mean_m * area_km2 * 1e-3, 6),
             "uncertainty_source": TERM_UNCERTAINTY["groundwater"]["source"]}

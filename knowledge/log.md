@@ -49,7 +49,19 @@ _Historical note: older entries use build-era shorthand (a "close lint" is a kno
   is taken from it; the journal pages were not read. The groundwater
   and retrospective connector concepts, the GRACE partitioning recipe
   and the SWOT gauge confrontation recipe are linked, not repeated.
-  knowledge/index.md updated. (process:claude-code)
+  knowledge/index.md updated. Coordinator fix round the same day: the
+  concept's site range corrected (-1.5 to +2.6 m); the attester
+  recomputes every reported groundwater field (millimetres, the
+  specific yield bracket, the standard error, the median, minimum and
+  maximum), the sigma at the spread and the term without its largest
+  site, refuses an elevation parameter as the executor does, and
+  prints the parameter under bar three; sites are connected components
+  in both scripts; the freezing script performs the selection and
+  records its counts; the receipt carries sigma_km3_at_spread, the
+  sigma's components and without_largest_site; the concept names the
+  standard-error assumption, the aquifer breakdown of the well set
+  and the one riverbank well field that carries the term.
+  (process:claude-code)
 - 2026-09-15 · STEWARD SIGNING of
   knowledge/connectors/nwis-groundwater.md,
   knowledge/connectors/hydrocron-lakes.md,
