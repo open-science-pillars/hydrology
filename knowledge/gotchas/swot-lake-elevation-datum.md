@@ -5,6 +5,7 @@ title: "A SWOT lake elevation is a height above the EGM2008 geoid in the mean-ti
 description: "LakeSP and LakeAvg report wse as the ellipsoid height minus geoid_hght, solid_tide, load_tidef and pole_tide, against EGM2008 including the permanent tide, with geoid_hght carried so the value can be re-referenced. The Version C products interpolated the geoid from a file shifted by half an arcminute, an error within plus or minus 50 cm and typically within 10 cm, largest on steep geoid gradients, corrected in Version D along with a change of load tide model, so a series that joins the two families carries a step that is neither water nor instrument. The p_ref_wse in the prior file is the Prior Lake Database's reference elevation for storage change, stated by the release note as not well validated, and a difference between wse and it is not a level change."
 tags: [swot, lakesp, lakeavg, geoid, egm2008, datum, tide-system, p_ref_wse, version, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-15T13:35:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-15T14:24:46Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/66 }
 severity: medium
 upstream: pending
 # medium: the geoid, the tide system and the Version C error are
@@ -13,7 +14,7 @@ upstream: pending
 # and the step is of the order of the stated total uncertainty rather
 # than of the signal, so a single-family series is unaffected.
 dataset: ../datasets/swot-lakes.md
-status: draft
+status: stable
 stale_after: 2027-03-15
 sources:
   - id: pdd-lakesp
