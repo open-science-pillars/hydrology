@@ -50,6 +50,14 @@ _Historical note: older entries use build-era shorthand (a "close lint" is a kno
   and retrospective connector concepts, the GRACE partitioning recipe
   and the SWOT gauge confrontation recipe are linked, not repeated.
   knowledge/index.md updated. (process:claude-code)
+- 2026-09-15 · STEWARD SIGNING of
+  knowledge/connectors/nwis-groundwater.md,
+  knowledge/connectors/hydrocron-lakes.md,
+  knowledge/connectors/nwm-retrospective.md: Maintainer review of the
+  three connector concepts for the observations server's round three
+  tools, merged in PR #67 after the coordinator's lint and fix round;
+  promoted to stable. The verified event is written on the steward's
+  word. (steward)
 
 - 2026-09-15 · STEWARD SIGNING of knowledge/datasets/swot-lakes.md,
   knowledge/gotchas/swot-lake-identity-across-passes.md,

@@ -4,7 +4,8 @@ title: "PO.DAAC Hydrocron SWOT lake series (observations server)"
 description: "SWOT lake water surface elevation and area per prior-database lake through hydrocron_lake_timeseries: the PriorLake feature, the lake_id of the prior lake database, a D-family prior-lake collection named by the tool rather than defaulted by the service, fifty-four accepted field names probed one by one, and units that travel with every row."
 tags: [connector, hydrocron, swot, lakes, lakesp, podaac, mcp, observations]
 generated: { by: process:claude-code, at: 2026-09-15T14:00:00Z }
-status: draft
+verified: { by: human:PaulMRamirez, at: 2026-09-15T17:38:33Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/67 }
+status: stable
 citation:
   access_date_required: true
   authority: https://podaac.jpl.nasa.gov/
