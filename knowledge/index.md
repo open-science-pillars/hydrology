@@ -34,6 +34,7 @@ conflict.
 - [USGS annual peak streamflow (the peaks collection)](datasets/usgs-peaks.md), status: stable
 - [Reservoir area-capacity tables: a survey, not a constant, and Lake Powell's is four per cent smaller than it was](datasets/reclamation-area-capacity.md), status: draft
 - [MODIS and VIIRS daily snow cover (MOD10A1 v61, MOD10A1F v61, VNP10A1 v2): an NDSI index per cell, flag codes above 100, one overpass per day](datasets/modis-viirs-snow-cover.md), status: stable
+- [SWOT lake products: the Prior Lake Database, the LakeSP single-pass files and the LakeAvg cycle average, as a water surface elevation and area series per prior lake](datasets/swot-lakes.md), status: draft
 
 ## gotchas
 
@@ -63,6 +64,8 @@ conflict.
 - [Snow and cloud are confused in both directions, and the algorithm flags name the cases: a cloud fringe read as snow, thin plains snow masked as cloud, and neither reversed by a screen](gotchas/snow-cover-snow-cloud-confusion.md), severity medium, status: stable
 - [A daily snow cover tile is one overpass per cell at the platform's local solar time, chosen by nearest solar noon, nearest nadir and most coverage, not a daily mean or a daily maximum](gotchas/snow-cover-overpass-time-and-compositing.md), severity medium, status: stable
 - [Snow cover is where the snow is, not how much: an observed NDSI index and SNODAS's modelled snow water equivalent are different quantities that arrive as daily grids of the same shape](gotchas/snow-cover-is-not-swe.md), severity low, status: stable
+- [A SWOT lake series is keyed on the prior lake identifier in the prior file: the observed identifier is new every pass, a merged water body carries a semicolon list of prior identifiers, and an equality filter on the obs file silently drops the passes where lakes joined](gotchas/swot-lake-identity-across-passes.md), severity high, status: draft
+- [A SWOT lake elevation is a height above the EGM2008 geoid in the mean-tide system with three tide models removed: the Version C geoid carried an error of up to half a metre that Version D fixed, and the prior reference elevation is a catalogue value, not an observation](gotchas/swot-lake-elevation-datum.md), severity medium, status: draft
 
 ## computations
 
@@ -79,6 +82,7 @@ conflict.
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: stable
 - [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: stable
 - [A basin's terrestrial water storage anomaly from the JPL mascon CRI grid: whole mascons, one pass of the gain factors, the formal error as a floor, and a trend fit around the holes](recipes/grace-basin-tws.md), status: stable
+- [Choosing a precipitation product by terrain and question: IMERG, Daymet, MERRA-2 and NLDAS-2 in complex terrain, at high latitude, in the cold season, for extremes and for long series, with a second product run beside the first as the check](recipes/precipitation-product-by-terrain.md), status: draft
 
 ## connectors
 

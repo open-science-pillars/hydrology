@@ -53,6 +53,7 @@ never restated here.
    - `${CLAUDE_PLUGIN_ROOT}/knowledge/connectors/gesdisc-earthaccess.md`
    - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/imerg-run-mixing.md`
    - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/imerg-cold-season-orographic-underestimation.md`
+   - `${CLAUDE_PLUGIN_ROOT}/knowledge/recipes/precipitation-product-by-terrain.md`
 **Where the files are.** A path a user gives relative to the plugin
 (`verification/fixtures/...`) resolves under `${CLAUDE_PLUGIN_ROOT}`,
 not under the working directory: the fixtures ship with the plugin.

@@ -4,6 +4,55 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-15 · knowledge/datasets/swot-lakes.md,
+  knowledge/gotchas/swot-lake-identity-across-passes.md (severity
+  high, eval case evals/swot-lake-identity-across-passes.yaml),
+  knowledge/gotchas/swot-lake-elevation-datum.md (medium) and
+  knowledge/recipes/precipitation-product-by-terrain.md authored as
+  drafts, no verified event: the SWOT lake products (the Prior Lake
+  Database as the prior file's p_ attributes, LakeSP obs, prior and
+  unassigned, LakeAvg) as a water surface elevation and area series
+  per prior lake, the two traps in keying and referencing that
+  series, and a recipe for choosing among IMERG, Daymet, MERRA-2 and
+  NLDAS-2 by terrain, latitude, season, scale and record length that
+  cites this bundle's IMERG, NLDAS-2 and orographic concepts and the
+  provider bundle's Daymet and MERRA-2 concepts by path at a pinned
+  commit. Sources read live the same day: the PO.DAAC collection
+  pages for SWOT_L2_HR_LakeSP_D, its obs, prior and unassigned
+  sub-collections and SWOT_L2_HR_LakeAvg_D; the CMR collection
+  records and granule probes for the C and D lake families
+  (C3233944983, C3233942286, C3233942291, C3233942295, C3233944980,
+  C2799438230, C2799438239, C2799438247, C2799438254, C2799438221 at
+  POCLOUD, with the DOIs
+  10.5067/SWOT-LAKESP-D, SWOT-LAKEAVG-D, SWOT-LAKESP-2.0 and
+  SWOT-LAKEAVG-2.0) and the searches that found no Prior Lake
+  Database collection at POCLOUD; the LakeSP and LakeAvg Product
+  Description Documents (Revision C, 2025-03-07) and the Version D
+  KaRIn release note (2025-04-23), all three linked from the CMR
+  records; this plugin's frozen Tulare Lake bed LakeSP series; and
+  the Crossref records and abstracts of Beck and others 2019 and
+  2017, Derin and others 2016, Sun and others 2018, Gehne and others
+  2016, Lundquist and others 2019, Daly and others 2008, Xia and
+  others 2012, Reichle and others 2017, Thornton and others 2021,
+  Newman and others 2015, Herold and others 2016 and Tan and others
+  2019, with Henn and others 2018, Tang and others 2020 and
+  Timmermans and others 2019 cited on their registry records only
+  (no abstract on Crossref, publisher pages not reachable). The
+  journal pages sit behind bot checks or outside the reachable
+  domains and are cited on their registry records. The IMERG,
+  NLDAS-2, SWOT river and Hydrocron concepts are linked, not
+  repeated. knowledge/index.md updated. Severity rationale: the
+  identity gotcha is high because an equality filter on the obs
+  file returns a series with the right units and silent gaps, and a
+  substring match returns a merged water body's average as the
+  lake's, with nothing raised; the datum gotcha is medium because
+  the geoid, the tide system and the Version C geoid error are
+  documented behaviour whose step bites only across a family seam or
+  against the catalogue reference, at a size of order the stated
+  total uncertainty. Registration of the eval case in the evals
+  repository's manifest is the coordinator's follow-up.
+  (knowledge-seeder)
+
 - 2026-09-14 · STEWARD RE-SIGNING of
   knowledge/gotchas/grace-basin-below-resolution-floor.md,
   knowledge/gotchas/snow-cover-ndsi-is-not-fraction.md: second
