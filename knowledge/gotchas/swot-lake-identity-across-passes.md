@@ -5,6 +5,7 @@ title: "A SWOT lake series is keyed on the prior lake identifier in the prior fi
 description: "In the LakeSP obs file obs_id names a detected water feature within one cycle and pass and never persists, and lake_id lists every Prior Lake Database lake the feature intersects, semicolon separated and ordered by overlap, so when neighbouring lakes coalesce the value is a list and the elevation is an average over the merged water. Measured over the Tulare Lake bed, July to November 2023, Version D: four of the seventeen observing passes carry merged identifiers, the identifier 7740005332 stands alone on three passes and first in a list on three more, and on 2023-07-30 the single-lake record reads 53.331 m while the merged three-lake record about ten and three quarter hours later reads 54.295 m. An equality filter on one identifier returns a series with silent gaps, a substring match returns another water body's average as this lake's level, and a join on lake_name pulls in neighbours; the prior file, one record per PLD lake per pass, is the key, and the PLD version differs between the C and D families."
 tags: [swot, lakesp, lake_id, obs_id, prior-lake-database, pld, time-series, identity, merge, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-15T13:35:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-15T14:24:46Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/66 }
 severity: high
 upstream: pending
 # high: nothing raises, the filtered series has the right units and a

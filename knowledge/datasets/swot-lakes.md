@@ -5,9 +5,10 @@ title: "SWOT lake products: the Prior Lake Database, the LakeSP single-pass file
 description: "SWOT KaRIn lake products at PO.DAAC: LakeSP, three shapefiles per pass per continent (one record per observed water body, one record per Prior Lake Database lake including unobserved ones, and the unassigned features), each distributed as its own zipped granule in its own sub-collection, and LakeAvg, one shapefile per 21-day cycle per Pfafstetter level-2 basin with one record per prior lake. The series a reader builds is water surface elevation above the EGM2008 geoid, total water area and storage change per prior lake identifier; the Prior Lake Database itself is not a CMR collection at PO.DAAC and reaches the reader as the p_ prefixed attributes of the prior file. Version D is processed against PLD V2.01 and Version C against PLD V1.06."
 tags: [swot, lakes, lakesp, lakeavg, prior-lake-database, pld, water-surface-elevation, storage-change, podaac, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-15T13:35:00Z }
+verified: { by: human:PaulMRamirez, at: 2026-09-15T14:24:46Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/66 }
 resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_LakeSP_D
 version: "Version D (CRID PGD0 reprocessing 2023-03-30 to 2025-04-27, PID0 forward processing from 2025-04-28; Prior Lake Database V2.01; DOI 10.5067/SWOT-LAKESP-D for LakeSP and its three sub-collections, 10.5067/SWOT-LAKEAVG-D for LakeAvg) and Version C (CRIDs PGC0, PIC0, PIC2; PLD V1.06; DOIs 10.5067/SWOT-LAKESP-2.0 and 10.5067/SWOT-LAKEAVG-2.0), CMR-verified 2026-09-15: the D LakeSP sub-collections each hold about 70,860 granules from cycle 474 pass 001 (2023-03-28) through cycle 056 pass 033 (2026-09-11), the C LakeSP family stops at cycle 032 pass 166 (2025-05-03), LakeAvg D holds 5,149 basin-cycle granules from cycle 001 (2023-07-21) through cycle 053 (2026-07-10) and LakeAvg C holds 51"
-status: draft
+status: stable
 upstream: pending
 stale_after: 2027-03-15
 citation:
