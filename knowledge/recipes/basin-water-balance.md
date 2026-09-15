@@ -1,14 +1,14 @@
 ---
 type: recipe
 spheres: [hydrosphere]
-title: "Basin water balance: when the identity can be closed from observations, and what it refuses"
-description: "How to run P + I - ET - Q - X = dS over a basin and a window, what has to be true before it is worth running (a basin above the GRACE footprint floor, a window inside the mascon record, a declared precipitation run), how to read the receipt (the masked fraction, the regulated flag, the epochs and their offsets, the residual against its combined sigma), and the three cases it refuses rather than approximates."
-tags: [water-balance, basin, grace, imerg, mod16, discharge, residual, hydrology]
-generated: { by: claude-code/fable-5, at: 2026-09-07T05:00:00Z }
+title: "Basin water balance: when the identity can be closed from observations, what it refuses, and how the storage term is partitioned into groundwater and the rest"
+description: "How to run P + I - ET - Q - X = dS over a basin and a window, what has to be true before it is worth running (a basin above the GRACE footprint floor, a window inside the mascon record, a declared precipitation run), how to read the receipt (the masked fraction, the regulated flag, the epochs and their offsets, the residual against its combined sigma), the three cases it refuses rather than approximates, and how a well set partitions dS into a groundwater part and the rest at a stated specific yield without moving the residual."
+tags: [water-balance, basin, grace, imerg, mod16, discharge, groundwater, specific-yield, residual, hydrology]
+generated: { by: process:claude-code, at: 2026-09-15T18:30:00Z }
 verified: { by: human:PaulMRamirez, at: 2026-09-07T18:19:02Z }
-inputs: "A frozen input tree for one basin and window: the basin polygon with its equal-area area, the precipitation and evapotranspiration loader receipts, a discharge capture's canonical body, and the basin's mascon series; imports and exports as values with sources, or the explicit assumption of none"
-expected: "Water year 2023 measured on the three fixture basins: Ohio at Olmsted residual +70.174 km3 against a combined sigma of 96.874 (+0.72 sigma, PASS); Colorado above Lees Ferry -19.117 against 19.165 (-1.00 sigma, PASS, outlet regulated, exports term missing); Roaring Fork refused on the storage term at 3.4 per cent of one mascon"
-expected_uncertainty: "The combined sigma is the quadrature sum of four documented one-sigma figures (P 10 per cent, ET 20 per cent, Q 5 per cent at a good rating, dS the product's own per-mascon grid over the square root of the mascons the basin spans); it is dominated by ET on a wet basin and by dS on a dry one"
+inputs: "A frozen input tree for one basin and window: the basin polygon with its equal-area area, the precipitation and evapotranspiration loader receipts, a discharge capture's canonical body, and the basin's mascon series; imports and exports as values with sources, or the explicit assumption of none; optionally the well set for the groundwater term, as usgs-dv captures of daily depth to water with the wells' site files and the parameters (specific yield with its source, end windows, completeness, clustering radius, minimum sites)"
+expected: "Water year 2023 measured on the three fixture basins: Ohio at Olmsted residual +70.174 km3 against a combined sigma of 96.874 (+0.72 sigma, PASS); Colorado above Lees Ferry -19.117 against 19.165 (-1.00 sigma, PASS, outlet regulated, exports term missing); Roaring Fork refused on the storage term at 3.4 per cent of one mascon. On the Ohio with the well set: dS_gw +9.752 +- 14.982 km3 from 39 sites at a specific yield of 0.21 +- 0.03, dS_other -8.569 +- 15.827 km3, the residual unchanged"
+expected_uncertainty: "The combined sigma is the quadrature sum of four documented one-sigma figures (P 10 per cent, ET 20 per cent, Q 5 per cent at a good rating, dS the product's own per-mascon grid over the square root of the mascons the basin spans); it is dominated by ET on a wet basin and by dS on a dry one. The groundwater term's sigma is the quadrature of the specific yield's stated sigma and the standard error of the site mean, and the spread over sites (0.846 m on the Ohio against a mean of 0.089 m) is reported beside it; the term is linear in a specific yield that is a stated assumption"
 status: stable
 stale_after: 2027-03-07
 ---
@@ -17,8 +17,10 @@ stale_after: 2027-03-07
 
 **Method.** Freeze the four terms for one basin and one window, run
 the attested computation over the frozen tree, and read the residual
-against the combined uncertainty of its terms. The computation concept
-holds the contract, the floor derivation and the two bars:
+against the combined uncertainty of its terms. When a well set is
+frozen beside them, read the groundwater part of the storage change
+beside the total. The computation concept holds the contract, the
+floor derivation, the well-set rules and the three bars:
 [basin-water-balance](../computations/basin-water-balance.md).
 
 ## Before it is worth running
@@ -43,6 +45,44 @@ Three questions, in this order, because each can end the exercise:
 If all three pass, the terms are worth freezing. If the first fails,
 the honest deliverable is P, ET and Q with the storage term named as
 refused, which is still a useful description of a basin.
+
+## Adding the groundwater term
+
+The mascons see every store at once. A well set sees one, and the
+water-table fluctuation method turns its level change into a volume:
+the specific yield times the mean rise times the basin area. Freezing
+it beside the four terms is three steps, and the executor does the
+arithmetic from the frozen files:
+
+1. **Find the wells.** The Water Data API's time-series-metadata
+   collection lists every daily series with its parameter, statistic,
+   begin and end: parameter 72019 (depth to water below land surface,
+   feet), statistic 00003, inside the polygon's bounding box, with a
+   record that begins on or before the window's start and ends on or
+   after its end. The groundwater connector concept has the parameter
+   codes and the rule that a continuously recorded well is a daily
+   series, not a field measurement:
+   [nwis-groundwater](../connectors/nwis-groundwater.md).
+2. **Keep the wells the method applies to.** Inside the polygon, the
+   site file's aquifer type unconfined, a constructed depth stated.
+   A confined well's head change is not a drained volume, and the
+   tree records the excluded wells with the reason. The API does not
+   serve a well's screened interval; the constructed depth is the
+   depth the tree states.
+3. **Capture the series and state the parameters.** The daily series
+   go through core's capture tool as usgs-dv captures, the same route
+   as the discharge term, so each carries a capture id and a content
+   hash. The freezing script records the specific yield with its
+   sigma and its source, the end windows, the completeness rule, the
+   clustering radius and the minimum site count, and the executor
+   binds them. On the Ohio tree the value is 0.21 plus or minus 0.03,
+   a gravimetric measurement at an unconfined alluvial aquifer, and
+   the receipt reports the term at 0.18 and 0.24 as well.
+
+The term partitions dS. It is not added to the identity, and the
+residual does not move: adding it would count the groundwater twice,
+once inside the mascons and once from the wells. The receipt's
+bookkeeping lines state which sums were taken.
 
 ## How to read the receipt
 
@@ -72,6 +112,15 @@ refused, which is still a useful description of a basin.
   the Colorado above Lees Ferry the transmountain exports are real,
   unsourced here, and their absence makes the residual an upper bound
   on closure rather than closure.
+- **The groundwater partition, when it is there.** Three numbers
+  travel together: dS_gw with its sigma and its spread over sites,
+  dS_other as dS less dS_gw, and the terms less dS_gw, which equals
+  dS_other plus the residual. A groundwater fraction of dS is reported
+  only when dS is more than two sigma from zero; on the Ohio in water
+  year 2023 it is not, and the receipt says so instead of printing a
+  ratio. The mean and the median rise are both there because a well
+  field that rose 3 m beside the river is one site among 39 and pulls
+  the mean while the median stays below zero.
 
 ## What it refuses
 
@@ -81,11 +130,18 @@ refused, which is still a useful description of a basin.
   difference is not a residual. P minus ET minus Q with the storage
   term silently absent is the shape this refusal is most often
   defeated by, and it reads exactly like a closure to anyone who did
-  not watch it being made.
+  not watch it being made. A groundwater term does not stand in for
+  the refused storage term.
 - **A frozen tree whose bytes have moved** since it was frozen: the
   receipt's whole claim is that these inputs produced these numbers.
 - **An import or export with a value and no source.** An unsourced
   transfer is the term that quietly closes a budget.
+- **A groundwater term on fewer sites than the parameters require**,
+  and, at the attester, a specific yield outside (0, 0.5], a specific
+  yield without a source, or a groundwater change larger than the
+  mascons' total by more than k times their combined sigma: a part
+  larger than the whole is a specific yield or a well set that does
+  not describe the basin.
 
 ## What a pass means, and does not
 
@@ -96,8 +152,10 @@ term can hide inside the uncertainty of a large one, and a wet basin's
 sigma is dominated by evapotranspiration at 20 per cent, which is
 generous enough to swallow a great deal. Bar two asks only that the
 receipt reproduces, which is a statement about bookkeeping rather than
-about hydrology. Quote both bars and the residual ratio, and treat a
-pass as the beginning of an argument.
+about hydrology. Bar three asks whether the groundwater term is
+plausible against the total it partitions, which a wrong specific
+yield fails and a right one merely survives. Quote the bars and the
+residual ratio, and treat a pass as the beginning of an argument.
 
 ## Worked anchors (water year 2023)
 
@@ -106,3 +164,4 @@ pass as the beginning of an argument.
 | Ohio at Olmsted, 524,136 km2 | +70.174 | 96.874 | +0.72 | a large wet basin closing comfortably, its sigma dominated by the evapotranspiration term |
 | Colorado above Lees Ferry, 276,444 km2 | -19.117 | 19.165 | -1.00 | a regulated outlet, a missing exports term, and a storage rise the other terms do not deliver |
 | Roaring Fork, 3,767 km2 | not reported | not applicable | not applicable | the refusal: 3.4 per cent of one mascon |
+| Ohio at Olmsted with the well set | +70.174, unchanged | 96.874 | +0.72 | dS_gw +9.752 +- 14.982 km3 from 39 sites (50 wells, mean rise +0.089 m, spread 0.846 m) at a specific yield of 0.21 +- 0.03; dS_other -8.569 +- 15.827; both parts within a sigma of zero, and no fraction reported |

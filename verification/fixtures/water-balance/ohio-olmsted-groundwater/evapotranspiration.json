@@ -1,0 +1,1135 @@
+{
+ "source": "mod16",
+ "product": "mod16a2gf",
+ "basin": {
+  "fixture": "usgs_03612600_nldi.geojson",
+  "geometry_sha256": "49f8e969acd03457858802669e10c2d20701dbfbd0cb7f13dfad2dc15ad8419a",
+  "site": "USGS-03612600",
+  "area_km2": 524135.9
+ },
+ "window_files": [
+  {
+   "file": "mod16_olmsted_wy2023_h10v05.nc",
+   "product": "mod16a2gf",
+   "short_name": "MOD16A2GF",
+   "version": "061",
+   "doi": "10.5067/MODIS/MOD16A2GF.061",
+   "tile": "h10v05",
+   "retrieved": "2026-09-07T03:06:05Z",
+   "composites": 46,
+   "route": "Cloud OPeNDAP DAP4 constraint expression per granule; archive download with a local cut when a subset request is not netCDF (see the route variable)",
+   "dap4_constraint": "/MOD_Grid_MOD16A2/Data_Fields/ET_500m[394:1414][1461:2399];/MOD_Grid_MOD16A2/Data_Fields/ET_QC_500m[394:1414][1461:2399]",
+   "basin_fixture": "usgs_03612600_nldi.geojson",
+   "basin_geometry_sha256": "49f8e969acd03457858802669e10c2d20701dbfbd0cb7f13dfad2dc15ad8419a",
+   "sha256": "6bfa6d067b59a401a70c86f7add6fd3ece5d9933577a8cff8e95ab45324f732b"
+  },
+  {
+   "file": "mod16_olmsted_wy2023_h11v04.nc",
+   "product": "mod16a2gf",
+   "short_name": "MOD16A2GF",
+   "version": "061",
+   "doi": "10.5067/MODIS/MOD16A2GF.061",
+   "tile": "h11v04",
+   "retrieved": "2026-09-07T03:07:29Z",
+   "composites": 46,
+   "route": "Cloud OPeNDAP DAP4 constraint expression per granule; archive download with a local cut when a subset request is not netCDF (see the route variable)",
+   "dap4_constraint": "/MOD_Grid_MOD16A2/Data_Fields/ET_500m[1811:2398][390:2399];/MOD_Grid_MOD16A2/Data_Fields/ET_QC_500m[1811:2398][390:2399]",
+   "basin_fixture": "usgs_03612600_nldi.geojson",
+   "basin_geometry_sha256": "49f8e969acd03457858802669e10c2d20701dbfbd0cb7f13dfad2dc15ad8419a",
+   "sha256": "a0d481ad2f3a1eccd4a365577366b10d7127a0b4c6e0ddaf14b0cb0256307012"
+  },
+  {
+   "file": "mod16_olmsted_wy2023_h11v05.nc",
+   "product": "mod16a2gf",
+   "short_name": "MOD16A2GF",
+   "version": "061",
+   "doi": "10.5067/MODIS/MOD16A2GF.061",
+   "tile": "h11v05",
+   "retrieved": "2026-09-07T03:08:48Z",
+   "composites": 46,
+   "route": "Cloud OPeNDAP DAP4 constraint expression per granule; archive download with a local cut when a subset request is not netCDF (see the route variable)",
+   "dap4_constraint": "/MOD_Grid_MOD16A2/Data_Fields/ET_500m[1:1414][0:2399];/MOD_Grid_MOD16A2/Data_Fields/ET_QC_500m[1:1414][0:2399]",
+   "basin_fixture": "usgs_03612600_nldi.geojson",
+   "basin_geometry_sha256": "49f8e969acd03457858802669e10c2d20701dbfbd0cb7f13dfad2dc15ad8419a",
+   "sha256": "f0325a6cce11a88c4b207e294819952836f0398042e6f666ea83cdef04f65316"
+  },
+  {
+   "file": "mod16_olmsted_wy2023_h12v04.nc",
+   "product": "mod16a2gf",
+   "short_name": "MOD16A2GF",
+   "version": "061",
+   "doi": "10.5067/MODIS/MOD16A2GF.061",
+   "tile": "h12v04",
+   "retrieved": "2026-09-07T03:12:08Z",
+   "composites": 46,
+   "route": "Cloud OPeNDAP DAP4 constraint expression per granule; archive download with a local cut when a subset request is not netCDF (see the route variable)",
+   "dap4_constraint": "/MOD_Grid_MOD16A2/Data_Fields/ET_500m[1811:2398][0:616];/MOD_Grid_MOD16A2/Data_Fields/ET_QC_500m[1811:2398][0:616]",
+   "basin_fixture": "usgs_03612600_nldi.geojson",
+   "basin_geometry_sha256": "49f8e969acd03457858802669e10c2d20701dbfbd0cb7f13dfad2dc15ad8419a",
+   "sha256": "ead3f16789d65f89e7f5b28f414b992d0045f89d3c464a5b6c5267abb6f41d32"
+  },
+  {
+   "file": "mod16_olmsted_wy2023_h12v05.nc",
+   "product": "mod16a2gf",
+   "short_name": "MOD16A2GF",
+   "version": "061",
+   "doi": "10.5067/MODIS/MOD16A2GF.061",
+   "tile": "h12v05",
+   "retrieved": "2026-09-07T03:12:59Z",
+   "composites": 46,
+   "route": "Cloud OPeNDAP DAP4 constraint expression per granule; archive download with a local cut when a subset request is not netCDF (see the route variable)",
+   "dap4_constraint": "/MOD_Grid_MOD16A2/Data_Fields/ET_500m[1:99][0:88];/MOD_Grid_MOD16A2/Data_Fields/ET_QC_500m[1:99][0:88]",
+   "basin_fixture": "usgs_03612600_nldi.geojson",
+   "basin_geometry_sha256": "49f8e969acd03457858802669e10c2d20701dbfbd0cb7f13dfad2dc15ad8419a",
+   "sha256": "436a68fa3045b4140c59eddf24e9eac1bccdc3b610606e44bc89cec6180e48f5"
+  }
+ ],
+ "window": {
+  "start": "2022-10-01",
+  "end": "2023-09-30",
+  "first_composite": "2022-10-08",
+  "last_composite": "2023-09-30",
+  "composites": 46,
+  "window_files": 5,
+  "composite_days": [
+   5,
+   8
+  ],
+  "short_periods": [
+   {
+    "start": "2022-12-27",
+    "days": 5
+   }
+  ]
+ },
+ "coverage": {
+  "cells_in_window": 5905806,
+  "cells_inside": 2436674,
+  "fraction_of_window_inside": 0.4126,
+  "covered_area_km2": 523053.208,
+  "covered_area_over_polygon_area": 0.9979,
+  "tiles": [
+   "h10v05",
+   "h11v04",
+   "h11v05",
+   "h12v04",
+   "h12v05"
+  ],
+  "masked_fraction_any_composite": 0.0255,
+  "polygon_area_km2": 524135.9,
+  "mean_measured_area_km2": 509714.533,
+  "measured_area_over_polygon_area": 0.9725,
+  "cell_area_km2": 0.214659,
+  "fill_classes_max_cells": {
+   "barren-or-sparse-vegetation": 59,
+   "snow-and-ice": 2,
+   "urban": 43070,
+   "water": 17324,
+   "wetland": 1684
+  },
+  "mean": "mean over cells inside the polygon whose value is in the valid range",
+  "volume": "basin-mean depth times the area those measured cells cover, NOT times the polygon area: the masked part of the basin has no MOD16 estimate and its water loss has to come from somewhere else"
+ },
+ "open_water": "cells the product marks as water (32766) are excluded from the mean: MOD16 computes no open-water evaporation, so this basin mean is land evapotranspiration and any reservoir evaporation has to be added from another source",
+ "monthly": [
+  {
+   "month": "2022-10",
+   "mm": 21.3075,
+   "km3": 10.860738,
+   "days_covered": 24
+  },
+  {
+   "month": "2022-11",
+   "mm": 21.1337,
+   "km3": 10.772135,
+   "days_covered": 30
+  },
+  {
+   "month": "2022-12",
+   "mm": 19.2882,
+   "km3": 9.831461,
+   "days_covered": 31
+  },
+  {
+   "month": "2023-01",
+   "mm": 21.3729,
+   "km3": 10.894083,
+   "days_covered": 31
+  },
+  {
+   "month": "2023-02",
+   "mm": 27.3139,
+   "km3": 13.922303,
+   "days_covered": 28
+  },
+  {
+   "month": "2023-03",
+   "mm": 36.3955,
+   "km3": 18.551295,
+   "days_covered": 31
+  },
+  {
+   "month": "2023-04",
+   "mm": 45.291,
+   "km3": 23.085465,
+   "days_covered": 30
+  },
+  {
+   "month": "2023-05",
+   "mm": 86.3414,
+   "km3": 44.009448,
+   "days_covered": 31
+  },
+  {
+   "month": "2023-06",
+   "mm": 100.5026,
+   "km3": 51.227641,
+   "days_covered": 30
+  },
+  {
+   "month": "2023-07",
+   "mm": 118.7265,
+   "km3": 60.516605,
+   "days_covered": 31
+  },
+  {
+   "month": "2023-08",
+   "mm": 117.5277,
+   "km3": 59.90558,
+   "days_covered": 31
+  },
+  {
+   "month": "2023-09",
+   "mm": 81.5859,
+   "km3": 41.585522,
+   "days_covered": 30
+  }
+ ],
+ "per_composite": [
+  {
+   "start": "2022-10-08",
+   "days": 8,
+   "mm": 8.7983,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 4.484603,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022281.h10v05.061.2023028061439,MOD16A2GF.A2022281.h11v04.061.2023028062505,MOD16A2GF.A2022281.h11v05.061.2023028052955,MOD16A2GF.A2022281.h12v04.061.2023028064018,MOD16A2GF.A2022281.h12v05.061.2023028045128",
+   "tiles": 5
+  },
+  {
+   "start": "2022-10-16",
+   "days": 8,
+   "mm": 6.2819,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 3.201952,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022289.h10v05.061.2023028081050,MOD16A2GF.A2022289.h11v04.061.2023028082352,MOD16A2GF.A2022289.h11v05.061.2023028073034,MOD16A2GF.A2022289.h12v04.061.2023028083121,MOD16A2GF.A2022289.h12v05.061.2023028064543",
+   "tiles": 5
+  },
+  {
+   "start": "2022-10-24",
+   "days": 8,
+   "mm": 6.2274,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 3.174183,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022297.h10v05.061.2023028095628,MOD16A2GF.A2022297.h11v04.061.2023028102450,MOD16A2GF.A2022297.h11v05.061.2023028093245,MOD16A2GF.A2022297.h12v04.061.2023028103349,MOD16A2GF.A2022297.h12v05.061.2023028085627",
+   "tiles": 5
+  },
+  {
+   "start": "2022-11-01",
+   "days": 8,
+   "mm": 6.3897,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 3.256934,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022305.h10v05.061.2023028130941,MOD16A2GF.A2022305.h11v04.061.2023028132925,MOD16A2GF.A2022305.h11v05.061.2023028124119,MOD16A2GF.A2022305.h12v04.061.2023028132514,MOD16A2GF.A2022305.h12v05.061.2023028104115",
+   "tiles": 5
+  },
+  {
+   "start": "2022-11-09",
+   "days": 8,
+   "mm": 5.4611,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 2.783598,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022313.h10v05.061.2023028150251,MOD16A2GF.A2022313.h11v04.061.2023028152819,MOD16A2GF.A2022313.h11v05.061.2023028144305,MOD16A2GF.A2022313.h12v04.061.2023028152554,MOD16A2GF.A2022313.h12v05.061.2023028133205",
+   "tiles": 5
+  },
+  {
+   "start": "2022-11-17",
+   "days": 8,
+   "mm": 4.7945,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 2.44381,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022321.h10v05.061.2023028165033,MOD16A2GF.A2022321.h11v04.061.2023028170315,MOD16A2GF.A2022321.h11v05.061.2023028163433,MOD16A2GF.A2022321.h12v04.061.2023028170311,MOD16A2GF.A2022321.h12v05.061.2023028153022",
+   "tiles": 5
+  },
+  {
+   "start": "2022-11-25",
+   "days": 8,
+   "mm": 5.9845,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 3.05039,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022329.h10v05.061.2023028181948,MOD16A2GF.A2022329.h11v04.061.2023028185558,MOD16A2GF.A2022329.h11v05.061.2023028181830,MOD16A2GF.A2022329.h12v04.061.2023028184414,MOD16A2GF.A2022329.h12v05.061.2023028171254",
+   "tiles": 5
+  },
+  {
+   "start": "2022-12-03",
+   "days": 8,
+   "mm": 5.36,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 2.732077,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022337.h10v05.061.2023028200023,MOD16A2GF.A2022337.h11v04.061.2023028204729,MOD16A2GF.A2022337.h11v05.061.2023028195501,MOD16A2GF.A2022337.h12v04.061.2023028201648,MOD16A2GF.A2022337.h12v05.061.2023028184548",
+   "tiles": 5
+  },
+  {
+   "start": "2022-12-11",
+   "days": 8,
+   "mm": 4.6219,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 2.355865,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022345.h10v05.061.2023028231157,MOD16A2GF.A2022345.h11v04.061.2023029000710,MOD16A2GF.A2022345.h11v05.061.2023028220050,MOD16A2GF.A2022345.h12v04.061.2023028231214,MOD16A2GF.A2022345.h12v05.061.2023028203552",
+   "tiles": 5
+  },
+  {
+   "start": "2022-12-19",
+   "days": 8,
+   "mm": 4.1781,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 2.129635,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022353.h10v05.061.2023029014917,MOD16A2GF.A2022353.h11v04.061.2023029015933,MOD16A2GF.A2022353.h11v05.061.2023029012220,MOD16A2GF.A2022353.h12v04.061.2023029012553,MOD16A2GF.A2022353.h12v05.061.2023028235904",
+   "tiles": 5
+  },
+  {
+   "start": "2022-12-27",
+   "days": 5,
+   "mm": 3.632,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 1.851287,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2022361.h10v05.061.2023029023240,MOD16A2GF.A2022361.h11v04.061.2023029030422,MOD16A2GF.A2022361.h11v05.061.2023029021013,MOD16A2GF.A2022361.h12v04.061.2023029021741,MOD16A2GF.A2022361.h12v05.061.2023029012506",
+   "tiles": 5
+  },
+  {
+   "start": "2023-01-01",
+   "days": 8,
+   "mm": 5.0518,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 2.574998,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023001.h10v05.061.2024024074323,MOD16A2GF.A2023001.h11v04.061.2024024054525,MOD16A2GF.A2023001.h11v05.061.2024024043918,MOD16A2GF.A2023001.h12v04.061.2024024083607,MOD16A2GF.A2023001.h12v05.061.2024024032637",
+   "tiles": 5
+  },
+  {
+   "start": "2023-01-09",
+   "days": 8,
+   "mm": 5.314,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 2.708608,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023009.h10v05.061.2024024162007,MOD16A2GF.A2023009.h11v04.061.2024024125722,MOD16A2GF.A2023009.h11v05.061.2024024112852,MOD16A2GF.A2023009.h12v04.061.2024024153700,MOD16A2GF.A2023009.h12v05.061.2024024090558",
+   "tiles": 5
+  },
+  {
+   "start": "2023-01-17",
+   "days": 8,
+   "mm": 5.8025,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 2.957618,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023017.h10v05.061.2024025185431,MOD16A2GF.A2023017.h11v04.061.2024025140256,MOD16A2GF.A2023017.h11v05.061.2024025080449,MOD16A2GF.A2023017.h12v04.061.2024025184854,MOD16A2GF.A2023017.h12v05.061.2024025053401",
+   "tiles": 5
+  },
+  {
+   "start": "2023-01-25",
+   "days": 8,
+   "mm": 5.9481,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 3.031839,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023025.h10v05.061.2024026002727,MOD16A2GF.A2023025.h11v04.061.2024026004102,MOD16A2GF.A2023025.h11v05.061.2024025205750,MOD16A2GF.A2023025.h12v04.061.2024025214720,MOD16A2GF.A2023025.h12v05.061.2024025223028",
+   "tiles": 5
+  },
+  {
+   "start": "2023-02-02",
+   "days": 8,
+   "mm": 7.1208,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 3.629552,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023033.h10v05.061.2024026031212,MOD16A2GF.A2023033.h11v04.061.2024026030228,MOD16A2GF.A2023033.h11v05.061.2024026013634,MOD16A2GF.A2023033.h12v04.061.2024026014218,MOD16A2GF.A2023033.h12v05.061.2024026020240",
+   "tiles": 5
+  },
+  {
+   "start": "2023-02-10",
+   "days": 8,
+   "mm": 7.161,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 3.650081,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023041.h10v05.061.2024030012801,MOD16A2GF.A2023041.h11v04.061.2024029234014,MOD16A2GF.A2023041.h11v05.061.2024029234228,MOD16A2GF.A2023041.h12v04.061.2024029234334,MOD16A2GF.A2023041.h12v05.061.2024029230520",
+   "tiles": 5
+  },
+  {
+   "start": "2023-02-18",
+   "days": 8,
+   "mm": 8.7448,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 4.457376,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023049.h10v05.061.2024030052003,MOD16A2GF.A2023049.h11v04.061.2024030052826,MOD16A2GF.A2023049.h11v05.061.2024030050613,MOD16A2GF.A2023049.h12v04.061.2024030051348,MOD16A2GF.A2023049.h12v05.061.2024030051014",
+   "tiles": 5
+  },
+  {
+   "start": "2023-02-26",
+   "days": 8,
+   "mm": 9.4501,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 4.816836,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023057.h10v05.061.2024030070800,MOD16A2GF.A2023057.h11v04.061.2024030071512,MOD16A2GF.A2023057.h11v05.061.2024030065114,MOD16A2GF.A2023057.h12v04.061.2024030065824,MOD16A2GF.A2023057.h12v05.061.2024030065419",
+   "tiles": 5
+  },
+  {
+   "start": "2023-03-06",
+   "days": 8,
+   "mm": 8.9019,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 4.537426,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023065.h10v05.061.2024030094723,MOD16A2GF.A2023065.h11v04.061.2024030094732,MOD16A2GF.A2023065.h11v05.061.2024030085929,MOD16A2GF.A2023065.h12v04.061.2024030093402,MOD16A2GF.A2023065.h12v05.061.2024030094805",
+   "tiles": 5
+  },
+  {
+   "start": "2023-03-14",
+   "days": 8,
+   "mm": 7.5883,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 3.86786,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023073.h10v05.061.2024030151240,MOD16A2GF.A2023073.h11v04.061.2024030163657,MOD16A2GF.A2023073.h11v05.061.2024030132236,MOD16A2GF.A2023073.h12v04.061.2024030184849,MOD16A2GF.A2023073.h12v05.061.2024030133758",
+   "tiles": 5
+  },
+  {
+   "start": "2023-03-22",
+   "days": 8,
+   "mm": 11.0751,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 5.645118,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023081.h10v05.061.2024030220606,MOD16A2GF.A2023081.h11v04.061.2024030220751,MOD16A2GF.A2023081.h11v05.061.2024030214950,MOD16A2GF.A2023081.h12v04.061.2024030230541,MOD16A2GF.A2023081.h12v05.061.2024030222133",
+   "tiles": 5
+  },
+  {
+   "start": "2023-03-30",
+   "days": 8,
+   "mm": 11.6957,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 5.961471,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023089.h10v05.061.2024031002620,MOD16A2GF.A2023089.h11v04.061.2024031003848,MOD16A2GF.A2023089.h11v05.061.2024031000822,MOD16A2GF.A2023089.h12v04.061.2024031011927,MOD16A2GF.A2023089.h12v05.061.2024031004301",
+   "tiles": 5
+  },
+  {
+   "start": "2023-04-07",
+   "days": 8,
+   "mm": 8.5946,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 4.380803,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023097.h10v05.061.2024031023622,MOD16A2GF.A2023097.h11v04.061.2024031025953,MOD16A2GF.A2023097.h11v05.061.2024031023446,MOD16A2GF.A2023097.h12v04.061.2024031032533,MOD16A2GF.A2023097.h12v05.061.2024031024708",
+   "tiles": 5
+  },
+  {
+   "start": "2023-04-15",
+   "days": 8,
+   "mm": 14.3722,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 7.325743,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023105.h10v05.061.2024031043415,MOD16A2GF.A2023105.h11v04.061.2024031045810,MOD16A2GF.A2023105.h11v05.061.2024031043001,MOD16A2GF.A2023105.h12v04.061.2024031052156,MOD16A2GF.A2023105.h12v05.061.2024031042819",
+   "tiles": 5
+  },
+  {
+   "start": "2023-04-23",
+   "days": 8,
+   "mm": 13.5523,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 6.907816,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023113.h10v05.061.2024031062746,MOD16A2GF.A2023113.h11v04.061.2024031065609,MOD16A2GF.A2023113.h11v05.061.2024031062932,MOD16A2GF.A2023113.h12v04.061.2024031072316,MOD16A2GF.A2023113.h12v05.061.2024031060420",
+   "tiles": 5
+  },
+  {
+   "start": "2023-05-01",
+   "days": 8,
+   "mm": 17.1592,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 8.746315,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023121.h10v05.061.2024031082916,MOD16A2GF.A2023121.h11v04.061.2024031085452,MOD16A2GF.A2023121.h11v05.061.2024031084122,MOD16A2GF.A2023121.h12v04.061.2024031091645,MOD16A2GF.A2023121.h12v05.061.2024031075706",
+   "tiles": 5
+  },
+  {
+   "start": "2023-05-09",
+   "days": 8,
+   "mm": 22.5718,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 11.505176,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023129.h10v05.061.2024031124152,MOD16A2GF.A2023129.h11v04.061.2024031135434,MOD16A2GF.A2023129.h11v05.061.2024031125542,MOD16A2GF.A2023129.h12v04.061.2024031153918,MOD16A2GF.A2023129.h12v05.061.2024031095014",
+   "tiles": 5
+  },
+  {
+   "start": "2023-05-17",
+   "days": 8,
+   "mm": 24.4256,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 12.450094,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023137.h10v05.061.2024031192659,MOD16A2GF.A2023137.h11v04.061.2024031211015,MOD16A2GF.A2023137.h11v05.061.2024031175730,MOD16A2GF.A2023137.h12v04.061.2024032021737,MOD16A2GF.A2023137.h12v05.061.2024031162238",
+   "tiles": 5
+  },
+  {
+   "start": "2023-05-25",
+   "days": 8,
+   "mm": 25.3539,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 12.923272,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023145.h10v05.061.2024033102945,MOD16A2GF.A2023145.h11v04.061.2024033100958,MOD16A2GF.A2023145.h11v05.061.2024033192803,MOD16A2GF.A2023145.h12v04.061.2024034040846,MOD16A2GF.A2023145.h12v05.061.2024032052831",
+   "tiles": 5
+  },
+  {
+   "start": "2023-06-02",
+   "days": 8,
+   "mm": 26.0021,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 13.253654,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023153.h10v05.061.2024034140238,MOD16A2GF.A2023153.h11v04.061.2024034140444,MOD16A2GF.A2023153.h11v05.061.2024034145733,MOD16A2GF.A2023153.h12v04.061.2024034194254,MOD16A2GF.A2023153.h12v05.061.2024034053111",
+   "tiles": 5
+  },
+  {
+   "start": "2023-06-10",
+   "days": 8,
+   "mm": 25.823,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 13.162381,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023161.h10v05.061.2024034224806,MOD16A2GF.A2023161.h11v04.061.2024034234403,MOD16A2GF.A2023161.h11v05.061.2024035000009,MOD16A2GF.A2023161.h12v04.061.2024035030635,MOD16A2GF.A2023161.h12v05.061.2024034194310",
+   "tiles": 5
+  },
+  {
+   "start": "2023-06-18",
+   "days": 8,
+   "mm": 27.5061,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 14.020249,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023169.h10v05.061.2024035074342,MOD16A2GF.A2023169.h11v04.061.2024035080627,MOD16A2GF.A2023169.h11v05.061.2024035100837,MOD16A2GF.A2023169.h12v04.061.2024035085349,MOD16A2GF.A2023169.h12v05.061.2024035040108",
+   "tiles": 5
+  },
+  {
+   "start": "2023-06-26",
+   "days": 8,
+   "mm": 28.8034,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 14.681518,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023177.h10v05.061.2024035131728,MOD16A2GF.A2023177.h11v04.061.2024035132710,MOD16A2GF.A2023177.h11v05.061.2024035135727,MOD16A2GF.A2023177.h12v04.061.2024035142559,MOD16A2GF.A2023177.h12v05.061.2024035111522",
+   "tiles": 5
+  },
+  {
+   "start": "2023-07-04",
+   "days": 8,
+   "mm": 30.2793,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 15.433801,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023185.h10v05.061.2024035163919,MOD16A2GF.A2023185.h11v04.061.2024035164827,MOD16A2GF.A2023185.h11v05.061.2024035165656,MOD16A2GF.A2023185.h12v04.061.2024035172451,MOD16A2GF.A2023185.h12v05.061.2024035153730",
+   "tiles": 5
+  },
+  {
+   "start": "2023-07-12",
+   "days": 8,
+   "mm": 30.4068,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 15.498787,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023193.h10v05.061.2024035185505,MOD16A2GF.A2023193.h11v04.061.2024035195556,MOD16A2GF.A2023193.h11v05.061.2024035201025,MOD16A2GF.A2023193.h12v04.061.2024035204825,MOD16A2GF.A2023193.h12v05.061.2024035180015",
+   "tiles": 5
+  },
+  {
+   "start": "2023-07-20",
+   "days": 8,
+   "mm": 31.8848,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 16.252171,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023201.h10v05.061.2024035231906,MOD16A2GF.A2023201.h11v04.061.2024035225232,MOD16A2GF.A2023201.h11v05.061.2024036002423,MOD16A2GF.A2023201.h12v04.061.2024036013027,MOD16A2GF.A2023201.h12v05.061.2024035212523",
+   "tiles": 5
+  },
+  {
+   "start": "2023-07-28",
+   "days": 8,
+   "mm": 30.7085,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 15.652554,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023209.h10v05.061.2024036025610,MOD16A2GF.A2023209.h11v04.061.2024036045105,MOD16A2GF.A2023209.h11v05.061.2024036052902,MOD16A2GF.A2023209.h12v04.061.2024036092450,MOD16A2GF.A2023209.h12v05.061.2024036024739",
+   "tiles": 5
+  },
+  {
+   "start": "2023-08-05",
+   "days": 8,
+   "mm": 30.2469,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 15.417267,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023217.h10v05.061.2024036101053,MOD16A2GF.A2023217.h11v04.061.2024036130631,MOD16A2GF.A2023217.h11v05.061.2024036125733,MOD16A2GF.A2023217.h12v04.061.2024036155532,MOD16A2GF.A2023217.h12v05.061.2024036111422",
+   "tiles": 5
+  },
+  {
+   "start": "2023-08-13",
+   "days": 8,
+   "mm": 32.5953,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 16.614323,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023225.h10v05.061.2024036163558,MOD16A2GF.A2023225.h11v04.061.2024036174632,MOD16A2GF.A2023225.h11v05.061.2024036172449,MOD16A2GF.A2023225.h12v04.061.2024036175949,MOD16A2GF.A2023225.h12v05.061.2024036170030",
+   "tiles": 5
+  },
+  {
+   "start": "2023-08-21",
+   "days": 8,
+   "mm": 28.4808,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 14.517056,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023233.h10v05.061.2024036185422,MOD16A2GF.A2023233.h11v04.061.2024036194618,MOD16A2GF.A2023233.h11v05.061.2024036192948,MOD16A2GF.A2023233.h12v04.061.2024036201615,MOD16A2GF.A2023233.h12v05.061.2024036190450",
+   "tiles": 5
+  },
+  {
+   "start": "2023-08-29",
+   "days": 8,
+   "mm": 28.9347,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 14.748419,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023241.h10v05.061.2024036205142,MOD16A2GF.A2023241.h11v04.061.2024036214545,MOD16A2GF.A2023241.h11v05.061.2024036211921,MOD16A2GF.A2023241.h12v04.061.2024036224629,MOD16A2GF.A2023241.h12v05.061.2024036210135",
+   "tiles": 5
+  },
+  {
+   "start": "2023-09-06",
+   "days": 8,
+   "mm": 22.8057,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 11.62439,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023249.h10v05.061.2024036230025,MOD16A2GF.A2023249.h11v04.061.2024036235847,MOD16A2GF.A2023249.h11v05.061.2024036235945,MOD16A2GF.A2023249.h12v04.061.2024037003738,MOD16A2GF.A2023249.h12v05.061.2024036232905",
+   "tiles": 5
+  },
+  {
+   "start": "2023-09-14",
+   "days": 8,
+   "mm": 20.7577,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 10.580526,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023257.h10v05.061.2024037003908,MOD16A2GF.A2023257.h11v04.061.2024037014643,MOD16A2GF.A2023257.h11v05.061.2024037015513,MOD16A2GF.A2023257.h12v04.061.2024037022917,MOD16A2GF.A2023257.h12v05.061.2024037010012",
+   "tiles": 5
+  },
+  {
+   "start": "2023-09-22",
+   "days": 8,
+   "mm": 17.9012,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 9.124496,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023265.h10v05.061.2024037021927,MOD16A2GF.A2023265.h11v04.061.2024037041145,MOD16A2GF.A2023265.h11v05.061.2024037043315,MOD16A2GF.A2023265.h12v04.061.2024037051459,MOD16A2GF.A2023265.h12v05.061.2024037032023",
+   "tiles": 5
+  },
+  {
+   "start": "2023-09-30",
+   "days": 8,
+   "mm": 16.2969,
+   "cells_measured": 2374535,
+   "cells_masked": 62139,
+   "masked_fraction": 0.0255,
+   "measured_area_km2": 509714.533,
+   "km3": 8.306792,
+   "fill_classes": {
+    "barren-or-sparse-vegetation": 59,
+    "snow-and-ice": 2,
+    "urban": 43070,
+    "water": 17324,
+    "wetland": 1684
+   },
+   "label": "061",
+   "granule": "MOD16A2GF.A2023273.h10v05.061.2024037051613,MOD16A2GF.A2023273.h11v04.061.2024037055627,MOD16A2GF.A2023273.h11v05.061.2024037061207,MOD16A2GF.A2023273.h12v04.061.2024037070052,MOD16A2GF.A2023273.h12v05.061.2024037051551",
+   "tiles": 5
+  }
+ ],
+ "total": {
+  "mm": 696.787,
+  "km3": 355.162277,
+  "days": 358
+ }
+}

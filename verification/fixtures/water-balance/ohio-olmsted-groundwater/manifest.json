@@ -1,0 +1,75 @@
+{
+ "basin": "ohio-olmsted-groundwater",
+ "window": {
+  "start": "2022-10-01",
+  "end": "2023-09-30"
+ },
+ "frozen_at": "2026-09-15T18:53:21Z",
+ "frozen_by": "verification/fixtures/water-balance/freeze_groundwater_term.py",
+ "from_tree": {
+  "name": "ohio-olmsted",
+  "frozen_at": "2026-09-07T03:15:34Z",
+  "frozen_by": "verification/fixtures/freeze_water_balance_inputs.py"
+ },
+ "files": {
+  "basin.geojson": {
+   "sha256": "226a1b553c6f82778a9e138b3e70f1f559eb4fd167bdec3e7387c5efa59a552b",
+   "from": "verification/fixtures/basins/usgs_03612600_nldi.geojson",
+   "area_km2": 524135.9,
+   "geometry_sha256": "49f8e969acd03457858802669e10c2d20701dbfbd0cb7f13dfad2dc15ad8419a",
+   "site": "USGS-03612600",
+   "copied_from": "verification/fixtures/water-balance/ohio-olmsted/basin.geojson",
+   "copied_note": "byte for byte from the tree named, so the four terms are the same numbers"
+  },
+  "precipitation.json": {
+   "sha256": "a7ea7483826d910f706c2733b0729aeaac39891b056fce5ca8eebc53ec4341e3",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/p_olmsted.json",
+   "kind": "loader receipt (the grids behind it are refetchable, not stored)",
+   "copied_from": "verification/fixtures/water-balance/ohio-olmsted/precipitation.json",
+   "copied_note": "byte for byte from the tree named, so the four terms are the same numbers"
+  },
+  "evapotranspiration.json": {
+   "sha256": "0a081adfeece7eca04b08ef98b2769b41a99d98da4989bdf98edf182b7897c1e",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/et_olmsted.json",
+   "kind": "loader receipt (the grids behind it are refetchable, not stored)",
+   "copied_from": "verification/fixtures/water-balance/ohio-olmsted/evapotranspiration.json",
+   "copied_note": "byte for byte from the tree named, so the four terms are the same numbers"
+  },
+  "discharge.json": {
+   "sha256": "23b8cb78816bfec666628c8d894943e8a0d117934f2c8e74d6fb7264a9296cfe",
+   "capture_id": "20260907T031403Z-bdde0fb1",
+   "content_sha256": "bdde0fb1c9a9c2aeea1b88336bd326a4edd4e845e833958f1fb9f1c1953f2e59",
+   "copied_from": "verification/fixtures/water-balance/ohio-olmsted/discharge.json",
+   "copied_note": "byte for byte from the tree named, so the four terms are the same numbers"
+  },
+  "storage.json": {
+   "sha256": "f349e05aa2fb838ff001535a53f08cc26efc64fd60b57afefad3b0069393f36f",
+   "from": "/Users/pramirez/.claude/jobs/7612e702/tmp/okf/hydro/h5/grace/GRCTellus.JPL.200204_202606.GLO.RL06.3M.MSCNv04CRI.nc",
+   "granule_sha256": "d5a6737bd0406ef4e9ea72c825ea95c6693a15faf2027e52be491efa8cf89bbd",
+   "copied_from": "verification/fixtures/water-balance/ohio-olmsted/storage.json",
+   "copied_note": "byte for byte from the tree named, so the four terms are the same numbers"
+  },
+  "groundwater.json": {
+   "sha256": "7be4a408f79d8d63b4e64d1dfb67622c1cfbde4e38f87ac1a3c908087ff19bfa",
+   "kind": "well set for the groundwater term, from captures",
+   "captures": [
+    "20260915T175104Z-547c91be",
+    "20260915T175109Z-b7965a41",
+    "20260915T175113Z-06f456bd",
+    "20260915T175118Z-4c430c43",
+    "20260915T175123Z-37c2a0d8",
+    "20260915T175128Z-918c385c"
+   ],
+   "content_sha256": [
+    "547c91bedfb24739dc75a3533b87bac1262345434de6d98b864d48daea5e7e23",
+    "b7965a411d741fdc33784bff710551f03936cdac0164a2fe3a0437f242be760f",
+    "06f456bda9777f063493f6ea359e8d2ed58d83cb0d2422fb62b3f7ca78094ad1",
+    "4c430c43ad265333cdf4d1e5b6e087ba4450397e56facaf98f0259159c46c868",
+    "37c2a0d8f8b292b957e9ea934569b34bb15324fa817a3e6dace1bd57d8ec76d0",
+    "918c385c72ad34d813498e9f0fefdc381ea464cdc2839e4b8d3473a2eedb76db"
+   ],
+   "wells": 58
+  }
+ },
+ "note": "the executor reads this tree and nothing else; the four terms' files are the originating tree's bytes, and groundwater.json adds the well set and the parameters of the groundwater term with their sources"
+}

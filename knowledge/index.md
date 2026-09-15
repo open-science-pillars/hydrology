@@ -69,15 +69,16 @@ conflict.
 
 ## computations
 
-- [Basin water balance from observations: P + I - ET - Q - X = dS, with a footprint floor that refuses small basins](computations/basin-water-balance.md), status: stable
+- [Basin water balance from observations: P + I - ET - Q - X = dS, with a footprint floor that refuses small basins and a groundwater partition of the storage term](computations/basin-water-balance.md), status: stable
 
 ## recipes
 
-- [Basin water balance: when the identity can be closed from observations, and what it refuses](recipes/basin-water-balance.md), status: stable
+- [Basin water balance: when the identity can be closed from observations, what it refuses, and how the storage term is partitioned into groundwater and the rest](recipes/basin-water-balance.md), status: stable
 - [Event reconstruction: a receipted timeline for an event no budget can close](recipes/event-reconstruction.md), status: stable
 - [Drought anatomy: five panels, five sets of facts, and no single number](recipes/drought-anatomy.md), status: stable
 - [Reservoir ledger: a budget in volume units that reports its residual instead of closing](recipes/reservoir-ledger.md), status: draft
 - [Confronting a satellite river elevation with a gauge: score the changes, publish the level difference, call neither a bias](recipes/swot-gauge-confrontation.md), status: stable
+- [Confronting a gauge's daily flow with the National Water Model retrospective at the same reach: model output beside the record, the clocks named, the volume and the timing scored apart](recipes/nwm-gauge-confrontation.md), status: draft
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: stable
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: stable
 - [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: stable

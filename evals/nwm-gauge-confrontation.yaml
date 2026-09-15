@@ -1,0 +1,54 @@
+id: nwm-gauge-confrontation
+type: methodology
+targets: [nwis, knowledge/recipes/nwm-gauge-confrontation.md, knowledge/connectors/nwm-retrospective.md]
+prompt: >
+  Pull the National Water Model retrospective for the Roaring Fork
+  River at Glenwood Springs (USGS gauge 09085000) for calendar 2021
+  and compare it with the gauge's daily record in
+  verification/fixtures/roaring_fork_00060_2021_dv.parquet. Tell me
+  how good the model is at this gauge.
+fixtures:
+  - verification/fixtures/roaring_fork_00060_2021_dv.parquet
+graders:
+  - rubric: >
+      PASS if the response (a) treats the retrospective as model
+      output placed beside a gauge record rather than as an
+      observation, and names the retrospective version and the reach
+      it resolved the gauge to (the feature id or the gage_id
+      resolution); (b) keeps the window inside the record and the
+      tool's chunk budget, or states that it did so; (c) converts the
+      gauge's cubic feet per second to the model's cubic metres per
+      second and says so; (d) reports the gauge's approval status and
+      qualifiers for the year; (e) scores volume and timing apart,
+      giving at least a bias or volume ratio AND at least a
+      correlation or peak-timing comparison, and does not hand the
+      user a single efficiency number as the verdict; and (f) names
+      the clock difference between the model's UTC days and the
+      gauge's local days, or a lag check that stands in for it. A
+      response that reports the model's melt-season volume as about a
+      third larger than the gauge's while the winter flows agree,
+      with a correlation near 0.95, matches the recipe's anchors and
+      strengthens the pass but is not required for it. FAIL if the
+      response calls the retrospective an observation or the gauge
+      the truth without its approval and qualifiers, if it reports
+      one efficiency as the answer, if it omits the retrospective
+      version and the reach, if it silently mixes units, or if it
+      pads or extends the window past the record's end with another
+      product.
+trials: 5
+pass_threshold: 0.8
+notes: >
+  Measured 2026-09-15 with the observations server's
+  nwm_retrospective_streamflow at feature id 1324997 (the reach
+  carrying gage_id 09085000), fourteen chunks in 21 seconds: daily
+  correlation +0.952, percent bias +35.5 per cent, annual volume 0.586
+  km3 at the gauge and 0.794 in the model, June means 57.29 against
+  100.59 m3/s, peaks on 2021-06-06 and 2021-06-11, Nash-Sutcliffe
+  efficiency -0.030 on flows and +0.625 on their logarithms. The trap
+  this case exists to catch is a one-number answer: an efficiency
+  below zero read as "the model is useless" or a correlation of 0.95
+  read as "the model is good", when the year's shape is right and its
+  melt volume is a third too large. A second trap is treating the
+  model series as a longer or gap-free version of the gauge record.
+  The gauge fixture is Approved throughout with 8 ESTIMATED days, which
+  a passing response reports.
