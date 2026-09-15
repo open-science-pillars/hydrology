@@ -25,7 +25,7 @@ sources:
     resource: https://noaa-nwm-retrospective-3-0-pds.s3.amazonaws.com/CONUS/zarr/chrtout.zarr/streamflow/0.72
     title: "Live decode 2026-09-15 of the first time chunk for the reach carrying gage_id 09380000 (Colorado River at Lees Ferry): feature index 2164136, feature_id 20733845, chunk column 72 offset 4136; 8,660 reaches carry a gauge id; the daily means for February 1979 sit near 507 m3/s on every day while the USGS daily record for 09380000 over the same days runs from 282 to 606 m3/s (9,980 to 21,400 ft3/s), the model holding a near-constant release below Glen Canyon Dam where the gauge records the operations"
   - id: usgs-lees-ferry
-    resource: "``https://api.waterdata.usgs.gov/ogcapi/v0/collections/daily/items?monitoring_location_id=USGS-09380000&parameter_code=00060&datetime=1979-02-01/1979-03-01&f=json"``
+    resource: "https://api.waterdata.usgs.gov/ogcapi/v0/collections/daily/items?monitoring_location_id=USGS-09380000&parameter_code=00060&datetime=1979-02-01/1979-03-01&f=json"
     title: "The USGS daily discharge at 09380000 for February 1979, read 2026-09-15 for the comparison above"
   - id: streamflow-connector
     resource: usgs-water.md

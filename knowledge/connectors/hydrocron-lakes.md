@@ -14,7 +14,7 @@ citation:
 stale_after: 2027-03-15
 sources:
   - id: service-probe
-    resource: "``https://soto.podaac.earthdatacloud.nasa.gov/hydrocron/v1/timeseries?feature=PriorLake&feature_id=6350036102&start_time=2024-01-01T00:00:00Z&end_time=2024-06-30T00:00:00Z&fields=lake_id,time_str,wse,area_total,quality_f&collection_name=SWOT_L2_HR_LakeSP_prior_D"``
+    resource: "https://soto.podaac.earthdatacloud.nasa.gov/hydrocron/v1/timeseries?feature=PriorLake&feature_id=6350036102&start_time=2024-01-01T00:00:00Z&end_time=2024-06-30T00:00:00Z&fields=lake_id,time_str,wse,area_total,quality_f&collection_name=SWOT_L2_HR_LakeSP_prior_D"
     title: "Live probe 2026-09-15 of the timeseries endpoint for PriorLake 6350036102 (lake_name LAGOA GUA CLARA, near 19.82S 42.59W): 15 passes between 2024-01-17 and 2024-06-30 in 63 ms, the first at 260.889 m with area 0.575579 km^2 and quality_f 0; wse_units m and area_total_units km^2 returned beside the values; anonymous"
   - id: fields-probe
     resource: https://soto.podaac.earthdatacloud.nasa.gov/hydrocron/v1/timeseries
