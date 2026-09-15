@@ -62,6 +62,19 @@ _Historical note: older entries use build-era shorthand (a "close lint" is a kno
   total uncertainty. Registration of the eval case in the evals
   repository's manifest is the coordinator's follow-up.
   (knowledge-seeder)
+- 2026-09-15 · knowledge/connectors/nwis-groundwater.md,
+  knowledge/connectors/hydrocron-lakes.md,
+  knowledge/connectors/nwm-retrospective.md drafted for the three
+  hydrology tools of the observations server's round three
+  (nwis_groundwater_levels, hydrocron_lake_timeseries,
+  nwm_retrospective_streamflow; core issue 43): the Water Data API
+  probed live (no groundwater collection; field-measurements holds the
+  readings; the parameter codes and their datums), the Hydrocron lake
+  path probed live field by field (the documentation host unreachable
+  from the session, stated in the concept), the retrospective's zarr
+  store read and decoded at the Lees Ferry reach against the USGS
+  daily record; status draft pending steward review (drafting
+  session, connector seed)
 
 - 2026-09-14 · STEWARD RE-SIGNING of
   knowledge/gotchas/grace-basin-below-resolution-floor.md,

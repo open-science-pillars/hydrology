@@ -87,8 +87,11 @@ conflict.
 ## connectors
 
 - [USGS stream gauges: the Water Data API (observations server and dataretrieval)](connectors/usgs-water.md), status: stable
+- [USGS groundwater levels: the Water Data API field-measurements collection](connectors/nwis-groundwater.md), status: draft
 - [PO.DAAC Hydrocron SWOT river series](connectors/hydrocron-swot.md), status: stable
+- [PO.DAAC Hydrocron SWOT lake series](connectors/hydrocron-lakes.md), status: draft
 - [USGS NLDI basin tracing: the polygon upstream of a gauge or a snapped point](connectors/nldi-basin.md), status: stable
 - [GES DISC through earthaccess: Earthdata Login plus a one-time application authorization, and the window pull over Cloud OPeNDAP](connectors/gesdisc-earthaccess.md), status: stable
 - [The OpenET API: a key in a header, a per-request area cap that no basin clears, and a 120-day window in which values change](connectors/openet-api.md), status: stable
 - [SNODAS: a registered collection with no granules, served from a dated directory](connectors/snodas-nsidc.md), status: stable
+- [The NOAA National Water Model retrospective, version 3.0, on AWS](connectors/nwm-retrospective.md), status: draft
