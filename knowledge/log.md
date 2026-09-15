@@ -4,6 +4,15 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-15 · STEWARD SIGNING of
+  knowledge/connectors/nwis-groundwater.md,
+  knowledge/connectors/hydrocron-lakes.md,
+  knowledge/connectors/nwm-retrospective.md: Maintainer review of the
+  three connector concepts for the observations server's round three
+  tools, merged in PR #67 after the coordinator's lint and fix round;
+  promoted to stable. The verified event is written on the steward's
+  word. (steward)
+
 - 2026-09-15 · STEWARD SIGNING of knowledge/datasets/swot-lakes.md,
   knowledge/gotchas/swot-lake-identity-across-passes.md,
   knowledge/gotchas/swot-lake-elevation-datum.md,

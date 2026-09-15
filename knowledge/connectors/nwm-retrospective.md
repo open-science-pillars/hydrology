@@ -4,7 +4,8 @@ title: "The NOAA National Water Model retrospective, version 3.0, on AWS (observ
 description: "Daily mean streamflow at one reach through nwm_retrospective_streamflow, read anonymously from the public bucket noaa-nwm-retrospective-3-0-pds: a zarr store of hourly channel output for 2,776,734 reaches over 385,704 hours from 1979-02-01, chunked 672 hours by 30,000 reaches, integers scaled by 0.01 to cubic metres per second with the fill -999900, keyed by NHDPlus v2 ComID and carrying a gage_id axis that names the USGS gauge on a reach. It is model output, not an observation."
 tags: [connector, nwm, national-water-model, retrospective, streamflow, noaa, aws, zarr, mcp, observations]
 generated: { by: process:claude-code, at: 2026-09-15T14:00:00Z }
-status: draft
+verified: { by: human:PaulMRamirez, at: 2026-09-15T17:38:33Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/67 }
+status: stable
 citation:
   access_date_required: true
   authority: https://noaa-nwm-retrospective-3-0-pds.s3.amazonaws.com/

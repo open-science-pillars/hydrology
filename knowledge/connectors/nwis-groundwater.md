@@ -4,7 +4,8 @@ title: "USGS groundwater levels: the Water Data API field-measurements collectio
 description: "Discrete groundwater levels through nwis_groundwater_levels on api.waterdata.usgs.gov. The API has no groundwater collection of its own: the readings taken on site visits live in field-measurements, parameter 72019 is depth to water below land surface in feet, and the elevation codes 62610, 62611, 72150 and 72229 each name the datum the elevation stands on. A continuously recorded well is a daily series through usgs_daily. The paging, the optional key and the no-retry rule on 429 are the streamflow connector's."
 tags: [connector, usgs, nwis, groundwater, wells, water-level, mcp, observations, waterdata]
 generated: { by: process:claude-code, at: 2026-09-15T14:00:00Z }
-status: draft
+verified: { by: human:PaulMRamirez, at: 2026-09-15T17:38:33Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/67 }
+status: stable
 citation:
   access_date_required: true
   authority: https://waterdata.usgs.gov/
