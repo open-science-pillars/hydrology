@@ -31,6 +31,17 @@ plugin resolves to today:
   their `_u` fields, the quality gates, the simulated-collection trap:
   `knowledge/datasets/swot-river-lake.md`;
 - the reach-vs-node scope trap: `knowledge/gotchas/swot-reach-node-scope.md`;
+- the lake products (the Prior Lake Database, LakeSP obs, prior and
+  unassigned, LakeAvg) as an elevation and area series per prior lake:
+  `knowledge/datasets/swot-lakes.md`;
+- the lake identity trap (the prior file's lake identifier is the key,
+  the obs file's is a list when lakes merge):
+  `knowledge/gotchas/swot-lake-identity-across-passes.md`;
+- the lake elevation datum (EGM2008, the Version C geoid error, the
+  prior reference elevation):
+  `knowledge/gotchas/swot-lake-elevation-datum.md`;
+- a lake elevation against a gauge on a national datum:
+  `knowledge/gotchas/swot-gauge-datum-mismatch.md`;
 - the interactive reach and node series endpoint:
   `knowledge/connectors/hydrocron-swot.md`;
 - the lake path for reservoirs without a gauge:
