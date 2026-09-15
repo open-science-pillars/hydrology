@@ -6,8 +6,8 @@ description: "How a precipitation product is chosen for a basin question from wh
 tags: [precipitation, imerg, daymet, merra-2, nldas-2, terrain, orographic, high-latitude, cold-season, extremes, long-series, product-choice, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-15T13:35:00Z }
 inputs: "The question (a budget term over a basin and a window, an event series, the tail of the daily distribution, a trend, or a cold-season total); the basin polygon and its location (inside or outside the conterminous United States and North America, its relief, its latitude); the window; and the four products as their concepts describe them: GPM IMERG V07 daily (GPM_3IMERGDF, GPM_3IMERGDL, GPM_3IMERGDE at GES DISC, this bundle's concept), NLDAS-2 File A hourly forcing (NLDAS_FORA0125_H 2.0 at GES DISC, this bundle's concept), Daymet Version 4 R1 daily prcp (Daymet_Daily_V4R1_2129 at ORNL DAAC, the provider bundle's concept) and MERRA-2 PRECTOTCORR and PRECTOT in M2T1NXFLX and M2TMNXFLX (GES DISC, the provider bundle's concept); the method a basin mean per product computed with each grid's own cell areas over the same polygon and window, and the ratio of the two totals reported beside the chosen product's value"
-expected: "A choice stated with its reason, and two basin series over the same polygon and window with their totals and ratio. The one measured anchor this bundle owns is the orographic gotcha's: over the Colorado River basin above Lees Ferry for water year 2023, IMERG Final is 0.86 of the NLDAS-2 total for the year and 0.68 for November through March, and 1.06 for April through September, so a cold-season total from IMERG over snow-covered high terrain in the conterminous United States is expected to sit well below the gauge-based one and a warm-season total near it. No anchor is recorded yet for Daymet or MERRA-2 against either; a first one is added from a receipt over a named basin, never from a remembered value"
-expected_uncertainty: "The disagreement between the two products over the same polygon and window is the precipitation uncertainty carried into a budget, and it is reported as two estimates and a ratio, never as a correction applied to one. Its size is scope-dependent: the review of thirty global data sets found annual land precipitation deviating by as much as 300 mm per year among products, with the largest differences in complex mountain areas and some high-latitude regions, and the comparison of eleven global estimates found annual differences over continental regions around 0.8 mm per day. Each product's own error statement is a floor beneath that: IMERG carries no per-cell uncertainty in the daily file, NLDAS-2 inherits the gauge network's undercatch and sparsity with a climatological terrain ratio, Daymet's cross-validation error is a station-level statistic that is larger in station-sparse and high-relief regions than its domain average, and MERRA-2 ships no error field, with the analysis increment and the observing-system epochs standing in"
+expected: "A choice stated with its reason, and two basin series over the same polygon and window with their totals and ratio. The one measured anchor this bundle owns is the orographic gotcha's: over the Colorado River basin above Lees Ferry for water year 2023, IMERG Final is 0.86 of the NLDAS-2 total for the year and 0.68 for November through March, and 1.06 for April through September, so a cold-season total from IMERG over snow-covered high terrain in the conterminous United States is expected to sit well below the gauge-based one and a warm-season total near it. No anchor is recorded yet for Daymet or MERRA-2 against either; the first one recorded here will be a receipt over a named basin"
+expected_uncertainty: "The disagreement between the two products over the same polygon and window is the precipitation uncertainty carried into a budget, and it is reported as two estimates and a ratio, never as a correction applied to one. Its size is scope-dependent: the review of thirty global data sets found annual land precipitation deviating by as much as 300 mm per year among products, with the largest differences in complex mountain areas and some high-latitude regions, and the comparison of eleven global estimates (three high-resolution products, four climate data records and four reanalyses) found annual differences over continental regions around 0.8 mm per day. Each product's own error statement is a floor beneath that: IMERG carries no per-cell uncertainty in the daily file, NLDAS-2 inherits the gauge network's undercatch and sparsity with a climatological terrain ratio, Daymet's cross-validation error is a station-level statistic that is larger in station-sparse and high-relief regions than its domain average, and MERRA-2 ships no error field, with the analysis increment and the observing-system epochs standing in"
 sources:
   - id: imerg
     resource: ../datasets/imerg-v07.md
@@ -45,6 +45,9 @@ sources:
   - id: merra2-streams
     resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/2f04d4d6952c35e841a6f4088953cb0f5332de89/knowledge/gesdisc/gotchas/merra2-stream-boundaries-and-discontinuities.md
     title: "The provider bundle's stream-boundary gotcha (knowledge/gesdisc/gotchas/merra2-stream-boundaries-and-discontinuities.md): four production streams joined at 1992, 2001 and 2011, the reprocessed months, and the documented observing-system steps"
+  - id: merra2-time
+    resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/2f04d4d6952c35e841a6f4088953cb0f5332de89/knowledge/gesdisc/gotchas/merra2-time-stamp-conventions.md
+    title: "The provider bundle's time-stamp gotcha (knowledge/gesdisc/gotchas/merra2-time-stamp-conventions.md): the hourly time-averaged collections are stamped at the half hour and the instantaneous ones on the hour"
   - id: merra2-grid
     resource: https://github.com/open-science-pillars/nasa-daac-knowledge/blob/2f04d4d6952c35e841a6f4088953cb0f5332de89/knowledge/gesdisc/gotchas/merra2-grid-weights.md
     title: "The provider bundle's grid-weights gotcha (knowledge/gesdisc/gotchas/merra2-grid-weights.md): the regular latitude-longitude grid has no area variable and a plain mean over-represents high latitudes"
@@ -62,7 +65,7 @@ sources:
     title: "Sun, Miao, Duan, Ashouri, Sorooshian and Hsu, 2018, A Review of Global Precipitation Data Sets: Data Sources, Estimation, and Intercomparisons, Reviews of Geophysics 56 (record and abstract read on the Crossref registry 2026-09-15: thirty data sets, annual land precipitation deviating by as much as 300 mm per year among products, reanalyses the most variable, the largest annual and seasonal differences in tropical oceans, complex mountain areas, northern Africa and some high-latitude regions, and reliability limited by station coverage, satellite algorithms and assimilation models; the journal page sits behind a bot check)"
   - id: gehne-2016
     resource: https://doi.org/10.1175/JCLI-D-15-0618.1
-    title: "Gehne, Hamill, Kiladis and Trenberth, 2016, Comparison of Global Precipitation Estimates across a Range of Temporal and Spatial Scales, Journal of Climate 29 (record and abstract read on the Crossref registry 2026-09-15: high-resolution products aim at the best local snapshot, climate data records at homogeneity, reanalysis precipitation is forecast rather than assimilated and compares poorly to gauges, and annual differences over continental regions are around 0.8 mm per day; the journal page sits behind a bot check)"
+    title: "Gehne, Hamill, Kiladis and Trenberth, 2016, Comparison of Global Precipitation Estimates across a Range of Temporal and Spatial Scales, Journal of Climate 29 (record and abstract read on the Crossref registry 2026-09-15: eleven estimates compared, three high-resolution products, four climate data records and four reanalyses; high-resolution products aim at the best local snapshot, climate data records at homogeneity, reanalysis precipitation is forecast rather than assimilated and compares poorly to gauges, and annual differences over continental regions are around 0.8 mm per day; the journal page sits behind a bot check)"
   - id: lundquist-2019
     resource: https://doi.org/10.1175/BAMS-D-19-0001.1
     title: "Lundquist, Hughes, Gutmann and Kapnick, 2019, Our Skill in Modeling Mountain Rain and Snow is Bypassing the Skill of Our Observational Networks, Bulletin of the American Meteorological Society 100 (record and abstract read on the Crossref registry 2026-09-15: in mountain terrain well-configured high-resolution atmospheric models simulate annual rain and snowfall better than spatial estimates from gauge networks and significantly better than radar or satellite estimates, judged against streamflow and snow in basins across the western United States and elsewhere; the journal page sits behind a bot check)"
@@ -74,7 +77,7 @@ sources:
     title: "Xia, Mitchell, Ek, Sheffield, Cosgrove, Wood and others, 2012, Continental-scale water and energy flux analysis and validation for the North American Land Data Assimilation System project phase 2 (NLDAS-2): 1. Intercomparison and application of model products, Journal of Geophysical Research: Atmospheres 117 (record and abstract read on the Crossref registry 2026-09-15: the increased accuracy and consistency of the surface forcing over NLDAS-1, the 1979 to 2008 retrospective window, and the largest remaining inter-model differences in the northeast, Lake Superior and the western mountains, associated with cold-season processes; the journal page sits behind a bot check)"
   - id: reichle-2017
     resource: https://doi.org/10.1175/JCLI-D-16-0570.1
-    title: "Reichle, Liu, Koster, Draper, Mahanama and Partyka, 2017, Land Surface Precipitation in MERRA-2, Journal of Climate 30 (record and abstract read on the Crossref registry 2026-09-15: observation-based products correct the precipitation falling on the land surface outside the high latitudes, the corrected field is better than the model's against monthly GPCP, and at high latitudes the lack of reliable precipitation observations leaves land spin-up effects in the first published year of each stream, 1980, 1992, 2001 and 2011; the journal page sits behind a bot check)"
+    title: "Reichle, Liu, Koster, Draper, Mahanama and Partyka, 2017, Land Surface Precipitation in MERRA-2, Journal of Climate 30 (record and abstract read on the Crossref registry 2026-09-15: observation-based products correct the precipitation falling on the land surface outside the high latitudes, the corrected field is better than the model's against monthly GPCP, its diurnal cycle against three-hourly TRMM has better amplitude but less realistic phasing than the model-generated precipitation, and at high latitudes the lack of reliable precipitation observations leaves land spin-up effects in the first published year of each stream, 1980, 1992, 2001 and 2011; the journal page sits behind a bot check)"
   - id: thornton-2021
     resource: https://doi.org/10.1038/s41597-021-00973-0
     title: "Thornton, Shrestha, Thornton, Kao, Wei and Wilson, 2021, Gridded daily weather data for North America with comprehensive uncertainty quantification, Scientific Data 8 (record and abstract read on the Crossref registry 2026-09-15: Daymet V4 as a 40-year daily 1 km dataset with cross-validation uncertainty for temperature and precipitation, and a new approach to high-elevation temperature measurement biases)"
@@ -97,7 +100,7 @@ sources:
     resource: https://doi.org/10.1007/s00382-018-4537-0
     title: "Timmermans, Wehner, Cooley, O'Brien and Krishnan, 2019, An evaluation of the consistency of extremes in gridded precipitation data sets, Climate Dynamics 52 (registry record only: no abstract on Crossref and the publisher page answered 403, so only the title, authors, journal and year are cited)"
 status: draft
-stale_after: 2027-03-15
+stale_after: 2026-12-01
 ---
 
 # Choosing a precipitation product by terrain and question
@@ -105,19 +108,20 @@ stale_after: 2027-03-15
 **What is being chosen.** Four products answer "how much
 precipitation fell on this basin" from four different kinds of
 evidence, and the evidence, not the grid spacing, is what decides
-where each is trustworthy. The facts about each product live in its
-own concept and are not repeated here: IMERG and NLDAS-2 in this
-bundle, Daymet and MERRA-2 in the provider bundle at
+where each is trustworthy. The table is the summary the choice turns
+on; each product's concept owns the details and the current record
+bounds: IMERG and NLDAS-2 in this bundle, Daymet and MERRA-2 in the
+provider bundle at
 `knowledge/ornldaac/datasets/daymet-v4.md` and
 `knowledge/gesdisc/datasets/merra-2.md` in
 nasa-daac-knowledge.[^imerg][^nldas][^daymet][^merra2]
 
 | Product | Evidence | Grid and domain | Record | Where terrain enters |
 |---|---|---|---|---|
-| IMERG V07 | passive-microwave constellation calibrated to the GPM combined product, infrared fill between overpasses; Final adjusted monthly to the GPCC gauge analysis, Early and Late by a climatological ratio | 0.1 degree, global (the 60 N to 60 S band before V06) | daily Final 2000-06-01 to 2025-09-30, Late and Early to yesterday | not at all in the retrieval; the Final adjustment is a monthly ratio at GPCC gauge density[^imerg][^tan-2019] |
-| NLDAS-2 File A | the CPC gauge-only daily analysis with the PRISM orographic adjustment, disaggregated to hours by radar, CMORPH or NARR weights | 0.125 degree, conterminous United States and margins (longitude -125 to -67, latitude 25 to 53) | hourly from 1979-01-01 | through the PRISM climatological ratio, a climate-elevation regression per cell[^nldas][^daly-2008] |
-| Daymet V4 R1 | interpolation and extrapolation of GHCN-daily station observations with distance and elevation weights | 1 km Lambert conformal conic, continental North America, Hawaii and Puerto Rico | daily from 1980 (Puerto Rico from 1950), through the last complete calendar year | through the elevation weighting, with error growing where stations are sparse and relief high[^daymet][^daymet-sparse][^thornton-2021] |
-| MERRA-2 | the GEOS-5 reanalysis; PRECTOTCORR corrected toward gauge and satellite products outside the high latitudes, PRECTOT the model's own | 0.625 by 0.5 degree, global | hourly and monthly from 1980-01-01 | through the model's resolved orography and the correction's gauge inputs, which fade to nothing poleward of 62.5 degrees[^merra2][^merra2-corr][^reichle-2017] |
+| IMERG V07 | passive-microwave constellation calibrated to the GPM combined product, infrared fill between overpasses; Final adjusted monthly to the GPCC gauge analysis, Early and Late by a climatological ratio | 0.1 degree, global (the 60 N to 60 S band before V06) | from June 2000; the Final end date and the run seams are the IMERG concept's | not at all in the retrieval; the Final adjustment is a monthly ratio at GPCC gauge density[^imerg][^tan-2019] |
+| NLDAS-2 File A | the CPC gauge-only daily analysis with the PRISM orographic adjustment, disaggregated to hours by radar, CMORPH or NARR weights | 0.125 degree, conterminous United States and margins | hourly from 1979; the NLDAS-2 concept's | through the PRISM climatological ratio, a climate-elevation regression per cell[^nldas][^daly-2008] |
+| Daymet V4 R1 | interpolation and extrapolation of GHCN-daily station observations with distance and elevation weights | 1 km Lambert conformal conic, continental North America, Hawaii and Puerto Rico | daily from 1980; the Daymet concept's | through the elevation weighting, with error growing where stations are sparse and relief high[^daymet][^daymet-sparse][^thornton-2021] |
+| MERRA-2 | the GEOS-5 reanalysis; PRECTOTCORR corrected toward gauge and satellite products outside the high latitudes, PRECTOT the model's own | 0.625 by 0.5 degree, global | hourly and monthly from 1980; the MERRA-2 concept's | through the model's resolved orography and the correction's gauge inputs, which fade to nothing poleward of 62.5 degrees[^merra2][^merra2-corr][^reichle-2017] |
 
 **Method.**
 
@@ -188,9 +192,10 @@ nasa-daac-knowledge.[^imerg][^nldas][^daymet][^merra2]
    says so.
 5. **Cold season.** Snow is where IMERG's level is lowest: the
    release notes call snowfall rates over land low and ask that they
-   be examined critically, and the measured ratio of IMERG Final to
-   NLDAS-2 over the Colorado headwaters is 0.68 for November through
-   March against 0.86 for the water year.[^imerg][^imerg-orographic]
+   be examined critically, and the orographic gotcha's measured
+   ratios of IMERG Final to NLDAS-2 over the Colorado headwaters,
+   quoted in this recipe's expected values, put the November through
+   March shortfall well below the water-year one.[^imerg][^imerg-orographic]
    The reanalyses performed better in winter and the satellite
    products in summer in the CONUS daily evaluation, and the land
    models NLDAS-2 drives, with forcing whose accuracy and consistency
@@ -200,16 +205,25 @@ nasa-daac-knowledge.[^imerg][^nldas][^daymet][^merra2]
    gauge analyses see snow through gauges that undercatch it in wind,
    which is what the Final run's undercatch correction and the NLDAS-2
    concept's error statement both name.[^imerg][^nldas] A cold-season
-   total in the conterminous United States is NLDAS-2 or Daymet with
-   IMERG beside it; outside, it is MERRA-2 PRECTOTCORR below the
-   blend latitudes with IMERG beside it, and above them two products
-   that are both models of a sort.
+   total in the conterminous United States is NLDAS-2 with IMERG
+   beside it; Daymet stands in only where its cross-validation files
+   for the region are read, since no Daymet anchor against either is
+   recorded here and the PRISM comparison found Daymet's grids the
+   weaker in the mountainous west.[^daymet-sparse][^daly-2008] Outside
+   the NLDAS-2 domain the orographic gotcha names the national gauge
+   analysis that covers the basin as the check; where none is at
+   hand, MERRA-2 PRECTOTCORR equatorward of 42.5 degrees is the CPC
+   unified gauge analysis disaggregated by the model and serves as
+   that check, and poleward of 62.5 degrees it is not a gauge product
+   at all, so there the pair is two products that are both models of
+   a sort.[^imerg-orographic][^merra2-corr]
 6. **Extremes.** A cell value is an areal mean, and the spread in
    daily intensity among gauge, satellite and reanalysis data sets is
    large and only partly reconciled by the scale each grid
    represents.[^herold-2016] IMERG at 0.1 degree and half-hourly
-   resolution is the finest of the four in time and does best in
-   convective regions; NLDAS-2's hourly shape comes from the radar
+   resolution is the finest of the four in time and outperformed the
+   ERA5 reanalysis in convective regions in the CONUS daily
+   evaluation; NLDAS-2's hourly shape comes from the radar
    weights while its daily total is the gauge analysis; Daymet is a
    daily station interpolation on a fine grid whose intensity is the
    stations' smoothed by the interpolation; MERRA-2's hourly
@@ -240,17 +254,17 @@ nasa-daac-knowledge.[^imerg][^nldas][^daymet][^merra2]
    mean is area-weighted on its own grid, and the time conventions
    are each product's own: NLDAS-2 stamps the hour ending at the
    stamp, Daymet drops December 31 in leap years, and MERRA-2's
-   averaged collections are stamped at the half hour.[^nldas][^daymet-365][^merra2]
+   averaged collections are stamped at the half hour.[^nldas][^daymet-365][^merra2-time]
 
 **The check.** The deliverable is the chosen product's basin series
 with a second product's series over the same polygon and window, both
-totals and their ratio, with the seams each crosses named. Over the
-Colorado River basin above Lees Ferry for water year 2023 the pair
-IMERG Final and NLDAS-2 gave 0.86 for the year and 0.68 for November
-through March, which is the size the disagreement takes over
-snow-covered high terrain with a dense network beside it, and the
-orographic gotcha holds the month-by-month table and the fixtures
-that reproduce it.[^imerg-orographic] Where the two products are both
+totals and their ratio, with the seams each crosses named. The
+orographic gotcha's water-year 2023 pair over the Colorado River
+basin above Lees Ferry, IMERG Final beside NLDAS-2, is the measured
+example of the size the disagreement takes over snow-covered high
+terrain with a dense network beside it; its ratios are this recipe's
+expected values, and the gotcha holds the month-by-month table and
+the fixtures that reproduce it.[^imerg-orographic] Where the two products are both
 without gauges, the ratio measures agreement between two models of
 the same missing observation, and the statement says that rather
 than reading the agreement as skill.
@@ -281,6 +295,7 @@ commit cited, and nothing was re-derived from the product pages here.
 [^merra2-corr]: the provider bundle's PRECTOTCORR versus PRECTOT gotcha
 [^merra2-streams]: the provider bundle's MERRA-2 stream-boundary gotcha
 [^merra2-grid]: the provider bundle's MERRA-2 grid-weights gotcha
+[^merra2-time]: the provider bundle's MERRA-2 time-stamp gotcha
 [^beck-2019]: Beck and others, 2019, Hydrology and Earth System Sciences, doi:10.5194/hess-23-207-2019
 [^beck-2017]: Beck and others, 2017, Hydrology and Earth System Sciences, doi:10.5194/hess-21-6201-2017
 [^derin-2016]: Derin and others, 2016, Journal of Hydrometeorology, doi:10.1175/JHM-D-15-0197.1

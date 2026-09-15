@@ -23,12 +23,12 @@ graders:
       response to state that the elevation on a merged row is an
       average over the merged water body, and to key the series on the
       prior lake identifier in the PLD-oriented (Prior) file, one
-      record per prior lake per pass, or, if it stays with the Obs
-      rows, to label every merged row as the merged complex's level
-      rather than the lake's and to say which rows those are.
-      Reporting the level change with the merged rows distinguished,
-      or declining a single number until the Prior file is read,
-      strengthens a pass. FAIL if the response accepts the three rows
+      record per prior lake per pass, as the series to deliver.
+      Labelling the merged Obs rows as the merged complex's level
+      rather than the lake's, reporting the level change with those
+      rows distinguished, or declining a single number until the
+      Prior file is read, strengthens a pass but does not replace the
+      Prior-file keying. FAIL if the response accepts the three rows
       as the lake's series and reports a change from them, if it
       attributes the gaps to swath coverage, dark water or the lake
       being missing from the prior database without raising the
@@ -38,12 +38,16 @@ graders:
 trials: 5
 pass_threshold: 0.8
 notes: >
-  The fixture holds seventeen observing passes; three rows carry the
-  identifier alone, four more carry it first or second in a semicolon
-  list, and the merged rows differ from the single-lake rows by up to
-  about a metre on the same day (53.331 m alone and 54.295 m merged on
-  2023-07-30). The user's filter is the natural one and their reading
-  of the gaps as missed passes is the natural one; a response that
-  only widens the match to a substring and reports the seven rows as
-  one series has fallen into the second form of the trap. The prompt
+  The fixture holds seventeen observing passes; four rows carry a
+  semicolon list, three rows carry the identifier alone, three more
+  carry it first in a list, and the merged rows differ from the
+  single-lake rows by up to about a metre on the same day (53.331 m
+  alone and 54.295 m merged 10 hours 41 minutes later on 2023-07-30).
+  The user's filter is the natural one and their reading of the gaps
+  as missed passes is the natural one; a response that only widens
+  the match to a substring and reports the six rows as one series has
+  fallen into the second form of the trap. Keying on the Prior file
+  is required for a pass because the fixture already flags its merged
+  rows, so labelling them is not evidence that the concept was
+  applied. The prompt
   states the task and never mentions lists, merging or the Prior file.

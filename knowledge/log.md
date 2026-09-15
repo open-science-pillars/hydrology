@@ -22,7 +22,8 @@ _Historical note: older entries use build-era shorthand (a "close lint" is a kno
   sub-collections and SWOT_L2_HR_LakeAvg_D; the CMR collection
   records and granule probes for the C and D lake families
   (C3233944983, C3233942286, C3233942291, C3233942295, C3233944980,
-  C2799438230, C2799438247, C2799438221 at POCLOUD, with the DOIs
+  C2799438230, C2799438239, C2799438247, C2799438254, C2799438221 at
+  POCLOUD, with the DOIs
   10.5067/SWOT-LAKESP-D, SWOT-LAKEAVG-D, SWOT-LAKESP-2.0 and
   SWOT-LAKEAVG-2.0) and the searches that found no Prior Lake
   Database collection at POCLOUD; the LakeSP and LakeAvg Product

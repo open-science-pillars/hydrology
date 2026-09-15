@@ -2,10 +2,11 @@
 type: dataset-gotcha
 spheres: [hydrosphere]
 title: "A SWOT lake series is keyed on the prior lake identifier in the prior file: the observed identifier is new every pass, a merged water body carries a semicolon list of prior identifiers, and an equality filter on the obs file silently drops the passes where lakes joined"
-description: "In the LakeSP obs file obs_id names a detected water feature within one cycle and pass and never persists, and lake_id lists every Prior Lake Database lake the feature intersects, semicolon separated and ordered by overlap, so when neighbouring lakes coalesce the value is a list and the elevation is an average over the merged water. Measured over the Tulare Lake bed, July to November 2023, Version D: five of the seventeen observing passes carry merged identifiers, and on 2023-07-30 the single-lake record reads 53.331 m while the merged three-lake record twelve hours later reads 54.295 m. An equality filter on one identifier returns a series with silent gaps, a substring match returns another water body's average as this lake's level, and a join on lake_name pulls in neighbours; the prior file, one record per PLD lake per pass, is the key, and the PLD version differs between the C and D families."
+description: "In the LakeSP obs file obs_id names a detected water feature within one cycle and pass and never persists, and lake_id lists every Prior Lake Database lake the feature intersects, semicolon separated and ordered by overlap, so when neighbouring lakes coalesce the value is a list and the elevation is an average over the merged water. Measured over the Tulare Lake bed, July to November 2023, Version D: four of the seventeen observing passes carry merged identifiers, the identifier 7740005332 stands alone on three passes and first in a list on three more, and on 2023-07-30 the single-lake record reads 53.331 m while the merged three-lake record about ten and three quarter hours later reads 54.295 m. An equality filter on one identifier returns a series with silent gaps, a substring match returns another water body's average as this lake's level, and a join on lake_name pulls in neighbours; the prior file, one record per PLD lake per pass, is the key, and the PLD version differs between the C and D families."
 tags: [swot, lakesp, lake_id, obs_id, prior-lake-database, pld, time-series, identity, merge, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-15T13:35:00Z }
 severity: high
+upstream: pending
 # high: nothing raises, the filtered series has the right units and a
 # plausible shape, and the passes it lost or the neighbour it absorbed
 # are invisible without the concept; the eval case tests avoidance.
@@ -61,17 +62,20 @@ there, and not when the lake is partially observed.[^pdd-lakesp]
 **Measured (fixture retrieved 2026-09-07).** Over the Tulare Lake
 bed, Version D, July to November 2023, seventeen granules observed
 the four prior lakes on the valley floor (7740005332, 7740005342,
-7740005352, 7740005572). Five of the seventeen rows carry a merged
+7740005352, 7740005572). Four of the seventeen rows carry a merged
 identifier, and the merges are not the same lakes each time: on
 2023-07-30 at 13:05 UTC a single feature carries 7740005332 alone at
-53.331 m, and at 23:46 UTC the same day one feature carries
-7740005332;7740005352;7740005342 at 54.295 m; on 2023-08-09 the list
-is 7740005332;7740005572;7740005352 at 53.070 m; on 2023-08-31 one
-feature carries 7740005332;7740005572 beside a separate 7740005352;
-on 2023-09-21 the list is 7740005572;7740005352. The same identifier
-therefore appears alone, first in a list, and second in a list within
-one season, and the merged records differ from the single-lake
-records by up to about a metre on the same day.[^fixture] At Lake
+53.331 m, and at 23:46 UTC the same day, 10 hours 41 minutes later,
+one feature carries 7740005332;7740005352;7740005342 at 54.295 m; on
+2023-08-09 the list is 7740005332;7740005572;7740005352 at 53.070 m;
+on 2023-08-31 one feature carries 7740005332;7740005572 beside a
+separate 7740005352; on 2023-09-21 the list is 7740005572;7740005352.
+The identifier 7740005332 stands alone on three passes and first in
+every list it joins, while 7740005352 stands alone on eleven passes
+and appears second or third in three lists, so within one season the
+same identifier is alone, second and third, and the merged records
+differ from the single-lake records by up to about a metre on the
+same day.[^fixture] At Lake
 Powell on one pass, eleven features inside a box around the
 reservoir belong to two prior lakes, three carrying the reservoir's
 identifier within 0.3 m and eight belonging to an arm complex ranging
@@ -108,10 +112,10 @@ series that spans the C and D families names the PLD version of each
 catalogue the family was processed with.[^relnote-d]
 
 **Verification.** Over the Tulare fixture, count the rows whose
-identifier field contains a semicolon (five of seventeen) and compare
+identifier field contains a semicolon (four of seventeen) and compare
 the series filtered by equality on 7740005332 (three rows) with the
-series of rows whose list contains it (seven rows); the difference is
-the passes an equality filter loses, and the merged rows' elevations
+series of rows whose list contains it (six rows); the difference is
+the three passes an equality filter loses, and the merged rows' elevations
 are the ones a substring match would misattribute.[^fixture] On any
 granule, open the prior file and confirm one record per `lake_id`
 with `n_overlap` giving the number of observed features behind it.

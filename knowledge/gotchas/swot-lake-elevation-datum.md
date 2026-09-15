@@ -6,6 +6,7 @@ description: "LakeSP and LakeAvg report wse as the ellipsoid height minus geoid_
 tags: [swot, lakesp, lakeavg, geoid, egm2008, datum, tide-system, p_ref_wse, version, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-15T13:35:00Z }
 severity: medium
+upstream: pending
 # medium: the geoid, the tide system and the Version C error are
 # documented product behaviour; the trap bites through a series that
 # mixes families or a difference against the catalogue reference,
@@ -23,7 +24,7 @@ sources:
     title: "SWOT L2_HR_LakeAvg Product Description Document, Revision C, 2025-03-07, read 2026-09-15: the measured hydrological parameters section stating the cycle elevations are relative to EGM2008 with the LakeSP corrections already applied"
   - id: relnote-d
     resource: https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-docs/web-misc/swot_mission_docs/SWOT_VersionD_KaRIn_Products_Release_Note_20250423b.pdf
-    title: "Release Note, SWOT Version D KaRIn Science Data Products, 2025-04-23, read 2026-09-15: the C to D change table (geoid bug fix, FES2014 to FES2022b load tide, height calibration refinement), the Version C known issue describing the geoid error and its size, and the known issue that storage change and the PLD reference elevations are not well validated"
+    title: "Release Note, SWOT Version D KaRIn Science Data Products, 2025-04-23, read 2026-09-15: the C to D change table (geoid bug fix, FES2014 to FES2022b load tide, the height calibration refinement stated as O(5 mm) short-wavelength changes in SSH and WSE, improved pixel selection for lakes), the Version C known issue describing the geoid error and its size, and the known issue that storage change and the PLD reference elevations are not well validated"
   - id: dataset
     resource: ../datasets/swot-lakes.md
     title: "This bundle's SWOT lake products concept: the families, the series and the storage change attributes"
@@ -100,10 +101,13 @@ national datum is the separate case the gauge datum gotcha
 holds.[^pdd-lakesp][^relnote-d][^gauge-datum][^dataset]
 
 **Verification.** For one lake observed on the same pass in a
-Version C and a Version D granule, read `geoid_hght` from each; the
-difference is the geoid correction at that lake and is the step a
-joined series would carry, and `wse` plus `geoid_hght` agrees between
-the two to within the height calibration refinement. Read the .prj
+Version C and a Version D granule, read `geoid_hght` from each; the difference is the geoid correction at that lake and is the step a
+joined series would carry; `wse` plus `geoid_hght`, the ellipsoid
+height, differs between the two by the other Version D changes the
+release note lists for lakes (the height calibration refinement of
+order 5 mm, the load tide model from FES2014 to FES2022b and the
+improved pixel selection), so the geoid step is read from
+`geoid_hght` alone and not from the elevations. Read the .prj
 file for the ellipsoid and the .shp.xml metadata for the geoid and
 tide model names.[^pdd-lakesp][^relnote-d]
 

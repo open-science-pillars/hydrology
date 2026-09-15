@@ -2,7 +2,7 @@
 type: dataset
 spheres: [hydrosphere]
 title: "SWOT lake products: the Prior Lake Database, the LakeSP single-pass files and the LakeAvg cycle average, as a water surface elevation and area series per prior lake"
-description: "SWOT KaRIn lake products at PO.DAAC: LakeSP, one granule per pass per continent holding three zipped shapefiles (one record per observed water body, one record per Prior Lake Database lake including unobserved ones, and the unassigned features), and LakeAvg, one shapefile per 21-day cycle per Pfafstetter level-2 basin with one record per prior lake. The series a reader builds is water surface elevation above the EGM2008 geoid, total water area and storage change per prior lake identifier; the Prior Lake Database itself is not a CMR collection at PO.DAAC and reaches the reader as the p_ prefixed attributes of the prior file. Version D is processed against PLD V2.01 and Version C against PLD V1.06."
+description: "SWOT KaRIn lake products at PO.DAAC: LakeSP, three shapefiles per pass per continent (one record per observed water body, one record per Prior Lake Database lake including unobserved ones, and the unassigned features), each distributed as its own zipped granule in its own sub-collection, and LakeAvg, one shapefile per 21-day cycle per Pfafstetter level-2 basin with one record per prior lake. The series a reader builds is water surface elevation above the EGM2008 geoid, total water area and storage change per prior lake identifier; the Prior Lake Database itself is not a CMR collection at PO.DAAC and reaches the reader as the p_ prefixed attributes of the prior file. Version D is processed against PLD V2.01 and Version C against PLD V1.06."
 tags: [swot, lakes, lakesp, lakeavg, prior-lake-database, pld, water-surface-elevation, storage-change, podaac, hydrology]
 generated: { by: knowledge-seeder/claude, at: 2026-09-15T13:35:00Z }
 resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_LakeSP_D
@@ -19,25 +19,25 @@ citation:
 sources:
   - id: podaac-lakesp
     resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_LakeSP_D
-    title: "PO.DAAC collection page for SWOT_L2_HR_LakeSP_D, read 2026-09-15 with its obs, prior and unassigned sub-collection pages: the product description (three shapefiles per granule, the reference to the WGS84 ellipsoid corrected for geoid height, tides and path delays, the storage change in the PLD-oriented file), DOI 10.5067/SWOT-LAKESP-D, swath width 120 km, coverage 2022-12-16 to present"
+    title: "PO.DAAC collection page for SWOT_L2_HR_LakeSP_D, read 2026-09-15 with its obs, prior and unassigned sub-collection pages: the product description (three shapefiles per granule, the reference to the WGS84 ellipsoid corrected for geoid height, tides and path delays, the storage change in the PLD-oriented file), DOI 10.5067/SWOT-LAKESP-D, the page's swath width of 120 km, coverage 2022-12-16 to present"
   - id: podaac-lakeavg
     resource: https://podaac.jpl.nasa.gov/dataset/SWOT_L2_HR_LakeAvg_D
     title: "PO.DAAC collection page for SWOT_L2_HR_LakeAvg_D, read 2026-09-15: the one-sentence description (cycle average and aggregation of lake pass data within predefined hydrological basins), DOI 10.5067/SWOT-LAKEAVG-D"
   - id: cmr-lakesp
     resource: https://cmr.earthdata.nasa.gov/search/concepts/C3233944983-POCLOUD.umm_json
-    title: "CMR collection records read 2026-09-15 for SWOT_L2_HR_LakeSP_D (C3233944983-POCLOUD) and its sub-collections obs (C3233942286), prior (C3233942291) and unassigned (C3233942295), and for the Version C family SWOT_L2_HR_LakeSP_2.0 (C2799438230, DOI 10.5067/SWOT-LAKESP-2.0) with obs (C2799438239), prior (C2799438247) and unassigned (C2799438254): abstracts, DOIs, the related-URL links to the PDD, ATBD and release note, and the granule counts and first and newest granules from start-date-sorted granule searches the same day"
+    title: "CMR collection records read 2026-09-15 for SWOT_L2_HR_LakeSP_D (C3233944983-POCLOUD) and its sub-collections obs (C3233942286), prior (C3233942291) and unassigned (C3233942295), and for the Version C family SWOT_L2_HR_LakeSP_2.0 (C2799438230, DOI 10.5067/SWOT-LAKESP-2.0) with obs (C2799438239), prior (C2799438247) and unassigned (C2799438254): abstracts, DOIs, the related-URL links to the PDD, ATBD and release note, and the granule counts and first and newest granules from start-date-sorted granule searches the same day, the umbrella's granule-name pattern counts per file kind, and one umbrella and one sub-collection granule record showing each granule as one .zip with sidecars"
   - id: cmr-lakeavg
     resource: https://cmr.earthdata.nasa.gov/search/concepts/C3233944980-POCLOUD.umm_json
     title: "CMR collection records read 2026-09-15 for SWOT_L2_HR_LakeAvg_D (C3233944980-POCLOUD, DOI 10.5067/SWOT-LAKEAVG-D) and SWOT_L2_HR_LakeAvg_2.0 (C2799438221-POCLOUD, DOI 10.5067/SWOT-LAKEAVG-2.0), with granule counts and first and newest granules from the granule search the same day; keyword and short-name pattern searches for a Prior Lake Database collection at POCLOUD the same day returned none"
   - id: pdd-lakesp
     resource: https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-docs/web-misc/swot_mission_docs/pdd/SWOT-TN-CDM-0673-CNES_Product_Description_L2_HR_LakeSP_20250307_RevC_signed.pdf
-    title: "SWOT Product Description Document, Level 2 KaRIn High Rate Lake Single Pass Vector Product (L2_HR_LakeSP), SWOT-TN-CDM-0673-CNES Revision C, 2025-03-07, linked from the PO.DAAC collection record and read in full 2026-09-15: the latency, the three shapefiles, the granule and swath geometry, the file naming, the identifiers obs_id and lake_id with their formats, the measured attributes and uncertainties, the quality indicators, the geoid and tide references, the PLD attributes and the storage change attributes"
+    title: "SWOT Product Description Document, Level 2 KaRIn High Rate Lake Single Pass Vector Product (L2_HR_LakeSP), SWOT-TN-CDM-0673-CNES Revision C, 2025-03-07, linked from the PO.DAAC collection record and read in full 2026-09-15: the latency, the three shapefiles, the granule and swath geometry (approximately 128 km), the file naming, the identifiers obs_id and lake_id with their formats, the measured attributes and uncertainties, the quality indicators, the geoid and tide references, the PLD attributes and the storage change attributes"
   - id: pdd-lakeavg
     resource: https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-docs/web-misc/swot_mission_docs/pdd/SWOT-TN-CDM-0676-CNES_Product_Description_L2_HR_LakeAvg_20250307_RevC_signed.pdf
-    title: "SWOT Product Description Document, Level 2 KaRIn High Rate Lake Average Vector Product (L2_HR_LakeAvg), SWOT-TN-CDM-0676-CNES Revision C, 2025-03-07, linked from the PO.DAAC collection record and read 2026-09-15 in its product description, structure and qualitative description sections: the basin granule, the cycle-average rule for elevation, polygon and area, the minimum, median and maximum sets, the pass counts and the storage change"
+    title: "SWOT Product Description Document, Level 2 KaRIn High Rate Lake Average Vector Product (L2_HR_LakeAvg), SWOT-TN-CDM-0676-CNES Revision C, 2025-03-07, linked from the PO.DAAC collection record and read 2026-09-15 in its product description, structure and qualitative description sections: the basin granule, the count of about 6 million currently referenced PLD lakes, the cycle-average rule for elevation, polygon and area, the minimum, median and maximum sets, the pass counts and the storage change"
   - id: relnote-d
     resource: https://archive.podaac.earthdata.nasa.gov/podaac-ops-cumulus-docs/web-misc/swot_mission_docs/SWOT_VersionD_KaRIn_Products_Release_Note_20250423b.pdf
-    title: "Release Note, SWOT Version D KaRIn Science Data Products, 2025-04-23, linked from the PO.DAAC collection record and read 2026-09-15: the CRIDs and their spans, the table of changes from Version C to D (the Prior Lake Database from V1.06 to V2.01, the geoid bug fix, the load tide model change, the lake processing enhancements), the hydroweb.next dataset table naming the Prior Lake Database, and the known issues on lakes"
+    title: "Release Note, SWOT Version D KaRIn Science Data Products, 2025-04-23, linked from the PO.DAAC collection record and read 2026-09-15: the CRIDs and their spans, the table of changes from Version C to D (the Prior Lake Database from V1.06 to V2.01, the geoid bug fix, the load tide model change, the lake processing enhancements), the hydroweb.next dataset table naming the Prior Lake Database, the height calibration refinement stated as O(5 mm) short-wavelength changes in the same table, and the lake known issues, among them the storage change issue that counts about 5.3 million lakes with storage change out of about 5.9 million PLD lakes in Version D"
   - id: river-lake
     resource: ./swot-river-lake.md
     title: "This bundle's SWOT River and Lake Single-Pass concept: the HR product inventory with ShortNames and concept ids, the version families, the granule naming and the zipped-shapefile access"
@@ -67,8 +67,10 @@ granule.[^podaac-lakesp][^cmr-lakesp] `SWOT_L2_HR_LakeAvg` is the
 cycle average: one shapefile per 21-day science-orbit cycle per
 Pfafstetter level-2 basin, one record per prior
 lake.[^podaac-lakeavg][^pdd-lakeavg] Both rest on the Prior Lake
-Database (PLD), the catalogue of about 5.9 million lake polygons
-above one hectare against which observed water is identified; the
+Database (PLD), the catalogue against which observed water is
+identified, about 5.9 million lakes in the Version D products by the
+release note's count and about 6 million currently referenced lakes
+by the LakeAvg document's; the
 PLD is not itself a CMR collection at PO.DAAC on the verification
 date (keyword and short-name searches return none), CNES serves it
 on hydroweb.next under the dataset id `SWOT_PRIOR_LAKE_DATABASE`,
@@ -81,10 +83,13 @@ the lake series.[^river-lake]
 
 ## The three files of a LakeSP granule
 
-A granule is one pass over one continent, the full swath of about
-128 km with performance requirements holding from 10 to 60 km from
-nadir on each side, and observations over the central 20 km possibly
-missing, degraded or flagged.[^pdd-lakesp] It holds:
+A pass over one continent is one granule per file kind. The product
+description document gives the full swath as approximately 128 km
+across track, with performance requirements holding from 10 to 60 km
+from nadir on each side and observations over the central 20 km
+possibly missing, degraded or flagged; the PO.DAAC collection page
+states the swath width as 120 km, the two documents differing on the
+figure.[^pdd-lakesp][^podaac-lakesp] The three files are:
 
 - **Obs**, the observation-oriented lake file: one record per
   observed water body above one hectare that intersects at least one
@@ -123,17 +128,24 @@ products share, `*_2.0` (Version C) and `*_D` (Version D).[^river-lake][^cmr-lak
 
 | Product | Version C (concept id, granules) | Version D (concept id, granules) |
 |---|---|---|
-| LakeSP umbrella | `SWOT_L2_HR_LakeSP_2.0` (C2799438230, 130,468) | `SWOT_L2_HR_LakeSP_D` (C3233944983, 240,336) |
-| LakeSP obs | `SWOT_L2_HR_LakeSP_obs_2.0` (C2799438239) | `SWOT_L2_HR_LakeSP_obs_D` (C3233942286, 70,868) |
+| LakeSP umbrella | `SWOT_L2_HR_LakeSP_2.0` (C2799438230) | `SWOT_L2_HR_LakeSP_D` (C3233944983) |
+| LakeSP obs | `SWOT_L2_HR_LakeSP_obs_2.0` (C2799438239, 30,477) | `SWOT_L2_HR_LakeSP_obs_D` (C3233942286, 70,868) |
 | LakeSP prior | `SWOT_L2_HR_LakeSP_prior_2.0` (C2799438247, 30,476) | `SWOT_L2_HR_LakeSP_prior_D` (C3233942291, 70,856) |
-| LakeSP unassigned | `SWOT_L2_HR_LakeSP_unassigned_2.0` (C2799438254) | `SWOT_L2_HR_LakeSP_unassigned_D` (C3233942295, 70,859) |
+| LakeSP unassigned | `SWOT_L2_HR_LakeSP_unassigned_2.0` (C2799438254, 30,381) | `SWOT_L2_HR_LakeSP_unassigned_D` (C3233942295, 70,859) |
 | LakeAvg | `SWOT_L2_HR_LakeAvg_2.0` (C2799438221, 51) | `SWOT_L2_HR_LakeAvg_D` (C3233944980, 5,149) |
 
-The D sub-collections run from cycle 474 pass 001 over Europe on
-2023-03-28 (CRID PGD0, the cal/val orbit) through cycle 056 pass 033
-on 2026-09-11 (CRID PID0, forward processing); the C prior
-sub-collection runs from cycle 001 pass 148 (2023-07-26) to cycle 032
-pass 166 (2025-05-03) and stops there. LakeAvg D holds basin-cycle
+Every granule is one zipped shapefile set (one .zip with its
+metadata sidecars), and the umbrella collections list the obs, prior
+and unassigned granules of a pass side by side, so a plan names the
+sub-collection; the umbrella's granule count does not equal the sum
+of its three sub-collections on the day, which is why the counts
+above are the sub-collections' own.[^cmr-lakesp] The D
+sub-collections run from cycle 474 pass 001 over Europe, whose first
+granule CMR dates 2023-03-28 (CRID PGD0, the cal/val orbit) where the
+release note places the PGD0 span from 2023-03-30, through cycle 056
+pass 033 on 2026-09-11 (CRID PID0, forward processing); the C
+sub-collections run from cycle 001 pass 148 (2023-07-26) to cycle 032
+pass 166 (2025-05-03) and stop there.[^cmr-lakesp][^relnote-d] LakeAvg D holds basin-cycle
 granules from cycle 001 (2023-07-21) through cycle 053 (2026-07-10),
 and LakeAvg C holds 51 granules on the day, so the cycle-averaged
 series is in practice a Version D product.[^cmr-lakesp][^cmr-lakeavg]
@@ -183,10 +195,16 @@ Siberia (SI), 4 Central and South-East Asia (AS), 5 Australia and
 Oceania (AU), 6 South America (SA), 7 North America and Caribbean
 (NA), 8 North American Arctic (AR) and 9 Greenland (GR), the
 HydroBASINS delineation.[^pdd-lakesp] The PLD attributes in the obs
-file (`lake_name`, a name from OpenStreetMap, IGN Carthage, GLWD or
-vMap0, and `p_res_id`, the GRanD reservoir identifier) are populated
-from the PLD lake with the largest overlap when several are
-listed.[^pdd-lakesp] The identity gotcha beside this concept holds
+file (`lake_name`, the name or names from OpenStreetMap, IGN
+Carthage, GLWD or vMap0, and `p_res_id`, the GRanD reservoir
+identifier) are populated, per the document's PLD information
+section, from the PLD lake with the largest overlap when several are
+listed; the attribute table and the string-attribute note in the same
+document define `lake_name` as itself a semicolon-separated list of
+the different names given to the lake, and this bundle's gauge datum
+gotcha observed features of two prior lakes around Lake Powell whose
+`lake_name` named the reservoir in both, so the field separates
+neither prior lakes nor names.[^pdd-lakesp][^gauge-datum] The identity gotcha beside this concept holds
 the measured consequence for a series.[^identity-gotcha]
 
 ## The series
