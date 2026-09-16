@@ -4,6 +4,16 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-16 · STEWARD RE-SIGNING of
+  knowledge/computations/basin-water-balance.md,
+  knowledge/connectors/nldi-basin.md: Re-signed after the placement
+  migration (ADR C): the water balance concept declares its wrapping
+  skill and the basin connector names the delineation script at its home
+  in the skill; no receipt, run id, executor or attester changed. The
+  verified event is written on the steward's word. The new verified
+  event is appended on the steward's word, the earlier events kept as
+  history. (steward)
+
 - 2026-09-16 · knowledge/computations/basin-water-balance.md (stable,
   edited and owing a re-sign; status left stable) gains
   `executor.skill: hydrology/basin-water-balance`, the wrapping skill
