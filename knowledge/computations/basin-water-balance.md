@@ -18,7 +18,9 @@ executor:
 attester:
   resource: references/attesters/basin_water_balance_check.py
 generated: { by: process:claude-code, at: 2026-09-15T18:30:00Z }
-verified: { by: human:PaulMRamirez, at: 2026-09-07T18:19:02Z }
+verified:
+  - { by: human:PaulMRamirez, at: 2026-09-07T18:19:02Z }
+  - { by: human:PaulMRamirez, at: 2026-09-16T03:04:07Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/70 }
 status: stable
 stale_after: 2027-03-07
 sources:

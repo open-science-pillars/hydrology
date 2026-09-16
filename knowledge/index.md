@@ -78,7 +78,7 @@ conflict.
 - [Drought anatomy: five panels, five sets of facts, and no single number](recipes/drought-anatomy.md), status: stable
 - [Reservoir ledger: a budget in volume units that reports its residual instead of closing](recipes/reservoir-ledger.md), status: draft
 - [Confronting a satellite river elevation with a gauge: score the changes, publish the level difference, call neither a bias](recipes/swot-gauge-confrontation.md), status: stable
-- [Confronting a gauge's daily flow with the National Water Model retrospective at the same reach: model output beside the record, the clocks named, the volume and the timing scored apart](recipes/nwm-gauge-confrontation.md), status: draft
+- [Confronting a gauge's daily flow with the National Water Model retrospective at the same reach: model output beside the record, the clocks named, the volume and the timing scored apart](recipes/nwm-gauge-confrontation.md), status: stable
 - [Streamflow drought index: day-of-year percentiles at a reference gauge](recipes/drought-index.md), status: stable
 - [Reservoir level change from gauge elevation: Lake Powell 2023](recipes/reservoir-storage-change.md), status: stable
 - [GRACE-FO groundwater from terrestrial water storage: the partitioning residual](recipes/grace-groundwater-partitioning.md), status: stable
