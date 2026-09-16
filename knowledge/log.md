@@ -4,6 +4,64 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-15 · knowledge/computations/basin-water-balance.md and
+  knowledge/recipes/basin-water-balance.md (both stable, edited and
+  owing a new review; status left stable),
+  knowledge/references/computations/basin_water_balance.py (0.2.0),
+  knowledge/references/attesters/basin_water_balance_check.py,
+  knowledge/recipes/nwm-gauge-confrontation.md (draft, no verified
+  event) with its eval case evals/nwm-gauge-confrontation.yaml,
+  verification/basin_water_balance.py and
+  verification/fixtures/water-balance/ohio-olmsted-groundwater/ with
+  its freezing script: the basin water balance extended with the
+  groundwater part of the storage term by the water-table fluctuation
+  method from USGS daily depth-to-water series at a well set
+  (parameter 72019, unconfined wells inside the polygon with a stated
+  constructed depth, 30-day end windows, wells within 2 km as one
+  site, a stated specific yield with its sigma and source), reported
+  as a partition of dS that leaves the residual unchanged, with every
+  term carrying the stamp it came from and the receipt carrying its
+  bookkeeping statements; the attester recomputes the term from the
+  frozen well set, applies bar three (plausibility: the specific
+  yield's bound and source, the site count, the level-change bound,
+  the partition arithmetic, the part no larger than the whole), prints
+  PASS or FAIL per check and carries a selftest over synthetic trees;
+  the golden runs the fourth tree and the selftest, and the stored
+  receipts were regenerated against the new executor hash. And a
+  recipe confronting a gauge's daily flow with the National Water
+  Model version 3.0 retrospective at the reach carrying the gauge,
+  volume and timing scored apart, worked on the Roaring Fork at
+  Glenwood Springs for calendar 2021 from a live call of the
+  observations server's nwm_retrospective_streamflow (feature id
+  1324997, fourteen chunks, 21 s) against the frozen 2021 gauge
+  record. Sources read live the same day: the Water Data API
+  collection list and the field-measurements, time-series-metadata
+  and monitoring-locations collections (the well selection and site
+  files); the retrospective bucket's listing (domains, the CONUS zarr
+  and netcdf trees, the hourly CHRTOUT file sizes) and the chunks
+  546.3 to 559.3 of the CONUS chrtout store; the Crossref records and
+  abstracts of Gehman and others 2009 (10.1029/2007WR006096), Pool and
+  Eychaner 1995 (10.1111/j.1745-6584.1995.tb00299.x), Crosbie and
+  others 2019 (10.1029/2019WR025285) and Cosgrove and others 2024
+  (10.1111/1752-1688.13184), and the Crossref record of Johnson 1967
+  (10.3133/wsp1662D), whose landing page on pubs.usgs.gov the session
+  could not reach, so it is cited on its registry record and no value
+  is taken from it; the journal pages were not read. The groundwater
+  and retrospective connector concepts, the GRACE partitioning recipe
+  and the SWOT gauge confrontation recipe are linked, not repeated.
+  knowledge/index.md updated. Coordinator fix round the same day: the
+  concept's site range corrected (-1.5 to +2.6 m); the attester
+  recomputes every reported groundwater field (millimetres, the
+  specific yield bracket, the standard error, the median, minimum and
+  maximum), the sigma at the spread and the term without its largest
+  site, refuses an elevation parameter as the executor does, and
+  prints the parameter under bar three; sites are connected components
+  in both scripts; the freezing script performs the selection and
+  records its counts; the receipt carries sigma_km3_at_spread, the
+  sigma's components and without_largest_site; the concept names the
+  standard-error assumption, the aquifer breakdown of the well set
+  and the one riverbank well field that carries the term.
+  (process:claude-code)
 - 2026-09-15 · STEWARD SIGNING of
   knowledge/connectors/nwis-groundwater.md,
   knowledge/connectors/hydrocron-lakes.md,

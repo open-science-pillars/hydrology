@@ -7,14 +7,17 @@
 # ///
 # Golden notebook for the basin-water-balance workflow (the
 # golden-notebook requirement: one fixture-backed asserting script per
-# workflow skill): the three frozen input trees under
+# workflow skill): the four frozen input trees under
 # fixtures/water-balance/ go through the sanctioned executor and its
 # attester and reproduce the recorded terms, residuals and refusal, the
 # footprint floor derived from the mascon product's own geometry, the
-# two bars, and the failures the contract requires: a doctored term, a
-# receipt missing an input's stamp, an unsourced transfer, and a tree
-# edited after freezing. Reference numbers measured at fixture creation
-# and recorded in fixtures/README.md. Headless green via
+# groundwater term and the partition of the storage change it gives on
+# the tree that carries a well set, the three bars, and the failures
+# the contract requires: a doctored term, a doctored groundwater
+# volume, a receipt missing an input's stamp, an unsourced transfer,
+# and a tree edited after freezing; and the attester's own selftest.
+# Reference numbers measured at fixture creation and recorded in
+# fixtures/README.md. Headless green via
 # `uv run verification/basin_water_balance.py`; no network, no
 # credential.
 
@@ -66,7 +69,7 @@ def _(json, trees):
     #    remembered: every frozen tree carries the same derivation, and
     #    it is the median area of a mostly-land mascon.
     _floors = {}
-    for _b in ("ohio-olmsted", "lees-ferry", "roaring-fork"):
+    for _b in ("ohio-olmsted", "lees-ferry", "roaring-fork", "ohio-olmsted-groundwater"):
         _s = json.loads((trees / _b / "storage.json").read_text())
         _f = _s["footprint_scale"]
         _floors[_b] = _f["median_land_mascon_km2"]
@@ -101,7 +104,88 @@ def _(attest, compute):
     assert _rc == 0, _o + _e
     assert "bar one, consistency: |residual| / sigma = 0.72 against k = 2.0 -> within the bar" in _o
     assert "bar two, reproducibility" in _o
-    return (ohio_path,)
+    assert "bar three" not in _o, "no groundwater term, so no bar three"
+    return ohio, ohio_path
+
+
+@app.cell
+def _(attest, compute, json, ohio, tmp):
+    # 2b. The Ohio at Olmsted with the groundwater term: the same four
+    #     terms byte for byte (the tree copies them), the water-table
+    #     fluctuation term from the frozen well set, the partition of dS
+    #     it gives, the bookkeeping statements, and bar three. The
+    #     residual does not move: the term partitions dS, it is not a
+    #     sixth term.
+    _code, _out, _err, gw, gw_path = compute("ohio-olmsted-groundwater", name="ohiogw")
+    assert _code == 0, _err
+    for _t in ("precipitation", "evapotranspiration", "discharge", "storage"):
+        assert gw["terms"][_t]["km3"] == ohio["terms"][_t]["km3"], _t
+        assert gw["terms"][_t]["stamp"]["sha256"] == ohio["terms"][_t]["stamp"]["sha256"], _t
+    assert gw["residual"]["km3"] == ohio["residual"]["km3"]
+    assert gw["residual"]["sigma_km3"] == ohio["residual"]["sigma_km3"]
+    _g = gw["terms"]["groundwater"]
+    assert _g["refused"] is False
+    assert _g["specific_yield"] == 0.21 and _g["specific_yield_sigma"] == 0.03
+    assert "10.1029/2007WR006096" in _g["specific_yield_source"] and "10.3133/wsp1662D" in _g["specific_yield_source"]
+    assert _g["parameter"] == "72019" and _g["statistic"] == "00003"
+    assert _g["end_window_days"] == 30 and _g["min_days_per_end"] == 20 and _g["cluster_radius_km"] == 2.0
+    assert _g["first_window"] == {"start": "2022-10-01", "end": "2022-10-30"}
+    assert _g["last_window"] == {"start": "2023-09-01", "end": "2023-09-30"}
+    assert _g["wells_in_tree"] == 58 and _g["wells_used"] == 50 and len(_g["wells_excluded"]) == 8
+    assert all("end windows" in x["reason"] for x in _g["wells_excluded"])
+    assert _g["sites"] == 39
+    _biggest = max(_g["site_list"], key=lambda s: len(s["members"]))
+    assert len(_biggest["members"]) == 12 and abs(_biggest["lat"] - 38.342) < 0.01, "the Louisville well field is one site"
+    assert all(w["aquifer_type_code"] == "U" and w["well_constructed_depth_ft"] for w in _g["wells"])
+    assert abs(_g["mean_rise_m"] - 0.0886) < 0.001 and abs(_g["median_rise_m"] + 0.0631) < 0.001
+    assert abs(_g["spread_sd_m"] - 0.8463) < 0.001 and abs(_g["standard_error_m"] - 0.1355) < 0.001
+    assert abs(_g["km3"] - 9.752) < 0.01 and abs(_g["sigma_km3"] - 14.982) < 0.01
+    assert abs(_g["km3_at_specific_yield_low"] - 8.359) < 0.01 and abs(_g["km3_at_specific_yield_high"] - 11.145) < 0.01
+    assert _g["stamp"]["file"] == "groundwater.json"
+    assert "constructed depth" in _g["screened_interval_note"]
+    _pt = gw["residual"]["partition"]
+    assert abs(_pt["other_storage_km3"] + 8.569) < 0.01 and abs(_pt["other_storage_sigma_km3"] - 15.827) < 0.01
+    assert abs(_pt["terms_less_groundwater_km3"] - 61.605) < 0.01
+    assert abs(_pt["groundwater_km3"] + _pt["other_storage_km3"] - gw["terms"]["storage"]["km3"]) < 1e-5
+    assert abs(_pt["terms_less_groundwater_km3"] - _pt["other_storage_km3"] - gw["residual"]["km3"]) < 1e-5
+    assert _pt["groundwater_fraction_of_storage_change"] is None, "dS is within two sigma of zero"
+    assert len(gw["bookkeeping"]) == 4 and ("not a sixth term" in gw["bookkeeping"][-1]
+                                           or "not added to the identity" in gw["bookkeeping"][-1])
+    # The sigma is almost entirely the standard-error component; at the
+    # spread it would be 93 km3, and without the Louisville site the term
+    # is a third of a cubic kilometre.
+    assert abs(_g["sigma_components_km3"]["standard_error"] - 14.914) < 0.01
+    assert abs(_g["sigma_components_km3"]["specific_yield"] - 1.393) < 0.01
+    assert abs(_g["sigma_km3_at_spread"] - 93.161) < 0.01
+    _wl = _g["without_largest_site"]
+    assert _wl["sites"] == 38 and len(_wl["site"]) == 12 and abs(_wl["rise_m"] - 3.3384) < 0.001
+    assert abs(_wl["mean_rise_m"] - 0.0031) < 0.001 and abs(_wl["km3"] - 0.339) < 0.01
+    assert _g["parameter"] == "72019" and "connected components" in _g["clustering"]
+    assert "dS_gw" in _out and "dS_other" in _out
+
+    _rc, _o, _e = attest(gw_path)
+    assert _rc == 0, _o + _e
+    assert "PASS: groundwater term recomputed from the frozen well set: 50 wells, 39 sites" in _o
+    assert "bar three, plausibility: parameter 72019 (depth to water below land surface), specific yield 0.21 in (0, 0.5], 39 sites at or above 3" in _o
+    assert "= 0.72 against k = 2.0 -> within the bar" in _o
+
+    # A doctored groundwater volume fails bar two on the recompute from
+    # the frozen well set, and a receipt that drops the term while the
+    # tree carries the well set fails before any arithmetic.
+    _r = json.loads(gw_path.read_text())
+    _r["terms"]["groundwater"]["km3"] = 1.183
+    _r["residual"]["partition"]["groundwater_km3"] = 1.183
+    _d = tmp / "doctored_gw.json"
+    _d.write_text(json.dumps(_r, indent=1))
+    _rc, _o, _e = attest(_d)
+    assert _rc == 1 and "FAIL: groundwater: receipt 1.183" in _o, _o
+    _r2 = json.loads(gw_path.read_text())
+    del _r2["terms"]["groundwater"]
+    _d2 = tmp / "dropped_gw.json"
+    _d2.write_text(json.dumps(_r2, indent=1))
+    _rc, _o, _e = attest(_d2)
+    assert _rc == 1 and "the tree carries groundwater.json and the receipt carries no groundwater term" in _o, _o
+    return
 
 
 @app.cell
@@ -224,7 +308,7 @@ def _(sha, trees):
     #    manifest names every file in its tree.
     import json as _json
 
-    for _b in ("ohio-olmsted", "lees-ferry", "roaring-fork"):
+    for _b in ("ohio-olmsted", "lees-ferry", "roaring-fork", "ohio-olmsted-groundwater"):
         _man = _json.loads((trees / _b / "manifest.json").read_text())
         _on_disk = {p.name for p in (trees / _b).glob("*") if p.name != "manifest.json"}
         assert set(_man["files"]) == _on_disk, (_b, set(_man["files"]) ^ _on_disk)
@@ -238,10 +322,41 @@ def _(attest, trees):
     # 10. The receipts stored beside the trees still attest, so a reader
     #     who never runs the executor can check the numbers this bundle
     #     publishes.
+    _names = set()
     for _r in sorted((trees / "receipts").glob("*.json")):
         _rc, _o, _e = attest(_r)
         assert _rc == 0, f"{_r.name}: {_o}{_e}"
         assert "PASS" in _o
+        _names.add(_r.stem)
+    assert _names == {"ohio-olmsted", "lees-ferry", "roaring-fork", "ohio-olmsted-groundwater"}, _names
+    return
+
+
+@app.cell
+def _(root, tmp):
+    # 11. The groundwater tree's well set carries its provenance and
+    #     parameters with their sources, and the attester's own selftest
+    #     (synthetic trees with hand-checkable numbers, the doctorings
+    #     each bar must catch, the bounds of bar three) passes.
+    import json as _json
+    import subprocess as _sp
+
+    _gw = _json.loads((root / "verification" / "fixtures" / "water-balance" / "ohio-olmsted-groundwater"
+                       / "groundwater.json").read_text())
+    assert _gw["parameters"]["specific_yield"]["source"]
+    assert _gw["selection"]["wells_captured"] == 58 and _gw["selection"]["wells_kept"] == 58
+    _sel = _gw["selection"]
+    assert _sel["wells_covering_window"] == 249 and _sel["inside_polygon"] == 141
+    assert _sel["inside_by_aquifer_type"] == {"U": 62, "C": 34, "M": 3, "X": 1, "none": 41}
+    assert len(_sel["unconfined_without_constructed_depth"]) == 4 and len(_sel["inside_without_aquifer_type_code"]) == 41
+    assert len(_sel["selected"]) == 58 and set(_sel["selected"]) == {w["site"] for w in _gw["wells"]}
+    assert len(_gw["captures"]) == 6 and all(c["content_sha256"] and c["capture_id"] for c in _gw["captures"])
+    assert all(w["aquifer_type_code"] == "U" and w["capture_id"] for w in _gw["wells"])
+    _p = _sp.run(["uv", "run", str(root / "knowledge" / "references" / "attesters" / "basin_water_balance_check.py"),
+                  "--selftest"], capture_output=True, text=True, cwd=root)
+    assert _p.returncode == 0, _p.stdout + _p.stderr
+    assert "selftest: 0 failure(s)" in _p.stdout and "FAIL" not in _p.stdout
+    _ = tmp
     return
 
 
