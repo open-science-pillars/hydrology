@@ -25,7 +25,8 @@ def _():
     from pathlib import Path
 
     root = Path(__file__).parent / "fixtures"
-    loader = root / "load_swot_confrontation.py"
+    skills = Path(__file__).resolve().parent.parent / "skills"
+    loader = skills / "swot-hydro" / "scripts" / "load_swot_confrontation.py"
     inputs = root / "confrontation" / "swot_gauge_baton_rouge_2024.json"
     tmp = Path(tempfile.mkdtemp(prefix="confront_"))
 

@@ -14,6 +14,7 @@ parameters:
 computation: references/computations/basin_water_balance.py
 executor:
   resource: references/computations/basin_water_balance.py
+  skill: hydrology/basin-water-balance
   receipt: [computation, code_sha256, tool_version, identity, basin, window, inputs, terms, partial_checks, residual, bookkeeping]
 attester:
   resource: references/attesters/basin_water_balance_check.py

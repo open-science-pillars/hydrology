@@ -40,8 +40,8 @@ and is read from there per delineation, never restated here.
    - `knowledge/gotchas/nldi-unsnapped-point.md`
    - `knowledge/gotchas/usgs-terminal-basin-no-outlet.md`
 3. **Delineate through the script, not by hand.** Run
-   `uv run ${CLAUDE_PLUGIN_ROOT}/verification/fixtures/delineate_basin.py`
-   (the script ships with this plugin; the variable is this plugin's
+   `uv run ${CLAUDE_PLUGIN_ROOT}/skills/delineate-basin/scripts/delineate_basin.py`
+   (the script ships with this plugin beside this file; the variable is this plugin's
    installed root) with `--gauge SITE`, `--point LON LAT` or `--huc
    CODE...`,
    `--compare SITE` where a gauge's published drainage area is the

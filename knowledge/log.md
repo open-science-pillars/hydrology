@@ -4,6 +4,24 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-16 · knowledge/computations/basin-water-balance.md (stable,
+  edited and owing a re-sign; status left stable) gains
+  `executor.skill: hydrology/basin-water-balance`, the wrapping skill
+  the placement rule names; knowledge/connectors/nldi-basin.md
+  (stable, edited and owing a re-sign) names the delineation script at
+  its new path. The seven runtime helpers the skills run moved out of
+  the goldens' fixture tree into their skills' scripts directories,
+  per ADR C (code placement by plane, docs/decisions in the
+  marketplace repository): load_et.py to load-et,
+  load_precipitation.py to load-precipitation, load_peaks.py to
+  load-peaks, delineate_basin.py to delineate-basin,
+  load_drought_panels.py to drought-anatomy, load_reservoir_ledger.py
+  to reservoir-ledger and load_swot_confrontation.py to swot-hydro.
+  The goldens run them from there; the fixture builders and every
+  frozen input stay under verification/fixtures/; the plugin gate
+  runs the placement check. No receipt, run id, executor or attester
+  changes, and no signature block is touched. (claude-code)
+
 - 2026-09-16 · STEWARD RE-SIGNING of
   knowledge/computations/basin-water-balance.md,
   knowledge/recipes/basin-water-balance.md,

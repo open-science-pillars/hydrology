@@ -28,7 +28,16 @@ basin, water year 2021 against 2023").
    regulated-gauge caution, the mascon footprint and lag, and the snow
    product's model-output status. Restate what applies per panel and
    cite each by path.
-4. **Assemble panels, not an index.** Every panel carries its product,
+4. **Assemble panels, not an index.** Build one period's receipt
+   through
+   `uv run ${CLAUDE_PLUGIN_ROOT}/skills/drought-anatomy/scripts/load_drought_panels.py`
+   (the script ships with this plugin beside this file) with
+   `--label`, `--basin`, `--precipitation-receipt` (a receipt from
+   the load-precipitation skill's script, so the run is already
+   declared there), `--soil-moisture`, `--streamflow`, `--storage`,
+   `--snow`, `--regulated` where the outlet is, and `--out`; one
+   period per call, so the tool never sees two periods at once and
+   cannot reduce them. Every panel carries its product,
    its run or version, its period, the count behind each number, and
    the one sentence that says what it cannot show. Panels are shown
    side by side and are never averaged, ranked together, or reduced to

@@ -35,14 +35,16 @@ def _():
     from pathlib import Path
 
     root = Path(__file__).parent / "fixtures"
-    loader = root / "load_et.py"
+    skills = Path(__file__).resolve().parent.parent / "skills"
+    loader = skills / "load-et" / "scripts" / "load_et.py"
     basins = root / "basins"
     et = root / "et"
     tmp = Path(tempfile.mkdtemp(prefix="load_et_"))
 
     def run(basin, files=(), source="mod16", response=None, extra=(), name="r"):
-        # The loader as the skill runs it: `uv run` on the script beside
-        # the fixtures, refusals as exit 2 with a REFUSED line on stderr.
+        # The loader as the skill runs it: `uv run` on the skill's own
+        # script over the fixtures, refusals as exit 2 with a REFUSED line
+        # on stderr.
         cmd = ["uv", "run", str(loader), "--source", source,
                "--basin", str(basins / basin), "--out", str(tmp / f"{name}.json")]
         for f in files:

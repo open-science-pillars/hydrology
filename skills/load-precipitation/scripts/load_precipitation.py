@@ -28,12 +28,13 @@ the receipt. Volume: the basin-mean depth times the polygon's area as
 its provenance records it (km3 = mm * 1e-6 * km2).
 
 Usage:
-  uv run verification/fixtures/load_precipitation.py --source imerg --run final \
+  uv run skills/load-precipitation/scripts/load_precipitation.py --source imerg --run final \
       --basin verification/fixtures/basins/usgs_09380000_nldi.geojson \
       --window verification/fixtures/precipitation/imerg_final_lees_ferry_wy2023.nc \
       --out receipt.json
-  uv run verification/fixtures/load_precipitation.py --source nldas2 --basin ... --window ...
-  (--fetch pulls a missing window file first, through fetch_precipitation_fixtures.py,
+  uv run skills/load-precipitation/scripts/load_precipitation.py --source nldas2 --basin ... --window ...
+  (--fetch pulls a missing window file first, through
+   verification/fixtures/fetch_precipitation_fixtures.py, the fixture builder,
    for a single-run declaration and a --start/--end window)
 """
 import argparse
@@ -177,7 +178,10 @@ def main():
             die(f"window file(s) not found: {', '.join(str(m) for m in missing)} (pass --fetch to pull, or run fetch_precipitation_fixtures.py)")
         if len(missing) > 1 or "*" not in decl or not (a.start and a.end):
             die("--fetch pulls one window file for a single-run declaration between --start and --end; fetch per-month segments separately")
-        fetch = Path(__file__).with_name("fetch_precipitation_fixtures.py")
+        # The fixture builder stays with the goldens' fixtures; this script
+        # lives under skills/load-precipitation/scripts/, three levels below
+        # the plugin root.
+        fetch = Path(__file__).resolve().parents[3] / "verification" / "fixtures" / "fetch_precipitation_fixtures.py"
         cmd = [shutil.which("uv") or "uv", "run", str(fetch), "--source", a.source, "--basin", str(a.basin),
                "--start", a.start, "--end", a.end, "--out", str(missing[0])]
         if a.source == "imerg":
@@ -308,7 +312,7 @@ def main():
                       "knowledge/connectors/gesdisc-earthaccess.md"] if a.source == "imerg" else
                      ["knowledge/datasets/nldas2-forcing.md", "knowledge/connectors/gesdisc-earthaccess.md"],
         "produced": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "script": "verification/fixtures/load_precipitation.py",
+        "script": "skills/load-precipitation/scripts/load_precipitation.py",
     }
     if a.out:
         a.out.parent.mkdir(parents=True, exist_ok=True)

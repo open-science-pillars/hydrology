@@ -71,6 +71,15 @@ collections are simulated rather than flown.
   consult the scope gotcha, do not restate them here.
 - **Loading is load-swot-hydro's job** (volume gate, decode, scope-aware
   summary); this skill supplies what it restates.
+- **A reach elevation against a gauge is scored on changes.** The
+  confrontation recipe (`knowledge/recipes/swot-gauge-confrontation.md`)
+  runs through
+  `uv run ${CLAUDE_PLUGIN_ROOT}/skills/swot-hydro/scripts/load_swot_confrontation.py`
+  (the script ships with this plugin beside this file) with `--inputs`
+  naming the frozen reach and gauge pair, `--tolerance-minutes` for the
+  pairing window, and `--out` for the receipt. It reports the level
+  difference as a level difference containing an uncited datum offset,
+  never as a bias, as the gauge datum gotcha sets out.
 
 ## Must NOT
 

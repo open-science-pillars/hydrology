@@ -41,9 +41,9 @@ network position by NHDPlus `comid` (an integer catchment and
 flowline identifier), `reachcode` and `measure` (per cent along the
 reach), and navigates the network from there.[^nldi-openapi] The
 `delineate-basin` skill reaches it through
-`verification/fixtures/delineate_basin.py`, which writes the polygon
-and its provenance; this concept holds the facts that script depends
-on.
+`skills/delineate-basin/scripts/delineate_basin.py`, which writes the
+polygon and its provenance; this concept holds the facts that script
+depends on.
 
 **Endpoints (quoted from the OpenAPI definition).** A gauge is
 `linked-data/nwissite/USGS-<site>`, one feature carrying its `comid`,

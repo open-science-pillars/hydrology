@@ -35,14 +35,16 @@ def _():
     from pathlib import Path
 
     root = Path(__file__).parent / "fixtures"
-    loader = root / "load_precipitation.py"
+    skills = Path(__file__).resolve().parent.parent / "skills"
+    loader = skills / "load-precipitation" / "scripts" / "load_precipitation.py"
     basin = root / "basins" / "usgs_09380000_nldi.geojson"
     windows = root / "precipitation"
     tmp = Path(tempfile.mkdtemp(prefix="load_precipitation_"))
 
     def run(source, run_decl, files, start=None, end=None, name="r"):
-        # The loader as the skill runs it: `uv run` on the script beside
-        # the fixtures, refusals as exit 2 with a REFUSED line on stderr.
+        # The loader as the skill runs it: `uv run` on the skill's own
+        # script over the fixtures, refusals as exit 2 with a REFUSED line
+        # on stderr.
         cmd = ["uv", "run", str(loader), "--source", source, "--basin", str(basin),
                "--out", str(tmp / f"{name}.json")]
         if run_decl:

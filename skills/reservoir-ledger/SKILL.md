@@ -33,7 +33,12 @@ Powell").
    volume without its survey year is not reproducible.
 5. **Count the ungauged fraction** from the gauges' drainage areas
    against the outlet's, and state it before the totals, not after.
-6. **Compute the terms and report the residual.** Storage change from
+6. **Compute the terms and report the residual.** Run
+   `uv run ${CLAUDE_PLUGIN_ROOT}/skills/reservoir-ledger/scripts/load_reservoir_ledger.py`
+   (the script ships with this plugin beside this file) with
+   `--inputs` naming the frozen captures and survey table, `--datum`
+   naming the datum the table column is read on, and `--out` for the
+   receipt. Storage change from
    both endpoints with both volumes and both surface areas; gauged
    inflow and outflow with the conversion factor stated; the residual
    with its sign, its size against inflow, and the list of what it

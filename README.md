@@ -107,7 +107,11 @@ quickstart here is the hydrology first result.
   `reconstruct-event`. What each one refuses (a regulated gauge for
   drought work, an undeclared IMERG run, a basin below the GRACE
   footprint floor, a flood frequency estimate from a screening fit) is
-  in its SKILL.md and the gotcha it cites.
+  in its SKILL.md and the gotcha it cites. A script a skill runs at
+  runtime (the basin delineation, the precipitation, evapotranspiration
+  and peaks loaders, the drought panels, the reservoir ledger and the
+  SWOT gauge confrontation) lives in that skill's `scripts/` directory,
+  per the placement rule.
 - **Agents** (`agents/`): `hydro-scout` returns a cited data plan,
   starting with which gauges measure hydrology and which measure dam
   operations; it never downloads on its own.
@@ -124,8 +128,9 @@ quickstart here is the hydrology first result.
   `load_et.py`, `delineate_basin.py`, `basin_water_balance.py`,
   `drought_analysis.py`, `drought_anatomy.py`, `reservoir_storage.py`,
   `reservoir_ledger.py`, `event_reconstruction.py`, `peaks_export.py`,
-  `swot_gauge_confrontation.py`) on frozen fixtures, plus the
-  sanctioned computation and attester under `knowledge/references/`.
+  `swot_gauge_confrontation.py`) on frozen fixtures, with the fixture
+  builders and every frozen input under `verification/fixtures/`, plus
+  the sanctioned computation and attester under `knowledge/references/`.
 - **Evals** (`evals/`): one judgment case per high-severity gotcha and
   per refusal (the regulated flag, the declared run, the sub-floor
   refusal, the volume gate), with the seed and automated results.
