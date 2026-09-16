@@ -4,6 +4,21 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-16 · STEWARD RE-SIGNING of
+  knowledge/computations/basin-water-balance.md,
+  knowledge/recipes/basin-water-balance.md,
+  knowledge/recipes/nwm-gauge-confrontation.md: Maintainer review of the
+  groundwater partition of the basin water balance (the edited attested
+  computation concept and its recipe, re-signed after the edit) and of
+  the NWM gauge confrontation recipe, merged in PR #70 after the
+  coordinator's review of the chain and a fix round (the site range, the
+  newly attested receipt fields, the parameter guard, the selection
+  script, connected-component clustering, the sigma at spread and the
+  term without the largest site). The NWM recipe is promoted to stable.
+  The verified events are written on the steward's word. The new
+  verified event is appended on the steward's word, the earlier events
+  kept as history. (steward)
+
 - 2026-09-15 · knowledge/computations/basin-water-balance.md and
   knowledge/recipes/basin-water-balance.md (both stable, edited and
   owing a new review; status left stable),
