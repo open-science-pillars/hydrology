@@ -64,19 +64,29 @@ concept and its recipe, and are read from there per run.
    decides the answer. A basin below the floor is a refusal to state,
    not a problem to route around.
 **Where the files are.** A path a user gives relative to the plugin
-(`verification/fixtures/...`) resolves under `${CLAUDE_PLUGIN_ROOT}`,
-not under the working directory: the fixtures ship with the plugin.
-Resolve it there first rather than searching the filesystem, which is
-slow and can find the wrong copy.
+(a frozen input tree or a basin polygon in the goldens' fixture tree)
+resolves under `${CLAUDE_PLUGIN_ROOT}`, not under the working
+directory: the fixtures ship with the plugin. Resolve it there first
+rather than searching the filesystem, which is slow and can find the
+wrong copy.
 
 4. **Run the sanctioned computation, never a hand calculation.**
    `uv run ${CLAUDE_PLUGIN_ROOT}/knowledge/references/computations/basin_water_balance.py`
-   with `--inputs` naming the frozen tree, `--imports` and `--exports`
-   as VALUE_KM3:SOURCE where they are known, `--regulated` where the
-   outlet is, and `--receipt` for the receipt. Then run the attester
-   over that receipt:
+   is the executor the computation concept names, and this skill is
+   the one that wraps it (the concept's `executor.skill`). Its runtime
+   is `python`, as the concept's `runtime:` field declares; the
+   executor takes no runtime flag, `uv run` resolves it from the
+   script's own dependency header. The parameters this skill binds
+   are the five the concept lists: `--inputs` naming the frozen tree,
+   `--imports` and `--exports` as VALUE_KM3:SOURCE where they are
+   known, `--regulated` where the outlet is, and `--rating-uncertainty`
+   where the station's rating class is not good; `--receipt` names
+   where the receipt is written. Then run the attester over that
+   receipt, before quoting any number from it:
    `uv run ${CLAUDE_PLUGIN_ROOT}/knowledge/references/attesters/basin_water_balance_check.py RECEIPT.json`.
-   Report the attester's verdict, not your own reading of the numbers.
+   Report the attester's verdict, not your own reading of the numbers,
+   and quote no residual, term or bar from a receipt the attester has
+   not passed.
 5. **Report the residual with what qualifies it:** the ratio to the
    combined sigma and its sign; the masked fraction and open-water
    handling of the evapotranspiration term; the regulated flag if set;

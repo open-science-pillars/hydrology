@@ -33,7 +33,7 @@ What it refuses:
   difference containing an uncited datum offset, in that language.
 
 Usage:
-  uv run verification/fixtures/load_swot_confrontation.py \
+  uv run skills/swot-hydro/scripts/load_swot_confrontation.py \
       --inputs verification/fixtures/confrontation/swot_gauge_baton_rouge_2024.json \
       --tolerance-minutes 15 --out receipt.json
 """

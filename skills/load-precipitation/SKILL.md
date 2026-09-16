@@ -55,20 +55,22 @@ never restated here.
    - `${CLAUDE_PLUGIN_ROOT}/knowledge/gotchas/imerg-cold-season-orographic-underestimation.md`
    - `${CLAUDE_PLUGIN_ROOT}/knowledge/recipes/precipitation-product-by-terrain.md`
 **Where the files are.** A path a user gives relative to the plugin
-(`verification/fixtures/...`) resolves under `${CLAUDE_PLUGIN_ROOT}`,
-not under the working directory: the fixtures ship with the plugin.
-Resolve it there first rather than searching the filesystem, which is
-slow and can find the wrong copy.
+(a basin polygon or a window file in the goldens' fixture tree, or
+this skill's own script) resolves under `${CLAUDE_PLUGIN_ROOT}`, not
+under the working directory: the fixtures and the script ship with the
+plugin. Resolve it there first rather than searching the filesystem,
+which is slow and can find the wrong copy.
 
 3. **Load through the script, not by hand.** Run
-   `uv run ${CLAUDE_PLUGIN_ROOT}/verification/fixtures/load_precipitation.py`
-   (the script ships with this plugin; the variable is this plugin's
-   installed root) with `--source`, `--basin PATH`, `--run RUN` or
-   `--run YYYY-MM:RUN,...` for IMERG, `--window FILE` for each
-   basin-window file already on disk or `--fetch --start --end` to
-   pull the window through the fetch script beside it (an Earthdata
-   Login with the GES DISC application authorized, as the connector
-   concept sets out), and `--out` for the receipt. The script checks
+   `uv run ${CLAUDE_PLUGIN_ROOT}/skills/load-precipitation/scripts/load_precipitation.py`
+   (the script ships with this plugin beside this file; the variable
+   is this plugin's installed root) with `--source`, `--basin PATH`,
+   `--run RUN` or `--run YYYY-MM:RUN,...` for IMERG, `--window FILE`
+   for each basin-window file already on disk or `--fetch --start
+   --end` to pull the window through the precipitation fixture
+   builder in the goldens' fixture tree (an Earthdata Login with the
+   GES DISC application authorized, as the connector concept sets
+   out), and `--out` for the receipt. The script checks
    the run in every file against the declaration and refuses a
    mismatch, a month holding two runs, duplicate days and a mixed
    grid; computes the cosine-latitude weighted mean over the cells

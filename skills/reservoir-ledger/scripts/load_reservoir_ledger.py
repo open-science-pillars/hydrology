@@ -38,7 +38,7 @@ ungauged inflow in the residual by name, rather than letting a ledger
 that omits it close better than it should.
 
 Usage:
-  uv run verification/fixtures/load_reservoir_ledger.py \
+  uv run skills/reservoir-ledger/scripts/load_reservoir_ledger.py \
       --inputs verification/fixtures/reservoir/ledger_powell_wy2023.json \
       --datum NAVD88 --out receipt.json
 """

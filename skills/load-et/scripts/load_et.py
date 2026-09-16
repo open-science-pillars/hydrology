@@ -51,11 +51,11 @@ so the receipt carries the polygon area, the measured area and their
 ratio, and the volume states which one it used.
 
 Usage:
-  uv run verification/fixtures/load_et.py \
+  uv run skills/load-et/scripts/load_et.py \
       --basin verification/fixtures/basins/usgs_09085000_nldi.geojson \
       --window verification/fixtures/et/mod16a2gf_roaring_fork_2023.nc \
       --out receipt.json
-  uv run verification/fixtures/load_et.py --source openet \
+  uv run skills/load-et/scripts/load_et.py --source openet \
       --basin <a polygon under the area cap> --response recorded.json --out receipt.json
 """
 import argparse

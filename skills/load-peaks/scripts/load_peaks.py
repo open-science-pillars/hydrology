@@ -40,9 +40,9 @@ is supplied. A qualifier mapped wrongly does not raise an error anywhere;
 it changes which peaks enter the fit.
 
 Usage:
-  uv run verification/fixtures/load_peaks.py --peaks verification/fixtures/peaks/peaks_03451500.json \
+  uv run skills/load-peaks/scripts/load_peaks.py --peaks verification/fixtures/peaks/peaks_03451500.json \
       --parameter 00060 --watstore out.pkf --out receipt.json
-  uv run verification/fixtures/load_peaks.py --peaks ... --parameter 00060 --screening-fit
+  uv run skills/load-peaks/scripts/load_peaks.py --peaks ... --parameter 00060 --screening-fit
 """
 import argparse
 import datetime as dt

@@ -25,7 +25,8 @@ def _():
     from pathlib import Path
 
     root = Path(__file__).parent / "fixtures"
-    loader = root / "load_reservoir_ledger.py"
+    skills = Path(__file__).resolve().parent.parent / "skills"
+    loader = skills / "reservoir-ledger" / "scripts" / "load_reservoir_ledger.py"
     inputs = root / "reservoir" / "ledger_powell_wy2023.json"
     tmp = Path(tempfile.mkdtemp(prefix="ledger_"))
 

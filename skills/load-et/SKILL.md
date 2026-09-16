@@ -60,21 +60,23 @@ here.
    sub-cap pieces and average them, and never shrink the polygon
    until the service answers.
 **Where the files are.** A path a user gives relative to the plugin
-(`verification/fixtures/...`) resolves under `${CLAUDE_PLUGIN_ROOT}`,
-not under the working directory: the fixtures ship with the plugin.
-Resolve it there first rather than searching the filesystem, which is
-slow and can find the wrong copy.
+(a basin polygon or a window file in the goldens' fixture tree, or
+this skill's own script) resolves under `${CLAUDE_PLUGIN_ROOT}`, not
+under the working directory: the fixtures and the script ship with the
+plugin. Resolve it there first rather than searching the filesystem,
+which is slow and can find the wrong copy.
 
 4. **Load through the script, not by hand.** Run
-   `uv run ${CLAUDE_PLUGIN_ROOT}/verification/fixtures/load_et.py`
-   (the script ships with this plugin; the variable is this plugin's
-   installed root) with `--source`, `--basin PATH`, `--window FILE`
-   for each MOD16 window file on disk, or `--response FILE` for a
-   recorded OpenET answer, and `--out` for the receipt. Pull a
-   missing MOD16 window with
-   `uv run ${CLAUDE_PLUGIN_ROOT}/verification/fixtures/fetch_et_fixtures.py`
-   (an Earthdata Login with the LP DAAC application authorized, as
-   the dataset concept sets out). The script excludes every fill
+   `uv run ${CLAUDE_PLUGIN_ROOT}/skills/load-et/scripts/load_et.py`
+   (the script ships with this plugin beside this file; the variable
+   is this plugin's installed root) with `--source`, `--basin PATH`,
+   `--window FILE` for each MOD16 window file on disk, or
+   `--response FILE` for a recorded OpenET answer, and `--out` for
+   the receipt. A missing MOD16 window is pulled by the fixture
+   builder for the ET goldens, which lives in the goldens' fixture
+   tree and is run by maintainers to refresh the frozen inputs (an
+   Earthdata Login with the LP DAAC application authorized, as the
+   dataset concept sets out). The script excludes every fill
    code, counts them by class, apportions composites to calendar
    months by their true length, and refuses rather than averaging
    when more than half the basin is masked.

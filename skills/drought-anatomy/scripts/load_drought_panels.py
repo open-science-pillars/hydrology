@@ -38,7 +38,7 @@ The five panels and what each one refuses:
   is the use its distributor sanctions, and never a term in a budget.
 
 Usage:
-  uv run verification/fixtures/load_drought_panels.py --label lees_ferry_wy2021 \
+  uv run skills/drought-anatomy/scripts/load_drought_panels.py --label lees_ferry_wy2021 \
       --basin verification/fixtures/basins/usgs_09380000_nldi.geojson \
       --precipitation-receipt p_wy2021.json \
       --soil-moisture verification/fixtures/smap/smap_l3_lees_ferry_wy2021.json \

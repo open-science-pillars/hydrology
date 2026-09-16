@@ -39,7 +39,8 @@ Broad at Asheville and write a peak file").
    censored above or below. Say plainly what each means for what can
    be computed here.
 5. **Export, do not estimate.** Write the peak file through
-   `verification/fixtures/load_peaks.py --watstore`, which maps each
+   `uv run ${CLAUDE_PLUGIN_ROOT}/skills/load-peaks/scripts/load_peaks.py --watstore`
+   (the script ships with this plugin beside this file), which maps each
    qualifier to its qualification code and leaves the month and day
    columns blank where the record says unknown. Report the mapping it
    used and any qualifier that has no code in that format.

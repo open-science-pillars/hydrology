@@ -18,8 +18,8 @@ Three ways in, two sources out:
                         closed-basin unit is reported as having no outlet
 
 The polygon is written as GeoJSON to the fixture tree (default
-verification/fixtures/basins/ beside this script) with a `provenance`
-member: source, every request URL, the UTC date, the source version
+verification/fixtures/basins/ under the plugin root, three levels
+above this script) with a `provenance` member: source, every request URL, the UTC date, the source version
 (the NLDI navigation service has none beyond its host; a WBD unit
 carries its loaddate and tnmid), and the sha256 of the geometry as
 written. Area is computed in an equal-area projection (ESRI:102008,
@@ -36,11 +36,11 @@ implements them and cites nothing it does not use.
 No credential is sent to any host this script calls.
 
 Usage:
-  uv run verification/fixtures/delineate_basin.py --gauge 09085000
-  uv run verification/fixtures/delineate_basin.py --point -107.3308 39.5467 --name roaring_fork_point
-  uv run verification/fixtures/delineate_basin.py --huc 18030012 --name tulare_lake_bed
-  uv run verification/fixtures/delineate_basin.py --gauge 09380000 --split   # splitCatchment=true
-  uv run verification/fixtures/delineate_basin.py --gauge 09085000 --full    # simplified=false
+  uv run skills/delineate-basin/scripts/delineate_basin.py --gauge 09085000
+  uv run skills/delineate-basin/scripts/delineate_basin.py --point -107.3308 39.5467 --name roaring_fork_point
+  uv run skills/delineate-basin/scripts/delineate_basin.py --huc 18030012 --name tulare_lake_bed
+  uv run skills/delineate-basin/scripts/delineate_basin.py --gauge 09380000 --split   # splitCatchment=true
+  uv run skills/delineate-basin/scripts/delineate_basin.py --gauge 09085000 --full    # simplified=false
 """
 import argparse
 import datetime as dt
@@ -206,7 +206,8 @@ def main() -> None:
     ap.add_argument("--full", action="store_true", help="NLDI simplified=false (the service simplifies by default; the effect on area is recorded in the connector concept)")
     ap.add_argument("--compare", metavar="SITE", help="compare a point or WBD polygon with this gauge's drainage_area")
     ap.add_argument("--name", help="fixture name (default derived from the input)")
-    ap.add_argument("--out", type=Path, default=Path(__file__).parent / "basins",
+    ap.add_argument("--out", type=Path,
+                    default=Path(__file__).resolve().parents[3] / "verification" / "fixtures" / "basins",
                     help="directory for <name>.geojson, or a file path ending in .geojson")
     a = ap.parse_args()
 

@@ -4,7 +4,9 @@ title: "USGS NLDI basin tracing: the polygon upstream of a gauge or a snapped po
 description: "The Network Linked Data Index at api.water.usgs.gov/nldi returns the upstream basin of an indexed gauge or of an NHDPlus catchment; a point must pass through hydrolocation first, splitCatchment defaults to false and simplified to true, no credential is sent, and the trace is the network-connected area, which is not the monitoring-locations drainage area on a basin with closed sub-basins."
 tags: [connector, nldi, nhdplus, basin, watershed, delineation, usgs, hydrology]
 generated: { by: claude-code/fable-5, at: 2026-09-06T18:20:00Z }
-verified: { by: human:PaulMRamirez, at: 2026-09-06T19:12:06Z }
+verified:
+  - { by: human:PaulMRamirez, at: 2026-09-06T19:12:06Z }
+  - { by: human:PaulMRamirez, at: 2026-09-16T05:45:13Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/73 }
 status: stable
 citation:
   access_date_required: true
@@ -41,9 +43,9 @@ network position by NHDPlus `comid` (an integer catchment and
 flowline identifier), `reachcode` and `measure` (per cent along the
 reach), and navigates the network from there.[^nldi-openapi] The
 `delineate-basin` skill reaches it through
-`verification/fixtures/delineate_basin.py`, which writes the polygon
-and its provenance; this concept holds the facts that script depends
-on.
+`skills/delineate-basin/scripts/delineate_basin.py`, which writes the
+polygon and its provenance; this concept holds the facts that script
+depends on.
 
 **Endpoints (quoted from the OpenAPI definition).** A gauge is
 `linked-data/nwissite/USGS-<site>`, one feature carrying its `comid`,

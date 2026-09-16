@@ -28,8 +28,9 @@ def _():
     from pathlib import Path
 
     root = Path(__file__).parent / "fixtures"
-    loader = root / "load_drought_panels.py"
-    precip_loader = root / "load_precipitation.py"
+    skills = Path(__file__).resolve().parent.parent / "skills"
+    loader = skills / "drought-anatomy" / "scripts" / "load_drought_panels.py"
+    precip_loader = skills / "load-precipitation" / "scripts" / "load_precipitation.py"
     basin = root / "basins" / "usgs_09380000_nldi.geojson"
     tmp = Path(tempfile.mkdtemp(prefix="drought_"))
 

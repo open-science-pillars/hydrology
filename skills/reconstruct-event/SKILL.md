@@ -16,9 +16,10 @@ own: the class tables, archive start dates, footprint floor and gauge
 record all live in concepts and are read per run.
 
 **Where the files are.** A path a user gives relative to the plugin
-(`verification/fixtures/...`) resolves under `${CLAUDE_PLUGIN_ROOT}`,
-not under the working directory: the fixtures ship with the plugin.
-Resolve it there first rather than searching the filesystem.
+(a region polygon, a frozen census or a capture in the goldens'
+fixture tree) resolves under `${CLAUDE_PLUGIN_ROOT}`, not under the
+working directory: the fixtures ship with the plugin. Resolve it there
+first rather than searching the filesystem.
 
 ## Behavior, in order
 

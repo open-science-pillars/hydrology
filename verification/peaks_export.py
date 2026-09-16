@@ -28,7 +28,8 @@ def _():
     from pathlib import Path
 
     root = Path(__file__).parent / "fixtures"
-    loader = root / "load_peaks.py"
+    skills = Path(__file__).resolve().parent.parent / "skills"
+    loader = skills / "load-peaks" / "scripts" / "load_peaks.py"
     peaks = root / "peaks"
     tmp = Path(tempfile.mkdtemp(prefix="peaks_export_"))
 
