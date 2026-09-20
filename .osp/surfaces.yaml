@@ -9,12 +9,18 @@ surfaces:
     required: true
     status: planned
     evidence: >-
-      Never qualified, at any version. No attester is declared in probes.prove, so the prove and
-      receipt tests are blocked and no run can pass the required matrix; the shared attester is the
-      open r4-shared-prove deliverable. A run made for 0.8.0 passed install, dependency resolution,
-      skill discovery, knowledge resolution, the connectors, the goldens on the installed tree and the
-      release lock, and is recorded with its blockers. The surface is waived until the attester
-      exists.
+      Exercised for the first time at 0.8.0 by a headless run of the full matrix against a release
+      candidate built from this checkout, recorded in .osp/qualification/claude-code.json. The
+      surface is not qualified and is not advertised, because two of the nine required tests fail.
+      What passes now includes prove, which was recorded as blocked while this package declared no
+      probes: the runtime ran the sanctioned executor over the frozen Colorado above Lees Ferry tree
+      and the attester passed every check over the receipt it wrote, on the installed tree. The
+      receipt test fails because this version's attester writes no attestation file and the receipt
+      it reads carries no capability or runtime block for one to name, which is a change to the
+      executor and the attester, and so to the release lock, rather than a probe declaration. The
+      skill-invocation test fails on the slash form alone, which carries no request and so asks for
+      the basin and the window rather than citing the computation concept; the conversational form
+      passes both of its expectations.
   claude-cowork:
     role: runtime
     required: true

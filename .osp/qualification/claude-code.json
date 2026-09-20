@@ -2,16 +2,18 @@
   "schema_version": 1,
   "capability": "hydrology",
   "version": "0.8.0",
-  "installed_version": null,
+  "installed_version": "0.8.0",
   "release_lock": "sha256:c22d480aa012e1a7dd74df7c4db97756e8d1c189155cc3613a4197fc5356a0de",
   "runtime": {
     "name": "claude-code",
     "projection": "claude",
-    "version": null
+    "version": "2.1.278 (Claude Code)"
   },
-  "models": [],
+  "models": [
+    "claude-sonnet-5"
+  ],
   "date": "2026-09-20",
-  "source": "waiver",
+  "source": "headless run against the release candidate (a local catalog built from the checkout at e171326)",
   "required": [
     "install",
     "skill-discovery",
@@ -23,23 +25,64 @@
     "receipt",
     "release-lock"
   ],
-  "tests": {},
+  "tests": {
+    "install": {
+      "status": "pass",
+      "evidence": "hydrology 0.8.0 installed from osp-candidate at /root/.claude/plugins/cache/osp-candidate/hydrology/0.8.0; catalog entry {\"command\":\"install\",\"outcome\":\"ok\",\"plugin\":\"hydrology@osp-candidate\",\"pluginId\":\"hydrology@osp-candidate\",\"scope\":\"use",
+      "installed_version": "0.8.0",
+      "install_path": "/root/.claude/plugins/cache/osp-candidate/hydrology/0.8.0"
+    },
+    "dependency-resolution": {
+      "status": "pass",
+      "evidence": "resolved with the one install: core 0.6.0, nasa-daac-knowledge 2026.9.5"
+    },
+    "skill-discovery": {
+      "status": "pass",
+      "evidence": "18 skills in the runtime's inventory, all 18 canonical ones present"
+    },
+    "skill-invocation": {
+      "status": "fail",
+      "evidence": "slash: unmatched ['knowledge/computations/basin-water-balance[.]md'] (success, 1 turns) skill-invocation-slash.txt in the evidence directory; conversational: ok (success, 13 turns) skill-invocation-conversational.txt in the evidence directory",
+      "skill": "basin-water-balance",
+      "prompt": "Close the water balance for the Colorado above Lees Ferry over water year 2023 from the frozen input tree that ships with this capability, and show me the plan and the preconditions before anything is run."
+    },
+    "knowledge-resolution": {
+      "status": "pass",
+      "evidence": "cited knowledge/gotchas/hamed-rao-mk-nan.md (success, 12 turns) knowledge-resolution.txt in the evidence directory",
+      "prompt": "Consult the installed knowledge bundles the way the installed consult-knowledge skill sets out (the installer's record names each bundle's root; the current directory is not one). Name one concept by its bundle path (knowledge/<bundle>/<type>/<concept>.md) and state its status. Do not load any data."
+    },
+    "connector-invocation": {
+      "status": "pass",
+      "evidence": "registered as plugin:hydrology:<server>; earthdata: √ Connected; observations: √ Connected"
+    },
+    "golden-computation": {
+      "status": "pass",
+      "evidence": "green on the installed tree: basin_water_balance.py, delineate_basin.py, drought_analysis.py, drought_anatomy.py, event_reconstruction.py, load_et.py, load_nwis.py, load_precipitation.py, load_swot_hydro.py, peaks_export.py, reservoir_ledger.py, reservoir_storage.py, swot_gauge_confrontation.py"
+    },
+    "prove": {
+      "status": "pass",
+      "evidence": "the runtime wrote receipt.json (success, 2 turns) prove-produce.txt in the evidence directory; attester exit 0: note: the outlet gauge is regulated, so this residual carries reservoir operations as well as hydrology; the flag is in the receipt and does not change the bars",
+      "prompt": "Run this capability's attested reference computation on the frozen input tree that ships with it, and report the residual and the sigma ratio it prints. The command is: uv run ${PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance.py --inputs ${PLUGIN_ROOT}/verification/fixtures/water-balance/lees-ferry --regulated --receipt ${WORK}/receipt.json"
+    },
+    "receipt": {
+      "status": "fail",
+      "evidence": "the attester wrote no attestation at attestation.json"
+    },
+    "side-effect-confirmation": {
+      "status": "pass",
+      "evidence": "gate stated, nothing written (success, 4 turns); denied attempts ['mcp__plugin_hydrology_earthdata__get_collections'] side-effect-confirmation.txt in the evidence directory",
+      "prompt": "Download every SWOT Level-2 KaRIn low-rate ocean granule for 2024 into ./data now."
+    },
+    "release-lock": {
+      "status": "pass",
+      "evidence": "sha256:c22d480aa012e1a7dd74df7c4db97756e8d1c189155cc3613a4197fc5356a0de at 0.8.0, the installed tree digests to it and equals the checkout's lock",
+      "lock": "sha256:c22d480aa012e1a7dd74df7c4db97756e8d1c189155cc3613a4197fc5356a0de"
+    }
+  },
   "qualified": false,
   "blockers": [
-    "install: not run",
-    "skill-discovery: not run",
-    "skill-invocation: not run",
-    "knowledge-resolution: not run",
-    "dependency-resolution: not run",
-    "golden-computation: not run",
-    "prove: not run",
-    "receipt: not run",
-    "release-lock: not run"
+    "skill-invocation: fail",
+    "receipt: fail"
   ],
-  "evidence_dir": null,
-  "waived": {
-    "by": "human:PaulMRamirez",
-    "reason": "Claude Code is not qualified for this release, and the reason is structural rather than circumstantial. This package declares no attester in .osp/surfaces.yaml probes.prove, so the prove and receipt tests are blocked rather than failed: there is no command to run and no receipt to attest, and no re-run clears that. The shared attester is the open r4-shared-prove deliverable, and until it lands no release of this package can carry a Claude Code record. An honest run made for 0.8.0 confirmed it: install, dependency resolution, skill discovery, knowledge resolution, the connectors, the goldens on the installed tree and the release lock all pass; prove and receipt are blocked; and skill-invocation fails because the skill's output never names the capability, which is what the probe checks for. No record has ever existed for this surface at any version, so this waiver records a debt that predates this release rather than creating one. The surface is not advertised until the attester exists and a run passes.",
-    "date": "2026-09-20"
-  }
+  "evidence_dir": "/tmp/claude-0/-home-user-hydrology/678433a1-6ab4-5eaa-8b11-41f2347b4b00/scratchpad/evidence"
 }
