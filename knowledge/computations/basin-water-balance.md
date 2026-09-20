@@ -11,19 +11,18 @@ parameters:
   - { name: exports, type: "VALUE_KM3:SOURCE, repeatable", required: false }
   - { name: regulated, type: "flag: the outlet gauge is regulated", required: false }
   - { name: rating-uncertainty, type: "relative uncertainty of the discharge if the rating class is not good", required: false }
-computation: references/computations/basin_water_balance.py
+computation: ../../skills/basin-water-balance/scripts/basin_water_balance.py
 executor:
-  resource: references/computations/basin_water_balance.py
-  skill: hydrology/basin-water-balance
+  resource: ../../skills/basin-water-balance/scripts/basin_water_balance.py
   receipt: [computation, code_sha256, tool_version, identity, basin, window, inputs, terms, partial_checks, residual, bookkeeping]
 attester:
-  resource: references/attesters/basin_water_balance_check.py
+  resource: ../../skills/basin-water-balance/scripts/basin_water_balance_check.py
 generated: { by: process:claude-code, at: 2026-09-15T18:30:00Z }
 verified:
   - { by: human:PaulMRamirez, at: 2026-09-07T18:19:02Z }
   - { by: human:PaulMRamirez, at: 2026-09-16T03:04:07Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/70 }
   - { by: human:PaulMRamirez, at: 2026-09-16T05:45:13Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/73 }
-status: stable
+status: draft
 stale_after: 2027-03-07
 sources:
   - id: mascons
@@ -74,6 +73,19 @@ sources:
 ---
 
 # Basin water balance from observations
+
+**Note, 2026-09-20, the concept is at draft until it is re-signed.**
+The executor and the attester moved out of this bundle into
+`skills/basin-water-balance/scripts/`, beside the skill that runs
+them, and the three paths in the frontmatter follow them. Nothing
+about any number changed: no term, no uncertainty, no bar and no
+measured value in this concept was revised. The reference run
+reproduced at the new path is the Colorado above Lees Ferry over
+water year 2023, from the frozen tree
+`verification/fixtures/water-balance/lees-ferry`, which returns the
+residual of -19.117 km3 at -1.00 sigma this concept states below, and
+the attester passed every check over its receipt. The other three
+frozen trees reproduce the same way in the golden.
 
 The identity, over a basin polygon and a window:
 

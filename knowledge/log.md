@@ -4,6 +4,43 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-20 · knowledge/computations/basin-water-balance.md (was
+  stable and signed, edited and owing a re-sign, left at draft with a
+  note; digest b098f04d0c58d72be22cf570cf5d207e27a096d507a442177cfe41fd1b99aaac
+  before, 069c76a483870456341f08995fd028338e9e4bd5f2440fde45373eabba38bf66
+  after): the sanctioned executor and its attester left this bundle for
+  the scripts directory of the skill that runs them, per ADR E (a
+  computation is a skill, docs/decisions in the marketplace
+  repository), and the concept's three paths follow them.
+  knowledge/references/computations/basin_water_balance.py moved to
+  skills/basin-water-balance/scripts/basin_water_balance.py (sha256
+  c71b458eca95a5f5dd99f037824956bd5c6cec24a98e09e9b122fedaca05bc0a
+  before, 88a1494f4413a301830f5bf3dab4769cff1b45601065cef290794d83ddb73b7f
+  after, the one changed line being the path in its usage text) and
+  knowledge/references/attesters/basin_water_balance_check.py to
+  skills/basin-water-balance/scripts/basin_water_balance_check.py
+  (sha256 79007e546f1f8a35eb29611a07132660a3f375281db45c84617e17b15caddc3a
+  before, b4c5b0cd81b436f00eb673278de0882956a498c068d24a5169cf69714086314a
+  after, the one changed line being the default the `--computation`
+  flag resolves, now the sibling file rather than a sister directory).
+  The retired `executor.skill` key is gone from the concept, the
+  knowledge bundle now holds no runnable file at all, and the skill,
+  the golden, the quickstart tutorial and the README name the scripts
+  at their new home. The four stored receipts under
+  verification/fixtures/water-balance/receipts/ were regenerated
+  against the new executor hash: every term, uncertainty, residual,
+  partition and bookkeeping line in them is byte for byte what it was,
+  and only code_sha256 and run_at differ. No number changed. All four
+  frozen trees reproduce at the new path and attest: the Colorado
+  above Lees Ferry at a residual of -19.117 +- 19.165 km3 (-1.00
+  sigma), the Ohio at Olmsted at +70.174 +- 96.874 km3 (+0.72 sigma),
+  the Ohio groundwater tree at dS_gw +9.752 +- 14.982 km3 with
+  dS_other -8.569 +- 15.827 km3, and the Roaring Fork refused below
+  the footprint floor, each the figure the concept states. The plugin
+  gate drops its placement-check step, which ADR E retired into two
+  findings of `osp.py validate`. No signature block is touched; the
+  maintainer re-signs after merge. (claude-code)
+
 - 2026-09-16 · STEWARD RE-SIGNING of
   knowledge/computations/basin-water-balance.md,
   knowledge/connectors/nldi-basin.md: Re-signed after the placement

@@ -54,10 +54,10 @@ for you; in your own shell, run them from a checkout of this repository
 or the install path `claude plugin list` shows):
 
 ```
-uv run knowledge/references/computations/basin_water_balance.py \
+uv run skills/basin-water-balance/scripts/basin_water_balance.py \
     --inputs verification/fixtures/water-balance/lees-ferry \
     --regulated --receipt lees-ferry.json
-uv run knowledge/references/attesters/basin_water_balance_check.py lees-ferry.json
+uv run skills/basin-water-balance/scripts/basin_water_balance_check.py lees-ferry.json
 ```
 
 which gives, in km3:

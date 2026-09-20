@@ -32,7 +32,7 @@ Contract, as knowledge/computations/basin-water-balance.md sets it out:
     attester, not here. This executor states, it does not judge.
 
 Usage:
-  uv run knowledge/references/computations/basin_water_balance.py \
+  uv run skills/basin-water-balance/scripts/basin_water_balance.py \
       --inputs verification/fixtures/water-balance/lees-ferry \
       --receipt receipt.json
   (--imports and --exports take VALUE_KM3:SOURCE, repeatable)

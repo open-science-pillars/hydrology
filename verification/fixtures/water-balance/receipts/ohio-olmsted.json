@@ -2,8 +2,8 @@
  "computation": "basin-water-balance",
  "concept": "knowledge/computations/basin-water-balance.md",
  "tool_version": "0.2.0",
- "code_sha256": "c71b458eca95a5f5dd99f037824956bd5c6cec24a98e09e9b122fedaca05bc0a",
- "run_at": "2026-09-15T18:53:22Z",
+ "code_sha256": "88a1494f4413a301830f5bf3dab4769cff1b45601065cef290794d83ddb73b7f",
+ "run_at": "2026-09-20T18:23:41Z",
  "identity": "P + I - ET - Q - X = dS",
  "basin": {
   "name": "ohio-olmsted",
