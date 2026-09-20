@@ -38,8 +38,9 @@ def _():
 
     root = Path(__file__).parent.parent
     trees = root / "verification" / "fixtures" / "water-balance"
-    executor = root / "knowledge" / "references" / "computations" / "basin_water_balance.py"
-    attester = root / "knowledge" / "references" / "attesters" / "basin_water_balance_check.py"
+    scripts = root / "skills" / "basin-water-balance" / "scripts"
+    executor = scripts / "basin_water_balance.py"
+    attester = scripts / "basin_water_balance_check.py"
     tmp = Path(tempfile.mkdtemp(prefix="water_balance_"))
 
     def compute(basin, extra=(), name="r", inputs=None):
@@ -352,7 +353,8 @@ def _(root, tmp):
     assert len(_sel["selected"]) == 58 and set(_sel["selected"]) == {w["site"] for w in _gw["wells"]}
     assert len(_gw["captures"]) == 6 and all(c["content_sha256"] and c["capture_id"] for c in _gw["captures"])
     assert all(w["aquifer_type_code"] == "U" and w["capture_id"] for w in _gw["wells"])
-    _p = _sp.run(["uv", "run", str(root / "knowledge" / "references" / "attesters" / "basin_water_balance_check.py"),
+    _p = _sp.run(["uv", "run", str(root / "skills" / "basin-water-balance" / "scripts"
+                       / "basin_water_balance_check.py"),
                   "--selftest"], capture_output=True, text=True, cwd=root)
     assert _p.returncode == 0, _p.stdout + _p.stderr
     assert "selftest: 0 failure(s)" in _p.stdout and "FAIL" not in _p.stdout

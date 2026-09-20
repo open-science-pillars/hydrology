@@ -658,7 +658,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("receipt", type=Path, nargs="?")
     ap.add_argument("--computation", type=Path,
-                    default=Path(__file__).resolve().parent.parent / "computations" / "basin_water_balance.py",
+                    default=Path(__file__).resolve().parent / "basin_water_balance.py",
                     help="the sanctioned computation the receipt must have come from")
     ap.add_argument("-k", type=float, default=2.0, help="the consistency bar's multiple of the combined sigma")
     ap.add_argument("--selftest", action="store_true",

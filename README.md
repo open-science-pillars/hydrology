@@ -129,8 +129,9 @@ quickstart here is the hydrology first result.
   `drought_analysis.py`, `drought_anatomy.py`, `reservoir_storage.py`,
   `reservoir_ledger.py`, `event_reconstruction.py`, `peaks_export.py`,
   `swot_gauge_confrontation.py`) on frozen fixtures, with the fixture
-  builders and every frozen input under `verification/fixtures/`, plus
-  the sanctioned computation and attester under `knowledge/references/`.
+  builders and every frozen input under `verification/fixtures/`. The
+  sanctioned computation and its attester sit in the scripts directory
+  of the skill that runs them, `skills/basin-water-balance/scripts/`.
 - **Evals** (`evals/`): one judgment case per high-severity gotcha and
   per refusal (the regulated flag, the declared run, the sub-floor
   refusal, the volume gate), with the seed and automated results.

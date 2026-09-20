@@ -71,9 +71,10 @@ rather than searching the filesystem, which is slow and can find the
 wrong copy.
 
 4. **Run the sanctioned computation, never a hand calculation.**
-   `uv run ${CLAUDE_PLUGIN_ROOT}/knowledge/references/computations/basin_water_balance.py`
-   is the executor the computation concept names, and this skill is
-   the one that wraps it (the concept's `executor.skill`). Its runtime
+   `uv run ${CLAUDE_PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance.py`
+   is the executor the computation concept names, and it sits in this
+   skill's own scripts directory, beside the concept that names it.
+   Its runtime
    is `python`, as the concept's `runtime:` field declares; the
    executor takes no runtime flag, `uv run` resolves it from the
    script's own dependency header. The parameters this skill binds
@@ -83,7 +84,7 @@ wrong copy.
    where the station's rating class is not good; `--receipt` names
    where the receipt is written. Then run the attester over that
    receipt, before quoting any number from it:
-   `uv run ${CLAUDE_PLUGIN_ROOT}/knowledge/references/attesters/basin_water_balance_check.py RECEIPT.json`.
+   `uv run ${CLAUDE_PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance_check.py RECEIPT.json`.
    Report the attester's verdict, not your own reading of the numbers,
    and quote no residual, term or bar from a receipt the attester has
    not passed.
