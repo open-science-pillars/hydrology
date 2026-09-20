@@ -70,7 +70,7 @@ marketplace repository's
 [docs/runtime-distribution.md](https://github.com/open-science-pillars/marketplace/blob/main/docs/runtime-distribution.md).
 
 <!-- osp-runtimes:start -->
-Runtime support for hydrology 0.7.0 (release lock `sha256:137eac814218`), rendered by build-kit's `osp.py advertise` from `.osp/surfaces.yaml` and the qualification records; edit those, not this block.
+Runtime support for hydrology 0.8.0 (release lock `sha256:c22d480aa012`), rendered by build-kit's `osp.py advertise` from `.osp/surfaces.yaml` and the qualification records; edit those, not this block.
 
 | Runtime | Role | Declared status | Qualification |
 |---|---|---|---|
