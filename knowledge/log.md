@@ -4,6 +4,17 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-20 · STEWARD RE-SIGNING of
+  knowledge/computations/basin-water-balance.md: Re-signed after the
+  executor and the attester moved into
+  skills/basin-water-balance/scripts, beside the skill that runs them.
+  The coordinator reproduced the Lees Ferry reference run at the new
+  path and read the regenerated receipts: all four differ from the
+  committed ones in the code digest and the run time and in nothing
+  else, so no term, no uncertainty and no bar moved. The new verified
+  event is appended on the steward's word, the earlier events kept as
+  history. (steward)
+
 - 2026-09-20 · knowledge/computations/basin-water-balance.md (was
   stable and signed, edited and owing a re-sign, left at draft with a
   note; digest b098f04d0c58d72be22cf570cf5d207e27a096d507a442177cfe41fd1b99aaac
