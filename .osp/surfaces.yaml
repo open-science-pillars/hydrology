@@ -7,9 +7,14 @@ surfaces:
     - development
     - runtime
     required: true
-    status: supported
-    evidence: Every release is exercised on Claude Code; the qualification record for the release
-      under .osp/qualification/ records the passes
+    status: planned
+    evidence: >-
+      Never qualified, at any version. No attester is declared in probes.prove, so the prove and
+      receipt tests are blocked and no run can pass the required matrix; the shared attester is the
+      open r4-shared-prove deliverable. A run made for 0.8.0 passed install, dependency resolution,
+      skill discovery, knowledge resolution, the connectors, the goldens on the installed tree and the
+      release lock, and is recorded with its blockers. The surface is waived until the attester
+      exists.
   claude-cowork:
     role: runtime
     required: true
