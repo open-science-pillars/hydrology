@@ -22,7 +22,8 @@ verified:
   - { by: human:PaulMRamirez, at: 2026-09-07T18:19:02Z }
   - { by: human:PaulMRamirez, at: 2026-09-16T03:04:07Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/70 }
   - { by: human:PaulMRamirez, at: 2026-09-16T05:45:13Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/73 }
-status: draft
+  - { by: human:PaulMRamirez, at: 2026-09-20T18:43:52Z, role: maintainer, source: https://github.com/open-science-pillars/hydrology/pull/74 }
+status: stable
 stale_after: 2027-03-07
 sources:
   - id: mascons
@@ -74,7 +75,7 @@ sources:
 
 # Basin water balance from observations
 
-**Note, 2026-09-20, the concept is at draft until it is re-signed.**
+**Note, 2026-09-20, re-signed after the move.**
 The executor and the attester moved out of this bundle into
 `skills/basin-water-balance/scripts/`, beside the skill that runs
 them, and the three paths in the frontmatter follow them. Nothing
