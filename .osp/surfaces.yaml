@@ -7,20 +7,19 @@ surfaces:
     - development
     - runtime
     required: true
-    status: planned
+    status: supported
     evidence: >-
-      Exercised for the first time at 0.8.0 by a headless run of the full matrix against a release
-      candidate built from this checkout, recorded in .osp/qualification/claude-code.json. The
-      surface is not qualified and is not advertised, because two of the nine required tests fail.
-      What passes now includes prove, which was recorded as blocked while this package declared no
-      probes: the runtime ran the sanctioned executor over the frozen Colorado above Lees Ferry tree
-      and the attester passed every check over the receipt it wrote, on the installed tree. The
-      receipt test fails because this version's attester writes no attestation file and the receipt
-      it reads carries no capability or runtime block for one to name, which is a change to the
-      executor and the attester, and so to the release lock, rather than a probe declaration. The
-      skill-invocation test fails on the slash form alone, which carries no request and so asks for
-      the basin and the window rather than citing the computation concept; the conversational form
-      passes both of its expectations.
+      Qualified at 0.8.1, recorded in .osp/qualification/claude-code.json: a headless run of the
+      full matrix against a release candidate built from this checkout, all eleven tests passing,
+      the nine required among them. The two that had failed at 0.8.0 both pass. The receipt test
+      passes because the attester now writes an attestation, naming this capability release and the
+      runtime, which it did not at 0.8.0; the skill-invocation test passes in both forms, the slash
+      form now carrying the probe's arguments. prove is the test that matters most here: the runtime
+      ran the sanctioned executor over the frozen Colorado above Lees Ferry tree on the installed
+      package and the attester reproduced the computation concept's reference residual of -19.117
+      km3 at -1.00 sigma and passed every check over the receipt. The executor's code_sha256 is the
+      same 88a1494f4413 it was at 0.8.0, so the number this surface is qualified on is the number
+      the concept has always stated.
   claude-cowork:
     role: runtime
     required: true
@@ -79,9 +78,15 @@ probes:
     # The frozen tree is the reference run the computation concept states,
     # the Colorado above Lees Ferry over water year 2023, and --regulated
     # is set because that outlet is regulated and the flag belongs in its
-    # receipt.
+    # receipt. The prompt also pins the working directory: ${WORK} reaches
+    # the runtime as a relative path, so a run that changed directory first
+    # would write the receipt somewhere the harness does not read, and the
+    # test would fail for a reason that has nothing to do with the
+    # capability.
     prompt: 'Run this capability''s attested reference computation on the frozen input tree that ships
-      with it, and report the residual and the sigma ratio it prints. The command is: uv run ${PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance.py
+      with it, and report the residual and the sigma ratio it prints. Run it from the working directory
+      you are already in and leave the receipt there, because the receipt is read back from where you
+      were started; do not change directory first. The command is: uv run ${PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance.py
       --inputs ${PLUGIN_ROOT}/verification/fixtures/water-balance/lees-ferry --regulated --receipt ${WORK}/receipt.json'
     receipt: ${WORK}/receipt.json
     # The attester takes the receipt as a positional argument, applies the
@@ -100,12 +105,14 @@ probes:
     - --runtime
     - ${RUNTIME}
     attestation: ${WORK}/attestation.json
-  # Declared rather than left to the default, which is every script at the top
-  # of the verification tree whose file name does not appear in the prove
-  # probe's text. The golden for this computation is named
-  # basin_water_balance.py, the same file name as the executor the prove
-  # probe names, so the default would silently drop the one golden that
-  # matters most here. This list is every golden the goldens workflow runs.
+  # Declared rather than left to the default. The golden for this computation
+  # is named basin_water_balance.py, the same file name as the executor the
+  # prove probe names, and the default once matched by file name, so it
+  # silently dropped the one golden that matters most here and still
+  # reported the test passed; the default now selects by path and would keep
+  # it. The list stays declared, because what this package runs as its
+  # goldens is this package's statement rather than a default's. It is every
+  # golden the goldens workflow runs.
   golden-computation:
   - verification/basin_water_balance.py
   - verification/delineate_basin.py

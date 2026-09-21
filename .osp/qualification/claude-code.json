@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "capability": "hydrology",
-  "version": "0.8.0",
-  "installed_version": "0.8.0",
-  "release_lock": "sha256:c22d480aa012e1a7dd74df7c4db97756e8d1c189155cc3613a4197fc5356a0de",
+  "version": "0.8.1",
+  "installed_version": "0.8.1",
+  "release_lock": "sha256:dd1f0fac5f891638439d99af51cb0b761cf4a00d4a21ed585747166f3fcec9ed",
   "runtime": {
     "name": "claude-code",
     "projection": "claude",
@@ -12,8 +12,8 @@
   "models": [
     "claude-sonnet-5"
   ],
-  "date": "2026-09-20",
-  "source": "headless run against the release candidate (a local catalog built from the checkout at e171326)",
+  "date": "2026-09-21",
+  "source": "headless run against the release candidate (a local catalog built from the checkout at 2bdda36)",
   "required": [
     "install",
     "skill-discovery",
@@ -28,9 +28,9 @@
   "tests": {
     "install": {
       "status": "pass",
-      "evidence": "hydrology 0.8.0 installed from osp-candidate at /root/.claude/plugins/cache/osp-candidate/hydrology/0.8.0; catalog entry {\"command\":\"install\",\"outcome\":\"ok\",\"plugin\":\"hydrology@osp-candidate\",\"pluginId\":\"hydrology@osp-candidate\",\"scope\":\"use",
-      "installed_version": "0.8.0",
-      "install_path": "/root/.claude/plugins/cache/osp-candidate/hydrology/0.8.0"
+      "evidence": "hydrology 0.8.1 installed from osp-candidate at /root/.claude/plugins/cache/osp-candidate/hydrology/0.8.1; catalog entry {\"command\":\"install\",\"outcome\":\"ok\",\"plugin\":\"hydrology@osp-candidate\",\"pluginId\":\"hydrology@osp-candidate\",\"scope\":\"use",
+      "installed_version": "0.8.1",
+      "install_path": "/root/.claude/plugins/cache/osp-candidate/hydrology/0.8.1"
     },
     "dependency-resolution": {
       "status": "pass",
@@ -41,14 +41,15 @@
       "evidence": "18 skills in the runtime's inventory, all 18 canonical ones present"
     },
     "skill-invocation": {
-      "status": "fail",
-      "evidence": "slash: unmatched ['knowledge/computations/basin-water-balance[.]md'] (success, 1 turns) skill-invocation-slash.txt in the evidence directory; conversational: ok (success, 13 turns) skill-invocation-conversational.txt in the evidence directory",
+      "status": "pass",
+      "evidence": "slash: ok (success, 13 turns) skill-invocation-slash.txt in the evidence directory; conversational: ok (success, 15 turns) skill-invocation-conversational.txt in the evidence directory",
       "skill": "basin-water-balance",
-      "prompt": "Close the water balance for the Colorado above Lees Ferry over water year 2023 from the frozen input tree that ships with this capability, and show me the plan and the preconditions before anything is run."
+      "prompt": "Close the water balance for the Colorado above Lees Ferry over water year 2023 from the frozen input tree that ships with this capability, and show me the plan and the preconditions before anything is run.",
+      "slash": "/hydrology:basin-water-balance Close the water balance for the Colorado above Lees Ferry over water year 2023 from the frozen input tree that ships with this capability, and show me the plan and the preconditions before anything is run."
     },
     "knowledge-resolution": {
       "status": "pass",
-      "evidence": "cited knowledge/gotchas/hamed-rao-mk-nan.md (success, 12 turns) knowledge-resolution.txt in the evidence directory",
+      "evidence": "cited knowledge/gotchas/hamed-rao-mk-nan.md (success, 7 turns) knowledge-resolution.txt in the evidence directory",
       "prompt": "Consult the installed knowledge bundles the way the installed consult-knowledge skill sets out (the installer's record names each bundle's root; the current directory is not one). Name one concept by its bundle path (knowledge/<bundle>/<type>/<concept>.md) and state its status. Do not load any data."
     },
     "connector-invocation": {
@@ -61,12 +62,13 @@
     },
     "prove": {
       "status": "pass",
-      "evidence": "the runtime wrote receipt.json (success, 2 turns) prove-produce.txt in the evidence directory; attester exit 0: note: the outlet gauge is regulated, so this residual carries reservoir operations as well as hydrology; the flag is in the receipt and does not change the bars",
-      "prompt": "Run this capability's attested reference computation on the frozen input tree that ships with it, and report the residual and the sigma ratio it prints. The command is: uv run ${PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance.py --inputs ${PLUGIN_ROOT}/verification/fixtures/water-balance/lees-ferry --regulated --receipt ${WORK}/receipt.json"
+      "evidence": "the runtime wrote receipt.json (success, 4 turns) prove-produce.txt in the evidence directory; attester exit 0: PASS: hydrology 0.8.1 on claude-code, attestation /home/user/osp-qual-evidence/attestation.json",
+      "prompt": "Run this capability's attested reference computation on the frozen input tree that ships with it, and report the residual and the sigma ratio it prints. Run it from the working directory you are already in and leave the receipt there, because the receipt is read back from where you were started; do not change directory first. The command is: uv run ${PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance.py --inputs ${PLUGIN_ROOT}/verification/fixtures/water-balance/lees-ferry --regulated --receipt ${WORK}/receipt.json"
     },
     "receipt": {
-      "status": "fail",
-      "evidence": "the attester wrote no attestation at attestation.json"
+      "status": "pass",
+      "evidence": "attestation PASS: names hydrology 0.8.1 (lock sha256:dd1f0fac5f891638439d99af51cb0b761cf4a00d4a21ed585747166f3fcec9ed) on claude-code; installed 0.8.1",
+      "release_lock_in_receipt": "sha256:dd1f0fac5f891638439d99af51cb0b761cf4a00d4a21ed585747166f3fcec9ed"
     },
     "side-effect-confirmation": {
       "status": "pass",
@@ -75,14 +77,11 @@
     },
     "release-lock": {
       "status": "pass",
-      "evidence": "sha256:c22d480aa012e1a7dd74df7c4db97756e8d1c189155cc3613a4197fc5356a0de at 0.8.0, the installed tree digests to it and equals the checkout's lock",
-      "lock": "sha256:c22d480aa012e1a7dd74df7c4db97756e8d1c189155cc3613a4197fc5356a0de"
+      "evidence": "sha256:dd1f0fac5f891638439d99af51cb0b761cf4a00d4a21ed585747166f3fcec9ed at 0.8.1, the installed tree digests to it and equals the checkout's lock",
+      "lock": "sha256:dd1f0fac5f891638439d99af51cb0b761cf4a00d4a21ed585747166f3fcec9ed"
     }
   },
-  "qualified": false,
-  "blockers": [
-    "skill-invocation: fail",
-    "receipt: fail"
-  ],
-  "evidence_dir": "/tmp/claude-0/-home-user-hydrology/678433a1-6ab4-5eaa-8b11-41f2347b4b00/scratchpad/evidence"
+  "qualified": true,
+  "blockers": [],
+  "evidence_dir": "/home/user/osp-qual-evidence"
 }

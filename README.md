@@ -74,7 +74,7 @@ Runtime support for hydrology 0.8.1 (release lock `sha256:dd1f0fac5f89`), render
 
 | Runtime | Role | Declared status | Qualification |
 |---|---|---|---|
-| Claude Code | development and runtime, required | planned | Not qualified (record is for another release) |
+| Claude Code | development and runtime, required | supported | Qualified on 2026-09-21 |
 | Claude Cowork | runtime, required | tested | Not qualified (record is for another release) |
 | OpenAI Codex | runtime, required | planned | Not qualified (record is for another release) |
 | Claude Science | future runtime | limited-release | Outside the required matrix |
