@@ -87,7 +87,13 @@ wrong copy.
    `uv run ${CLAUDE_PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance_check.py RECEIPT.json`.
    Report the attester's verdict, not your own reading of the numbers,
    and quote no residual, term or bar from a receipt the attester has
-   not passed.
+   not passed. Where the verdict has to be readable by something other
+   than a person, add `--out ATTESTATION.json` and `--runtime NAME`:
+   the attester then writes the verdict beside the capability release
+   it read from its own package root and the runtime you name, which is
+   what a qualification record cites. The runtime is named on the
+   attester and not on the executor, whose receipts are already bound
+   to a release by their `code_sha256`.
 5. **Report the residual with what qualifies it:** the ratio to the
    combined sigma and its sign; the masked fraction and open-water
    handling of the evapotranspiration term; the regulated flag if set;

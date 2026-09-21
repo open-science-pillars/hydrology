@@ -72,27 +72,34 @@ probes:
     - '2023'
   prove:
     # The executor takes no runtime flag: its runtime is python and uv run
-    # resolves it from the script's own dependency header, so ${RUNTIME} has
-    # nowhere to go here and the prompt names --inputs and --receipt, which
-    # are the flags this executor has. The frozen tree is the reference run
-    # the computation concept states, the Colorado above Lees Ferry over
-    # water year 2023, and --regulated is set because that outlet is
-    # regulated and the flag belongs in its receipt.
+    # resolves it from the script's own dependency header, so the prompt
+    # names --inputs and --receipt, which are the flags this executor has.
+    # ${RUNTIME} goes to the attester instead, which is the half that
+    # writes the attestation and so the half that has to name the runtime.
+    # The frozen tree is the reference run the computation concept states,
+    # the Colorado above Lees Ferry over water year 2023, and --regulated
+    # is set because that outlet is regulated and the flag belongs in its
+    # receipt.
     prompt: 'Run this capability''s attested reference computation on the frozen input tree that ships
       with it, and report the residual and the sigma ratio it prints. The command is: uv run ${PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance.py
       --inputs ${PLUGIN_ROOT}/verification/fixtures/water-balance/lees-ferry --regulated --receipt ${WORK}/receipt.json'
     receipt: ${WORK}/receipt.json
-    # The attester takes the receipt as a positional argument and applies the
-    # bars. No attestation path is declared because this version's attester
-    # writes no attestation file: it has no --out, and the receipt it reads
-    # carries no capability or runtime block for one to name. The receipt
-    # test therefore fails rather than passing on a path nothing writes, and
-    # the record says so.
+    # The attester takes the receipt as a positional argument, applies the
+    # bars, and writes the attestation where --out names. The capability
+    # block it carries is read from the attester's own package root, so it
+    # is the installed release by construction rather than by declaration
+    # here; the runtime is the one thing it has to be told, and ${RUNTIME}
+    # is what tells it.
     command:
     - uv
     - run
     - ${PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance_check.py
     - ${WORK}/receipt.json
+    - --out
+    - ${WORK}/attestation.json
+    - --runtime
+    - ${RUNTIME}
+    attestation: ${WORK}/attestation.json
   # Declared rather than left to the default, which is every script at the top
   # of the verification tree whose file name does not appear in the prove
   # probe's text. The golden for this computation is named
