@@ -7,14 +7,19 @@ surfaces:
     - development
     - runtime
     required: true
-    status: planned
+    status: supported
     evidence: >-
-      Never qualified, at any version. No attester is declared in probes.prove, so the prove and
-      receipt tests are blocked and no run can pass the required matrix; the shared attester is the
-      open r4-shared-prove deliverable. A run made for 0.8.0 passed install, dependency resolution,
-      skill discovery, knowledge resolution, the connectors, the goldens on the installed tree and the
-      release lock, and is recorded with its blockers. The surface is waived until the attester
-      exists.
+      Qualified at 0.8.1, recorded in .osp/qualification/claude-code.json: a headless run of the
+      full matrix against a release candidate built from this checkout, all eleven tests passing,
+      the nine required among them. The two that had failed at 0.8.0 both pass. The receipt test
+      passes because the attester now writes an attestation, naming this capability release and the
+      runtime, which it did not at 0.8.0; the skill-invocation test passes in both forms, the slash
+      form now carrying the probe's arguments. prove is the test that matters most here: the runtime
+      ran the sanctioned executor over the frozen Colorado above Lees Ferry tree on the installed
+      package and the attester reproduced the computation concept's reference residual of -19.117
+      km3 at -1.00 sigma and passed every check over the receipt. The executor's code_sha256 is the
+      same 88a1494f4413 it was at 0.8.0, so the number this surface is qualified on is the number
+      the concept has always stated.
   claude-cowork:
     role: runtime
     required: true
@@ -43,3 +48,82 @@ qualification:
   - prove
   - receipt
   - release-lock
+probes:
+  # The organization defaults expect the package name in the skill's output
+  # and declare no attester, which is why the prove and receipt tests were
+  # recorded as blocked and skill-invocation failed on an honest run. What
+  # follows states what this capability actually needs.
+  skill-invocation:
+    skill: basin-water-balance
+    prompt: Close the water balance for the Colorado above Lees Ferry over water year 2023 from the frozen
+      input tree that ships with this capability, and show me the plan and the preconditions before anything
+      is run.
+    # The expectations are the concept path and the window. This skill carries
+    # no number of its own and must read the computation concept before it
+    # answers anything, restating what applies and citing each concept by
+    # path, so the concept path is what any real invocation prints. The window
+    # is what the request binds, and the skill's first behavior is to show the
+    # basin and the window back, so a plan that dropped it would be the
+    # failure worth catching. The default expectation, the package name, is
+    # something a basin water balance has no reason to print.
+    expect:
+    - knowledge/computations/basin-water-balance[.]md
+    - '2023'
+  prove:
+    # The executor takes no runtime flag: its runtime is python and uv run
+    # resolves it from the script's own dependency header, so the prompt
+    # names --inputs and --receipt, which are the flags this executor has.
+    # ${RUNTIME} goes to the attester instead, which is the half that
+    # writes the attestation and so the half that has to name the runtime.
+    # The frozen tree is the reference run the computation concept states,
+    # the Colorado above Lees Ferry over water year 2023, and --regulated
+    # is set because that outlet is regulated and the flag belongs in its
+    # receipt. The prompt also pins the working directory: ${WORK} reaches
+    # the runtime as a relative path, so a run that changed directory first
+    # would write the receipt somewhere the harness does not read, and the
+    # test would fail for a reason that has nothing to do with the
+    # capability.
+    prompt: 'Run this capability''s attested reference computation on the frozen input tree that ships
+      with it, and report the residual and the sigma ratio it prints. Run it from the working directory
+      you are already in and leave the receipt there, because the receipt is read back from where you
+      were started; do not change directory first. The command is: uv run ${PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance.py
+      --inputs ${PLUGIN_ROOT}/verification/fixtures/water-balance/lees-ferry --regulated --receipt ${WORK}/receipt.json'
+    receipt: ${WORK}/receipt.json
+    # The attester takes the receipt as a positional argument, applies the
+    # bars, and writes the attestation where --out names. The capability
+    # block it carries is read from the attester's own package root, so it
+    # is the installed release by construction rather than by declaration
+    # here; the runtime is the one thing it has to be told, and ${RUNTIME}
+    # is what tells it.
+    command:
+    - uv
+    - run
+    - ${PLUGIN_ROOT}/skills/basin-water-balance/scripts/basin_water_balance_check.py
+    - ${WORK}/receipt.json
+    - --out
+    - ${WORK}/attestation.json
+    - --runtime
+    - ${RUNTIME}
+    attestation: ${WORK}/attestation.json
+  # Declared rather than left to the default. The golden for this computation
+  # is named basin_water_balance.py, the same file name as the executor the
+  # prove probe names, and the default once matched by file name, so it
+  # silently dropped the one golden that matters most here and still
+  # reported the test passed; the default now selects by path and would keep
+  # it. The list stays declared, because what this package runs as its
+  # goldens is this package's statement rather than a default's. It is every
+  # golden the goldens workflow runs.
+  golden-computation:
+  - verification/basin_water_balance.py
+  - verification/delineate_basin.py
+  - verification/drought_analysis.py
+  - verification/drought_anatomy.py
+  - verification/event_reconstruction.py
+  - verification/load_et.py
+  - verification/load_nwis.py
+  - verification/load_precipitation.py
+  - verification/load_swot_hydro.py
+  - verification/peaks_export.py
+  - verification/reservoir_ledger.py
+  - verification/reservoir_storage.py
+  - verification/swot_gauge_confrontation.py

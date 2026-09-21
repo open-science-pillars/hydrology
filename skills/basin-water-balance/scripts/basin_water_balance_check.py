@@ -1,9 +1,10 @@
 # /// script
 # requires-python = ">=3.11"
-# dependencies = ["numpy>=1.26,<3"]
+# dependencies = ["numpy>=1.26,<3", "pyyaml>=6,<7"]
 # ///
 """Attester for the basin water balance: recompute from the receipt and
-apply the bars.
+apply the bars, and write an attestation that names the capability
+release and the runtime the run was made on.
 
 The attester trusts nothing in the receipt but the inputs it names. It
 re-reads the frozen tree, checks every file against the hash the
@@ -51,7 +52,32 @@ even when its arithmetic is right: that is what makes the ritual's
 Every check prints a PASS or FAIL line and the process exits nonzero
 on any FAIL.
 
+The attestation, written where `--out` names and nowhere else, is the
+verdict in a form another tool can read (the receipt identity
+convention, nasa-daac-knowledge/docs/receipt-identity.md). It carries
+the verdict, the capability release this attester ships in, the runtime
+the run was made on, the digests of the receipt, the executor and this
+file, the bar multiple the verdict was reached under, and every line
+printed below, verbatim: in this attester a check IS its line, so the
+attestation quotes the lines rather than inventing a second vocabulary
+for them. The capability block is read from this attester's own package
+root, never written in here, so a version bump cannot leave a stale
+number in an attestation; an attestation that cannot name its release
+is not evidence, and fails rather than being written incomplete.
+
+The runtime is named by the caller, with `--runtime`, and defaults to
+`python`, which is what the computation concept's `runtime:` field
+declares and what `uv run` resolves from the dependency header above.
+That default is the truth of a run nobody said anything else about. A
+qualification run names its surface instead, and the flag is on this
+attester rather than on the executor because the executor cannot
+observe who invoked it and its receipts are already bound to a release
+by their `code_sha256`; see the pull request that added this, or the
+argument restated in one line under `--runtime` below.
+
 Usage: basin_water_balance_check.py RECEIPT.json [--computation PATH] [-k 2]
+       basin_water_balance_check.py RECEIPT.json --out ATTESTATION.json
+           [--runtime NAME] [--runtime-version V]
        basin_water_balance_check.py --selftest
 """
 import argparse
@@ -66,6 +92,7 @@ import tempfile
 from pathlib import Path
 
 import numpy as np
+import yaml
 
 TOL_KM3 = 1e-6
 CFS_TO_KM3_PER_DAY = 0.0283168466 * 86400 / 1e9
@@ -73,6 +100,11 @@ FT_TO_M = 0.3048
 EARTH_R_KM = 6371.0088
 SPECIFIC_YIELD_BOUND = 0.5      # no aquifer material drains more than half its volume
 LEVEL_CHANGE_BOUND_M = 30.0     # a water table moving more than this in a year is a data problem, not a term
+# The package this attester ships in: skills/<skill>/scripts puts this
+# file four levels below the root that holds .osp, and the root is found
+# rather than configured so a copy of this tree attests as itself.
+PACKAGE_ROOT = Path(__file__).resolve().parents[3]
+DEFAULT_RUNTIME = "python"      # what the computation concept's runtime field declares
 
 
 class Fail(Exception):
@@ -89,6 +121,34 @@ def sha256(path: Path) -> str:
 
 def close(a, b, tol=TOL_KM3):
     return abs(float(a) - float(b)) <= tol
+
+
+def value_digest(value) -> str:
+    """The sha256 of a JSON value serialised canonically.
+
+    A release lock is digested as a value and not as bytes, so that two
+    renders of one lock agree whatever their indentation; the prefix is
+    carried because the convention states the field that way."""
+    return "sha256:" + hashlib.sha256(
+        json.dumps(value, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()
+
+
+def capability_identity(root: Path) -> dict:
+    """The capability release this attester ships in, read from the tree.
+
+    The name and version its own .osp/package.yaml states, and the digest
+    of its own .osp/release-lock.json, or null where the tree carries no
+    lock. Read and not hardcoded: a version bump moves this by itself,
+    which is the whole point of naming a release in an attestation."""
+    pkg_path = root / ".osp" / "package.yaml"
+    if not pkg_path.is_file():
+        return {"name": None, "version": None, "release_lock": None}
+    pkg = (yaml.safe_load(pkg_path.read_text()) or {}).get("package") or {}
+    lock_path = root / ".osp" / "release-lock.json"
+    lock = json.loads(lock_path.read_text()) if lock_path.is_file() else None
+    version = pkg.get("version")
+    return {"name": pkg.get("name"), "version": str(version) if version is not None else None,
+            "release_lock": value_digest(lock) if lock is not None else None}
 
 
 def haversine_km(lat1, lon1, lat2, lon2):
@@ -166,9 +226,15 @@ def recompute_groundwater(gw: dict, start: dt.date, end: dt.date, area_km2: floa
             "without_largest_km3": sy * mean_rest * area_km2 * 1e-3}
 
 
-def attest(receipt_path: Path, computation: Path, k: float) -> list[str]:
-    """Every check as a line; a Fail is raised on the first failure."""
-    lines = []
+def attest(receipt_path: Path, computation: Path, k: float, lines: list[str] | None = None) -> list[str]:
+    """Every check as a line; a Fail is raised on the first failure.
+
+    A caller that wants the lines reached before a failure passes its own
+    list in and reads it back after catching the Fail; the attestation
+    does that, so a FAIL records what did pass and not only what did
+    not. The return value is the same list, so callers that ignore the
+    argument are unaffected."""
+    lines = [] if lines is None else lines
     r = json.loads(receipt_path.read_text())
 
     # The receipt has to say what it is before anything else is worth checking.
@@ -402,14 +468,77 @@ def attest(receipt_path: Path, computation: Path, k: float) -> list[str]:
     return lines
 
 
-def run_attest(receipt_path: Path, computation: Path, k: float) -> int:
+def attestation_document(receipt_path: Path, computation: Path, k: float, verdict: str, lines: list[str],
+                         runtime: str, runtime_version: str | None, capability: dict,
+                         receipt: dict | None = None) -> dict:
+    """The verdict in a form another tool can read.
+
+    Digests are bare hex here, as the receipt writes them, except the
+    release lock, which the convention states with its prefix. The basin,
+    the window and the residual are repeated so a qualification record
+    can cite what was attested without opening the receipt."""
+    doc = {
+        "verdict": verdict,
+        "computation": "basin-water-balance",
+        "concept": "knowledge/computations/basin-water-balance.md",
+        "attester": "skills/basin-water-balance/scripts/basin_water_balance_check.py",
+        "attester_sha256": sha256(Path(__file__).resolve()),
+        "code_sha256": sha256(computation) if computation.is_file() else None,
+        "capability": capability,
+        "runtime": {"name": runtime, "version": runtime_version},
+        "receipt": receipt_path.name,
+        "receipt_sha256": sha256(receipt_path),
+        "attested_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "bar_k": k,
+        "checks": list(lines),
+    }
+    if receipt:
+        doc["basin"] = (receipt.get("basin") or {}).get("name")
+        doc["window"] = receipt.get("window")
+        doc["residual"] = receipt.get("residual")
+    return doc
+
+
+def run_attest(receipt_path: Path, computation: Path, k: float, out: Path | None = None,
+               runtime: str = DEFAULT_RUNTIME, runtime_version: str | None = None) -> int:
+    lines: list[str] = []
     try:
-        lines = attest(receipt_path, computation, k)
+        attest(receipt_path, computation, k, lines)
+        verdict, failure = "PASS", None
     except Fail as e:
-        print(f"FAIL: {e}")
-        return 1
-    print("\n".join(lines))
-    return 0
+        verdict, failure = "FAIL", str(e)
+
+    # An attestation that cannot name the release it is evidence for is
+    # not evidence. This is the only way the capability block can be
+    # incomplete: the package tree beside this file is not there.
+    capability = capability_identity(PACKAGE_ROOT)
+    if not (capability["name"] and capability["version"]):
+        verdict = "FAIL"
+        failure = failure or (f"no .osp/package.yaml at {PACKAGE_ROOT}, so this attestation cannot name the "
+                              f"capability release it is evidence for")
+
+    # The printed lines are what they always were: the checks reached on a
+    # pass, the failure alone on a failure. The attestation carries both,
+    # so a FAIL records what did pass as well as what did not.
+    if failure is None:
+        print("\n".join(lines))
+    else:
+        print(f"FAIL: {failure}")
+        lines = lines + [f"FAIL: {failure}"]
+
+    receipt = None
+    try:
+        receipt = json.loads(receipt_path.read_text())
+    except (OSError, ValueError):
+        pass
+    doc = attestation_document(receipt_path, computation, k, verdict, lines, runtime, runtime_version,
+                               capability, receipt)
+    if out is not None:
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(doc, indent=1) + "\n")
+    print(f"{verdict}: {capability['name']} {capability['version']} on {runtime}"
+          + (f", attestation {out}" if out is not None else ""))
+    return 0 if verdict == "PASS" else 1
 
 
 # ------------------------------------------------------------- selftest
@@ -650,6 +779,29 @@ def selftest(computation: Path) -> int:
     else:
         case("executor runs the few-sites tree", False, out[-200:])
 
+    # 6. The attestation: --out writes one, it says PASS, and it names the
+    #    capability release read from this attester's own package root and
+    #    the runtime the caller declared rather than either default.
+    att = tmp / "attestation.json"
+    p6 = subprocess.run([sys.executable, str(Path(__file__).resolve()), str(tmp / "plain.json"),
+                         "--computation", str(computation), "--out", str(att),
+                         "--runtime", "claude-code", "--runtime-version", "selftest"],
+                        capture_output=True, text=True, cwd=tmp, env={**os.environ, "PYTHONPATH": ""})
+    case("--out writes an attestation and exits 0", p6.returncode == 0 and att.is_file(),
+         (p6.stdout + p6.stderr).strip().splitlines()[-1][:120] if (p6.stdout + p6.stderr).strip() else "")
+    if att.is_file():
+        a = json.loads(att.read_text())
+        want = capability_identity(PACKAGE_ROOT)
+        case("the attestation says PASS", a.get("verdict") == "PASS", str(a.get("verdict")))
+        case("it names this capability release", a.get("capability") == want,
+             f"{a.get('capability')} against {want}")
+        case("it names the runtime the caller declared",
+             (a.get("runtime") or {}).get("name") == "claude-code"
+             and (a.get("runtime") or {}).get("version") == "selftest", str(a.get("runtime")))
+        case("it carries the executor digest and every printed line",
+             a.get("code_sha256") == sha256(computation) and isinstance(a.get("checks"), list)
+             and any("bar two" in x for x in a.get("checks") or []), f"{len(a.get('checks') or [])} lines")
+
     print(f"selftest: {failures} failure(s)")
     return 1 if failures else 0
 
@@ -661,6 +813,14 @@ def main():
                     default=Path(__file__).resolve().parent / "basin_water_balance.py",
                     help="the sanctioned computation the receipt must have come from")
     ap.add_argument("-k", type=float, default=2.0, help="the consistency bar's multiple of the combined sigma")
+    ap.add_argument("--out", type=Path, default=None,
+                    help="write the attestation here: the verdict, the capability release read from this "
+                         "attester's package root, the runtime, the digests and every line printed")
+    ap.add_argument("--runtime", default=DEFAULT_RUNTIME,
+                    help="the runtime the run was made on, for the attestation. It is declared here and not "
+                         "on the executor, which cannot observe who invoked it and whose receipts are already "
+                         "bound to a release by their code_sha256. Default: " + DEFAULT_RUNTIME)
+    ap.add_argument("--runtime-version", default=None, help="the runtime's version, where the caller knows it")
     ap.add_argument("--selftest", action="store_true",
                     help="run the attester over synthetic receipts it can predict by hand, including the "
                          "groundwater term and the doctorings each bar must catch")
@@ -669,7 +829,7 @@ def main():
         sys.exit(selftest(a.computation))
     if a.receipt is None:
         ap.error("a receipt is required unless --selftest is given")
-    sys.exit(run_attest(a.receipt, a.computation, a.k))
+    sys.exit(run_attest(a.receipt, a.computation, a.k, a.out, a.runtime, a.runtime_version))
 
 
 if __name__ == "__main__":

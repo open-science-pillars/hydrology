@@ -4,6 +4,36 @@ Newest first. One line per change: date, concept path, what changed, who.
 
 _Historical note: older entries use build-era shorthand (a "close lint" is a knowledge-linter pass; red/yellow marks are nonconformant/advisory findings; check numbers refer to the linter checks documented in core/agents/knowledge-linter). The decision chains, not the labels, are what teach the standards._
 
+- 2026-09-21 · knowledge/computations/basin-water-balance.md (attester
+  only, concept text untouched): The attester now writes an attestation,
+  so this capability can satisfy the receipt identity convention
+  (nasa-daac-knowledge/docs/receipt-identity.md) and the Claude Code
+  receipt test that reads it. `basin_water_balance_check.py` gains
+  `--out`, which writes the verdict, the capability release read from
+  the attester's own package root (name, version and the digest of the
+  release lock, none of it hardcoded), the runtime, the digests of the
+  receipt, the executor and the attester, the bar multiple the verdict
+  was reached under, and every line the attester printed; and it gains
+  `--runtime` with `--runtime-version`, defaulting to `python`, which is
+  what the concept's `runtime:` field declares. The runtime is recorded
+  on the attester and not on the executor: the executor cannot observe
+  which runtime invoked it, its receipts are already bound to a release
+  by their `code_sha256`, and telling it instead would have invalidated
+  all four stored receipts for a value it cannot check. The executor is
+  byte for byte unchanged (sha256 88a1494f4413 before and after), so all
+  four stored receipts under verification/fixtures/water-balance/receipts/
+  still attest untouched and no measured number moved anywhere. The
+  attester's sha256 goes from b4c5b0cd81b4 to 23b584e85a3f. Its existing
+  flags, checks, bars, exit codes and printed lines are all unchanged;
+  one line is added at the end, naming the release and the runtime the
+  verdict belongs to, and the selftest gains four cases over the
+  attestation. The `prove` probe in .osp/surfaces.yaml now passes `--out`
+  and `--runtime ${RUNTIME}` and declares the attestation path. Because
+  the attester is content, skills_digest and so the release lock move:
+  cut as 0.8.1. No signature block is touched, and none is owed: the
+  concept names no script digest and its text did not change.
+  (claude-code)
+
 - 2026-09-20 · STEWARD RE-SIGNING of
   knowledge/computations/basin-water-balance.md: Re-signed after the
   executor and the attester moved into
