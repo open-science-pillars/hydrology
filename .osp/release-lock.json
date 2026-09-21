@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "package": "hydrology",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "package_type": "capability",
   "agent_plugins_spec": "1.0.0",
   "repository_classification_digest": "sha256:e32f02ee160486cbccc2cdc218a43b85fb5e7e9140e1738ee1b4220d11e31d72",
@@ -15,11 +15,11 @@
   },
   "agents_digest": "sha256:9d046e33d9c0b0362ffcb8e8b4d9e2c94f03f63f387c5f038775f55684e63ffc",
   "evals_digest": "sha256:8bb2ac430e68d24c6300ab3710cccf3feba9b90975b7e3979200f3e882ee8fc7",
-  "knowledge_digest": "sha256:5cb09f6bc3e1339a43a2ef0ac573dca02cf311c007e6035a060475525f72c329",
-  "skills_digest": "sha256:b326349448d805e8b610978ed087cc91dae51412962eaf8675c10a4e6d5168bd",
+  "knowledge_digest": "sha256:68f066f1c6ab2ef85efccdf4c88de1cb28e57c07d697b05c9578bf9bd12a807a",
+  "skills_digest": "sha256:9c6bbae5b48c9e84239db09a3e2d77c0b2cbbf4b31fde15b9c022766fd572698",
   "verification_digest": "sha256:e48eaf8f9bdc8988f393a5b89bc96e82ede80b2cc6d3812954a2dfaa72c10e1c",
   "adapters": {
-    "claude": "sha256:c41f1f7e0187034a947eec23a75c5c75076764821d724eebf247f10964f0139b",
-    "agent-plugins": "sha256:b56f7af0c208d116602acc4935eb66e468483892e5f1db7eeb6b36bcaec5c55f"
+    "claude": "sha256:fb20ebcc94a541ae5c92a75c0c686c146ab5f26d52a00ebbf734aba5059cb8d5",
+    "agent-plugins": "sha256:d00b687295847df92d14800564941bd64a04523232f31493d1e26f4ac14d27bf"
   }
 }

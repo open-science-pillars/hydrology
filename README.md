@@ -70,13 +70,13 @@ marketplace repository's
 [docs/runtime-distribution.md](https://github.com/open-science-pillars/marketplace/blob/main/docs/runtime-distribution.md).
 
 <!-- osp-runtimes:start -->
-Runtime support for hydrology 0.8.0 (release lock `sha256:c22d480aa012`), rendered by build-kit's `osp.py advertise` from `.osp/surfaces.yaml` and the qualification records; edit those, not this block.
+Runtime support for hydrology 0.8.1 (release lock `sha256:dd1f0fac5f89`), rendered by build-kit's `osp.py advertise` from `.osp/surfaces.yaml` and the qualification records; edit those, not this block.
 
 | Runtime | Role | Declared status | Qualification |
 |---|---|---|---|
-| Claude Code | development and runtime, required | planned | Not qualified (skill-invocation: fail; receipt: fail) |
-| Claude Cowork | runtime, required | tested | Not qualified, waived for this release (Claude Cowork is not qualified for this release. A Cowork record is a run by a person with Cowork in front of them, installing from the catalog, and no such run has been made for 0.8.0; the runtime cannot be driven headlessly, so the coordinator carrying this release on the maintainer's behalf cannot make one either. This repeats the decision recorded for land-ice 0.1.0 on 2026-09-19 for the same reason. Nothing about the capability is known to fail there: its projection renders and validates in the gate. The surface is not advertised until a run exists.; human:PaulMRamirez, 2026-09-20) |
-| OpenAI Codex | runtime, required | planned | Not qualified, waived for this release (OpenAI Codex is not qualified for this release. No release in this organization has been qualified on Codex: the Agent Plugins projection renders and passes plugin-check in the gate, but the Codex leg has never been exercised, so there is no procedure to run and nothing to record. This repeats the decision recorded for land-ice 0.1.0 on 2026-09-19 for the same reason. The surface is not advertised, and the projection is published as conformant rather than as tested.; human:PaulMRamirez, 2026-09-20) |
+| Claude Code | development and runtime, required | planned | Not qualified (record is for another release) |
+| Claude Cowork | runtime, required | tested | Not qualified (record is for another release) |
+| OpenAI Codex | runtime, required | planned | Not qualified (record is for another release) |
 | Claude Science | future runtime | limited-release | Outside the required matrix |
 
 A runtime is advertised as supported only on a qualified record for this exact release; a release stays valid when a runtime is not qualified, and that runtime is simply not advertised.
